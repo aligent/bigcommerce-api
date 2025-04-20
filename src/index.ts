@@ -1,2 +1,1 @@
-export * as Management from "./management";
-// export * as Storefront from "./storefront"
+export * as Management from './management/index.js';

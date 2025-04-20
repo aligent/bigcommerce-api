@@ -1,0 +1,26 @@
+[
+    {
+        "filename": ".spectral.yaml",
+        "reason": null
+    },
+    {
+        "filename": "channels.v3.yml",
+        "reason": "fails to build",
+        "enabled": false
+    },
+    {
+        "filename": "customers_v2.yml",
+        "reason": "duplicate of customers.v2.yml",
+        "enabled": true
+    },
+    {
+        "filename": "orders.v2.oas2.yml",
+        "reason": null,
+        "enabled": false
+    },
+    {
+        "filename": "tax.v3.yml",
+        "reason": "fails to build",
+        "enabled": false
+    }
+]

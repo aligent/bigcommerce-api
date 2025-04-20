@@ -1,40 +1,46 @@
 {
-  "name": "@space48/bigcommerce-api",
-  "version": "0.3.2",
-  "description": "",
+  "name": "@aligent/bigcommerce-api",
+  "version": "0.0.1",
+  "description": "Fully typed BigCommerce API client generated from documentation schemas",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "type": "module",
   "files": [
     "lib"
   ],
   "scripts": {
     "build": "tsc",
+    "build-file-list": "node src/internal/reference/list-files",
     "build-reference-types": "node src/internal/reference/generate",
+    "test-types": "tsd",
+    "lint": "eslint .",
     "clean": "rimraf lib",
-    "prepare": "npm run clean && npm run build -- --build tsconfig.publish.json"
+    "prepare": "npm run clean && npm run build-file-list && npm run build-reference-types && npm run build -- --build tsconfig.publish.json"
   },
   "engines": {
     "node": ">=14"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Space48/bigcommerce-api-js.git"
+    "url": "git+https://github.com/tvhees/bigcommerce-api-js.git"
   },
-  "author": "Josh Di Fabio <joshdifabio@gmail.com>",
+  "author": "Aligent",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^15.3.1",
-    "openapi-typescript": "^3.4.1",
-    "rimraf": "^3.0.2",
-    "shell-escape": "^0.2.0",
-    "temp-dir": "^2.0.0",
-    "typescript": "^4.4.2",
-    "uuid": "^8.3.2"
+    "@aligent/ts-code-standards": "^3.0.1",
+    "@types/node": "^22.13.14",
+    "openapi-typescript": "^7.6.1",
+    "rimraf": "^6.0.1",
+    "temp-dir": "^3.0.0",
+    "ts-morph": "^25.0.1",
+    "tsd": "^0.32.0",
+    "type-fest": "^4.38.0",
+    "typescript": "^5.8.2",
+    "uuid": "^11.1.0"
   },
   "dependencies": {
-    "@types/node-fetch": "^2.5.12",
-    "form-data": "^4.0.0",
-    "node-fetch": "^2.6.1",
-    "query-string": "^7.0.0"
+    "form-data": "^4.0.2",
+    "node-fetch": "^3.3.2",
+    "query-string": "^9.1.1"
   }
 }

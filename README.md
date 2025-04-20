@@ -4,20 +4,13 @@ A JavaScript client for BigCommerce's [Management](src/management/README.md) API
 
 ## Features
 
-- Full coverage of BigCommerce's Storefront (coming soon) and Management APIs.
-- Up-to-date TypeScript typings for all of BigCommerce's API endpoints.
-- Easy IDE autocompeletion of endpoints, parameters and response data thanks to TypeScript.
-- Automatic retry of intermittent errors such as 429 and 5xx with exponential backoff.
-
-### Coming soon
-
-- Type declarations for webhook payloads.
-- Browser support.
+- Full coverage and Typescript typing for BigCommerce's Management REST APIs
+- Easy IDE autocompeletion of endpoints, parameters and response data
+- Automatic retry of intermittent errors such as 429 and 5xx with exponential backoff
 
 ## Supported environments
 
-- Node.js >=10
-- Browser support is coming soon.
+- Node.js >=18
 
 # Getting started
 
@@ -32,16 +25,50 @@ To get started with the JavaScript client you'll need to install it, and then fo
 ### Node
 
 ```sh
-npm install @space48/bigcommerce-api
+npm install @aligent/bigcommerce-api
 ```
 
-### Browser
+## Notes on the source schemas
 
-Coming soon.
+Management REST API schemas are taken from the BigCommerce documentation here: https://github.com/bigcommerce/docs/tree/main/reference
 
-### Typings
+### Undeclared REST methods
 
-This library also comes with typings to use with TypeScript.
+REST methods not declared in a schema are by default included in openapi-typescript with a value of `never`.
+
+To improve UX and reduce complexity at compile time these methods are removed from the built types.
+
+### Accept and Content-Type headers
+
+Almost all requests require a value of `application/json` for these headers - the exception being methods supporting `multipart/form-data` (e.g. image uploads).
+
+For ease of use the exported client automatically sets the appropriate headers, and the required types are instead set to optional in the exported types.
+
+### "Empty" response codes
+
+Some methods declare what appears to be an invalid or unnecessary additional response code with an empty object as the value for `application/json`.
+
+These are removed from the generated Typescript types as they force users to check the response type when it should never be necessary (e.g. 201 on a GET request)
+
+### GET customers/{customerId}/metafields and customers/{customerId}/metafields/{metafieldId}
+
+The response payloads for these are incorrectly declared in BigCommerce's documentation and schemas: https://github.com/bigcommerce/docs/issues/912
+
+The generated types for these endpoints are currently incorrect as a result.
+
+### catalog/products/{product_id}/images and catalog/products/{product_id}/images/{imageId}
+
+The documentation site pulls the schema for these endpoints from a different source.
+
+### Migration from @space48/bigcommerce-api
+
+This library was built on the groundwork laid by the `@space48/bigcommerce-api` library (https://github.com/Space48/bigcommerce-api-js/).
+
+BigCommerce have changed their published schemas substantially since the last time that library was built. If you are migrating, please check [docs/CHANGED_PATHS.md](./docs/CHANGED_PATHS.md).
+
+> [!WARNING]
+>
+> There may be other changes to query, path, and response variables. Migration may require additional changes to your code.
 
 ## Versioning
 
@@ -49,7 +76,7 @@ This project strictly follows [Semantic Versioning](http://semver.org/).
 
 ## Support
 
-If you have a problem with this library, please file an [issue](https://github.com/Space48/bigcommerce-api-js/issues/new) here on GitHub.
+If you have a problem with this library, please file an [issue](https://github.com/tvhees/bigcommerce-api-js/issues/new) here on GitHub.
 
 ## Contributing
 

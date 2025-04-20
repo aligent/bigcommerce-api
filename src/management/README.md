@@ -18,16 +18,8 @@ To get started with the Management API client you'll need to install it, and the
 ### Node:
 
 ```sh
-npm install @space48/bigcommerce-api
+npm install @aligent/bigcommerce-api
 ```
-
-### Browser:
-
-Coming soon.
-
-### Typings
-
-This library also comes with typings to use with TypeScript.
 
 ## Authentication
 
@@ -38,11 +30,11 @@ To use the BigCommerce Management API you first need to [obtain the store hash a
 You can use es6 imports with the Management API:
 
 ```js
-import { Management } from "@space48/bigcommerce-api";
+import { Management } from "@aligent/bigcommerce-api";
 
 const bigCommerce = new Management.Client({
-  storeHash: 'your store hash here',
-  accessToken: 'your access token here',
+  storeHash: "your store hash here",
+  accessToken: "your access token here",
 });
 ```
 
@@ -51,14 +43,14 @@ const bigCommerce = new Management.Client({
 The following code snippet will fetch store information from the V2 API and dump it to the console:
 
 ```js
-import { Management } from "@space48/bigcommerce-api";
+import { Management } from "@aligent/bigcommerce-api";
 
 const bigCommerce = new Management.Client({
-  storeHash: 'your store hash here',
-  accessToken: 'your access token here',
+  storeHash: "your store hash here",
+  accessToken: "your access token here",
 });
 
-bigCommerce.v2.get('/store').then(console.dir);
+bigCommerce.v2.get("/store").then(console.dir);
 ```
 
 ## How-to guides
@@ -66,11 +58,11 @@ bigCommerce.v2.get('/store').then(console.dir);
 Start by instantiating a client instance:
 
 ```js
-import { Management } from "@space48/bigcommerce-api";
+import { Management } from "@aligent/bigcommerce-api";
 
 const bigCommerce = new Management.Client({
-  storeHash: 'your store hash here',
-  accessToken: 'your access token here',
+  storeHash: "your store hash here",
+  accessToken: "your access token here",
 });
 ```
 
@@ -112,7 +104,7 @@ bigCommerce.v3.get('/catalog/products/{product_id}', {
 ```js
 async function printAllProducts() {
   // list() sends one HTTP request at a time and only sends requests as the iterator is consumed
-  const products = bigCommerce.v3.list('/catalog/products', { query: { include: ['images'] } });
+  const products = bigCommerce.v3.list("/catalog/products", { query: { include: ["images"] } });
   for await (const product of products) {
     console.dir(product);
   }
@@ -147,6 +139,30 @@ bigCommerce.v3.post('/customers', {
 )
 ```
 
+### How to send a request with form data
+
+```js
+const buffer = readFileSync('path/to/image', { encoding: 'base64' });
+const formData = new FormData();
+formData.append('image_file', buffer);
+bigCommerce.v3.post('/catalog/products/{product_id}/variants/{variant_id}/image', {
+  headers: {
+    'Content-Type': 'multipart/form-data',
+  },
+  path: {
+    product_id: 123,
+    variant_id: 123,
+  },
+  body: formData,
+}).then(
+  result => { // 200 -> response.body.data; 204 -> null
+    console.dir(result),
+  }
+)
+```
+
+> Note: BigCommerce API specs list Accept: application/json as a required header for all requests. For convenience this library sets that automatically on all requests except when Content-Type: multipart/form is specified
+
 > Note: When using the V3 client, `get()`, `post()`, `put()` and `delete()` return response.body.data on success whereas the equivalent V2 methods return response.body. If you require access to response.body.meta when sending a V3 request you should use the `Management.v3.send()` method.
 
 ## References
@@ -156,12 +172,12 @@ bigCommerce.v3.post('/customers', {
 The `Client` constructor supports several options you may set to achieve the expected behavior:
 
 ```js
-import { Management } from "@space48/bigcommerce-api";
+import { Management } from "@aligent/bigcommerce-api";
 
 const bigCommerce = new Management.Client({
   ... your config here ...
 });
-``` 
+```
 
 #### storeHash (required)
 
