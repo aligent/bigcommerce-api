@@ -17,7 +17,6 @@ A JavaScript client for BigCommerce's [Management](src/management/README.md) API
 To get started with the JavaScript client you'll need to install it, and then follow the instructions for either the Storefront API client or the Management API client.
 
 - [Installation](#installation)
-- [Getting started with the Storefront API client](src/storefront/README.md#getting-started)
 - [Getting started with the Management API client](src/management/README.md#getting-started)
 
 ## Installation
