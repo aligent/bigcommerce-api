@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tvhees/bigcommerce-api-js.git"
+    "url": "git+https://github.com/aligent/bigcommerce-api.git"
   },
   "author": "Aligent",
   "license": "MIT",

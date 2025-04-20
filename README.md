@@ -1,4 +1,4 @@
-# bigcommerce-api-js
+# Aligent BigCommerce API Client
 
 A JavaScript client for BigCommerce's [Management](src/management/README.md) API with full TypeScript typings for all API endpoints.
 
@@ -76,7 +76,7 @@ This project strictly follows [Semantic Versioning](http://semver.org/).
 
 ## Support
 
-If you have a problem with this library, please file an [issue](https://github.com/tvhees/bigcommerce-api-js/issues/new) here on GitHub.
+If you have a problem with this library, please file an [issue](https://github.com/aligent/bigcommerce-api/issues/new) here on GitHub.
 
 ## Contributing
 
