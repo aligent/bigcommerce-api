@@ -27,7 +27,7 @@
   "author": "Aligent",
   "license": "MIT",
   "devDependencies": {
-    "@aligent/ts-code-standards": "^3.0.1",
+    "@aligent/ts-code-standards": "^4.0.0",
     "@types/node": "^22.13.14",
     "openapi-typescript": "^7.6.1",
     "rimraf": "^6.0.1",
