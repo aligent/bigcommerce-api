@@ -1,6 +1,6 @@
 import { eslintConfigs } from '@aligent/ts-code-standards';
 
 export default [
-    ...eslintConfigs.core,
+    ...eslintConfigs.base,
     { ignores: ['**/*.{js,mjs}', '**/generated', '**/lib'] },
 ];
