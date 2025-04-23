@@ -9,13 +9,13 @@
     "lib"
   ],
   "scripts": {
-    "build": "tsc",
-    "build-file-list": "node src/internal/reference/list-files",
-    "build-reference-types": "node src/internal/reference/generate",
-    "test-types": "tsd",
+    "build": "tsc --project tsconfig.publish.json",
+    "test": "tsd",
     "lint": "eslint .",
     "clean": "rimraf lib",
-    "prepare": "npm run clean && npm run build-file-list && npm run build-reference-types && npm run build -- --build tsconfig.publish.json"
+    "build-file-list": "node src/internal/reference/list-files",
+    "build-reference-types": "node src/internal/reference/generate",
+    "build:clean": "npm run clean && npm run build-file-list && npm run build-reference-types && npm run build"
   },
   "engines": {
     "node": ">=14"
@@ -29,7 +29,9 @@
   "devDependencies": {
     "@aligent/ts-code-standards": "^4.0.0",
     "@types/node": "^22.13.14",
+    "eslint": "^9.25.1",
     "openapi-typescript": "^7.6.1",
+    "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
     "temp-dir": "^3.0.0",
     "ts-morph": "^25.0.1",
@@ -42,5 +44,6 @@
     "form-data": "^4.0.2",
     "node-fetch": "^3.3.2",
     "query-string": "^9.1.1"
-  }
+  },
+  "packageManager": "yarn@4.9.1+sha512.f95ce356460e05be48d66401c1ae64ef84d163dd689964962c6888a9810865e39097a5e9de748876c2e0bf89b232d583c33982773e9903ae7a76257270986538"
 }
