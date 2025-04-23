@@ -32,5 +32,11 @@ jobs:
       - name: Install
         run: yarn install
 
+      - name: Lint
+        run: yarn lint
+
+      - name: Build # tsd is designed to test the output type declarations, have to build first
+        run: yarn build
+
       - name: Run Tests
         run: yarn test
