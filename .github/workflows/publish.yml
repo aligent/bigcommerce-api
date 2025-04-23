@@ -1,0 +1,50 @@
+name: Publish to NPM
+
+on:
+  release:
+    tags:
+      - '**-[0-9]+.[0-9]+.[0-9]+'
+      - '**-[0-9]+.[0-9]+.[0-9]+-*'
+    types: [published]
+
+jobs:
+  build-and-publish:
+    name: 🚀 Publish to NPM
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.target_commitish }}
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+
+      - name: Preparing environment for release
+        run: |
+          VERSION=$(echo $GITHUB_REF_NAME | sed 's/^.*[A-Za-z]-//g')
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "PACKAGE=$(echo $GITHUB_REF_NAME | sed "s/-${VERSION}//g")" >> $GITHUB_ENV
+
+      - name: Release
+        run: |
+          git config --global user.name "Automated NPM Release"
+          git config --global user.email "devops+npm-deploy@aligent.com.au"
+          # yarn version only works if there is already a version entry in package.json
+          npm version $VERSION --allow-same-version
+          echo "Publishing $PACKAGE @ $VERSION"
+          npm config set registry https://registry.npmjs.org/
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
