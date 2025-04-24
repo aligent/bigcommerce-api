@@ -1,7 +1,6 @@
 // TECH DEBT: Work out if these eslint rules are reasonable in this context
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-empty-object-type */
-import { SimplifyDeep } from 'type-fest';
 import {
     fetchTransport,
     FetchTransportOptions,
@@ -13,7 +12,7 @@ import {
     Transport,
 } from '../../internal/operation.js';
 import type { V3 as reference } from '../../internal/reference/index.js';
-import { Const, RemoveStart } from '../../internal/type-utils.js';
+import type { Const, RemoveStart, SimplifyDeep } from '../../internal/type-utils.js';
 import type { NarrowResponse } from './response-narrowing.js';
 
 export type Operations = reference.Operation;
@@ -31,13 +30,12 @@ export type InferResponse<ReqLine extends RequestLine, Params extends Parameters
     NarrowResponse<Operations, Request<ReqLine, Params>, Operations[ReqLine]['response']>
 >;
 
-export type ResponseData<ReqLine extends RequestLine, Params = unknown> = SimplifyDeep<
+export type ResponseData<ReqLine extends RequestLine, Params = unknown> =
     Response.Success<ResolveResponse<ReqLine, Params>> extends {
         readonly body: { readonly data?: infer Data };
     }
-        ? Data
-        : never
->;
+        ? SimplifyDeep<Data>
+        : never;
 
 export type Config = Omit<FetchTransportOptions, 'baseUrl' | 'headers'> & {
     readonly storeHash: string;

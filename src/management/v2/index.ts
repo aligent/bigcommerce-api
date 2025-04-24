@@ -1,7 +1,6 @@
 // TECH DEBT: Work out if these eslint rules are reasonable in this context
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-empty-object-type */
-import { SimplifyDeep } from 'type-fest';
 import {
     fetchTransport,
     FetchTransportOptions,
@@ -13,8 +12,7 @@ import {
     Transport,
 } from '../../internal/operation.js';
 import type { V2 as reference } from '../../internal/reference/index.js';
-import { Const, RemoveStart } from '../../internal/type-utils.js';
-import type { NarrowResponse } from './response-narrowing.js';
+import type { Const, RemoveStart, SimplifyDeep } from '../../internal/type-utils.js';
 
 export type Operations = reference.Operation;
 

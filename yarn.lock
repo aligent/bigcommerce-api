@@ -21,7 +21,6 @@ __metadata:
     temp-dir: "npm:^3.0.0"
     ts-morph: "npm:^25.0.1"
     tsd: "npm:^0.32.0"
-    type-fest: "npm:^4.38.0"
     typescript: "npm:^5.8.2"
     uuid: "npm:^11.1.0"
   languageName: unknown
@@ -3693,7 +3692,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:^4.38.0, type-fest@npm:^4.39.1":
+"type-fest@npm:^4.39.1":
   version: 4.40.0
   resolution: "type-fest@npm:4.40.0"
   checksum: 10c0/b39d4da6f9a154e3db7e714cd05ccf56b53f4f0bbf74dd294cb6be4921b16ecca5cb00cb81b53ab621a31c8e8509c74b5101895ada47af9de368a317d24538a3
