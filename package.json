@@ -1,6 +1,6 @@
 {
   "name": "@aligent/bigcommerce-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Fully typed BigCommerce API client generated from documentation schemas",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

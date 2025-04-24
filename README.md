@@ -84,3 +84,13 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 ## License
 
 MIT
+
+## Under development
+
+- [ ] Providing a different base URL (or custom fetch client) is unnecessarily difficult
+- [ ] Expose the storefront API paths properly
+- [ ] Regular rebuild and publish schedule to keep up with BigCommerce API schema changes
+- [ ] Migrate generation code to Typescript
+- [ ] Properly publish ESM and CJS exports
+- [ ] Audit eslint/typescript ignore comments
+- [ ] Audit type narrowing and parameter types (especially in v2)
