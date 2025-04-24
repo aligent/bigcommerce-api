@@ -6,7 +6,6 @@ import {
     FetchTransportOptions,
     OperationIndex,
     Parameters,
-    Request,
     RequestMethod,
     Response,
     Transport,
@@ -20,15 +19,14 @@ export type RequestLine = keyof Operations;
 
 export type NoParamsRequestLine = keyof OperationIndex.FilterOptionalParams<Operations>;
 
-export type InferResponse<ReqLine extends RequestLine, Params extends Parameters> = SimplifyDeep<
-    NarrowResponse<Operations, Request<ReqLine, Params>, Operations[ReqLine]['response']>
+export type InferResponse<ReqLine extends RequestLine> = SimplifyDeep<
+    Operations[ReqLine]['response']
 >;
 
-export type ResponseData<ReqLine extends RequestLine, Params = unknown> = SimplifyDeep<
-    Response.Success<ResolveResponse<ReqLine, Params>> extends { readonly body: infer Data }
-        ? Data
-        : never
->;
+export type ResponseData<ReqLine extends RequestLine> =
+    Response.Success<Operations[ReqLine]['response']> extends { readonly body: infer Data }
+        ? SimplifyDeep<Data>
+        : never;
 
 export type Config = Omit<FetchTransportOptions, 'baseUrl' | 'headers'> & {
     readonly storeHash: string;
@@ -55,12 +53,12 @@ export class Client<CustomEndpoints extends string = never> {
 
     send<ReqLine extends NoParamsRequestLine>(
         requestLine: ReqLine
-    ): Promise<InferResponse<ReqLine, {}>>;
+    ): Promise<InferResponse<ReqLine>>;
     // TODO: MI-199 work out if this still needs Params extends....
     send<ReqLine extends RequestLine, Params extends Operations[ReqLine]['parameters']>(
         requestLine: ReqLine,
         params: Const<Params & Operations[ReqLine]['parameters']>
-    ): Promise<InferResponse<ReqLine, Params>>;
+    ): Promise<InferResponse<ReqLine>>;
 
     send(requestLine: string, params?: Parameters): Promise<Response>;
 
@@ -70,7 +68,7 @@ export class Client<CustomEndpoints extends string = never> {
 
     delete<Path extends NoParamsRequestPath<'DELETE'>>(
         requestLine: Path
-    ): Promise<ResponseData<`DELETE ${Path}`, {}> | null>;
+    ): Promise<ResponseData<`DELETE ${Path}`> | null>;
 
     delete<
         Path extends RequestPath<'DELETE'>,
@@ -78,10 +76,10 @@ export class Client<CustomEndpoints extends string = never> {
     >(
         path: Path,
         params: Const<Params & Operations[`DELETE ${Path}`]['parameters']>
-    ): Promise<ResponseData<`DELETE ${Path}`, Params> | null>;
+    ): Promise<ResponseData<`DELETE ${Path}`> | null>;
 
     delete<T = unknown>(
-        path: RemoveStart<'DELETE ', UntypedEndpoints | CustomEndpoints>,
+        path: RemoveStart<'DELETE ', CustomEndpoints>,
         params?: Parameters
     ): Promise<T>;
 
@@ -96,17 +94,14 @@ export class Client<CustomEndpoints extends string = never> {
 
     get<Path extends NoParamsRequestPath<'GET'>>(
         requestLine: Path
-    ): Promise<ResponseData<`GET ${Path}`, {}> | null>;
+    ): Promise<ResponseData<`GET ${Path}`> | null>;
 
     get<Path extends RequestPath<'GET'>, Params extends Operations[`GET ${Path}`]['parameters']>(
         path: Path,
         params: Const<Params & Operations[`GET ${Path}`]['parameters']>
-    ): Promise<ResponseData<`GET ${Path}`, Params> | null>;
+    ): Promise<ResponseData<`GET ${Path}`> | null>;
 
-    get<T = unknown>(
-        path: RemoveStart<'GET ', UntypedEndpoints | CustomEndpoints>,
-        params?: Parameters
-    ): Promise<T>;
+    get<T = unknown>(path: RemoveStart<'GET ', CustomEndpoints>, params?: Parameters): Promise<T>;
 
     async get(path: string, params?: Parameters): Promise<unknown> {
         const res = await this.send(`GET ${path}`, params);
@@ -119,17 +114,14 @@ export class Client<CustomEndpoints extends string = never> {
 
     post<Path extends NoParamsRequestPath<'POST'>>(
         requestLine: Path
-    ): Promise<ResponseData<`POST ${Path}`, {}>>;
+    ): Promise<ResponseData<`POST ${Path}`>>;
 
     post<Path extends RequestPath<'POST'>, Params extends Operations[`POST ${Path}`]['parameters']>(
         path: Path,
         params: Const<Params & Operations[`POST ${Path}`]['parameters']>
-    ): Promise<ResponseData<`POST ${Path}`, Params>>;
+    ): Promise<ResponseData<`POST ${Path}`>>;
 
-    post<T = unknown>(
-        path: RemoveStart<'POST ', UntypedEndpoints | CustomEndpoints>,
-        params?: Parameters
-    ): Promise<T>;
+    post<T = unknown>(path: RemoveStart<'POST ', CustomEndpoints>, params?: Parameters): Promise<T>;
 
     async post(path: string, params?: Parameters): Promise<unknown> {
         const res = await this.send(`POST ${path}`, params);
@@ -139,17 +131,14 @@ export class Client<CustomEndpoints extends string = never> {
 
     put<Path extends NoParamsRequestPath<'PUT'>>(
         requestLine: Path
-    ): Promise<ResponseData<`PUT ${Path}`, {}>>;
+    ): Promise<ResponseData<`PUT ${Path}`>>;
 
     put<Path extends RequestPath<'PUT'>, Params extends Operations[`PUT ${Path}`]['parameters']>(
         path: Path,
         params: Const<Params & Operations[`PUT ${Path}`]['parameters']>
-    ): Promise<ResponseData<`PUT ${Path}`, Params>>;
+    ): Promise<ResponseData<`PUT ${Path}`>>;
 
-    put<T = unknown>(
-        path: RemoveStart<'PUT ', UntypedEndpoints | CustomEndpoints>,
-        params?: Parameters
-    ): Promise<T>;
+    put<T = unknown>(path: RemoveStart<'PUT ', CustomEndpoints>, params?: Parameters): Promise<T>;
 
     async put(path: string, params?: Parameters): Promise<unknown> {
         const res = await this.send(`PUT ${path}`, params);
@@ -165,13 +154,6 @@ export class Client<CustomEndpoints extends string = never> {
         }
     }
 }
-
-type ResolveResponse<ReqLine extends RequestLine, Params = unknown> = unknown extends Params
-    ? Operations[ReqLine]['response']
-    : Params extends Parameters
-      ? InferResponse<ReqLine, Params>
-      : never;
-
 type RequestPath<Method extends RequestMethod> = RequestLine &
     `${Method} ${any}` extends `${Method} ${infer Path}`
     ? Path
@@ -181,8 +163,3 @@ type NoParamsRequestPath<Method extends RequestMethod> = NoParamsRequestLine &
     `${Method} ${any}` extends `${Method} ${infer Path}`
     ? Path
     : never;
-
-/**
- * A list of known BigCommerce endpoints which are not part of the Open API specs
- */
-type UntypedEndpoints = never;
