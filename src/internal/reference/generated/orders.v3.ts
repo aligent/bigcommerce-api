@@ -1225,9 +1225,7 @@ export interface components {
          * RefundQuote_Post
          * @description Request body for refund quotes.
          */
-        readonly RefundQuote_Post: {
-            readonly items: readonly components["schemas"]["ItemsRefund"][];
-        };
+        readonly RefundQuote_Post: components["schemas"]["RefundQuote_ItemsRefund"] | components["schemas"]["RefundQuote_TaxAdjustmentAmount"];
         /** RefundQuote_Full */
         readonly RefundQuote_Full: {
             /** @description ID of the order to be refunded. */
@@ -1304,9 +1302,16 @@ export interface components {
          * RefundRequest_Post
          * @description Request body for refund requests.
          */
-        readonly RefundRequest_Post: {
+        readonly RefundRequest_Post: components["schemas"]["RefundRequest_Post_Items"] | components["schemas"]["RefundRequest_Post_TaxAdjustmentAmount"];
+        /** Items Refund */
+        readonly RefundRequest_Post_Items: {
             readonly items: readonly components["schemas"]["ItemsRefund"][];
             readonly payments: readonly components["schemas"]["PaymentRequest"][];
+            readonly merchant_calculated_override?: components["schemas"]["MerchantOverride"];
+        };
+        /** Tax Adjustment Refund */
+        readonly RefundRequest_Post_TaxAdjustmentAmount: {
+            readonly tax_adjustment_amount: components["schemas"]["TaxAdjustmentAmount"];
             readonly merchant_calculated_override?: components["schemas"]["MerchantOverride"];
         };
         readonly RefundID_Get: {
@@ -1364,6 +1369,7 @@ export interface components {
                      *      */
                     readonly declined_message?: string;
                 }[];
+                /** @description Array of items refunded. In cases when `tax_refund_adjustment` was used to create the refund, this array will be empty. */
                 readonly items?: readonly {
                     /**
                      * @description Type of item that was refunded.
@@ -1568,6 +1574,23 @@ export interface components {
             /** @description Total tax amount refunded back to the shopper. Use 0 value if there is no tax liability change for the refund or tax does not need to be recorded on the refund and would be handled externally. */
             readonly total_tax: number;
         };
+        /**
+         * Tax Adjustment Amount
+         * Format: float
+         * @description Amount to be used when tax may have been overcharged for an order, such as when the value for a partial refund is overridden. This amount should be equal to the calculated overcharged value, or should be used with `merchant_calculated_override` to override the value. If not, this will result in a `422` error.
+         * @example 1.99
+         */
+        readonly TaxAdjustmentAmount: number;
+        /** Items Refund */
+        readonly RefundQuote_ItemsRefund: {
+            readonly items: readonly components["schemas"]["ItemsRefund"][];
+            readonly merchant_calculated_override?: components["schemas"]["MerchantOverride"];
+        };
+        /** Tax Adjustment Refund */
+        readonly RefundQuote_TaxAdjustmentAmount: {
+            readonly tax_adjustment_amount: components["schemas"]["TaxAdjustmentAmount"];
+            readonly merchant_calculated_override?: components["schemas"]["MerchantOverride"];
+        };
         /** Refund */
         readonly Refund: {
             /** @description Refund resource ID. */
@@ -1588,7 +1611,7 @@ export interface components {
             readonly total_tax?: number;
             /** @description Whether refund amount and tax are provided explicitly by merchant override. */
             readonly uses_merchant_override_values?: boolean;
-            /** @description Array of items refunded. */
+            /** @description Array of items refunded. In cases when `tax_refund_adjustment` was used to create the refund, this array will be empty. */
             readonly items?: readonly components["schemas"]["RefundItem"][];
             /** @description An array of refund payments made to payment providers. */
             readonly payments?: readonly components["schemas"]["RefundPayment"][];

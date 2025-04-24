@@ -8,6 +8,7 @@ import packageJson from '../../../package.json' with { type: 'json' };
 import { FILE_BANNER, processApiSource } from './ast-utilities.js';
 import blacklistConfig from './blacklist.json' with { type: 'json' };
 import filesConfig from './files.json' with { type: 'json' };
+import { cwd } from 'process';
 
 const __dirname = import.meta.dirname;
 
@@ -27,13 +28,14 @@ const fileGroupAssociations = {
 };
 
 /**
- * Creates a temporary directory for processing
+ * Creates a temporary directory within the project for processing.
+ * This avoids cross-device link issues.
  *
- * TECH DEBT: this implementation causes a file access issue in new versions of Ubuntu
  * @returns {Promise<string>} The path to the temporary directory
  */
 async function makeTempDir() {
-    const tempOutputDir = join(tempDir, `${packageJson.name.split('/').slice(-1)[0]}-${uuid()}`);
+    const projectBaseTempDir = join(cwd(), '.tmp-generate');
+    const tempOutputDir = join(projectBaseTempDir, `${packageJson.name.split('/').slice(-1)[0]}-${uuid()}`);
     await mkdir(tempOutputDir, { recursive: true });
     return tempOutputDir;
 }
