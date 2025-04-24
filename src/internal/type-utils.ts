@@ -8,3 +8,9 @@ export type RemoveStart<
     Start extends string,
     Subject extends string,
 > = Subject extends `${Start}${infer End}` ? End : never;
+
+export type SimplifyDeep<Type> = Type extends object
+    ? {
+          [TypeKey in keyof Type]: SimplifyDeep<Type[TypeKey]>;
+      }
+    : Type;
