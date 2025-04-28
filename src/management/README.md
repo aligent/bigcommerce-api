@@ -30,11 +30,11 @@ To use the BigCommerce Management API you first need to [obtain the store hash a
 You can use es6 imports with the Management API:
 
 ```js
-import { Management } from "@aligent/bigcommerce-api";
+import { Management } from '@aligent/bigcommerce-api';
 
 const bigCommerce = new Management.Client({
-  storeHash: "your store hash here",
-  accessToken: "your access token here",
+  storeHash: 'your store hash here',
+  accessToken: 'your access token here',
 });
 ```
 
@@ -43,14 +43,14 @@ const bigCommerce = new Management.Client({
 The following code snippet will fetch store information from the V2 API and dump it to the console:
 
 ```js
-import { Management } from "@aligent/bigcommerce-api";
+import { Management } from '@aligent/bigcommerce-api';
 
 const bigCommerce = new Management.Client({
-  storeHash: "your store hash here",
-  accessToken: "your access token here",
+  storeHash: 'your store hash here',
+  accessToken: 'your access token here',
 });
 
-bigCommerce.v2.get("/store").then(console.dir);
+bigCommerce.v2.get('/store').then(console.dir);
 ```
 
 ## How-to guides
@@ -58,11 +58,11 @@ bigCommerce.v2.get("/store").then(console.dir);
 Start by instantiating a client instance:
 
 ```js
-import { Management } from "@aligent/bigcommerce-api";
+import { Management } from '@aligent/bigcommerce-api';
 
 const bigCommerce = new Management.Client({
-  storeHash: "your store hash here",
-  accessToken: "your access token here",
+  storeHash: 'your store hash here',
+  accessToken: 'your access token here',
 });
 ```
 
@@ -104,7 +104,7 @@ bigCommerce.v3.get('/catalog/products/{product_id}', {
 ```js
 async function printAllProducts() {
   // list() sends one HTTP request at a time and only sends requests as the iterator is consumed
-  const products = bigCommerce.v3.list("/catalog/products", { query: { include: ["images"] } });
+  const products = bigCommerce.v3.list('/catalog/products', { query: { include: ['images'] } });
   for await (const product of products) {
     console.dir(product);
   }
@@ -190,6 +190,41 @@ Your BigCommerce Management API access token.
 #### agent (optional; node runtime only)
 
 Provide a node HTTP agent to override things like keepalive and connection pool size.
+
+### Overriding the internal client
+
+You can provide your own fetch implementation to the clients.
+
+For light modifications like custom headers or baseUrl, re-use the `fetchTransport` function
+
+```typescript
+const v2 = new Management.V2.Client(
+  import { Management, fetchTransport } from "@aligent/bigcommerce-api";
+  import { Agent } from "node:http";
+
+  fetchTransport({
+    baseUrl: 'http://custom.url/v2',
+    headers: {
+      "customer-header": "..."
+    }
+  })
+);
+
+const v3 = new Management.V3.Client(
+  fetchTransport({
+    baseUrl: 'http://custom.url/v3',
+    headers: {
+      "customer-header": "..."
+    }
+  })
+);
+```
+
+For more control, provide a custom implementation matching the Transport interface to the clients
+
+```typescript
+type Transport = (requestLine: string, params?: Parameters) => Promise<Response>;
+```
 
 ### V2 API client
 
