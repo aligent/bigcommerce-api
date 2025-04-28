@@ -1,6 +1,5 @@
 // TECH DEBT: Work out if these eslint rules are reasonable in this context
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-empty-object-type */
 import {
     fetchTransport,
     FetchTransportOptions,
