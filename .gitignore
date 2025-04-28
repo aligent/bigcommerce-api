@@ -1,5 +1,8 @@
 node_modules
 .vscode
-lib
 .yarn
+
+# Build Artifacts
 .tmp-generate
+dist
+.tshy
