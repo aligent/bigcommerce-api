@@ -5,10 +5,10 @@
   "scripts": {
     "test": "tsd",
     "lint": "eslint .",
-    "build-file-list": "node src/internal/reference/list-files",
-    "build-reference-types": "node src/internal/reference/generate",
-    "build:clean": "npm run clean && npm run build-file-list && npm run build-reference-types && npm run build",
-    "prepare": "tshy"
+    "build:file-list": "node src/internal/reference/list-files",
+    "build:reference-types": "node src/internal/reference/generate",
+    "build:clean": "rimraf dist && npm run build:file-list && npm run build:reference-types && npm run build",
+    "build": "tshy"
   },
   "exports": {
     "./package.json": "./package.json",
