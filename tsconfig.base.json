@@ -2,7 +2,7 @@
     "extends": "@aligent/ts-code-standards/tsconfigs-base",
     "compileOnSave": false,
     "compilerOptions": {
-        "outDir": "lib",
+        "outDir": "dist",
         "declaration": true,
         "checkJs": false
     }

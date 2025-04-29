@@ -1,22 +1,41 @@
 {
   "name": "@aligent/bigcommerce-api",
-  "version": "0.0.2",
-  "description": "Fully typed BigCommerce API client generated from documentation schemas",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "version": "0.0.1-alpha.1",
   "type": "module",
-  "files": [
-    "lib"
-  ],
   "scripts": {
-    "build": "tsc --project tsconfig.publish.json",
     "test": "tsd",
     "lint": "eslint .",
-    "clean": "rimraf lib",
-    "build-file-list": "node src/internal/reference/list-files",
-    "build-reference-types": "node src/internal/reference/generate",
-    "build:clean": "npm run clean && npm run build-file-list && npm run build-reference-types && npm run build"
+    "build:file-list": "node src/internal/reference/list-files",
+    "build:reference-types": "node src/internal/reference/generate",
+    "build:clean": "rimraf dist && npm run build:file-list && npm run build:reference-types && npm run build",
+    "build": "tshy"
   },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
+      }
+    }
+  },
+  "tshy": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "description": "Fully typed BigCommerce API client generated from documentation schemas",
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": ">=14"
   },
@@ -36,6 +55,7 @@
     "temp-dir": "^3.0.0",
     "ts-morph": "^25.0.1",
     "tsd": "^0.32.0",
+    "tshy": "^3.0.2",
     "typescript": "^5.8.2",
     "uuid": "^11.1.0"
   },
