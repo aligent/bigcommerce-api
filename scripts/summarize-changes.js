@@ -1,20 +1,24 @@
 // TECH DEBT: This is a naive approach that uses regex to remove JSDocs and find parents properties.
 // It can probably be improved by leaning more on ts-morph to parse the AST.
 import { execSync } from 'child_process';
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { resolve } from 'path';
 import { Project } from 'ts-morph';
 import * as Diff from 'diff';
 
 const packageJson = JSON.parse(readFileSync('package.json', 'utf-8'));
-const version = packageJson.version;
 
 const config = {
-    version,
+    version: packageJson.version,
     baseRef: 'HEAD~1',
     targetDir: 'src/internal/reference/generated',
-    outputFile: `docs/changelog/${version}.md`,
+    outputDir: `docs/changelog`
 }
+
+function formatOutputFileName(config) {
+    return `${config.outputDir}/${config.version}.md`;
+}
+
 
 /**
  * Gets the content of a file at a specific Git reference.
@@ -264,12 +268,18 @@ async function main() {
     const projectNew = new Project({ useInMemoryFileSystem: true });
 
     try {
+        // Ensure output directory exists
+        if (!existsSync(config.outputDir)) {
+            mkdirSync(config.outputDir, { recursive: true });
+        }
+
+        const outputFileName = formatOutputFileName(config);
         const changedFiles = getChangedTsFiles();
 
         if (changedFiles.length === 0) {
             summary += `No interface changes in ${config.targetDir}.\n`;
             console.log(`No interface changes in ${config.targetDir}.`);
-            writeFileSync(config.outputFile, summary);
+            writeFileSync(outputFileName, summary);
             return;
         }
 
@@ -313,8 +323,8 @@ async function main() {
             }
         }
 
-        writeFileSync(config.outputFile, summary);
-        console.log(`Summary written to ${config.outputFile}`);
+        writeFileSync(outputFileName, summary);
+        console.log(`Summary written to ${outputFileName}`);
     } catch (error) {
         console.error('Error generating interface change summary:', error);
         process.exit(1);
