@@ -246,47 +246,37 @@ function compareInterfaces(oldInterfaces, newInterfaces) {
 }
 
 /**
- * Gets a list of TypeScript/TSX files that have changed (staged or unstaged)
+ * Gets the typescript files that have changed (staged or unstaged)
  * compared to BASE_REF within the target directory.
  * @returns {string[]} List of file paths relative to the repo root.
  */
 function getChangedTsFiles() {
+    // Use porcelain v1 format for simple machine readable output
     const statusCmd = `git status --porcelain=v1 --untracked-files=all -- "${config.targetDir}"`;
 
     let changedOrNewFiles = new Set();
 
-     try {
         const statusOutput = execSync(statusCmd, { encoding: 'utf-8' });
-        statusOutput.split('\n').filter(Boolean).forEach(line => {
-            const status = line.substring(0, 2);
-            const filePath = line.substring(3).trim();
-            const cleanedPath = filePath.startsWith('"') && filePath.endsWith('"')
-                ? filePath.substring(1, filePath.length - 1)
-                : filePath;
 
-            if ((cleanedPath.endsWith('.ts') || cleanedPath.endsWith('.tsx')) && cleanedPath.startsWith(config.targetDir)) {
-                 changedOrNewFiles.add(cleanedPath);
-            } else if (status.startsWith('R')) { // Handle renames R source -> dest
-                const paths = cleanedPath.split(' -> ');
-                const sourcePath = paths[0];
-                const destPath = paths[1];
-                 if (((sourcePath.endsWith('.ts') || sourcePath.endsWith('.tsx')) && sourcePath.startsWith(config.targetDir))) {
-                    changedOrNewFiles.add(sourcePath);
-                 }
-                 if (((destPath.endsWith('.ts') || destPath.endsWith('.tsx')) && destPath.startsWith(config.targetDir))) {
-                    changedOrNewFiles.add(destPath);
-                 }
+    // Parse each line of the git output
+    // e.g.  M src/internal/reference/generated/channels.v3.ts
+    // Assumptions:
+    // - generated files will not have spaces or any special characters in their name
+    // - generation process will produce typescript files
+    // - generation process will completely remove and rebuild the files, so we don't have to handle renames
+    // This logic needs to be more complex if these assumptions are not true in the future
+        statusOutput.split('\n').filter(Boolean).forEach(line => {
+            const filePath = line.substring(3).trim();
+
+        // Only consider files located in the target directory
+        if (filePath.startsWith(config.targetDir)) {
+                changedOrNewFiles.add(filePath);
             }
         });
-    } catch (e) {
-        console.error(`Error running git status: ${e}`);
-        return [];
-    }
+
     return Array.from(changedOrNewFiles);
 }
 
-
-// --- Main Execution ---
 async function main() {
     console.log(`Comparing interface changes (pre-stripping JSDoc) between ${config.baseRef} and working tree in ${config.targetDir}...`);
     let summary = `# Interface Change Summary: ${config.version}\n\n`;
