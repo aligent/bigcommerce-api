@@ -19,12 +19,11 @@ function formatOutputFileName(config) {
     return `${config.outputDir}/${config.version}.md`;
 }
 
-
 /**
  * Gets the content of a file at a specific Git reference.
  * @param {string} gitRef
  * @param {string} filePath - Path relative to repo root
- * @returns {string | null}
+ * @returns {string} The file content or an empty string if the file doesn't exist at that ref.
  */
 function getFileContentAtRef(gitRef, filePath) {
     try {
@@ -35,12 +34,32 @@ function getFileContentAtRef(gitRef, filePath) {
         // Check stderr for common "does not exist" messages
         const stderr = error.stderr ? error.stderr.toString() : '';
         if (stderr.includes('exists on disk, but not in') || stderr.includes('does not exist')) {
-            return null;
+            return '';
         }
         console.warn(`Warning: Could not get content of ${filePath} at ${gitRef}. Error: ${error} Stderr: ${stderr}`);
-        return null;
+        return '';
     }
 }
+
+/**
+ * Gets the content of a file in the working directory.
+ * @param {string} absoluteFilePath - The absolute path to the file.
+ * @param {string} filePath - The path to the file relative to the repo root.
+ * @returns {string} The file content or an empty string if the file doesn't exist.
+ */
+function getFileContentInWorkingDirectory(absoluteFilePath, filePath) {
+    if (existsSync(absoluteFilePath)) {
+        try {
+            return readFileSync(absoluteFilePath, 'utf-8');
+        } catch (readError) {
+            console.warn(`Warning: Could not read file ${filePath} from disk. Error: ${readError}`);
+        }
+    } else {
+        console.log(`File ${filePath} does not exist in working directory (likely deleted or renamed away).`);
+    }
+    return '';
+}
+
 
 /**
  * Removes all JSDoc block comments  from source code.
@@ -48,7 +67,6 @@ function getFileContentAtRef(gitRef, filePath) {
  * @returns {string} Source code with JSDoc blocks removed.
  */
 function stripAllJsDocs(sourceCode) {
-    if (!sourceCode) return '';
     // Regex to find JSDoc blocks: starts with /**, ends with */, allows any characters including newlines in between (*?).
     // The 'g' flag ensures all occurrences are replaced.
     const jsDocRegex = /\/\*\*[\s\S]*?\*\/\s*/g;
@@ -65,6 +83,12 @@ function stripAllJsDocs(sourceCode) {
  */
 function extractInterfaces(project, sourceCode, virtualFilePath) {
     const interfaces = new Map();
+
+    // If there is no source code (e.g., the file was deleted), return an empty map.
+    if (!sourceCode) {
+        return interfaces;
+    }
+
     const sourceFile = project.createSourceFile(virtualFilePath, sourceCode, {
         overwrite: true,
     });
@@ -86,6 +110,7 @@ function extractInterfaces(project, sourceCode, virtualFilePath) {
             interfaces.set(interfaceName, { name: interfaceName, members: membersMap });
         }
     });
+
     return interfaces;
 }
 
@@ -105,8 +130,7 @@ function formatLineDiffAndInferContext(lineDiffs) {
 
     // First pass: identify actual changes and collect lines
     const changeParts = lineDiffs.filter(part => part.added || part.removed);
-    if (changeParts.length === 0) {
-         // If ignoreWhitespace=true caused no +/- lines, return empty
+    if (!changeParts.length) {
          return { diffBlock: [], contextName: null };
     }
 
@@ -167,17 +191,19 @@ function compareInterfaces(oldInterfaces, newInterfaces) {
         const oldI = oldInterfaces.get(name);
         const newI = newInterfaces.get(name);
 
-        if (!oldI && newI) {
-            // Avoid adding empty interfaces (e.g., if only JSDoc was removed)
-            if (newI.members.size > 0) {
+        // In the unlikely event that an entire interface was added or removed,
+        // Handle it here.
+        if (!oldI) {
                  changes.push(`- **Added Interface:** \`${name}\``);
+            continue;
             }
-        } else if (oldI && !newI) {
-             // Avoid adding empty interfaces (e.g., if only JSDoc was removed)
-             if (oldI.members.size > 0) {
+
+        if (!newI) {
                 changes.push(`- **Removed Interface:** \`${name}\``);
+            continue;
              }
-        } else if (oldI && newI) {
+
+        if (oldI && newI) {
             const memberChanges = [];
             const allMemberNames = new Set([...oldI.members.keys(), ...newI.members.keys()]);
 
@@ -293,27 +319,14 @@ async function main() {
             const rawOldContent = getFileContentAtRef(config.baseRef, filePath);
             const oldContentStripped = stripAllJsDocs(rawOldContent);
 
-            let rawNewContent = null;
-            if (existsSync(absoluteFilePath)) {
-                 try {
-                    rawNewContent = readFileSync(absoluteFilePath, 'utf-8');
-                 } catch (readError) {
-                     console.warn(`Warning: Could not read file ${filePath} from disk. Error: ${readError}`);
-                 }
-            } else {
-                console.log(`  File ${filePath} does not exist in working directory (likely deleted or renamed away).`);
-            }
+            // New file content is read from the working directory.
+            let rawNewContent = getFileContentInWorkingDirectory(absoluteFilePath, filePath);
             const newContentStripped = stripAllJsDocs(rawNewContent);
 
 
-            // Parse and compare interfaces
-            const oldInterfaces = oldContentStripped
-                ? extractInterfaces(projectOld, oldContentStripped, `${filePath}.old.virtual.ts`)
-                : new Map();
-            const newInterfaces = newContentStripped
-                ? extractInterfaces(projectNew, newContentStripped, `${filePath}.new.virtual.ts`)
-                : new Map();
-
+            // Parse and compare information about interfaces and their members in the changed content
+            const oldInterfaces = extractInterfaces(projectOld, oldContentStripped, `${filePath}.old.virtual.ts`);
+            const newInterfaces = extractInterfaces(projectNew, newContentStripped, `${filePath}.new.virtual.ts`);
             const fileChanges = compareInterfaces(oldInterfaces, newInterfaces);
 
             if (fileChanges.length > 0) {
