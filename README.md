@@ -73,6 +73,8 @@ BigCommerce have changed their published schemas substantially since the last ti
 
 This project strictly follows [Semantic Versioning](http://semver.org/).
 
+New versions may include changes pulled from the BigCommerce source schemas. Look in [docs/changelog](./docs//changelog/) for any resulting changes to interfaces.
+
 ## Support
 
 If you have a problem with this library, please file an [issue](https://github.com/aligent/bigcommerce-api/issues/new) here on GitHub.

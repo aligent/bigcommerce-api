@@ -11,6 +11,7 @@ __metadata:
   dependencies:
     "@aligent/ts-code-standards": "npm:^4.0.0"
     "@types/node": "npm:^22.13.14"
+    diff: "npm:^8.0.0-beta"
     eslint: "npm:^9.25.1"
     form-data: "npm:^4.0.2"
     node-fetch: "npm:^3.3.2"
@@ -1132,6 +1133,13 @@ __metadata:
   version: 29.6.3
   resolution: "diff-sequences@npm:29.6.3"
   checksum: 10c0/32e27ac7dbffdf2fb0eb5a84efd98a9ad084fbabd5ac9abb8757c6770d5320d2acd172830b28c4add29bb873d59420601dfc805ac4064330ce59b1adfd0593b2
+  languageName: node
+  linkType: hard
+
+"diff@npm:^8.0.0-beta":
+  version: 8.0.0-beta
+  resolution: "diff@npm:8.0.0-beta"
+  checksum: 10c0/6c00c9decaecaa389ede271efa58b35c4eb334f4ba82e10bfa3ed8d0077ad483dbf73641fb7451dd12001b19bcce764ea388333952799bdfb4ff233784e557cc
   languageName: node
   linkType: hard
 
