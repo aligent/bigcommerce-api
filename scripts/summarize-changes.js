@@ -279,12 +279,11 @@ function getChangedTsFiles() {
 
 async function main() {
     console.log(`Comparing interface changes (pre-stripping JSDoc) between ${config.baseRef} and working tree in ${config.targetDir}...`);
+    // Set up the markdown summary that will be written to disk.
     let summary = `# Interface Change Summary: ${config.version}\n\n`;
-    const projectOld = new Project({ useInMemoryFileSystem: true });
-    const projectNew = new Project({ useInMemoryFileSystem: true });
 
     try {
-        // Ensure output directory exists
+        // Create the output directory if it doesn't exist already.
         if (!existsSync(config.outputDir)) {
             mkdirSync(config.outputDir, { recursive: true });
         }
@@ -292,7 +291,9 @@ async function main() {
         const outputFileName = formatOutputFileName(config);
         const changedFiles = getChangedTsFiles();
 
-        if (changedFiles.length === 0) {
+        // No interface changes this release (maybe it's a bugfix or refactor!)
+        // Write an empty summary and exit.
+        if (!changedFiles.length) {
             summary += `No interface changes in ${config.targetDir}.\n`;
             console.log(`No interface changes in ${config.targetDir}.`);
             writeFileSync(outputFileName, summary);
@@ -301,11 +302,19 @@ async function main() {
 
         console.log(`Found changed/new files in ${config.targetDir}:\n${changedFiles.join('\n')}`);
 
+        // Initialise ts-morph projects for parsing changed content
+        const projectOld = new Project({ useInMemoryFileSystem: true });
+        const projectNew = new Project({ useInMemoryFileSystem: true });
+
+        // For each file that has changed relative to the base git ref:
+        // - Read the old and new content, preprocess to remove JSDoc
+        // - Parse the old and new content into TypeScript interface information
+        // - Compare the interfaces and generate a summary of changed interfaces and members
         for (const filePath of changedFiles) {
             const absoluteFilePath = resolve(filePath);
             console.log(`Processing ${filePath}...`);
 
-            // Pre-process old and new content to remove JSDocs
+            // Old file content is read from the git ref.
             const rawOldContent = getFileContentAtRef(config.baseRef, filePath);
             const oldContentStripped = stripAllJsDocs(rawOldContent);
 
@@ -319,13 +328,18 @@ async function main() {
             const newInterfaces = extractInterfaces(projectNew, newContentStripped, `${filePath}.new.virtual.ts`);
             const fileChanges = compareInterfaces(oldInterfaces, newInterfaces);
 
-            if (fileChanges.length > 0) {
+            if (fileChanges.length) {
+                // Remove unnecessary prefixes from the file path for readability
+                // e.g. src/internal/reference/generated/channels.v3.ts --> channels.v3.ts
                 const displayPath = filePath.replace(new RegExp(`^${config.targetDir}/`), '');
+
+                // Add an entry for this file to the summary.
                 summary += `## \`${displayPath}\`\n\n`;
                 summary += fileChanges.join('\n') + '\n\n';
             }
         }
 
+        // Write the complete summary to disk.
         writeFileSync(outputFileName, summary);
         console.log(`Summary written to ${outputFileName}`);
     } catch (error) {
