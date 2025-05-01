@@ -1,9 +1,27 @@
+/**
+ * This script is used to summarize the changes to the interface definitions in the
+ * `src/internal/reference/generated` directory between the current HEAD and the
+ * previous commit.
+ *
+ * It should be run from the root of the repo immediately after rebuilding the
+ * generated files - this is handled by the `build:clean` script already.
+ *
+ * It will output a markdown file to `docs/changelog` with the following format:
+ *
+ * # Interface Change Summary: 1.0.0
+ *
+ * ## src/internal/reference/generated/channels.v3.ts
+ *
+ * - **Added Interface:** \`ChannelNode\`
+ * - **Removed Interface:** \`ChannelNode\`
+ *
+ */
 // TECH DEBT: This is a naive approach that uses regex to remove JSDocs and find parents properties.
 // It can probably be improved by leaning more on ts-morph to parse the AST.
 import { execSync } from 'child_process';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { resolve } from 'path';
-import { Project } from 'ts-morph';
+import { Project, SyntaxKind } from 'ts-morph';
 import * as Diff from 'diff';
 
 const packageJson = JSON.parse(readFileSync('package.json', 'utf-8'));
@@ -60,19 +78,6 @@ function getFileContentInWorkingDirectory(absoluteFilePath, filePath) {
     return '';
 }
 
-
-/**
- * Removes all JSDoc block comments  from source code.
- * @param {string} sourceCode The input source code.
- * @returns {string} Source code with JSDoc blocks removed.
- */
-function stripAllJsDocs(sourceCode) {
-    // Regex to find JSDoc blocks: starts with /**, ends with */, allows any characters including newlines in between (*?).
-    // The 'g' flag ensures all occurrences are replaced.
-    const jsDocRegex = /\/\*\*[\s\S]*?\*\/\s*/g;
-    return sourceCode.replace(jsDocRegex, '');
-}
-
 /**
  * Extracts exported interface details from TypeScript source code.
  * Assumes JSDoc has already been stripped from the input sourceCode.
@@ -92,6 +97,9 @@ function extractInterfaces(project, sourceCode, virtualFilePath) {
     const sourceFile = project.createSourceFile(virtualFilePath, sourceCode, {
         overwrite: true,
     });
+
+    // Remove all JSDoc blocks from the source file.
+    sourceFile.getDescendantsOfKind(SyntaxKind.JSDoc).forEach(jsDoc => jsDoc.remove());
 
     sourceFile.getInterfaces().forEach(interfaceDeclaration => {
         // Only extract exported interfaces as they represent the public API
@@ -128,18 +136,25 @@ function formatLineDiffAndInferContext(lineDiffs) {
     // Captures the identifier (\w+). Increased robustness for whitespace.
     const contextNameRegex = /^\s*(?:readonly\s+)?(\w+)\s*:\s*\{/;
 
-    // First pass: identify actual changes and collect lines
+    // Check if we have any actual changes to report, return early if not
     const changeParts = lineDiffs.filter(part => part.added || part.removed);
     if (!changeParts.length) {
          return { diffBlock: [], contextName: null };
     }
 
+    // Start writing the diff block - e.g.
+    // ```diff
+    // - ...
+    // + ...
+    // ```
     outputLines.push('    ```diff');
     let changeBlockActive = false;
 
     lineDiffs.forEach(part => {
         const lines = part.value.split('\n');
 
+        // The logic here is a bit complex - the purpose is to find the 'context' for a change,
+        // which is usually the name of the interface or property that the changed member belongs to.
         if (!part.added && !part.removed) {
              // Look for context in lines preceding a change block
             lines.forEach(line => {
@@ -167,6 +182,7 @@ function formatLineDiffAndInferContext(lineDiffs) {
         }
     });
 
+    // Close the diff block
     outputLines.push('    ```');
 
     // Ensure we only return a diff block if there were actual visible changes
@@ -316,16 +332,12 @@ async function main() {
 
             // Old file content is read from the git ref.
             const rawOldContent = getFileContentAtRef(config.baseRef, filePath);
-            const oldContentStripped = stripAllJsDocs(rawOldContent);
-
             // New file content is read from the working directory.
             let rawNewContent = getFileContentInWorkingDirectory(absoluteFilePath, filePath);
-            const newContentStripped = stripAllJsDocs(rawNewContent);
-
 
             // Parse and compare information about interfaces and their members in the changed content
-            const oldInterfaces = extractInterfaces(projectOld, oldContentStripped, `${filePath}.old.virtual.ts`);
-            const newInterfaces = extractInterfaces(projectNew, newContentStripped, `${filePath}.new.virtual.ts`);
+            const oldInterfaces = extractInterfaces(projectOld, rawOldContent, `${filePath}.old.virtual.ts`);
+            const newInterfaces = extractInterfaces(projectNew, rawNewContent, `${filePath}.new.virtual.ts`);
             const fileChanges = compareInterfaces(oldInterfaces, newInterfaces);
 
             if (fileChanges.length) {
