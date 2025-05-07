@@ -23,14 +23,24 @@ const config = {
  *
  * It will output a markdown file to `docs/changelog` with the following format:
  *
- * # Interface Change Summary: 1.0.0
+ * # Interface Change Summary: 1.0.1
  *
- * ## `customers.v3.ts`
- *
- * operations.getMetafieldsCustomerId.responses:
+ * ## New files
  * ```diff
- * -             readonly 200: components["responses"]["MetafieldCollectionResponse"];
- * +             readonly 200: {
+ * + tax_customers.v3.ts
+ * ```
+ *
+ * ## Deleted files
+ * ```diff
+ * - carts.sf.ts
+ * ```
+ *
+ * ## Modified files
+ * ### `catalog/category_trees_catalog.v3.ts`
+ *
+ * components.schemas.CategoryNode:
+ * ```diff
+ * +             readonly url?: string;
  * ```
  *
  */
@@ -41,29 +51,48 @@ async function main() {
     // Title for the markdown summary that will be written to disk.
     let summary = `# Interface Change Summary: ${config.version}\n\n`;
 
-    try {
-        // Create a simple-git instance to get information about the previous file state.
-        const git = simpleGit();
+    // Create a simple-git instance to get information about the previous file state.
+    const git = simpleGit();
 
-        // Create the output directory if it doesn't exist already.
-        if (!existsSync(config.outputDir)) {
-            mkdirSync(config.outputDir, { recursive: true });
-        }
+    // Create the output directory if it doesn't exist already.
+    if (!existsSync(config.outputDir)) {
+        mkdirSync(config.outputDir, { recursive: true });
+    }
 
-        const outputFileName = `${config.outputDir}/${config.version}.md`;
-        const changedFiles = await getChangedTsFiles(git);
+    const outputFileName = `${config.outputDir}/${config.version}.md`;
+    const { created, deleted, modified } = await getChangedTsFiles(git);
 
-        // No interface changes this release (maybe it's a bugfix or refactor!)
-        // Write an empty summary and exit.
-        if (!changedFiles.length) {
-            summary += `No interface changes in ${config.targetDir}.\n`;
-            console.log(`No interface changes in ${config.targetDir}.`);
-            writeFileSync(outputFileName, summary);
-            return;
-        }
+    // No interface changes this release (maybe it's a bugfix or refactor!)
+    // Write an empty summary and exit.
+    if (!modified.length && !created.length && !deleted.length) {
+        summary += `No interface changes in ${config.targetDir}.\n`;
+        console.log(`No interface changes in ${config.targetDir}.`);
+        writeFileSync(outputFileName, summary);
+        return;
+    }
 
+    if (created.length) {
+        summary += `## New files\n`;
+        summary += '```diff\n';
+        summary += `+ ${created.map(removeTargetDirectoryPath).join('\n+ ')}\n`;
+        summary += '```\n';
         console.log(
-            `Found changed/new files in ${config.targetDir}:\n  - ${changedFiles.join('\n  - ')}\n`
+            `Found new files in ${config.targetDir}:\n  - ${created.map(removeTargetDirectoryPath).join('\n  - ')}\n`
+        );
+    }
+
+    if (deleted.length) {
+        summary += `## Deleted files\n`;
+        summary += '```diff\n';
+        summary += `- ${deleted.map(removeTargetDirectoryPath).join('\n- ')}\n`;
+        summary += '```\n';
+        console.log(`Found deleted files in ${config.targetDir}:\n  - ${deleted.join('\n  - ')}\n`);
+    }
+
+    if (modified.length) {
+        summary += `## Modified files\n`;
+        console.log(
+            `Found modified files in ${config.targetDir}:\n  - ${modified.join('\n  - ')}\n`
         );
 
         // Initialise ts-morph projects for parsing changed content
@@ -73,85 +102,60 @@ async function main() {
         // For each file that has changed relative to the base git ref
         // Group changes by the path to the changed property and add
         // markdown diff blocks to the summary
-        for (const filePath of changedFiles) {
-            console.log(`Processing ${filePath}...`);
-
-            const { oldSource, newSource } = await prepareSourceFiles(
-                git,
-                filePath,
-                projectOld,
-                projectNew
-            );
-
-            const diff = diffLines(oldSource.getFullText(), newSource.getFullText(), {
-                newlineIsToken: true,
-                ignoreWhitespace: true,
-            });
-
-            let changeGroups = groupChangesByPropertyPath(diff, newSource, oldSource);
-
-            if (changeGroups.size) {
-                console.log(
-                    `  - Summarizing ${changeGroups.size} group${changeGroups.size === 1 ? '' : 's'} of changes`
-                );
-
-                // Remove unnecessary prefixes from the file path for readability
-                // e.g. src/internal/reference/generated/channels.v3.ts --> channels.v3.ts
-                const displayPath = filePath.replace(new RegExp(`^${config.targetDir}/`), '');
-
-                // Add an entry for this file to the summary.
-                summary += `## \`${displayPath}\`\n\n`;
-                for (const [path, changes] of changeGroups.entries()) {
-                    summary += changeGroupToDiffBlock(path, changes).join('\n') + '\n\n';
-                }
-            } else {
-                console.log(`  - No interface changes found`);
-            }
+        for (const filePath of modified) {
+            summary += await summariseChangesToFile(filePath, git, projectOld, projectNew);
         }
-
-        // Write the complete summary to disk.
-        writeFileSync(outputFileName, summary);
-        console.log(`\nSummary written to ${outputFileName}`);
-    } catch (error) {
-        console.error('\nError generating interface change summary:', error);
-        process.exit(1);
     }
+
+    // Write the complete summary to disk.
+    writeFileSync(outputFileName, summary);
+    console.log(`\nSummary written to ${outputFileName}`);
 }
 
-main();
+main().catch(error => {
+    console.error('\nError generating interface change summary:', error);
+    process.exit(1);
+});
 
 /**
  * Gets the typescript files that have changed (staged or unstaged)
  * compared to BASE_REF within the target directory using simple-git.
+ *
  * @param {object} git - The simple-git instance.
  * @returns {Promise<string[]>} List of file paths relative to the repo root.
  */
 async function getChangedTsFiles(git) {
-    // Use simple-git status method with options
+    // Get a summary of changes to typescript files in the target directory
+    // Exclude the exports directory as it should only contain barrel export files
     const statusSummary = await git.status([
-        '--porcelain=v1',
-        '--untracked-files=all',
         '--', // Ensure subsequent arguments are treated as paths
-        config.targetDir,
+        `${config.targetDir}/*.ts`,
+        `:(exclude)${config.targetDir}/exports/*`,
     ]);
 
-    const changedOrNewFiles = new Set();
+    const { modified, created, deleted, not_added } = statusSummary;
 
-    // Regex to extract file paths starting with target directory and ending with .ts
-    const pathRegex = new RegExp(`${config.targetDir}.*.ts`);
-    for (const file of statusSummary.files) {
-        // Extract the file path part, removing the status flags and whitespace
-        // Example: ' M src/a.ts' -> 'src/a.ts'
-        // Example: '?? src/b.ts' -> 'src/b.ts'
-        const filePath = file.path.match(pathRegex)[0];
+    // New files are listed in not_added if they're unstaged, created if they're staged
+    return {
+        created: created.concat(not_added),
+        deleted,
+        modified,
+    };
+}
 
-        // Filter based on target directory and ensure it's a TS file (optional, but good practice)
-        if (filePath) {
-            changedOrNewFiles.add(filePath);
-        }
-    }
-
-    return Array.from(changedOrNewFiles);
+/**
+ * Removes the target directory path from the file path.
+ *
+ * @param {string} filePath - The path to the file relative to the repo root.
+ * @returns {string} The file path relative to the repo root.
+ *
+ * @example
+ * ```typescript
+ * removeTargetDirectoryPath('src/internal/reference/generated/channels.v3.ts') // 'channels.v3.ts'
+ * ```
+ */
+function removeTargetDirectoryPath(filePath) {
+    return filePath.replace(new RegExp(`^${config.targetDir}/`), '');
 }
 
 /**
@@ -184,29 +188,28 @@ async function getFileContentAtRef(git, gitRef, filePath) {
 
 /**
  * Gets the content of a file in the working directory.
+ *
  * @param {string} filePath - The path to the file relative to the repo root.
  * @returns {string} The file content or an empty string if the file doesn't exist.
  */
 function getFileContentInWorkingDirectory(filePath) {
     const absoluteFilePath = resolve(filePath);
-    if (existsSync(absoluteFilePath)) {
-        try {
-            return readFileSync(absoluteFilePath, 'utf-8');
-        } catch (readError) {
-            console.warn(`Warning: Could not read file ${filePath} from disk. Error: ${readError}`);
-        }
-    } else {
-        console.log(
-            `File ${filePath} does not exist in working directory (likely deleted or renamed away).`
-        );
+    if (!existsSync(absoluteFilePath)) {
+        // Assume missing files have been deleted, treat as empty documents
+        return '';
     }
 
-    // Assume missing files have been deleted, treat as empty documents
-    return '';
+    try {
+        return readFileSync(absoluteFilePath, 'utf-8');
+    } catch (readError) {
+        console.error(`\nUnexpected error reading ${filePath} from disk.`);
+        throw readError;
+    }
 }
 
 /**
  * Prepares virtual source files for parsing.
+ *
  * @param {object} git - The simple-git instance.
  * @param {string} filePath - The path to the file relative to the repo root.
  * @param {Project} projectOld - The ts-morph project instance for the old file.
@@ -235,6 +238,13 @@ async function prepareSourceFiles(git, filePath, projectOld, projectNew) {
     return { oldSource, newSource };
 }
 
+/**
+ * Gets the dot path to the first token in the source file at a given position.
+ *
+ * @param {Project} source - The ts-morph project instance.
+ * @param {number} position - The position of the token in the source file.
+ * @returns {string} The dot path to the token.
+ */
 function getDotPathToPosition(source, position) {
     const node = source.getDescendantAtPos(position);
     const namedParent = node?.getFirstAncestor(n => TsNode.hasName(n));
@@ -245,6 +255,62 @@ function getDotPathToPosition(source, position) {
         .filter(n => n !== '')
         .join('.');
 }
+
+/**
+ * Summarises the changes to a file:
+ * - The shortened filepath as a header
+ * - A diff block for each group of changes prepended by the path to the property above that change
+ *
+ * @param {string} filePath - The path to the file relative to the repo root.
+ * @param {object} git - The simple-git instance.
+ * @param {Project} projectOld - The ts-morph project instance for the old file.
+ * @param {Project} projectNew - The ts-morph project instance for the new file.
+ * @returns {string} A string of markdown formatted changes.
+ */
+async function summariseChangesToFile(filePath, git, projectOld, projectNew) {
+    console.log(`Summarising changes to ${filePath}...`);
+
+    const { oldSource, newSource } = await prepareSourceFiles(
+        git,
+        filePath,
+        projectOld,
+        projectNew
+    );
+
+    const diff = diffLines(oldSource.getFullText(), newSource.getFullText(), {
+        newlineIsToken: true,
+        ignoreWhitespace: true,
+    });
+
+    let changeGroups = groupChangesByPropertyPath(diff, newSource, oldSource);
+
+    if (!changeGroups.size) {
+        console.log(`  - No interface changes found`);
+        return '';
+    }
+
+    let fileSummary = `### \`${removeTargetDirectoryPath(filePath)}\`\n\n`;
+    console.log(
+        `  - Summarizing ${changeGroups.size} group${changeGroups.size === 1 ? '' : 's'} of changes`
+    );
+
+    // Add a diff block for each group of changes
+    for (const [path, changes] of changeGroups.entries()) {
+        fileSummary += changeGroupToDiffBlock(path, changes).join('\n') + '\n\n';
+    }
+
+    return fileSummary;
+}
+
+/**
+ * Groups changes by the property path in the new source file. Also merges changes that
+ * are separated by only one line (as that is typically just a newline or bracket token)
+ *
+ * @param {object[]} diff - The diff object.
+ * @param {Project} newSource - The ts-morph project instance for the new file.
+ * @param {Project} oldSource - The ts-morph project instance for the old file.
+ * @returns {Map<string, object[]>} A map of property paths to their associated changes blocks.
+ */
 function groupChangesByPropertyPath(diff, newSource, oldSource) {
     let position = { added: 0, removed: 0 };
     let lineChanges = new Map();
