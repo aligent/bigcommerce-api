@@ -7,7 +7,8 @@
     "lint": "eslint .",
     "build:file-list": "node src/internal/reference/list-files",
     "build:reference-types": "node src/internal/reference/generate",
-    "build:clean": "rimraf dist && npm run build:file-list && npm run build:reference-types && npm run build",
+    "build:summarize-changes": "node scripts/summarize-changes",
+    "build:clean": "rimraf dist && npm run build:file-list && npm run build:reference-types && npm run build:summarize-changes",
     "build": "tshy"
   },
   "exports": {
@@ -48,10 +49,12 @@
   "devDependencies": {
     "@aligent/ts-code-standards": "^4.0.0",
     "@types/node": "^22.13.14",
+    "diff": "^8.0.0-beta",
     "eslint": "^9.25.1",
     "openapi-typescript": "^7.6.1",
     "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
+    "simple-git": "^3.27.0",
     "temp-dir": "^3.0.0",
     "ts-morph": "^25.0.1",
     "tsd": "^0.32.0",

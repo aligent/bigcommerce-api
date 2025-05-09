@@ -11,6 +11,7 @@ __metadata:
   dependencies:
     "@aligent/ts-code-standards": "npm:^4.0.0"
     "@types/node": "npm:^22.13.14"
+    diff: "npm:^8.0.0-beta"
     eslint: "npm:^9.25.1"
     form-data: "npm:^4.0.2"
     node-fetch: "npm:^3.3.2"
@@ -18,6 +19,7 @@ __metadata:
     prettier: "npm:^3.5.3"
     query-string: "npm:^9.1.1"
     rimraf: "npm:^6.0.1"
+    simple-git: "npm:^3.27.0"
     temp-dir: "npm:^3.0.0"
     ts-morph: "npm:^25.0.1"
     tsd: "npm:^0.32.0"
@@ -228,6 +230,22 @@ __metadata:
   dependencies:
     "@sinclair/typebox": "npm:^0.27.8"
   checksum: 10c0/b329e89cd5f20b9278ae1233df74016ebf7b385e0d14b9f4c1ad18d096c4c19d1e687aa113a9c976b16ec07f021ae53dea811fb8c1248a50ac34fbe009fdf6be
+  languageName: node
+  linkType: hard
+
+"@kwsites/file-exists@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@kwsites/file-exists@npm:1.1.1"
+  dependencies:
+    debug: "npm:^4.1.1"
+  checksum: 10c0/39e693239a72ccd8408bb618a0200e4a8d61682057ca7ae2c87668d7e69196e8d7e2c9cde73db6b23b3b0230169a15e5f1bfe086539f4be43e767b2db68e8ee4
+  languageName: node
+  linkType: hard
+
+"@kwsites/promise-deferred@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@kwsites/promise-deferred@npm:1.1.1"
+  checksum: 10c0/ef1ad3f1f50991e3bed352b175986d8b4bc684521698514a2ed63c1d1fc9848843da4f2bc2df961c9b148c94e1c34bf33f0da8a90ba2234e452481f2cc9937b1
   languageName: node
   linkType: hard
 
@@ -1056,7 +1074,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.4":
+"debug@npm:4, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.4, debug@npm:^4.3.5":
   version: 4.4.0
   resolution: "debug@npm:4.4.0"
   dependencies:
@@ -1132,6 +1150,13 @@ __metadata:
   version: 29.6.3
   resolution: "diff-sequences@npm:29.6.3"
   checksum: 10c0/32e27ac7dbffdf2fb0eb5a84efd98a9ad084fbabd5ac9abb8757c6770d5320d2acd172830b28c4add29bb873d59420601dfc805ac4064330ce59b1adfd0593b2
+  languageName: node
+  linkType: hard
+
+"diff@npm:^8.0.0-beta":
+  version: 8.0.0-beta
+  resolution: "diff@npm:8.0.0-beta"
+  checksum: 10c0/6c00c9decaecaa389ede271efa58b35c4eb334f4ba82e10bfa3ed8d0077ad483dbf73641fb7451dd12001b19bcce764ea388333952799bdfb4ff233784e557cc
   languageName: node
   linkType: hard
 
@@ -3870,6 +3895,17 @@ __metadata:
   version: 4.1.0
   resolution: "signal-exit@npm:4.1.0"
   checksum: 10c0/41602dce540e46d599edba9d9860193398d135f7ff72cab629db5171516cfae628d21e7bfccde1bbfdf11c48726bc2a6d1a8fb8701125852fbfda7cf19c6aa83
+  languageName: node
+  linkType: hard
+
+"simple-git@npm:^3.27.0":
+  version: 3.27.0
+  resolution: "simple-git@npm:3.27.0"
+  dependencies:
+    "@kwsites/file-exists": "npm:^1.1.1"
+    "@kwsites/promise-deferred": "npm:^1.1.1"
+    debug: "npm:^4.3.5"
+  checksum: 10c0/ef56cabea585377d3e0ca30e4e93447f465d91f23eaf751693cc31f366b5f7636facf52ad5bcd598bfdf295fa60732e7a394303d378995b52e2d221d92e5f9f4
   languageName: node
   linkType: hard
 
