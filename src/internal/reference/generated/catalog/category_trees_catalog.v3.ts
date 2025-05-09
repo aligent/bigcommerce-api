@@ -312,6 +312,7 @@ export interface components {
             readonly name?: string;
             readonly is_visible?: boolean;
             readonly children?: readonly components["schemas"]["CategoryNode"][];
+            readonly url?: string;
         };
         readonly MetaPaginationObject: {
             readonly pagination?: {

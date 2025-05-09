@@ -43,6 +43,7 @@ import type * as store_logs from "../store_logs.v3.js";
 import type * as storefront_tokens from "../storefront_tokens.v3.js";
 import type * as subscribers from "../subscribers.v3.js";
 import type * as tax from "../tax.v3.js";
+import type * as tax_customers from "../tax_customers.v3.js";
 import type * as tax_properties from "../tax_properties.v3.js";
 import type * as tax_rates_zones from "../tax_rates_zones.v3.js";
 import type * as tax_settings from "../tax_settings.v3.js";
@@ -91,6 +92,7 @@ export type Operation =
    & InferOperationIndex<storefront_tokens.paths>
    & InferOperationIndex<subscribers.paths>
    & InferOperationIndex<tax.paths>
+   & InferOperationIndex<tax_customers.paths>
    & InferOperationIndex<tax_properties.paths>
    & InferOperationIndex<tax_rates_zones.paths>
    & InferOperationIndex<tax_settings.paths>

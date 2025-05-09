@@ -1,7 +1,6 @@
 import { mkdir, rename, rm, writeFile } from 'fs/promises';
 import { basename, dirname, join } from 'node:path';
 import openapiTS, { astToString } from 'openapi-typescript';
-import tempDir from 'temp-dir';
 import { Project } from 'ts-morph';
 import { v4 as uuid } from 'uuid';
 import packageJson from '../../../package.json' with { type: 'json' };
@@ -188,7 +187,10 @@ async function main() {
         await replaceDir(tempOutputDir, outputDir);
     } catch (error) {
         console.error('Failed to generate TypeScript types:', error);
-        process.exit(1);
+        process.exitCode = 1;
+    } finally {
+        // Clean up the temporary build directory
+        await rm(tempOutputDir, { recursive: true, force: true });
     }
 }
 
