@@ -1,6 +1,6 @@
 {
   "name": "@aligent/bigcommerce-api",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "type": "module",
   "scripts": {
     "test": "tsd",
@@ -55,7 +55,6 @@
     "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
     "simple-git": "^3.27.0",
-    "temp-dir": "^3.0.0",
     "ts-morph": "^25.0.1",
     "tsd": "^0.32.0",
     "tshy": "^3.0.2",
