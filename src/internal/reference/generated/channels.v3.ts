@@ -220,6 +220,13 @@ export interface paths {
         /**
          * Upsert a Siteʼs Checkout URL
          * @description Creates or updates (upserts) a siteʼs checkout URL
+         *
+         *     <Callout type="info">
+         *         For the "urls" object, we no longer modify the `www` prefix of the primary URL. The API returns URLs exactly as the customer enters them, similar to the "url" field.
+         *
+         *           * If the customer saves a URL with `www`, the API returns it with `www`.
+         *           * If the customer saves a URL without `www`, the API returns it without `www`.
+         *       </Callout>
          */
         readonly put: operations["updateCheckoutUrl"];
         /**
@@ -247,16 +254,37 @@ export interface paths {
          *
          *     Returns site data for the specified channel.
          *
+         *     <Callout type="info">
+         *       For the "urls" object, we no longer modify the `www` prefix of the primary URL. The API returns URLs exactly as the customer enters them, similar to the "url" field.
+         *
+         *         * If the customer saves a URL with `www`, the API returns it with `www`.
+         *         * If the customer saves a URL without `www`, the API returns it without `www`.
+         *     </Callout>
+         *
          */
         readonly get: operations["getChannelSite"];
         /**
          * Update a Channel Site
          * @description Updates a site for provided channel.
+         *
+         *       <Callout type="info">
+         *         For the "urls" object, we no longer modify the `www` prefix of the primary URL. The API returns URLs exactly as the customer enters them, similar to the "url" field.
+         *
+         *           * If the customer saves a URL with `www`, the API returns it with `www`.
+         *           * If the customer saves a URL without `www`, the API returns it without `www`.
+         *       </Callout>
          */
         readonly put: operations["updateChannelSite"];
         /**
          * Create a Channel Site
          * @description Alias of POST `/sites`. Creates a site for provided channel.
+         *
+         *      <Callout type="info">
+         *         For the "urls" object, we no longer modify the `www` prefix of the primary URL. The API returns URLs exactly as the customer enters them, similar to the "url" field.
+         *
+         *           * If the customer saves a URL with `www`, the API returns it with `www`.
+         *           * If the customer saves a URL without `www`, the API returns it without `www`.
+         *       </Callout>
          */
         readonly post: operations["createChannelSite"];
         /**

@@ -61,6 +61,7 @@
   "subscriptions.sf.yml",
   "tax.v3.yml",
   "tax_classes.v2.yml",
+  "tax_customers.v3.yml",
   "tax_properties.v3.yml",
   "tax_provider.yml",
   "tax_rates_zones.v3.yml",

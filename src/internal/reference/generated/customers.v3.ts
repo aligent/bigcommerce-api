@@ -396,7 +396,7 @@ export interface paths {
         };
         /**
          * Get a Customer Metafield
-         * @description Lists available metafields for a customer. To retrieve the list, use `customerId` and `metafieldId` in the query parameters.
+         * @description Returns a single *Customer Metafield*.
          *
          */
         readonly get: operations["getMetafieldsCustomerId"];
@@ -1442,6 +1442,7 @@ export interface components {
          *      */
         readonly MetaFieldCollectionResponse: {
             readonly data?: readonly components["schemas"]["Metafield"][];
+            readonly meta?: components["schemas"]["CollectionMeta"];
         };
         /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionPostPutResponses: {
@@ -2246,88 +2247,6 @@ export interface components {
                         readonly address_id: number;
                     }))[];
                     readonly meta?: components["schemas"]["MetaOpen"];
-                };
-            };
-        };
-        /** @description Response payload for the BigCommerce API. */
-        readonly MetafieldCollectionResponse: {
-            headers: {
-                readonly [name: string]: unknown;
-            };
-            content: {
-                readonly "application/json": {
-                    readonly items?: {
-                        /**
-                         * @description Unique ID of the *Metafield*. Read-Only.
-                         * @example 0
-                         */
-                        readonly id: number;
-                        /**
-                         * @description The key for the metafields.
-                         * @example Staff Name
-                         */
-                        readonly key: string;
-                        /**
-                         * @description The description for the metafield.
-                         * @example Ronaldo
-                         */
-                        readonly value: string;
-                        /**
-                         * @description Namespace for the metafield, for organizational purposes.
-                         *
-                         * @example Sales Department
-                         */
-                        readonly namespace: string;
-                        /**
-                         * @description Determines the visibility and writeability of the field by other API consumers.
-                         *     | Value | Description |
-                         *     | :--- | :--- |
-                         *     | `app_only` | Private to the app that owns the field. |
-                         *     | `read` | Visible to other API consumers. |
-                         *     | `write` | Open for reading and writing by other API consumers. |
-                         *     | `read_and_sf_access` | Visible to other API consumers, including on storefront. |
-                         *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on storefront. |
-                         *
-                         * @enum {string}
-                         */
-                        readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
-                        /**
-                         * @description The type of resource with which the metafield is associated.
-                         *
-                         * @example cart
-                         * @enum {string}
-                         */
-                        readonly resource_type: "brand" | "product" | "variant" | "category" | "cart" | "channel" | "location" | "order" | "customer";
-                        /**
-                         * @description The unique identifier for the resource with which the metafield is associated.
-                         *
-                         * @example 0
-                         */
-                        readonly resource_id: number;
-                        /**
-                         * @description Description for the metafields.
-                         *
-                         * @example order
-                         */
-                        readonly description: string;
-                        /**
-                         * Format: date-time
-                         * @description Date and time of the metafieldʼs creation.
-                         * @example 2022-06-16T18:39:00+00:00
-                         */
-                        readonly date_created: string;
-                        /**
-                         * Format: date-time
-                         * @description Date and time when the metafield was last updated.
-                         * @example 2022-06-16T18:39:00+00:00
-                         */
-                        readonly date_modified: string;
-                        /**
-                         * @description Client ID for the metafield's creator.
-                         * @example ramciw4fnoz87it3ynjfif2zrkil5p
-                         */
-                        readonly owner_client_id?: string;
-                    };
                 };
             };
         };
@@ -3246,7 +3165,18 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            readonly 200: components["responses"]["MetafieldCollectionResponse"];
+            /** @description Response payload for the BigCommerce API. */
+            readonly 200: {
+                headers: {
+                    readonly [name: string]: unknown;
+                };
+                content: {
+                    readonly "application/json": {
+                        readonly data?: readonly components["schemas"]["metafield_Full"][];
+                        readonly meta?: components["schemas"]["metaCollection_Full"];
+                    };
+                };
+            };
         };
     };
     readonly createCustomerMetafields: {
@@ -3323,7 +3253,17 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            readonly 200: components["responses"]["MetafieldCollectionResponse"];
+            readonly 200: {
+                headers: {
+                    readonly [name: string]: unknown;
+                };
+                content: {
+                    readonly "application/json": {
+                        readonly data?: components["schemas"]["metafield_Full"];
+                        readonly meta?: components["schemas"]["metaEmpty_Full"];
+                    };
+                };
+            };
             /** @description Not found (A metafield was not found with this query).
              *      */
             readonly 404: {
