@@ -1416,7 +1416,7 @@ export interface components {
             readonly error?: string;
         };
         /** ItemsRefund */
-        readonly ItemsRefund: components["schemas"]["AmountBoundItem"] | components["schemas"]["QuantityBoundItem"] | components["schemas"]["TaxExemptItem"] | components["schemas"]["FeeItem"];
+        readonly ItemsRefund: components["schemas"]["QuantityBoundItem"] | components["schemas"]["AmountBoundItem"] | components["schemas"]["TaxExemptItem"] | components["schemas"]["FeeItem"];
         /** Payment Request */
         readonly PaymentRequest: {
             /**
