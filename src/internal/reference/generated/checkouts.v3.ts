@@ -1122,11 +1122,950 @@ export interface components {
                 readonly "application/json": {
                     readonly data?: components["schemas"]["Checkout"];
                 };
+                /** @example {
+                 *       "data": {
+                 *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                 *         "cart": {
+                 *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                 *           "customer_id": 11,
+                 *           "channel_id": 1,
+                 *           "email": "janedoe@example.com",
+                 *           "currency": {
+                 *             "code": "USD"
+                 *           },
+                 *           "base_amount": 31.95,
+                 *           "discount_amount": 0,
+                 *           "cart_amount_inc_tax": 33.23,
+                 *           "cart_amount_ex_tax": 31.95,
+                 *           "coupons": [
+                 *             {
+                 *               "id": 1,
+                 *               "code": "SHOP20",
+                 *               "coupon_type": "percentage_discount",
+                 *               "display_name": "20% Off",
+                 *               "discounted_amount": 0.9
+                 *             }
+                 *           ],
+                 *           "discounts": [
+                 *             {
+                 *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                 *               "discounted_amount": 0
+                 *             }
+                 *           ],
+                 *           "line_items": {
+                 *             "physical_items": [
+                 *               {
+                 *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                 *                 "parent_id": 123,
+                 *                 "variant_id": 359,
+                 *                 "product_id": 188,
+                 *                 "sku": "DUST1",
+                 *                 "name": "Hello",
+                 *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                 *                 "quantity": 1,
+                 *                 "is_taxable": true,
+                 *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                 *                 "discounts": [],
+                 *                 "coupons": [],
+                 *                 "discount_amount": 0,
+                 *                 "coupon_amount": 0,
+                 *                 "original_price": 35.95,
+                 *                 "list_price": 31.95,
+                 *                 "sale_price": 33.23,
+                 *                 "extended_list_price": 31.95,
+                 *                 "extended_sale_price": 33.23,
+                 *                 "is_require_shipping": true,
+                 *                 "gift_wrapping": {}
+                 *               }
+                 *             ],
+                 *             "digital_items": [],
+                 *             "gift_certificates": [],
+                 *             "custom_items": []
+                 *           },
+                 *           "created_time": "2019-08-05T15:38:14+00:00",
+                 *           "updated_time": "2019-08-05T15:41:28+00:00"
+                 *         },
+                 *         "billing_address": {
+                 *           "id": "5d484d668e5aa",
+                 *           "first_name": "Jane",
+                 *           "last_name": "Doe",
+                 *           "email": "janedoe@example.com",
+                 *           "company": "BigCommerce",
+                 *           "address1": "123 Main Street",
+                 *           "address2": "Apt 1",
+                 *           "city": "Austin",
+                 *           "state_or_province": "",
+                 *           "state_or_province_code": "",
+                 *           "country": "",
+                 *           "country_code": "",
+                 *           "postal_code": "",
+                 *           "phone": "12125685555",
+                 *           "custom_fields": []
+                 *         },
+                 *         "consignments": [
+                 *           {
+                 *             "id": "5d484e28d20a8",
+                 *             "shipping_cost_inc_tax": 0,
+                 *             "shipping_cost_ex_tax": 0,
+                 *             "handling_cost_inc_tax": 0,
+                 *             "handling_cost_ex_tax": 0,
+                 *             "coupon_discounts": [],
+                 *             "discounts": [],
+                 *             "line_item_ids": [
+                 *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                 *             ],
+                 *             "address": {
+                 *               "first_name": "BigCommerce",
+                 *               "last_name": "Cart/Checkout",
+                 *               "email": "jane2@example.com",
+                 *               "company": "",
+                 *               "address1": "123 Main Street",
+                 *               "address2": "",
+                 *               "city": "Austin",
+                 *               "state_or_province": "Texas",
+                 *               "state_or_province_code": "TX",
+                 *               "country": "United States",
+                 *               "country_code": "US",
+                 *               "postal_code": "78751",
+                 *               "phone": "688546",
+                 *               "customFields": [
+                 *                 {
+                 *                   "field_id": "field_25",
+                 *                   "field_value": "Great!"
+                 *                 }
+                 *               ]
+                 *             },
+                 *             "available_shipping_options": [
+                 *               {
+                 *                 "id": "006a58a98c9a844225552ee2a9c60ca8",
+                 *                 "type": "shipping_byweight",
+                 *                 "description": "Ship by Weight",
+                 *                 "image_url": "",
+                 *                 "cost": 8,
+                 *                 "transit_time": "",
+                 *                 "additional_description": ""
+                 *               },
+                 *               {
+                 *                 "id": "722d78b5120de60a725e41be9bb8d999",
+                 *                 "type": "shipping_flatrate",
+                 *                 "description": "Flat Rate",
+                 *                 "image_url": "",
+                 *                 "cost": 12,
+                 *                 "transit_time": "",
+                 *                 "additional_description": ""
+                 *               },
+                 *               {
+                 *                 "id": "71090fa93c8985348892543c3f4887b6",
+                 *                 "type": "shipping_upsready",
+                 *                 "description": "UPS® (UPS Next Day Air®)",
+                 *                 "image_url": "",
+                 *                 "cost": 43.9,
+                 *                 "transit_time": "1 business day",
+                 *                 "additional_description": ""
+                 *               }
+                 *             ]
+                 *           }
+                 *         ],
+                 *         "taxes": [
+                 *           {
+                 *             "name": "Tax",
+                 *             "amount": 1.28
+                 *           }
+                 *         ],
+                 *         "coupons": [
+                 *           {
+                 *             "id": 1,
+                 *             "code": "SHOP20",
+                 *             "coupon_type": "percentage_discount",
+                 *             "display_name": "20% Off",
+                 *             "discounted_amount": 0.9
+                 *           }
+                 *         ],
+                 *         "shipping_cost_total_inc_tax": 0,
+                 *         "shipping_cost_total_ex_tax": 0,
+                 *         "handling_cost_total_inc_tax": 0,
+                 *         "handling_cost_total_ex_tax": 0,
+                 *         "tax_total": 1.28,
+                 *         "subtotal_inc_tax": 33.23,
+                 *         "subtotal_ex_tax": 31.95,
+                 *         "grand_total": 33.23,
+                 *         "created_time": "2019-08-05T15:38:14+00:00",
+                 *         "updated_time": "2019-08-05T15:41:28+00:00",
+                 *         "customer_message": ""
+                 *       },
+                 *       "meta": {}
+                 *     } */
                 readonly "Available Shipping Options": unknown;
+                /** @example {
+                 *       "data": {
+                 *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                 *         "cart": {
+                 *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                 *           "customer_id": 11,
+                 *           "channel_id": 1,
+                 *           "email": "janedoe@example.com",
+                 *           "currency": {
+                 *             "code": "USD"
+                 *           },
+                 *           "base_amount": 31.95,
+                 *           "discount_amount": 0,
+                 *           "cart_amount_inc_tax": 33.23,
+                 *           "cart_amount_ex_tax": 31.95,
+                 *           "coupons": [],
+                 *           "discounts": [
+                 *             {
+                 *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                 *               "discounted_amount": 0
+                 *             }
+                 *           ],
+                 *           "line_items": {
+                 *             "physical_items": [
+                 *               {
+                 *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                 *                 "parent_id": 123,
+                 *                 "variant_id": 359,
+                 *                 "product_id": 188,
+                 *                 "sku": "DUST1",
+                 *                 "name": "Hello",
+                 *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                 *                 "quantity": 1,
+                 *                 "is_taxable": true,
+                 *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                 *                 "discounts": [],
+                 *                 "coupons": [],
+                 *                 "discount_amount": 0,
+                 *                 "coupon_amount": 0,
+                 *                 "original_price": 35.95,
+                 *                 "list_price": 31.95,
+                 *                 "sale_price": 33.23,
+                 *                 "extended_list_price": 31.95,
+                 *                 "extended_sale_price": 33.23,
+                 *                 "is_require_shipping": true
+                 *               }
+                 *             ],
+                 *             "digital_items": [],
+                 *             "gift_certificates": [],
+                 *             "custom_items": []
+                 *           },
+                 *           "created_time": "2019-08-05T15:38:14+00:00",
+                 *           "updated_time": "2019-08-05T15:41:28+00:00"
+                 *         },
+                 *         "billing_address": {
+                 *           "id": "5d484d668e5aa",
+                 *           "first_name": "Jane",
+                 *           "last_name": "Doe",
+                 *           "email": "janedoe@example.com",
+                 *           "company": "BigCommerce",
+                 *           "address1": "123 Main Street",
+                 *           "address2": "Apt 1",
+                 *           "city": "Austin",
+                 *           "state_or_province": "",
+                 *           "state_or_province_code": "",
+                 *           "country": "",
+                 *           "country_code": "",
+                 *           "postal_code": "",
+                 *           "phone": "12125559659",
+                 *           "custom_fields": []
+                 *         },
+                 *         "consignments": [
+                 *           {
+                 *             "id": "5d484e28d20a8",
+                 *             "shipping_cost_inc_tax": 8.32,
+                 *             "shipping_cost_ex_tax": 8,
+                 *             "handling_cost_inc_tax": 0,
+                 *             "handling_cost_ex_tax": 0,
+                 *             "coupon_discounts": [],
+                 *             "discounts": [],
+                 *             "line_item_ids": [
+                 *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                 *             ],
+                 *             "selected_shipping_option": {
+                 *               "id": "006a58a98c9a844225552ee2a9c60ca8",
+                 *               "type": "shipping_byweight",
+                 *               "description": "Ship by Weight",
+                 *               "image_url": "",
+                 *               "cost": 8,
+                 *               "transit_time": "",
+                 *               "additional_description": ""
+                 *             },
+                 *             "address": {
+                 *               "first_name": "BigCommerce",
+                 *               "last_name": "Cart/Checkout",
+                 *               "email": "jane2@example.com",
+                 *               "company": "",
+                 *               "address1": "123 Main Street",
+                 *               "address2": "",
+                 *               "city": "Austin",
+                 *               "state_or_province": "Texas",
+                 *               "state_or_province_code": "TX",
+                 *               "country": "United States",
+                 *               "country_code": "US",
+                 *               "postal_code": "78751",
+                 *               "phone": "688546",
+                 *               "customFields": [
+                 *                 {
+                 *                   "field_id": "field_25",
+                 *                   "field_value": "Great!"
+                 *                 }
+                 *               ]
+                 *             }
+                 *           }
+                 *         ],
+                 *         "taxes": [
+                 *           {
+                 *             "name": "Tax",
+                 *             "amount": 1.6
+                 *           }
+                 *         ],
+                 *         "coupons": [],
+                 *         "shipping_cost_total_inc_tax": 8.32,
+                 *         "shipping_cost_total_ex_tax": 8,
+                 *         "handling_cost_total_inc_tax": 0,
+                 *         "handling_cost_total_ex_tax": 0,
+                 *         "tax_total": 1.6,
+                 *         "subtotal_inc_tax": 33.23,
+                 *         "subtotal_ex_tax": 31.95,
+                 *         "grand_total": 41.55,
+                 *         "created_time": "2019-08-05T15:38:14+00:00",
+                 *         "updated_time": "2019-08-05T15:41:28+00:00",
+                 *         "customer_message": ""
+                 *       },
+                 *       "meta": {}
+                 *     } */
                 readonly "Selected Shipping Options": unknown;
+                /** @example {
+                 *       "data": {
+                 *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                 *         "cart": {
+                 *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                 *           "customer_id": 25,
+                 *           "channel_id": 1,
+                 *           "email": "customer@example.com",
+                 *           "currency": {
+                 *             "code": "USD"
+                 *           },
+                 *           "base_amount": 67,
+                 *           "discount_amount": 0,
+                 *           "cart_amount_inc_tax": 53.6,
+                 *           "cart_amount_ex_tax": 53.6,
+                 *           "coupons": [
+                 *             {
+                 *               "id": 1,
+                 *               "code": "SHOP20",
+                 *               "coupon_type": "percentage_discount",
+                 *               "display_name": "20% Off",
+                 *               "discounted_amount": 13.4
+                 *             }
+                 *           ],
+                 *           "discounts": [
+                 *             {
+                 *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                 *               "discounted_amount": 7
+                 *             },
+                 *             {
+                 *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                 *               "discounted_amount": 6.4
+                 *             }
+                 *           ],
+                 *           "line_items": {
+                 *             "physical_items": [
+                 *               {
+                 *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                 *                 "variant_id": 528,
+                 *                 "product_id": 145,
+                 *                 "sku": "htltwl-001",
+                 *                 "name": "Hotel Towel",
+                 *                 "url": "https://example.com/hotel-towel/",
+                 *                 "quantity": 1,
+                 *                 "is_taxable": true,
+                 *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                 *                 "discounts": [
+                 *                   {
+                 *                     "id": "coupon",
+                 *                     "discounted_amount": 6.4
+                 *                   }
+                 *                 ],
+                 *                 "coupons": 6.4,
+                 *                 "discount_amount": 0,
+                 *                 "coupon_amount": 6.4,
+                 *                 "original_price": 32,
+                 *                 "list_price": 32,
+                 *                 "sale_price": 32,
+                 *                 "extended_list_price": 32,
+                 *                 "extended_sale_price": 32,
+                 *                 "is_require_shipping": true,
+                 *                 "is_mutable": true
+                 *               }
+                 *             ],
+                 *             "digital_items": [
+                 *               {
+                 *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                 *                 "variant_id": 182,
+                 *                 "product_id": 138,
+                 *                 "sku": "ebk-001",
+                 *                 "name": "eBook Download",
+                 *                 "url": "https://example.com/digital/",
+                 *                 "quantity": 1,
+                 *                 "is_taxable": true,
+                 *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                 *                 "discounts": [
+                 *                   {
+                 *                     "id": "coupon",
+                 *                     "discounted_amount": 7
+                 *                   }
+                 *                 ],
+                 *                 "coupons": 7,
+                 *                 "discount_amount": 0,
+                 *                 "coupon_amount": 7,
+                 *                 "original_price": 35,
+                 *                 "list_price": 35,
+                 *                 "sale_price": 35,
+                 *                 "extended_list_price": 35,
+                 *                 "extended_sale_price": 35,
+                 *                 "is_require_shipping": false,
+                 *                 "is_mutable": true
+                 *               }
+                 *             ],
+                 *             "gift_certificates": [],
+                 *             "custom_items": []
+                 *           },
+                 *           "created_time": "2021-11-08T22:46:23+00:00",
+                 *           "updated_time": "2021-11-09T16:08:01+00:00"
+                 *         },
+                 *         "billing_address": {
+                 *           "id": "618a9ce18173e",
+                 *           "first_name": "Jane",
+                 *           "last_name": "Doe",
+                 *           "email": "customer@example.com",
+                 *           "company": "",
+                 *           "address1": "123 Main Street",
+                 *           "address2": "",
+                 *           "city": "",
+                 *           "state_or_province": "",
+                 *           "state_or_province_code": "",
+                 *           "country": "",
+                 *           "country_code": "",
+                 *           "postal_code": "29681",
+                 *           "phone": "12125556895",
+                 *           "custom_fields": []
+                 *         },
+                 *         "consignments": [],
+                 *         "taxes": [
+                 *           {
+                 *             "name": "Tax",
+                 *             "amount": 0
+                 *           }
+                 *         ],
+                 *         "coupons": [
+                 *           {
+                 *             "id": 1,
+                 *             "code": "SHOP20",
+                 *             "coupon_type": "percentage_discount",
+                 *             "display_name": "20% Off",
+                 *             "discounted_amount": 13.4
+                 *           }
+                 *         ],
+                 *         "shipping_cost_total_inc_tax": 0,
+                 *         "shipping_cost_total_ex_tax": 0,
+                 *         "handling_cost_total_inc_tax": 0,
+                 *         "handling_cost_total_ex_tax": 0,
+                 *         "tax_total": 0,
+                 *         "subtotal_inc_tax": 67,
+                 *         "subtotal_ex_tax": 67,
+                 *         "grand_total": 53.6,
+                 *         "created_time": "2021-11-08T22:46:23+00:00",
+                 *         "updated_time": "2021-11-09T16:08:01+00:00",
+                 *         "customer_message": ""
+                 *       },
+                 *       "meta": {}
+                 *     } */
                 readonly "Coupon Applied": unknown;
+                /** @example {
+                 *       "data": {
+                 *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                 *         "cart": {
+                 *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                 *           "customer_id": 0,
+                 *           "channel_id": 1,
+                 *           "email": "example@example.com",
+                 *           "currency": {
+                 *             "code": "USD"
+                 *           },
+                 *           "base_amount": 67,
+                 *           "discount_amount": 0,
+                 *           "cart_amount_inc_tax": 67,
+                 *           "cart_amount_ex_tax": 67,
+                 *           "coupons": [],
+                 *           "discounts": [
+                 *             {
+                 *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                 *               "discounted_amount": 0
+                 *             },
+                 *             {
+                 *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                 *               "discounted_amount": 0
+                 *             }
+                 *           ],
+                 *           "line_items": {
+                 *             "physical_items": [
+                 *               {
+                 *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                 *                 "variant_id": 528,
+                 *                 "product_id": 145,
+                 *                 "sku": "htltwl-001",
+                 *                 "name": "Hotel Towel",
+                 *                 "url": "https://example.com/hotel-towel/",
+                 *                 "quantity": 1,
+                 *                 "is_taxable": true,
+                 *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                 *                 "discounts": [],
+                 *                 "coupons": [],
+                 *                 "discount_amount": 0,
+                 *                 "coupon_amount": 0,
+                 *                 "original_price": 32,
+                 *                 "list_price": 32,
+                 *                 "sale_price": 32,
+                 *                 "extended_list_price": 32,
+                 *                 "extended_sale_price": 32,
+                 *                 "is_require_shipping": true,
+                 *                 "is_mutable": true
+                 *               }
+                 *             ],
+                 *             "digital_items": [
+                 *               {
+                 *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                 *                 "variant_id": 182,
+                 *                 "product_id": 138,
+                 *                 "sku": "ebk-001",
+                 *                 "name": "eBook Download",
+                 *                 "url": "https://example.com/digital/",
+                 *                 "quantity": 1,
+                 *                 "is_taxable": true,
+                 *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                 *                 "discounts": [],
+                 *                 "coupons": [],
+                 *                 "discount_amount": 0,
+                 *                 "coupon_amount": 0,
+                 *                 "original_price": 35,
+                 *                 "list_price": 35,
+                 *                 "sale_price": 35,
+                 *                 "extended_list_price": 35,
+                 *                 "extended_sale_price": 35,
+                 *                 "is_require_shipping": false,
+                 *                 "is_mutable": true
+                 *               }
+                 *             ],
+                 *             "gift_certificates": [],
+                 *             "custom_items": []
+                 *           },
+                 *           "created_time": "2021-11-08T22:46:23+00:00",
+                 *           "updated_time": "2021-11-09T16:06:56+00:00"
+                 *         },
+                 *         "billing_address": {},
+                 *         "consignments": [],
+                 *         "taxes": [
+                 *           {
+                 *             "name": "Tax",
+                 *             "amount": 0
+                 *           }
+                 *         ],
+                 *         "coupons": [],
+                 *         "shipping_cost_total_inc_tax": 0,
+                 *         "shipping_cost_total_ex_tax": 0,
+                 *         "handling_cost_total_inc_tax": 0,
+                 *         "handling_cost_total_ex_tax": 0,
+                 *         "tax_total": 0,
+                 *         "subtotal_inc_tax": 67,
+                 *         "subtotal_ex_tax": 67,
+                 *         "grand_total": 67,
+                 *         "created_time": "2021-11-08T22:46:23+00:00",
+                 *         "updated_time": "2021-11-09T16:06:56+00:00",
+                 *         "customer_message": ""
+                 *       },
+                 *       "meta": {}
+                 *     } */
                 readonly "No Coupon Applied": unknown;
+                /** @example {
+                 *       "data": {
+                 *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                 *         "cart": {
+                 *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                 *           "customer_id": 0,
+                 *           "channel_id": 1,
+                 *           "email": "example@example.com",
+                 *           "currency": {
+                 *             "code": "USD"
+                 *           },
+                 *           "base_amount": 67,
+                 *           "discount_amount": 0,
+                 *           "cart_amount_inc_tax": 67,
+                 *           "cart_amount_ex_tax": 67,
+                 *           "coupons": [],
+                 *           "discounts": [
+                 *             {
+                 *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                 *               "discounted_amount": 0
+                 *             },
+                 *             {
+                 *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                 *               "discounted_amount": 0
+                 *             }
+                 *           ],
+                 *           "line_items": {
+                 *             "physical_items": [
+                 *               {
+                 *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                 *                 "variant_id": 528,
+                 *                 "product_id": 145,
+                 *                 "sku": "htltwl-001",
+                 *                 "name": "Hotel Towel",
+                 *                 "url": "https://example.com/hotel-towel/",
+                 *                 "quantity": 1,
+                 *                 "is_taxable": true,
+                 *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                 *                 "discounts": [],
+                 *                 "coupons": [],
+                 *                 "discount_amount": 0,
+                 *                 "coupon_amount": 0,
+                 *                 "original_price": 32,
+                 *                 "list_price": 32,
+                 *                 "sale_price": 32,
+                 *                 "extended_list_price": 32,
+                 *                 "extended_sale_price": 32,
+                 *                 "is_require_shipping": true,
+                 *                 "is_mutable": true
+                 *               }
+                 *             ],
+                 *             "digital_items": [
+                 *               {
+                 *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                 *                 "variant_id": 182,
+                 *                 "product_id": 138,
+                 *                 "sku": "ebk-001",
+                 *                 "name": "eBook Download",
+                 *                 "url": "https://example.com/digital/",
+                 *                 "quantity": 1,
+                 *                 "is_taxable": true,
+                 *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                 *                 "discounts": [],
+                 *                 "coupons": [],
+                 *                 "discount_amount": 0,
+                 *                 "coupon_amount": 0,
+                 *                 "original_price": 35,
+                 *                 "list_price": 35,
+                 *                 "sale_price": 35,
+                 *                 "extended_list_price": 35,
+                 *                 "extended_sale_price": 35,
+                 *                 "is_require_shipping": false,
+                 *                 "is_mutable": true
+                 *               }
+                 *             ],
+                 *             "gift_certificates": [],
+                 *             "custom_items": []
+                 *           },
+                 *           "created_time": "2021-11-08T22:46:23+00:00",
+                 *           "updated_time": "2021-11-09T16:06:56+00:00"
+                 *         },
+                 *         "billing_address": {},
+                 *         "consignments": [],
+                 *         "taxes": [
+                 *           {
+                 *             "name": "Tax",
+                 *             "amount": 0
+                 *           }
+                 *         ],
+                 *         "coupons": [],
+                 *         "shipping_cost_total_inc_tax": 0,
+                 *         "shipping_cost_total_ex_tax": 0,
+                 *         "handling_cost_total_inc_tax": 0,
+                 *         "handling_cost_total_ex_tax": 0,
+                 *         "tax_total": 0,
+                 *         "subtotal_inc_tax": 67,
+                 *         "subtotal_ex_tax": 67,
+                 *         "grand_total": 67,
+                 *         "created_time": "2021-11-08T22:46:23+00:00",
+                 *         "updated_time": "2021-11-09T16:06:56+00:00",
+                 *         "customer_message": "",
+                 *         "promotions": [
+                 *           {
+                 *             "banners": [
+                 *               {
+                 *                 "id": "3",
+                 *                 "type": "applied",
+                 *                 "page": [
+                 *                   "homepage",
+                 *                   "cartpage"
+                 *                 ],
+                 *                 "text": "Some text"
+                 *               }
+                 *             ]
+                 *           }
+                 *         ]
+                 *       },
+                 *       "meta": {}
+                 *     } */
                 readonly "Include promotions": unknown;
+                /** @example {
+                 *       "data": {
+                 *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                 *         "cart": {
+                 *           "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                 *           "customer_id": 0,
+                 *           "email": "string@example.com",
+                 *           "currency": {
+                 *             "code": "string"
+                 *           },
+                 *           "base_amount": 0,
+                 *           "channel_id": 0,
+                 *           "discount_amount": 0,
+                 *           "cart_amount_inc_tax": 0,
+                 *           "cart_amount_ex_tax": 0,
+                 *           "coupons": [
+                 *             {
+                 *               "code": "string",
+                 *               "id": 0,
+                 *               "coupon_type": "string",
+                 *               "display_name": "string",
+                 *               "discounted_amount": 0
+                 *             }
+                 *           ],
+                 *           "discounts": [
+                 *             {
+                 *               "id": "string",
+                 *               "discounted_amount": 0
+                 *             }
+                 *           ],
+                 *           "line_items": {
+                 *             "physical_items": [
+                 *               {
+                 *                 "quantity": 0,
+                 *                 "id": "string",
+                 *                 "variant_id": 0,
+                 *                 "product_id": 0,
+                 *                 "sku": "string",
+                 *                 "name": "string",
+                 *                 "url": "string",
+                 *                 "is_taxable": true,
+                 *                 "image_url": "string",
+                 *                 "discounts": [
+                 *                   {
+                 *                     "id": "string",
+                 *                     "discounted_amount": 0
+                 *                   }
+                 *                 ],
+                 *                 "coupons": 0,
+                 *                 "discount_amount": 0,
+                 *                 "coupon_amount": 0,
+                 *                 "original_price": 0,
+                 *                 "list_price": 0,
+                 *                 "sale_price": 0,
+                 *                 "extended_list_price": 0,
+                 *                 "extended_sale_price": 0,
+                 *                 "is_require_shipping": true,
+                 *                 "is_mutable": true,
+                 *                 "parent_id": 0,
+                 *                 "gift_wrapping": {
+                 *                   "name": "string",
+                 *                   "message": "string",
+                 *                   "amount": 0,
+                 *                   "amount_as_integer": 0
+                 *                 }
+                 *               }
+                 *             ],
+                 *             "digital_items": [
+                 *               {
+                 *                 "quantity": 0,
+                 *                 "id": "string",
+                 *                 "variant_id": 0,
+                 *                 "parent_id": 0,
+                 *                 "product_id": 0,
+                 *                 "sku": "string",
+                 *                 "name": "string",
+                 *                 "url": "string",
+                 *                 "is_mutable": true,
+                 *                 "is_require_shipping": true,
+                 *                 "is_taxable": true,
+                 *                 "image_url": "string",
+                 *                 "discounts": [
+                 *                   {
+                 *                     "id": "string",
+                 *                     "discounted_amount": 0
+                 *                   }
+                 *                 ],
+                 *                 "coupons": 0,
+                 *                 "discount_amount": 0,
+                 *                 "coupon_amount": 0,
+                 *                 "original_price": 0,
+                 *                 "list_price": 0,
+                 *                 "sale_price": 0,
+                 *                 "extended_list_price": 0,
+                 *                 "extended_sale_price": 0
+                 *               }
+                 *             ],
+                 *             "gift_certificates": [
+                 *               {
+                 *                 "theme": "string",
+                 *                 "amount": 0,
+                 *                 "sender": {
+                 *                   "name": "string",
+                 *                   "email": "string"
+                 *                 },
+                 *                 "recipient": {
+                 *                   "name": "string",
+                 *                   "email": "string"
+                 *                 },
+                 *                 "id": "string",
+                 *                 "name": "string",
+                 *                 "taxable": true,
+                 *                 "message": "string"
+                 *               }
+                 *             ],
+                 *             "custom_items": [
+                 *               {
+                 *                 "quantity": 0,
+                 *                 "id": "string",
+                 *                 "extended_list_price": 0,
+                 *                 "list_price": 0,
+                 *                 "sku": "string",
+                 *                 "name": "string",
+                 *                 "image_url": "string"
+                 *               }
+                 *             ]
+                 *           },
+                 *           "created_time": "string",
+                 *           "updated_time": "string"
+                 *         },
+                 *         "billing_address": {
+                 *           "first_name": "string",
+                 *           "last_name": "string",
+                 *           "email": "string",
+                 *           "company": "string",
+                 *           "address1": "string",
+                 *           "address2": "string",
+                 *           "city": "string",
+                 *           "state_or_province": "string",
+                 *           "state_or_province_code": "string",
+                 *           "country_code": "string",
+                 *           "postal_code": "string",
+                 *           "phone": "12128565555",
+                 *           "custom_fields": [
+                 *             {
+                 *               "field_id": "string",
+                 *               "field_value": "string"
+                 *             }
+                 *           ],
+                 *           "id": "string"
+                 *         },
+                 *         "consignments": [
+                 *           {
+                 *             "id": "string",
+                 *             "shippingAddress": {},
+                 *             "address": {
+                 *               "first_name": "string",
+                 *               "last_name": "string",
+                 *               "email": "string",
+                 *               "company": "string",
+                 *               "address1": "string",
+                 *               "address2": "string",
+                 *               "city": "string",
+                 *               "state_or_province": "string",
+                 *               "state_or_province_code": "string",
+                 *               "country_code": "string",
+                 *               "postal_code": "string",
+                 *               "phone": "12125556858",
+                 *               "custom_fields": [
+                 *                 {
+                 *                   "field_id": "string",
+                 *                   "field_value": "string"
+                 *                 }
+                 *               ],
+                 *               "id": "string"
+                 *             },
+                 *             "available_shipping_options": [
+                 *               {
+                 *                 "description": "string",
+                 *                 "id": "string",
+                 *                 "type": "string",
+                 *                 "image_url": "string",
+                 *                 "cost": 0,
+                 *                 "transit_time": "string",
+                 *                 "additional_description": "string"
+                 *               }
+                 *             ],
+                 *             "selected_shipping_option": {
+                 *               "description": "string",
+                 *               "id": "string",
+                 *               "type": "string",
+                 *               "image_url": "string",
+                 *               "cost": 0,
+                 *               "transit_time": "string",
+                 *               "additional_description": "string"
+                 *             },
+                 *             "coupon_discounts": [
+                 *               {
+                 *                 "code": "string",
+                 *                 "amount": 0
+                 *               }
+                 *             ],
+                 *             "discounts": [
+                 *               {
+                 *                 "id": 0
+                 *               }
+                 *             ],
+                 *             "shipping_cost_inc_tax": 0,
+                 *             "shipping_cost_ex_tax": 0,
+                 *             "handling_cost_inc_tax": 0,
+                 *             "handling_cost_ex_tax": 0,
+                 *             "line_item_ids": [
+                 *               "string"
+                 *             ]
+                 *           }
+                 *         ],
+                 *         "taxes": [
+                 *           {
+                 *             "name": "string",
+                 *             "amount": 0
+                 *           }
+                 *         ],
+                 *         "coupons": [
+                 *           {
+                 *             "code": "SHOPNOW",
+                 *             "id": 1,
+                 *             "coupon_type": "percentage_discount",
+                 *             "display_name": "20% Off",
+                 *             "discounted_amount": 0.9
+                 *           }
+                 *         ],
+                 *         "order_id": "string",
+                 *         "shipping_cost_total_inc_tax": 0,
+                 *         "shipping_cost_total_ex_tax": 0,
+                 *         "handling_cost_total_inc_tax": 0,
+                 *         "handling_cost_total_ex_tax": 0,
+                 *         "tax_total": 0,
+                 *         "subtotal_inc_tax": 0,
+                 *         "subtotal_ex_tax": 0,
+                 *         "grand_total": 0,
+                 *         "created_time": "string",
+                 *         "updated_time": "string",
+                 *         "customer_message": "string",
+                 *         "promotions": [
+                 *           {
+                 *             "banners": [
+                 *               {
+                 *                 "id": "3",
+                 *                 "type": "applied",
+                 *                 "page": [
+                 *                   "homepage",
+                 *                   "cartpage"
+                 *                 ],
+                 *                 "text": "Some text"
+                 *               }
+                 *             ]
+                 *           }
+                 *         ],
+                 *         "version": 1
+                 *       }
+                 *     } */
                 readonly "example-1": unknown;
             };
         };
@@ -1136,6 +2075,11 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
+                /** @example {
+                 *       "status": 409,
+                 *       "title": "The request cannot be processed due to a possible conflict. Please review the changes and try again.",
+                 *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+                 *     } */
                 readonly "application/json": {
                     readonly status?: number;
                     readonly title?: string;
@@ -1148,10 +2092,27 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
+                /** @example {
+                 *       "data": {
+                 *         "custom_checkout_script_url": "https://example.com/custom-checkout-script.js",
+                 *         "order_confirmation_use_custom_checkout_script": false,
+                 *         "custom_order_confirmation_script_url": "https://example.com/custom-order-confirmation-script.js",
+                 *         "custom_checkout_supports_uco_settings": false
+                 *       },
+                 *       "meta": {}
+                 *     } */
                 readonly "application/json": {
                     readonly data?: components["schemas"]["CheckoutsSettings"];
                     readonly meta?: Record<string, unknown>;
                 };
+                /** @example {
+                 *       "data": {
+                 *         "custom_checkout_script_url": "webdav:vtz-checkout/dist/auto-loader.js",
+                 *         "order_confirmation_use_custom_checkout_script": false,
+                 *         "custom_order_confirmation_script_url": "webdav:vtz-order-confirmation/dist/auto-loader.js"
+                 *       },
+                 *       "meta": {}
+                 *     } */
                 readonly "WebDAV protocol": unknown;
             };
         };
@@ -1160,6 +2121,12 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
+                /** @example {
+                 *       "data": {
+                 *         "id": 75
+                 *       },
+                 *       "meta": {}
+                 *     } */
                 readonly "application/json": {
                     readonly data?: components["schemas"]["Order"];
                     readonly meta?: Record<string, unknown>;
@@ -1222,11 +2189,950 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 0.9
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true,
+                     *                 "gift_wrapping": {}
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125685555",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *                 "type": "shipping_byweight",
+                     *                 "description": "Ship by Weight",
+                     *                 "image_url": "",
+                     *                 "cost": 8,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "722d78b5120de60a725e41be9bb8d999",
+                     *                 "type": "shipping_flatrate",
+                     *                 "description": "Flat Rate",
+                     *                 "image_url": "",
+                     *                 "cost": 12,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "71090fa93c8985348892543c3f4887b6",
+                     *                 "type": "shipping_upsready",
+                     *                 "description": "UPS® (UPS Next Day Air®)",
+                     *                 "image_url": "",
+                     *                 "cost": 43.9,
+                     *                 "transit_time": "1 business day",
+                     *                 "additional_description": ""
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.28
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.28,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 33.23,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Available Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125559659",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 8.32,
+                     *             "shipping_cost_ex_tax": 8,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *               "type": "shipping_byweight",
+                     *               "description": "Ship by Weight",
+                     *               "image_url": "",
+                     *               "cost": 8,
+                     *               "transit_time": "",
+                     *               "additional_description": ""
+                     *             },
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             }
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.6
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 8.32,
+                     *         "shipping_cost_total_ex_tax": 8,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.6,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 41.55,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Selected Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 25,
+                     *           "channel_id": 1,
+                     *           "email": "customer@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 53.6,
+                     *           "cart_amount_ex_tax": 53.6,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 13.4
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 7
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 6.4
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 6.4
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 6.4,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 6.4,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 7
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 7,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 7,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:08:01+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "618a9ce18173e",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "customer@example.com",
+                     *           "company": "",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "",
+                     *           "city": "",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "29681",
+                     *           "phone": "12125556895",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 13.4
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 53.6,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:08:01+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "No Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": "",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ]
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Include promotions": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *         "cart": {
+                     *           "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *           "customer_id": 0,
+                     *           "email": "string@example.com",
+                     *           "currency": {
+                     *             "code": "string"
+                     *           },
+                     *           "base_amount": 0,
+                     *           "channel_id": 0,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 0,
+                     *           "cart_amount_ex_tax": 0,
+                     *           "coupons": [
+                     *             {
+                     *               "code": "string",
+                     *               "id": 0,
+                     *               "coupon_type": "string",
+                     *               "display_name": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true,
+                     *                 "parent_id": 0,
+                     *                 "gift_wrapping": {
+                     *                   "name": "string",
+                     *                   "message": "string",
+                     *                   "amount": 0,
+                     *                   "amount_as_integer": 0
+                     *                 }
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "parent_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_mutable": true,
+                     *                 "is_require_shipping": true,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [
+                     *               {
+                     *                 "theme": "string",
+                     *                 "amount": 0,
+                     *                 "sender": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "recipient": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "id": "string",
+                     *                 "name": "string",
+                     *                 "taxable": true,
+                     *                 "message": "string"
+                     *               }
+                     *             ],
+                     *             "custom_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "extended_list_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "image_url": "string"
+                     *               }
+                     *             ]
+                     *           },
+                     *           "created_time": "string",
+                     *           "updated_time": "string"
+                     *         },
+                     *         "billing_address": {
+                     *           "first_name": "string",
+                     *           "last_name": "string",
+                     *           "email": "string",
+                     *           "company": "string",
+                     *           "address1": "string",
+                     *           "address2": "string",
+                     *           "city": "string",
+                     *           "state_or_province": "string",
+                     *           "state_or_province_code": "string",
+                     *           "country_code": "string",
+                     *           "postal_code": "string",
+                     *           "phone": "12128565555",
+                     *           "custom_fields": [
+                     *             {
+                     *               "field_id": "string",
+                     *               "field_value": "string"
+                     *             }
+                     *           ],
+                     *           "id": "string"
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "string",
+                     *             "shippingAddress": {},
+                     *             "address": {
+                     *               "first_name": "string",
+                     *               "last_name": "string",
+                     *               "email": "string",
+                     *               "company": "string",
+                     *               "address1": "string",
+                     *               "address2": "string",
+                     *               "city": "string",
+                     *               "state_or_province": "string",
+                     *               "state_or_province_code": "string",
+                     *               "country_code": "string",
+                     *               "postal_code": "string",
+                     *               "phone": "12125556858",
+                     *               "custom_fields": [
+                     *                 {
+                     *                   "field_id": "string",
+                     *                   "field_value": "string"
+                     *                 }
+                     *               ],
+                     *               "id": "string"
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "description": "string",
+                     *                 "id": "string",
+                     *                 "type": "string",
+                     *                 "image_url": "string",
+                     *                 "cost": 0,
+                     *                 "transit_time": "string",
+                     *                 "additional_description": "string"
+                     *               }
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "description": "string",
+                     *               "id": "string",
+                     *               "type": "string",
+                     *               "image_url": "string",
+                     *               "cost": 0,
+                     *               "transit_time": "string",
+                     *               "additional_description": "string"
+                     *             },
+                     *             "coupon_discounts": [
+                     *               {
+                     *                 "code": "string",
+                     *                 "amount": 0
+                     *               }
+                     *             ],
+                     *             "discounts": [
+                     *               {
+                     *                 "id": 0
+                     *               }
+                     *             ],
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "line_item_ids": [
+                     *               "string"
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "string",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "code": "SHOPNOW",
+                     *             "id": 1,
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "order_id": "string",
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 0,
+                     *         "subtotal_ex_tax": 0,
+                     *         "grand_total": 0,
+                     *         "created_time": "string",
+                     *         "updated_time": "string",
+                     *         "customer_message": "string",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "version": 1
+                     *       }
+                     *     } */
                     readonly "example-1": unknown;
                 };
             };
@@ -1280,11 +3186,955 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 0.9
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true,
+                     *                 "gift_wrapping": {}
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125685555",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *                 "type": "shipping_byweight",
+                     *                 "description": "Ship by Weight",
+                     *                 "image_url": "",
+                     *                 "cost": 8,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "722d78b5120de60a725e41be9bb8d999",
+                     *                 "type": "shipping_flatrate",
+                     *                 "description": "Flat Rate",
+                     *                 "image_url": "",
+                     *                 "cost": 12,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "71090fa93c8985348892543c3f4887b6",
+                     *                 "type": "shipping_upsready",
+                     *                 "description": "UPS® (UPS Next Day Air®)",
+                     *                 "image_url": "",
+                     *                 "cost": 43.9,
+                     *                 "transit_time": "1 business day",
+                     *                 "additional_description": ""
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.28
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.28,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 33.23,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": "",
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Available Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125559659",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 8.32,
+                     *             "shipping_cost_ex_tax": 8,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *               "type": "shipping_byweight",
+                     *               "description": "Ship by Weight",
+                     *               "image_url": "",
+                     *               "cost": 8,
+                     *               "transit_time": "",
+                     *               "additional_description": ""
+                     *             },
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             }
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.6
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 8.32,
+                     *         "shipping_cost_total_ex_tax": 8,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.6,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 41.55,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": "",
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Selected Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 25,
+                     *           "channel_id": 1,
+                     *           "email": "customer@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 53.6,
+                     *           "cart_amount_ex_tax": 53.6,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 13.4
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 7
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 6.4
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 6.4
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 6.4,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 6.4,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 7
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 7,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 7,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:08:01+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "618a9ce18173e",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "customer@example.com",
+                     *           "company": "",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "",
+                     *           "city": "",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "29681",
+                     *           "phone": "12125556895",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 13.4
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 53.6,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:08:01+00:00",
+                     *         "customer_message": "",
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": "",
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "No Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": "",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Include promotions": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *         "cart": {
+                     *           "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *           "customer_id": 0,
+                     *           "email": "string@example.com",
+                     *           "currency": {
+                     *             "code": "string"
+                     *           },
+                     *           "base_amount": 0,
+                     *           "channel_id": 0,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 0,
+                     *           "cart_amount_ex_tax": 0,
+                     *           "coupons": [
+                     *             {
+                     *               "code": "string",
+                     *               "id": 0,
+                     *               "coupon_type": "string",
+                     *               "display_name": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true,
+                     *                 "parent_id": 0,
+                     *                 "gift_wrapping": {
+                     *                   "name": "string",
+                     *                   "message": "string",
+                     *                   "amount": 0,
+                     *                   "amount_as_integer": 0
+                     *                 }
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "parent_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_mutable": true,
+                     *                 "is_require_shipping": true,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [
+                     *               {
+                     *                 "theme": "string",
+                     *                 "amount": 0,
+                     *                 "sender": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "recipient": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "id": "string",
+                     *                 "name": "string",
+                     *                 "taxable": true,
+                     *                 "message": "string"
+                     *               }
+                     *             ],
+                     *             "custom_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "extended_list_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "image_url": "string"
+                     *               }
+                     *             ]
+                     *           },
+                     *           "created_time": "string",
+                     *           "updated_time": "string"
+                     *         },
+                     *         "billing_address": {
+                     *           "first_name": "string",
+                     *           "last_name": "string",
+                     *           "email": "string",
+                     *           "company": "string",
+                     *           "address1": "string",
+                     *           "address2": "string",
+                     *           "city": "string",
+                     *           "state_or_province": "string",
+                     *           "state_or_province_code": "string",
+                     *           "country_code": "string",
+                     *           "postal_code": "string",
+                     *           "phone": "12128565555",
+                     *           "custom_fields": [
+                     *             {
+                     *               "field_id": "string",
+                     *               "field_value": "string"
+                     *             }
+                     *           ],
+                     *           "id": "string"
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "string",
+                     *             "shippingAddress": {},
+                     *             "address": {
+                     *               "first_name": "string",
+                     *               "last_name": "string",
+                     *               "email": "string",
+                     *               "company": "string",
+                     *               "address1": "string",
+                     *               "address2": "string",
+                     *               "city": "string",
+                     *               "state_or_province": "string",
+                     *               "state_or_province_code": "string",
+                     *               "country_code": "string",
+                     *               "postal_code": "string",
+                     *               "phone": "12125556858",
+                     *               "custom_fields": [
+                     *                 {
+                     *                   "field_id": "string",
+                     *                   "field_value": "string"
+                     *                 }
+                     *               ],
+                     *               "id": "string"
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "description": "string",
+                     *                 "id": "string",
+                     *                 "type": "string",
+                     *                 "image_url": "string",
+                     *                 "cost": 0,
+                     *                 "transit_time": "string",
+                     *                 "additional_description": "string"
+                     *               }
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "description": "string",
+                     *               "id": "string",
+                     *               "type": "string",
+                     *               "image_url": "string",
+                     *               "cost": 0,
+                     *               "transit_time": "string",
+                     *               "additional_description": "string"
+                     *             },
+                     *             "coupon_discounts": [
+                     *               {
+                     *                 "code": "string",
+                     *                 "amount": 0
+                     *               }
+                     *             ],
+                     *             "discounts": [
+                     *               {
+                     *                 "id": 0
+                     *               }
+                     *             ],
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "line_item_ids": [
+                     *               "string"
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "string",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "code": "SHOPNOW",
+                     *             "id": 1,
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "order_id": "string",
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 0,
+                     *         "subtotal_ex_tax": 0,
+                     *         "grand_total": 0,
+                     *         "created_time": "string",
+                     *         "updated_time": "string",
+                     *         "customer_message": "string",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "version": 1
+                     *       }
+                     *     } */
                     readonly "example-1": unknown;
                 };
             };
@@ -1348,15 +4198,1053 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "tax_included": false,
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "manual_discount_amount": 10,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 13.6
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": 18,
+                     *                     "discounted_amount": 13.6
+                     *                   },
+                     *                   {
+                     *                     "id": 49,
+                     *                     "discounted_amount": 2.4
+                     *                   },
+                     *                   {
+                     *                     "id": "manual-discount",
+                     *                     "discounted_amount": 10
+                     *                   }
+                     *                 ],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "comparison_price": 33.23,
+                     *                 "extended_comparison_price": 33.23,
+                     *                 "is_require_shipping": true,
+                     *                 "gift_wrapping": {},
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.28
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "order_id": null,
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.28,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 33.23,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": "",
+                     *         "staff_note": " ",
+                     *         "fees": []
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 0.9
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true,
+                     *                 "gift_wrapping": {}
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125685555",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *                 "type": "shipping_byweight",
+                     *                 "description": "Ship by Weight",
+                     *                 "image_url": "",
+                     *                 "cost": 8,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "722d78b5120de60a725e41be9bb8d999",
+                     *                 "type": "shipping_flatrate",
+                     *                 "description": "Flat Rate",
+                     *                 "image_url": "",
+                     *                 "cost": 12,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "71090fa93c8985348892543c3f4887b6",
+                     *                 "type": "shipping_upsready",
+                     *                 "description": "UPS® (UPS Next Day Air®)",
+                     *                 "image_url": "",
+                     *                 "cost": 43.9,
+                     *                 "transit_time": "1 business day",
+                     *                 "additional_description": ""
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.28
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.28,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 33.23,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Available Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125559659",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 8.32,
+                     *             "shipping_cost_ex_tax": 8,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *               "type": "shipping_byweight",
+                     *               "description": "Ship by Weight",
+                     *               "image_url": "",
+                     *               "cost": 8,
+                     *               "transit_time": "",
+                     *               "additional_description": ""
+                     *             },
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             }
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.6
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 8.32,
+                     *         "shipping_cost_total_ex_tax": 8,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.6,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 41.55,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Selected Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 25,
+                     *           "channel_id": 1,
+                     *           "email": "customer@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 53.6,
+                     *           "cart_amount_ex_tax": 53.6,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 13.4
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 7
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 6.4
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 6.4
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 6.4,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 6.4,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 7
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 7,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 7,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:08:01+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "618a9ce18173e",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "customer@example.com",
+                     *           "company": "",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "",
+                     *           "city": "",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "29681",
+                     *           "phone": "12125556895",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 13.4
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 53.6,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:08:01+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "No Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": "",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ]
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Include promotions": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *         "cart": {
+                     *           "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *           "customer_id": 0,
+                     *           "email": "string@example.com",
+                     *           "currency": {
+                     *             "code": "string"
+                     *           },
+                     *           "base_amount": 0,
+                     *           "channel_id": 0,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 0,
+                     *           "cart_amount_ex_tax": 0,
+                     *           "coupons": [
+                     *             {
+                     *               "code": "string",
+                     *               "id": 0,
+                     *               "coupon_type": "string",
+                     *               "display_name": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true,
+                     *                 "parent_id": 0,
+                     *                 "gift_wrapping": {
+                     *                   "name": "string",
+                     *                   "message": "string",
+                     *                   "amount": 0,
+                     *                   "amount_as_integer": 0
+                     *                 }
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "parent_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_mutable": true,
+                     *                 "is_require_shipping": true,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [
+                     *               {
+                     *                 "theme": "string",
+                     *                 "amount": 0,
+                     *                 "sender": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "recipient": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "id": "string",
+                     *                 "name": "string",
+                     *                 "taxable": true,
+                     *                 "message": "string"
+                     *               }
+                     *             ],
+                     *             "custom_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "extended_list_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "image_url": "string"
+                     *               }
+                     *             ]
+                     *           },
+                     *           "created_time": "string",
+                     *           "updated_time": "string"
+                     *         },
+                     *         "billing_address": {
+                     *           "first_name": "string",
+                     *           "last_name": "string",
+                     *           "email": "string",
+                     *           "company": "string",
+                     *           "address1": "string",
+                     *           "address2": "string",
+                     *           "city": "string",
+                     *           "state_or_province": "string",
+                     *           "state_or_province_code": "string",
+                     *           "country_code": "string",
+                     *           "postal_code": "string",
+                     *           "phone": "12128565555",
+                     *           "custom_fields": [
+                     *             {
+                     *               "field_id": "string",
+                     *               "field_value": "string"
+                     *             }
+                     *           ],
+                     *           "id": "string"
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "string",
+                     *             "shippingAddress": {},
+                     *             "address": {
+                     *               "first_name": "string",
+                     *               "last_name": "string",
+                     *               "email": "string",
+                     *               "company": "string",
+                     *               "address1": "string",
+                     *               "address2": "string",
+                     *               "city": "string",
+                     *               "state_or_province": "string",
+                     *               "state_or_province_code": "string",
+                     *               "country_code": "string",
+                     *               "postal_code": "string",
+                     *               "phone": "12125556858",
+                     *               "custom_fields": [
+                     *                 {
+                     *                   "field_id": "string",
+                     *                   "field_value": "string"
+                     *                 }
+                     *               ],
+                     *               "id": "string"
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "description": "string",
+                     *                 "id": "string",
+                     *                 "type": "string",
+                     *                 "image_url": "string",
+                     *                 "cost": 0,
+                     *                 "transit_time": "string",
+                     *                 "additional_description": "string"
+                     *               }
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "description": "string",
+                     *               "id": "string",
+                     *               "type": "string",
+                     *               "image_url": "string",
+                     *               "cost": 0,
+                     *               "transit_time": "string",
+                     *               "additional_description": "string"
+                     *             },
+                     *             "coupon_discounts": [
+                     *               {
+                     *                 "code": "string",
+                     *                 "amount": 0
+                     *               }
+                     *             ],
+                     *             "discounts": [
+                     *               {
+                     *                 "id": 0
+                     *               }
+                     *             ],
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "line_item_ids": [
+                     *               "string"
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "string",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "code": "SHOPNOW",
+                     *             "id": 1,
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "order_id": "string",
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 0,
+                     *         "subtotal_ex_tax": 0,
+                     *         "grand_total": 0,
+                     *         "created_time": "string",
+                     *         "updated_time": "string",
+                     *         "customer_message": "string",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "version": 1
+                     *       }
+                     *     } */
                     readonly "example-1": unknown;
                 };
             };
@@ -1393,11 +5281,955 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 0.9
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true,
+                     *                 "gift_wrapping": {}
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125685555",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *                 "type": "shipping_byweight",
+                     *                 "description": "Ship by Weight",
+                     *                 "image_url": "",
+                     *                 "cost": 8,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "722d78b5120de60a725e41be9bb8d999",
+                     *                 "type": "shipping_flatrate",
+                     *                 "description": "Flat Rate",
+                     *                 "image_url": "",
+                     *                 "cost": 12,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "71090fa93c8985348892543c3f4887b6",
+                     *                 "type": "shipping_upsready",
+                     *                 "description": "UPS® (UPS Next Day Air®)",
+                     *                 "image_url": "",
+                     *                 "cost": 43.9,
+                     *                 "transit_time": "1 business day",
+                     *                 "additional_description": ""
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.28
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.28,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 33.23,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": "",
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Available Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125559659",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 8.32,
+                     *             "shipping_cost_ex_tax": 8,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *               "type": "shipping_byweight",
+                     *               "description": "Ship by Weight",
+                     *               "image_url": "",
+                     *               "cost": 8,
+                     *               "transit_time": "",
+                     *               "additional_description": ""
+                     *             },
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             }
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.6
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 8.32,
+                     *         "shipping_cost_total_ex_tax": 8,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.6,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 41.55,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": "",
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Selected Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 25,
+                     *           "channel_id": 1,
+                     *           "email": "customer@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 53.6,
+                     *           "cart_amount_ex_tax": 53.6,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 13.4
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 7
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 6.4
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 6.4
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 6.4,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 6.4,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 7
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 7,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 7,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:08:01+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "618a9ce18173e",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "customer@example.com",
+                     *           "company": "",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "",
+                     *           "city": "",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "29681",
+                     *           "phone": "12125556895",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 13.4
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 53.6,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:08:01+00:00",
+                     *         "customer_message": "",
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": "",
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "No Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": "",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Include promotions": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *         "cart": {
+                     *           "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *           "customer_id": 0,
+                     *           "email": "string@example.com",
+                     *           "currency": {
+                     *             "code": "string"
+                     *           },
+                     *           "base_amount": 0,
+                     *           "channel_id": 0,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 0,
+                     *           "cart_amount_ex_tax": 0,
+                     *           "coupons": [
+                     *             {
+                     *               "code": "string",
+                     *               "id": 0,
+                     *               "coupon_type": "string",
+                     *               "display_name": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true,
+                     *                 "parent_id": 0,
+                     *                 "gift_wrapping": {
+                     *                   "name": "string",
+                     *                   "message": "string",
+                     *                   "amount": 0,
+                     *                   "amount_as_integer": 0
+                     *                 }
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "parent_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_mutable": true,
+                     *                 "is_require_shipping": true,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [
+                     *               {
+                     *                 "theme": "string",
+                     *                 "amount": 0,
+                     *                 "sender": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "recipient": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "id": "string",
+                     *                 "name": "string",
+                     *                 "taxable": true,
+                     *                 "message": "string"
+                     *               }
+                     *             ],
+                     *             "custom_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "extended_list_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "image_url": "string"
+                     *               }
+                     *             ]
+                     *           },
+                     *           "created_time": "string",
+                     *           "updated_time": "string"
+                     *         },
+                     *         "billing_address": {
+                     *           "first_name": "string",
+                     *           "last_name": "string",
+                     *           "email": "string",
+                     *           "company": "string",
+                     *           "address1": "string",
+                     *           "address2": "string",
+                     *           "city": "string",
+                     *           "state_or_province": "string",
+                     *           "state_or_province_code": "string",
+                     *           "country_code": "string",
+                     *           "postal_code": "string",
+                     *           "phone": "12128565555",
+                     *           "custom_fields": [
+                     *             {
+                     *               "field_id": "string",
+                     *               "field_value": "string"
+                     *             }
+                     *           ],
+                     *           "id": "string"
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "string",
+                     *             "shippingAddress": {},
+                     *             "address": {
+                     *               "first_name": "string",
+                     *               "last_name": "string",
+                     *               "email": "string",
+                     *               "company": "string",
+                     *               "address1": "string",
+                     *               "address2": "string",
+                     *               "city": "string",
+                     *               "state_or_province": "string",
+                     *               "state_or_province_code": "string",
+                     *               "country_code": "string",
+                     *               "postal_code": "string",
+                     *               "phone": "12125556858",
+                     *               "custom_fields": [
+                     *                 {
+                     *                   "field_id": "string",
+                     *                   "field_value": "string"
+                     *                 }
+                     *               ],
+                     *               "id": "string"
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "description": "string",
+                     *                 "id": "string",
+                     *                 "type": "string",
+                     *                 "image_url": "string",
+                     *                 "cost": 0,
+                     *                 "transit_time": "string",
+                     *                 "additional_description": "string"
+                     *               }
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "description": "string",
+                     *               "id": "string",
+                     *               "type": "string",
+                     *               "image_url": "string",
+                     *               "cost": 0,
+                     *               "transit_time": "string",
+                     *               "additional_description": "string"
+                     *             },
+                     *             "coupon_discounts": [
+                     *               {
+                     *                 "code": "string",
+                     *                 "amount": 0
+                     *               }
+                     *             ],
+                     *             "discounts": [
+                     *               {
+                     *                 "id": 0
+                     *               }
+                     *             ],
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "line_item_ids": [
+                     *               "string"
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "string",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "code": "SHOPNOW",
+                     *             "id": 1,
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "order_id": "string",
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 0,
+                     *         "subtotal_ex_tax": 0,
+                     *         "grand_total": 0,
+                     *         "created_time": "string",
+                     *         "updated_time": "string",
+                     *         "customer_message": "string",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "version": 1
+                     *       }
+                     *     } */
                     readonly "example-1": unknown;
                 };
             };
@@ -1435,11 +6267,955 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 0.9
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true,
+                     *                 "gift_wrapping": {}
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125685555",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *                 "type": "shipping_byweight",
+                     *                 "description": "Ship by Weight",
+                     *                 "image_url": "",
+                     *                 "cost": 8,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "722d78b5120de60a725e41be9bb8d999",
+                     *                 "type": "shipping_flatrate",
+                     *                 "description": "Flat Rate",
+                     *                 "image_url": "",
+                     *                 "cost": 12,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "71090fa93c8985348892543c3f4887b6",
+                     *                 "type": "shipping_upsready",
+                     *                 "description": "UPS® (UPS Next Day Air®)",
+                     *                 "image_url": "",
+                     *                 "cost": 43.9,
+                     *                 "transit_time": "1 business day",
+                     *                 "additional_description": ""
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.28
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.28,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 33.23,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": "",
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Available Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125559659",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 8.32,
+                     *             "shipping_cost_ex_tax": 8,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *               "type": "shipping_byweight",
+                     *               "description": "Ship by Weight",
+                     *               "image_url": "",
+                     *               "cost": 8,
+                     *               "transit_time": "",
+                     *               "additional_description": ""
+                     *             },
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             }
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.6
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 8.32,
+                     *         "shipping_cost_total_ex_tax": 8,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.6,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 41.55,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": "",
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Selected Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 25,
+                     *           "channel_id": 1,
+                     *           "email": "customer@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 53.6,
+                     *           "cart_amount_ex_tax": 53.6,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 13.4
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 7
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 6.4
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 6.4
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 6.4,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 6.4,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 7
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 7,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 7,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:08:01+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "618a9ce18173e",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "customer@example.com",
+                     *           "company": "",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "",
+                     *           "city": "",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "29681",
+                     *           "phone": "12125556895",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 13.4
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 53.6,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:08:01+00:00",
+                     *         "customer_message": "",
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": "",
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "No Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": "",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "version": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Include promotions": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *         "cart": {
+                     *           "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *           "customer_id": 0,
+                     *           "email": "string@example.com",
+                     *           "currency": {
+                     *             "code": "string"
+                     *           },
+                     *           "base_amount": 0,
+                     *           "channel_id": 0,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 0,
+                     *           "cart_amount_ex_tax": 0,
+                     *           "coupons": [
+                     *             {
+                     *               "code": "string",
+                     *               "id": 0,
+                     *               "coupon_type": "string",
+                     *               "display_name": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true,
+                     *                 "parent_id": 0,
+                     *                 "gift_wrapping": {
+                     *                   "name": "string",
+                     *                   "message": "string",
+                     *                   "amount": 0,
+                     *                   "amount_as_integer": 0
+                     *                 }
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "parent_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_mutable": true,
+                     *                 "is_require_shipping": true,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [
+                     *               {
+                     *                 "theme": "string",
+                     *                 "amount": 0,
+                     *                 "sender": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "recipient": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "id": "string",
+                     *                 "name": "string",
+                     *                 "taxable": true,
+                     *                 "message": "string"
+                     *               }
+                     *             ],
+                     *             "custom_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "extended_list_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "image_url": "string"
+                     *               }
+                     *             ]
+                     *           },
+                     *           "created_time": "string",
+                     *           "updated_time": "string"
+                     *         },
+                     *         "billing_address": {
+                     *           "first_name": "string",
+                     *           "last_name": "string",
+                     *           "email": "string",
+                     *           "company": "string",
+                     *           "address1": "string",
+                     *           "address2": "string",
+                     *           "city": "string",
+                     *           "state_or_province": "string",
+                     *           "state_or_province_code": "string",
+                     *           "country_code": "string",
+                     *           "postal_code": "string",
+                     *           "phone": "12128565555",
+                     *           "custom_fields": [
+                     *             {
+                     *               "field_id": "string",
+                     *               "field_value": "string"
+                     *             }
+                     *           ],
+                     *           "id": "string"
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "string",
+                     *             "shippingAddress": {},
+                     *             "address": {
+                     *               "first_name": "string",
+                     *               "last_name": "string",
+                     *               "email": "string",
+                     *               "company": "string",
+                     *               "address1": "string",
+                     *               "address2": "string",
+                     *               "city": "string",
+                     *               "state_or_province": "string",
+                     *               "state_or_province_code": "string",
+                     *               "country_code": "string",
+                     *               "postal_code": "string",
+                     *               "phone": "12125556858",
+                     *               "custom_fields": [
+                     *                 {
+                     *                   "field_id": "string",
+                     *                   "field_value": "string"
+                     *                 }
+                     *               ],
+                     *               "id": "string"
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "description": "string",
+                     *                 "id": "string",
+                     *                 "type": "string",
+                     *                 "image_url": "string",
+                     *                 "cost": 0,
+                     *                 "transit_time": "string",
+                     *                 "additional_description": "string"
+                     *               }
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "description": "string",
+                     *               "id": "string",
+                     *               "type": "string",
+                     *               "image_url": "string",
+                     *               "cost": 0,
+                     *               "transit_time": "string",
+                     *               "additional_description": "string"
+                     *             },
+                     *             "coupon_discounts": [
+                     *               {
+                     *                 "code": "string",
+                     *                 "amount": 0
+                     *               }
+                     *             ],
+                     *             "discounts": [
+                     *               {
+                     *                 "id": 0
+                     *               }
+                     *             ],
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "line_item_ids": [
+                     *               "string"
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "string",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "code": "SHOPNOW",
+                     *             "id": 1,
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "order_id": "string",
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 0,
+                     *         "subtotal_ex_tax": 0,
+                     *         "grand_total": 0,
+                     *         "created_time": "string",
+                     *         "updated_time": "string",
+                     *         "customer_message": "string",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "version": 1
+                     *       }
+                     *     } */
                     readonly "example-1": unknown;
                 };
             };
@@ -1479,11 +7255,950 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 0.9
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true,
+                     *                 "gift_wrapping": {}
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125685555",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *                 "type": "shipping_byweight",
+                     *                 "description": "Ship by Weight",
+                     *                 "image_url": "",
+                     *                 "cost": 8,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "722d78b5120de60a725e41be9bb8d999",
+                     *                 "type": "shipping_flatrate",
+                     *                 "description": "Flat Rate",
+                     *                 "image_url": "",
+                     *                 "cost": 12,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "71090fa93c8985348892543c3f4887b6",
+                     *                 "type": "shipping_upsready",
+                     *                 "description": "UPS® (UPS Next Day Air®)",
+                     *                 "image_url": "",
+                     *                 "cost": 43.9,
+                     *                 "transit_time": "1 business day",
+                     *                 "additional_description": ""
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.28
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.28,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 33.23,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Available Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125559659",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 8.32,
+                     *             "shipping_cost_ex_tax": 8,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *               "type": "shipping_byweight",
+                     *               "description": "Ship by Weight",
+                     *               "image_url": "",
+                     *               "cost": 8,
+                     *               "transit_time": "",
+                     *               "additional_description": ""
+                     *             },
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             }
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.6
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 8.32,
+                     *         "shipping_cost_total_ex_tax": 8,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.6,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 41.55,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Selected Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 25,
+                     *           "channel_id": 1,
+                     *           "email": "customer@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 53.6,
+                     *           "cart_amount_ex_tax": 53.6,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 13.4
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 7
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 6.4
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 6.4
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 6.4,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 6.4,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 7
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 7,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 7,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:08:01+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "618a9ce18173e",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "customer@example.com",
+                     *           "company": "",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "",
+                     *           "city": "",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "29681",
+                     *           "phone": "12125556895",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 13.4
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 53.6,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:08:01+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "No Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": "",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ]
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Include promotions": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *         "cart": {
+                     *           "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *           "customer_id": 0,
+                     *           "email": "string@example.com",
+                     *           "currency": {
+                     *             "code": "string"
+                     *           },
+                     *           "base_amount": 0,
+                     *           "channel_id": 0,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 0,
+                     *           "cart_amount_ex_tax": 0,
+                     *           "coupons": [
+                     *             {
+                     *               "code": "string",
+                     *               "id": 0,
+                     *               "coupon_type": "string",
+                     *               "display_name": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true,
+                     *                 "parent_id": 0,
+                     *                 "gift_wrapping": {
+                     *                   "name": "string",
+                     *                   "message": "string",
+                     *                   "amount": 0,
+                     *                   "amount_as_integer": 0
+                     *                 }
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "parent_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_mutable": true,
+                     *                 "is_require_shipping": true,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [
+                     *               {
+                     *                 "theme": "string",
+                     *                 "amount": 0,
+                     *                 "sender": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "recipient": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "id": "string",
+                     *                 "name": "string",
+                     *                 "taxable": true,
+                     *                 "message": "string"
+                     *               }
+                     *             ],
+                     *             "custom_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "extended_list_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "image_url": "string"
+                     *               }
+                     *             ]
+                     *           },
+                     *           "created_time": "string",
+                     *           "updated_time": "string"
+                     *         },
+                     *         "billing_address": {
+                     *           "first_name": "string",
+                     *           "last_name": "string",
+                     *           "email": "string",
+                     *           "company": "string",
+                     *           "address1": "string",
+                     *           "address2": "string",
+                     *           "city": "string",
+                     *           "state_or_province": "string",
+                     *           "state_or_province_code": "string",
+                     *           "country_code": "string",
+                     *           "postal_code": "string",
+                     *           "phone": "12128565555",
+                     *           "custom_fields": [
+                     *             {
+                     *               "field_id": "string",
+                     *               "field_value": "string"
+                     *             }
+                     *           ],
+                     *           "id": "string"
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "string",
+                     *             "shippingAddress": {},
+                     *             "address": {
+                     *               "first_name": "string",
+                     *               "last_name": "string",
+                     *               "email": "string",
+                     *               "company": "string",
+                     *               "address1": "string",
+                     *               "address2": "string",
+                     *               "city": "string",
+                     *               "state_or_province": "string",
+                     *               "state_or_province_code": "string",
+                     *               "country_code": "string",
+                     *               "postal_code": "string",
+                     *               "phone": "12125556858",
+                     *               "custom_fields": [
+                     *                 {
+                     *                   "field_id": "string",
+                     *                   "field_value": "string"
+                     *                 }
+                     *               ],
+                     *               "id": "string"
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "description": "string",
+                     *                 "id": "string",
+                     *                 "type": "string",
+                     *                 "image_url": "string",
+                     *                 "cost": 0,
+                     *                 "transit_time": "string",
+                     *                 "additional_description": "string"
+                     *               }
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "description": "string",
+                     *               "id": "string",
+                     *               "type": "string",
+                     *               "image_url": "string",
+                     *               "cost": 0,
+                     *               "transit_time": "string",
+                     *               "additional_description": "string"
+                     *             },
+                     *             "coupon_discounts": [
+                     *               {
+                     *                 "code": "string",
+                     *                 "amount": 0
+                     *               }
+                     *             ],
+                     *             "discounts": [
+                     *               {
+                     *                 "id": 0
+                     *               }
+                     *             ],
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "line_item_ids": [
+                     *               "string"
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "string",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "code": "SHOPNOW",
+                     *             "id": 1,
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "order_id": "string",
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 0,
+                     *         "subtotal_ex_tax": 0,
+                     *         "grand_total": 0,
+                     *         "created_time": "string",
+                     *         "updated_time": "string",
+                     *         "customer_message": "string",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "version": 1
+                     *       }
+                     *     } */
                     readonly "example-1": unknown;
                 };
             };
@@ -1524,11 +8239,950 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 0.9
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true,
+                     *                 "gift_wrapping": {}
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125685555",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *                 "type": "shipping_byweight",
+                     *                 "description": "Ship by Weight",
+                     *                 "image_url": "",
+                     *                 "cost": 8,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "722d78b5120de60a725e41be9bb8d999",
+                     *                 "type": "shipping_flatrate",
+                     *                 "description": "Flat Rate",
+                     *                 "image_url": "",
+                     *                 "cost": 12,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "71090fa93c8985348892543c3f4887b6",
+                     *                 "type": "shipping_upsready",
+                     *                 "description": "UPS® (UPS Next Day Air®)",
+                     *                 "image_url": "",
+                     *                 "cost": 43.9,
+                     *                 "transit_time": "1 business day",
+                     *                 "additional_description": ""
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.28
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.28,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 33.23,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Available Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125559659",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 8.32,
+                     *             "shipping_cost_ex_tax": 8,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *               "type": "shipping_byweight",
+                     *               "description": "Ship by Weight",
+                     *               "image_url": "",
+                     *               "cost": 8,
+                     *               "transit_time": "",
+                     *               "additional_description": ""
+                     *             },
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             }
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.6
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 8.32,
+                     *         "shipping_cost_total_ex_tax": 8,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.6,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 41.55,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Selected Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 25,
+                     *           "channel_id": 1,
+                     *           "email": "customer@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 53.6,
+                     *           "cart_amount_ex_tax": 53.6,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 13.4
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 7
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 6.4
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 6.4
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 6.4,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 6.4,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 7
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 7,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 7,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:08:01+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "618a9ce18173e",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "customer@example.com",
+                     *           "company": "",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "",
+                     *           "city": "",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "29681",
+                     *           "phone": "12125556895",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 13.4
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 53.6,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:08:01+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "No Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": "",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ]
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Include promotions": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *         "cart": {
+                     *           "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *           "customer_id": 0,
+                     *           "email": "string@example.com",
+                     *           "currency": {
+                     *             "code": "string"
+                     *           },
+                     *           "base_amount": 0,
+                     *           "channel_id": 0,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 0,
+                     *           "cart_amount_ex_tax": 0,
+                     *           "coupons": [
+                     *             {
+                     *               "code": "string",
+                     *               "id": 0,
+                     *               "coupon_type": "string",
+                     *               "display_name": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true,
+                     *                 "parent_id": 0,
+                     *                 "gift_wrapping": {
+                     *                   "name": "string",
+                     *                   "message": "string",
+                     *                   "amount": 0,
+                     *                   "amount_as_integer": 0
+                     *                 }
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "parent_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_mutable": true,
+                     *                 "is_require_shipping": true,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [
+                     *               {
+                     *                 "theme": "string",
+                     *                 "amount": 0,
+                     *                 "sender": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "recipient": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "id": "string",
+                     *                 "name": "string",
+                     *                 "taxable": true,
+                     *                 "message": "string"
+                     *               }
+                     *             ],
+                     *             "custom_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "extended_list_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "image_url": "string"
+                     *               }
+                     *             ]
+                     *           },
+                     *           "created_time": "string",
+                     *           "updated_time": "string"
+                     *         },
+                     *         "billing_address": {
+                     *           "first_name": "string",
+                     *           "last_name": "string",
+                     *           "email": "string",
+                     *           "company": "string",
+                     *           "address1": "string",
+                     *           "address2": "string",
+                     *           "city": "string",
+                     *           "state_or_province": "string",
+                     *           "state_or_province_code": "string",
+                     *           "country_code": "string",
+                     *           "postal_code": "string",
+                     *           "phone": "12128565555",
+                     *           "custom_fields": [
+                     *             {
+                     *               "field_id": "string",
+                     *               "field_value": "string"
+                     *             }
+                     *           ],
+                     *           "id": "string"
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "string",
+                     *             "shippingAddress": {},
+                     *             "address": {
+                     *               "first_name": "string",
+                     *               "last_name": "string",
+                     *               "email": "string",
+                     *               "company": "string",
+                     *               "address1": "string",
+                     *               "address2": "string",
+                     *               "city": "string",
+                     *               "state_or_province": "string",
+                     *               "state_or_province_code": "string",
+                     *               "country_code": "string",
+                     *               "postal_code": "string",
+                     *               "phone": "12125556858",
+                     *               "custom_fields": [
+                     *                 {
+                     *                   "field_id": "string",
+                     *                   "field_value": "string"
+                     *                 }
+                     *               ],
+                     *               "id": "string"
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "description": "string",
+                     *                 "id": "string",
+                     *                 "type": "string",
+                     *                 "image_url": "string",
+                     *                 "cost": 0,
+                     *                 "transit_time": "string",
+                     *                 "additional_description": "string"
+                     *               }
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "description": "string",
+                     *               "id": "string",
+                     *               "type": "string",
+                     *               "image_url": "string",
+                     *               "cost": 0,
+                     *               "transit_time": "string",
+                     *               "additional_description": "string"
+                     *             },
+                     *             "coupon_discounts": [
+                     *               {
+                     *                 "code": "string",
+                     *                 "amount": 0
+                     *               }
+                     *             ],
+                     *             "discounts": [
+                     *               {
+                     *                 "id": 0
+                     *               }
+                     *             ],
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "line_item_ids": [
+                     *               "string"
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "string",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "code": "SHOPNOW",
+                     *             "id": 1,
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "order_id": "string",
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 0,
+                     *         "subtotal_ex_tax": 0,
+                     *         "grand_total": 0,
+                     *         "created_time": "string",
+                     *         "updated_time": "string",
+                     *         "customer_message": "string",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "version": 1
+                     *       }
+                     *     } */
                     readonly "example-1": unknown;
                 };
             };
@@ -1564,11 +9218,950 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 0.9
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true,
+                     *                 "gift_wrapping": {}
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125685555",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *                 "type": "shipping_byweight",
+                     *                 "description": "Ship by Weight",
+                     *                 "image_url": "",
+                     *                 "cost": 8,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "722d78b5120de60a725e41be9bb8d999",
+                     *                 "type": "shipping_flatrate",
+                     *                 "description": "Flat Rate",
+                     *                 "image_url": "",
+                     *                 "cost": 12,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "71090fa93c8985348892543c3f4887b6",
+                     *                 "type": "shipping_upsready",
+                     *                 "description": "UPS® (UPS Next Day Air®)",
+                     *                 "image_url": "",
+                     *                 "cost": 43.9,
+                     *                 "transit_time": "1 business day",
+                     *                 "additional_description": ""
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.28
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.28,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 33.23,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Available Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125559659",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 8.32,
+                     *             "shipping_cost_ex_tax": 8,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *               "type": "shipping_byweight",
+                     *               "description": "Ship by Weight",
+                     *               "image_url": "",
+                     *               "cost": 8,
+                     *               "transit_time": "",
+                     *               "additional_description": ""
+                     *             },
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             }
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.6
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 8.32,
+                     *         "shipping_cost_total_ex_tax": 8,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.6,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 41.55,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Selected Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 25,
+                     *           "channel_id": 1,
+                     *           "email": "customer@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 53.6,
+                     *           "cart_amount_ex_tax": 53.6,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 13.4
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 7
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 6.4
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 6.4
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 6.4,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 6.4,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 7
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 7,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 7,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:08:01+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "618a9ce18173e",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "customer@example.com",
+                     *           "company": "",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "",
+                     *           "city": "",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "29681",
+                     *           "phone": "12125556895",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 13.4
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 53.6,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:08:01+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "No Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": "",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ]
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Include promotions": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *         "cart": {
+                     *           "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *           "customer_id": 0,
+                     *           "email": "string@example.com",
+                     *           "currency": {
+                     *             "code": "string"
+                     *           },
+                     *           "base_amount": 0,
+                     *           "channel_id": 0,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 0,
+                     *           "cart_amount_ex_tax": 0,
+                     *           "coupons": [
+                     *             {
+                     *               "code": "string",
+                     *               "id": 0,
+                     *               "coupon_type": "string",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true,
+                     *                 "parent_id": 0,
+                     *                 "gift_wrapping": {
+                     *                   "name": "string",
+                     *                   "message": "string",
+                     *                   "amount": 0,
+                     *                   "amount_as_integer": 0
+                     *                 }
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "parent_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_mutable": true,
+                     *                 "is_require_shipping": true,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [
+                     *               {
+                     *                 "theme": "string",
+                     *                 "amount": 0,
+                     *                 "sender": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "recipient": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "id": "string",
+                     *                 "name": "string",
+                     *                 "taxable": true,
+                     *                 "message": "string"
+                     *               }
+                     *             ],
+                     *             "custom_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "extended_list_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "image_url": "string"
+                     *               }
+                     *             ]
+                     *           },
+                     *           "created_time": "string",
+                     *           "updated_time": "string"
+                     *         },
+                     *         "billing_address": {
+                     *           "first_name": "string",
+                     *           "last_name": "string",
+                     *           "email": "string",
+                     *           "company": "string",
+                     *           "address1": "string",
+                     *           "address2": "string",
+                     *           "city": "string",
+                     *           "state_or_province": "string",
+                     *           "state_or_province_code": "string",
+                     *           "country_code": "string",
+                     *           "postal_code": "string",
+                     *           "phone": "12128565555",
+                     *           "custom_fields": [
+                     *             {
+                     *               "field_id": "string",
+                     *               "field_value": "string"
+                     *             }
+                     *           ],
+                     *           "id": "string"
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "string",
+                     *             "shippingAddress": {},
+                     *             "address": {
+                     *               "first_name": "string",
+                     *               "last_name": "string",
+                     *               "email": "string",
+                     *               "company": "string",
+                     *               "address1": "string",
+                     *               "address2": "string",
+                     *               "city": "string",
+                     *               "state_or_province": "string",
+                     *               "state_or_province_code": "string",
+                     *               "country_code": "string",
+                     *               "postal_code": "string",
+                     *               "phone": "12125556858",
+                     *               "custom_fields": [
+                     *                 {
+                     *                   "field_id": "string",
+                     *                   "field_value": "string"
+                     *                 }
+                     *               ],
+                     *               "id": "string"
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "description": "string",
+                     *                 "id": "string",
+                     *                 "type": "string",
+                     *                 "image_url": "string",
+                     *                 "cost": 0,
+                     *                 "transit_time": "string",
+                     *                 "additional_description": "string"
+                     *               }
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "description": "string",
+                     *               "id": "string",
+                     *               "type": "string",
+                     *               "image_url": "string",
+                     *               "cost": 0,
+                     *               "transit_time": "string",
+                     *               "additional_description": "string"
+                     *             },
+                     *             "coupon_discounts": [
+                     *               {
+                     *                 "code": "string",
+                     *                 "amount": 0
+                     *               }
+                     *             ],
+                     *             "discounts": [
+                     *               {
+                     *                 "id": 0
+                     *               }
+                     *             ],
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "line_item_ids": [
+                     *               "string"
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "string",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "code": "SHOPNOW",
+                     *             "id": 1,
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "order_id": "string",
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 0,
+                     *         "subtotal_ex_tax": 0,
+                     *         "grand_total": 0,
+                     *         "created_time": "string",
+                     *         "updated_time": "string",
+                     *         "customer_message": "string",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "version": 1
+                     *       }
+                     *     } */
                     readonly "example-1": unknown;
                 };
             };
@@ -1604,11 +10197,950 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 0.9
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true,
+                     *                 "gift_wrapping": {}
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125685555",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *                 "type": "shipping_byweight",
+                     *                 "description": "Ship by Weight",
+                     *                 "image_url": "",
+                     *                 "cost": 8,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "722d78b5120de60a725e41be9bb8d999",
+                     *                 "type": "shipping_flatrate",
+                     *                 "description": "Flat Rate",
+                     *                 "image_url": "",
+                     *                 "cost": 12,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "71090fa93c8985348892543c3f4887b6",
+                     *                 "type": "shipping_upsready",
+                     *                 "description": "UPS® (UPS Next Day Air®)",
+                     *                 "image_url": "",
+                     *                 "cost": 43.9,
+                     *                 "transit_time": "1 business day",
+                     *                 "additional_description": ""
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.28
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.28,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 33.23,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Available Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125559659",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 8.32,
+                     *             "shipping_cost_ex_tax": 8,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *               "type": "shipping_byweight",
+                     *               "description": "Ship by Weight",
+                     *               "image_url": "",
+                     *               "cost": 8,
+                     *               "transit_time": "",
+                     *               "additional_description": ""
+                     *             },
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             }
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.6
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 8.32,
+                     *         "shipping_cost_total_ex_tax": 8,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.6,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 41.55,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Selected Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 25,
+                     *           "channel_id": 1,
+                     *           "email": "customer@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 53.6,
+                     *           "cart_amount_ex_tax": 53.6,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 13.4
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 7
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 6.4
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 6.4
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 6.4,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 6.4,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 7
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 7,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 7,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:08:01+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "618a9ce18173e",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "customer@example.com",
+                     *           "company": "",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "",
+                     *           "city": "",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "29681",
+                     *           "phone": "12125556895",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 13.4
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 53.6,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:08:01+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "No Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": "",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ]
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Include promotions": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *         "cart": {
+                     *           "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                     *           "customer_id": 0,
+                     *           "email": "string@example.com",
+                     *           "currency": {
+                     *             "code": "string"
+                     *           },
+                     *           "base_amount": 0,
+                     *           "channel_id": 0,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 0,
+                     *           "cart_amount_ex_tax": 0,
+                     *           "coupons": [
+                     *             {
+                     *               "code": "string",
+                     *               "id": 0,
+                     *               "coupon_type": "string",
+                     *               "display_name": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "string",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true,
+                     *                 "parent_id": 0,
+                     *                 "gift_wrapping": {
+                     *                   "name": "string",
+                     *                   "message": "string",
+                     *                   "amount": 0,
+                     *                   "amount_as_integer": 0
+                     *                 }
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "variant_id": 0,
+                     *                 "parent_id": 0,
+                     *                 "product_id": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "url": "string",
+                     *                 "is_mutable": true,
+                     *                 "is_require_shipping": true,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "string",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "string",
+                     *                     "discounted_amount": 0
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 0,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sale_price": 0,
+                     *                 "extended_list_price": 0,
+                     *                 "extended_sale_price": 0
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [
+                     *               {
+                     *                 "theme": "string",
+                     *                 "amount": 0,
+                     *                 "sender": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "recipient": {
+                     *                   "name": "string",
+                     *                   "email": "string"
+                     *                 },
+                     *                 "id": "string",
+                     *                 "name": "string",
+                     *                 "taxable": true,
+                     *                 "message": "string"
+                     *               }
+                     *             ],
+                     *             "custom_items": [
+                     *               {
+                     *                 "quantity": 0,
+                     *                 "id": "string",
+                     *                 "extended_list_price": 0,
+                     *                 "list_price": 0,
+                     *                 "sku": "string",
+                     *                 "name": "string",
+                     *                 "image_url": "string"
+                     *               }
+                     *             ]
+                     *           },
+                     *           "created_time": "string",
+                     *           "updated_time": "string"
+                     *         },
+                     *         "billing_address": {
+                     *           "first_name": "string",
+                     *           "last_name": "string",
+                     *           "email": "string",
+                     *           "company": "string",
+                     *           "address1": "string",
+                     *           "address2": "string",
+                     *           "city": "string",
+                     *           "state_or_province": "string",
+                     *           "state_or_province_code": "string",
+                     *           "country_code": "string",
+                     *           "postal_code": "string",
+                     *           "phone": "12128565555",
+                     *           "custom_fields": [
+                     *             {
+                     *               "field_id": "string",
+                     *               "field_value": "string"
+                     *             }
+                     *           ],
+                     *           "id": "string"
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "string",
+                     *             "shippingAddress": {},
+                     *             "address": {
+                     *               "first_name": "string",
+                     *               "last_name": "string",
+                     *               "email": "string",
+                     *               "company": "string",
+                     *               "address1": "string",
+                     *               "address2": "string",
+                     *               "city": "string",
+                     *               "state_or_province": "string",
+                     *               "state_or_province_code": "string",
+                     *               "country_code": "string",
+                     *               "postal_code": "string",
+                     *               "phone": "12125556858",
+                     *               "custom_fields": [
+                     *                 {
+                     *                   "field_id": "string",
+                     *                   "field_value": "string"
+                     *                 }
+                     *               ],
+                     *               "id": "string"
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "description": "string",
+                     *                 "id": "string",
+                     *                 "type": "string",
+                     *                 "image_url": "string",
+                     *                 "cost": 0,
+                     *                 "transit_time": "string",
+                     *                 "additional_description": "string"
+                     *               }
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "description": "string",
+                     *               "id": "string",
+                     *               "type": "string",
+                     *               "image_url": "string",
+                     *               "cost": 0,
+                     *               "transit_time": "string",
+                     *               "additional_description": "string"
+                     *             },
+                     *             "coupon_discounts": [
+                     *               {
+                     *                 "code": "string",
+                     *                 "amount": 0
+                     *               }
+                     *             ],
+                     *             "discounts": [
+                     *               {
+                     *                 "id": 0
+                     *               }
+                     *             ],
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "line_item_ids": [
+                     *               "string"
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "string",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "code": "SHOPNOW",
+                     *             "id": 1,
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 0.9
+                     *           }
+                     *         ],
+                     *         "order_id": "string",
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 0,
+                     *         "subtotal_ex_tax": 0,
+                     *         "grand_total": 0,
+                     *         "created_time": "string",
+                     *         "updated_time": "string",
+                     *         "customer_message": "string",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "version": 1
+                     *       }
+                     *     } */
                     readonly "example-1": unknown;
                 };
             };
@@ -1645,10 +11177,680 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 0.9
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true,
+                     *                 "gift_wrapping": {}
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125685555",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 0,
+                     *             "shipping_cost_ex_tax": 0,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             },
+                     *             "available_shipping_options": [
+                     *               {
+                     *                 "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *                 "type": "shipping_byweight",
+                     *                 "description": "Ship by Weight",
+                     *                 "image_url": "",
+                     *                 "cost": 8,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "722d78b5120de60a725e41be9bb8d999",
+                     *                 "type": "shipping_flatrate",
+                     *                 "description": "Flat Rate",
+                     *                 "image_url": "",
+                     *                 "cost": 12,
+                     *                 "transit_time": "",
+                     *                 "additional_description": ""
+                     *               },
+                     *               {
+                     *                 "id": "71090fa93c8985348892543c3f4887b6",
+                     *                 "type": "shipping_upsready",
+                     *                 "description": "UPS® (UPS Next Day Air®)",
+                     *                 "image_url": "",
+                     *                 "cost": 43.9,
+                     *                 "transit_time": "1 business day",
+                     *                 "additional_description": ""
+                     *               }
+                     *             ]
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.28
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.28,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 33.23,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Available Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *         "cart": {
+                     *           "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+                     *           "customer_id": 11,
+                     *           "channel_id": 1,
+                     *           "email": "janedoe@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 31.95,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 33.23,
+                     *           "cart_amount_ex_tax": 31.95,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                     *                 "parent_id": 123,
+                     *                 "variant_id": 359,
+                     *                 "product_id": 188,
+                     *                 "sku": "DUST1",
+                     *                 "name": "Hello",
+                     *                 "url": "https://{store_hash}/all/dustpan-brush/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35.95,
+                     *                 "list_price": 31.95,
+                     *                 "sale_price": 33.23,
+                     *                 "extended_list_price": 31.95,
+                     *                 "extended_sale_price": 33.23,
+                     *                 "is_require_shipping": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2019-08-05T15:38:14+00:00",
+                     *           "updated_time": "2019-08-05T15:41:28+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "5d484d668e5aa",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "janedoe@example.com",
+                     *           "company": "BigCommerce",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "Apt 1",
+                     *           "city": "Austin",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "",
+                     *           "phone": "12125559659",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [
+                     *           {
+                     *             "id": "5d484e28d20a8",
+                     *             "shipping_cost_inc_tax": 8.32,
+                     *             "shipping_cost_ex_tax": 8,
+                     *             "handling_cost_inc_tax": 0,
+                     *             "handling_cost_ex_tax": 0,
+                     *             "coupon_discounts": [],
+                     *             "discounts": [],
+                     *             "line_item_ids": [
+                     *               "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                     *             ],
+                     *             "selected_shipping_option": {
+                     *               "id": "006a58a98c9a844225552ee2a9c60ca8",
+                     *               "type": "shipping_byweight",
+                     *               "description": "Ship by Weight",
+                     *               "image_url": "",
+                     *               "cost": 8,
+                     *               "transit_time": "",
+                     *               "additional_description": ""
+                     *             },
+                     *             "address": {
+                     *               "first_name": "BigCommerce",
+                     *               "last_name": "Cart/Checkout",
+                     *               "email": "jane2@example.com",
+                     *               "company": "",
+                     *               "address1": "123 Main Street",
+                     *               "address2": "",
+                     *               "city": "Austin",
+                     *               "state_or_province": "Texas",
+                     *               "state_or_province_code": "TX",
+                     *               "country": "United States",
+                     *               "country_code": "US",
+                     *               "postal_code": "78751",
+                     *               "phone": "688546",
+                     *               "customFields": [
+                     *                 {
+                     *                   "field_id": "field_25",
+                     *                   "field_value": "Great!"
+                     *                 }
+                     *               ]
+                     *             }
+                     *           }
+                     *         ],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 1.6
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 8.32,
+                     *         "shipping_cost_total_ex_tax": 8,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 1.6,
+                     *         "subtotal_inc_tax": 33.23,
+                     *         "subtotal_ex_tax": 31.95,
+                     *         "grand_total": 41.55,
+                     *         "created_time": "2019-08-05T15:38:14+00:00",
+                     *         "updated_time": "2019-08-05T15:41:28+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Selected Shipping Options": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 25,
+                     *           "channel_id": 1,
+                     *           "email": "customer@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 53.6,
+                     *           "cart_amount_ex_tax": 53.6,
+                     *           "coupons": [
+                     *             {
+                     *               "id": 1,
+                     *               "code": "SHOP20",
+                     *               "coupon_type": "percentage_discount",
+                     *               "display_name": "20% Off",
+                     *               "discounted_amount": 13.4
+                     *             }
+                     *           ],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 7
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 6.4
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 6.4
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 6.4,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 6.4,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [
+                     *                   {
+                     *                     "id": "coupon",
+                     *                     "discounted_amount": 7
+                     *                   }
+                     *                 ],
+                     *                 "coupons": 7,
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 7,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:08:01+00:00"
+                     *         },
+                     *         "billing_address": {
+                     *           "id": "618a9ce18173e",
+                     *           "first_name": "Jane",
+                     *           "last_name": "Doe",
+                     *           "email": "customer@example.com",
+                     *           "company": "",
+                     *           "address1": "123 Main Street",
+                     *           "address2": "",
+                     *           "city": "",
+                     *           "state_or_province": "",
+                     *           "state_or_province_code": "",
+                     *           "country": "",
+                     *           "country_code": "",
+                     *           "postal_code": "29681",
+                     *           "phone": "12125556895",
+                     *           "custom_fields": []
+                     *         },
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [
+                     *           {
+                     *             "id": 1,
+                     *             "code": "SHOP20",
+                     *             "coupon_type": "percentage_discount",
+                     *             "display_name": "20% Off",
+                     *             "discounted_amount": 13.4
+                     *           }
+                     *         ],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 53.6,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:08:01+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": ""
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "No Coupon Applied": unknown;
+                    /** @example {
+                     *       "data": {
+                     *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *         "cart": {
+                     *           "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
+                     *           "customer_id": 0,
+                     *           "channel_id": 1,
+                     *           "email": "example@example.com",
+                     *           "currency": {
+                     *             "code": "USD"
+                     *           },
+                     *           "base_amount": 67,
+                     *           "discount_amount": 0,
+                     *           "cart_amount_inc_tax": 67,
+                     *           "cart_amount_ex_tax": 67,
+                     *           "coupons": [],
+                     *           "discounts": [
+                     *             {
+                     *               "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *               "discounted_amount": 0
+                     *             },
+                     *             {
+                     *               "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *               "discounted_amount": 0
+                     *             }
+                     *           ],
+                     *           "line_items": {
+                     *             "physical_items": [
+                     *               {
+                     *                 "id": "b0adf3a7-7a92-44d9-ad46-87235b118e48",
+                     *                 "variant_id": 528,
+                     *                 "product_id": 145,
+                     *                 "sku": "htltwl-001",
+                     *                 "name": "Hotel Towel",
+                     *                 "url": "https://example.com/hotel-towel/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 32,
+                     *                 "list_price": 32,
+                     *                 "sale_price": 32,
+                     *                 "extended_list_price": 32,
+                     *                 "extended_sale_price": 32,
+                     *                 "is_require_shipping": true,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "digital_items": [
+                     *               {
+                     *                 "id": "985c79a3-4c94-4104-923a-2e3d4572e72d",
+                     *                 "variant_id": 182,
+                     *                 "product_id": 138,
+                     *                 "sku": "ebk-001",
+                     *                 "name": "eBook Download",
+                     *                 "url": "https://example.com/digital/",
+                     *                 "quantity": 1,
+                     *                 "is_taxable": true,
+                     *                 "image_url": "https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1",
+                     *                 "discounts": [],
+                     *                 "coupons": [],
+                     *                 "discount_amount": 0,
+                     *                 "coupon_amount": 0,
+                     *                 "original_price": 35,
+                     *                 "list_price": 35,
+                     *                 "sale_price": 35,
+                     *                 "extended_list_price": 35,
+                     *                 "extended_sale_price": 35,
+                     *                 "is_require_shipping": false,
+                     *                 "is_mutable": true
+                     *               }
+                     *             ],
+                     *             "gift_certificates": [],
+                     *             "custom_items": []
+                     *           },
+                     *           "created_time": "2021-11-08T22:46:23+00:00",
+                     *           "updated_time": "2021-11-09T16:06:56+00:00"
+                     *         },
+                     *         "billing_address": {},
+                     *         "consignments": [],
+                     *         "taxes": [
+                     *           {
+                     *             "name": "Tax",
+                     *             "amount": 0
+                     *           }
+                     *         ],
+                     *         "coupons": [],
+                     *         "shipping_cost_total_inc_tax": 0,
+                     *         "shipping_cost_total_ex_tax": 0,
+                     *         "handling_cost_total_inc_tax": 0,
+                     *         "handling_cost_total_ex_tax": 0,
+                     *         "tax_total": 0,
+                     *         "subtotal_inc_tax": 67,
+                     *         "subtotal_ex_tax": 67,
+                     *         "grand_total": 67,
+                     *         "created_time": "2021-11-08T22:46:23+00:00",
+                     *         "updated_time": "2021-11-09T16:06:56+00:00",
+                     *         "customer_message": "",
+                     *         "promotions": [
+                     *           {
+                     *             "banners": [
+                     *               {
+                     *                 "id": "3",
+                     *                 "type": "applied",
+                     *                 "page": [
+                     *                   "homepage",
+                     *                   "cartpage"
+                     *                 ],
+                     *                 "text": "Some text"
+                     *               }
+                     *             ]
+                     *           }
+                     *         ]
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "Include promotions": unknown;
                 };
             };
@@ -1775,6 +11977,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 75
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["Order"];
                         readonly meta?: components["schemas"]["MetaOpen"];
@@ -1800,10 +12008,29 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "custom_checkout_script_url": "https://example.com/custom-checkout-script.js",
+                     *         "order_confirmation_use_custom_checkout_script": false,
+                     *         "custom_order_confirmation_script_url": "https://example.com/custom-order-confirmation-script.js",
+                     *         "custom_checkout_supports_uco_settings": false,
+                     *         "custom_checkout_sri_hash": "sha256-1234567890",
+                     *         "order_confirmation_sri_hash": "sha256-0987654321"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["CheckoutsSettings"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
+                    /** @example {
+                     *       "data": {
+                     *         "custom_checkout_script_url": "webdav:vtz-checkout/dist/auto-loader.js",
+                     *         "order_confirmation_use_custom_checkout_script": false,
+                     *         "custom_order_confirmation_script_url": "webdav:vtz-order-confirmation/dist/auto-loader.js"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "WebDAV protocol": unknown;
                 };
             };
@@ -1832,10 +12059,29 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "custom_checkout_script_url": "https://example.com/custom-checkout-script.js",
+                     *         "order_confirmation_use_custom_checkout_script": false,
+                     *         "custom_order_confirmation_script_url": "https://example.com/custom-order-confirmation-script.js",
+                     *         "custom_checkout_supports_uco_settings": false,
+                     *         "custom_checkout_sri_hash": "sha256-1234567890",
+                     *         "order_confirmation_sri_hash": "sha256-0987654321"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["CheckoutsSettings"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
+                    /** @example {
+                     *       "data": {
+                     *         "custom_checkout_script_url": "webdav:vtz-checkout/dist/auto-loader.js",
+                     *         "order_confirmation_use_custom_checkout_script": false,
+                     *         "custom_order_confirmation_script_url": "webdav:vtz-order-confirmation/dist/auto-loader.js"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "WebDAV protocol": unknown;
                 };
             };

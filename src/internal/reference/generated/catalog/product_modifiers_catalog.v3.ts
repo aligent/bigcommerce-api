@@ -611,6 +611,74 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 206,
+                     *           "product_id": 158,
+                     *           "name": "Insurance",
+                     *           "display_name": "Insurance",
+                     *           "type": "checkbox",
+                     *           "required": true,
+                     *           "config": {
+                     *             "checkbox_label": "$5 for insurance",
+                     *             "checked_by_default": false
+                     *           },
+                     *           "option_values": [
+                     *             {
+                     *               "id": 183,
+                     *               "option_id": 206,
+                     *               "label": "Yes",
+                     *               "sort_order": 0,
+                     *               "value_data": {
+                     *                 "checked_value": true
+                     *               },
+                     *               "is_default": false,
+                     *               "adjusters": {
+                     *                 "price": {},
+                     *                 "weight": {},
+                     *                 "image_url": "",
+                     *                 "purchasing_disabled": {
+                     *                   "status": false,
+                     *                   "message": ""
+                     *                 }
+                     *               }
+                     *             },
+                     *             {
+                     *               "id": 184,
+                     *               "option_id": 206,
+                     *               "label": "No",
+                     *               "sort_order": 1,
+                     *               "value_data": {
+                     *                 "checked_value": false
+                     *               },
+                     *               "is_default": true,
+                     *               "adjusters": {
+                     *                 "price": {},
+                     *                 "weight": {},
+                     *                 "image_url": "",
+                     *                 "purchasing_disabled": {
+                     *                   "status": false,
+                     *                   "message": ""
+                     *                 }
+                     *               }
+                     *             }
+                     *           ]
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 1,
+                     *           "count": 1,
+                     *           "per_page": 50,
+                     *           "current_page": 1,
+                     *           "total_pages": 1,
+                     *           "links": {
+                     *             "current": "?page=1&limit=50"
+                     *           }
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["productModifier_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -694,6 +762,67 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 164,
+                     *         "product_id": 161,
+                     *         "name": "Test-name1716906851-161",
+                     *         "display_name": "Test name",
+                     *         "type": "radio_buttons",
+                     *         "required": true,
+                     *         "sort_order": 0,
+                     *         "config": [],
+                     *         "option_values": [
+                     *           {
+                     *             "id": 199,
+                     *             "option_id": 164,
+                     *             "label": "+5",
+                     *             "sort_order": 0,
+                     *             "value_data": null,
+                     *             "is_default": false,
+                     *             "adjusters": {
+                     *               "price": {
+                     *                 "adjuster": "relative",
+                     *                 "adjuster_value": 5
+                     *               },
+                     *               "weight": {
+                     *                 "adjuster": "relative",
+                     *                 "adjuster_value": 5
+                     *               },
+                     *               "image_url": "",
+                     *               "purchasing_disabled": {
+                     *                 "status": true,
+                     *                 "message": "string"
+                     *               }
+                     *             }
+                     *           },
+                     *           {
+                     *             "id": 200,
+                     *             "option_id": 164,
+                     *             "label": "+10",
+                     *             "sort_order": 0,
+                     *             "value_data": null,
+                     *             "is_default": false,
+                     *             "adjusters": {
+                     *               "price": {
+                     *                 "adjuster": "relative",
+                     *                 "adjuster_value": 10
+                     *               },
+                     *               "weight": {
+                     *                 "adjuster": "relative",
+                     *                 "adjuster_value": 10
+                     *               },
+                     *               "image_url": "",
+                     *               "purchasing_disabled": {
+                     *                 "status": true,
+                     *                 "message": "string"
+                     *               }
+                     *             }
+                     *           }
+                     *         ]
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: {
                             readonly items?: components["schemas"]["productModifier_Full"];
@@ -1361,6 +1490,63 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 190,
+                     *           "option_id": 222,
+                     *           "label": "Yes",
+                     *           "sort_order": 0,
+                     *           "value_data": {
+                     *             "checked_value": true
+                     *           },
+                     *           "is_default": false,
+                     *           "adjusters": {
+                     *             "price": {
+                     *               "adjuster": "relative",
+                     *               "adjuster_value": 5
+                     *             },
+                     *             "weight": {},
+                     *             "image_url": "",
+                     *             "purchasing_disabled": {
+                     *               "status": false,
+                     *               "message": ""
+                     *             }
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 191,
+                     *           "option_id": 222,
+                     *           "label": "No",
+                     *           "sort_order": 1,
+                     *           "value_data": {
+                     *             "checked_value": false
+                     *           },
+                     *           "is_default": true,
+                     *           "adjusters": {
+                     *             "price": {},
+                     *             "weight": {},
+                     *             "image_url": "",
+                     *             "purchasing_disabled": {
+                     *               "status": false,
+                     *               "message": ""
+                     *             }
+                     *           }
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 2,
+                     *           "count": 2,
+                     *           "per_page": 50,
+                     *           "current_page": 1,
+                     *           "total_pages": 1,
+                     *           "links": {
+                     *             "current": "?page=1&limit=50"
+                     *           }
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["productModifierOptionValue_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -1474,6 +1660,29 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 190,
+                     *         "option_id": 222,
+                     *         "label": "Yes",
+                     *         "sort_order": 0,
+                     *         "value_data": {},
+                     *         "is_default": false,
+                     *         "adjusters": {
+                     *           "price": {
+                     *             "adjuster": "relative",
+                     *             "adjuster_value": 5
+                     *           },
+                     *           "weight": {},
+                     *           "image_url": "",
+                     *           "purchasing_disabled": {
+                     *             "status": false,
+                     *             "message": ""
+                     *           }
+                     *         }
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         /**
                          * Modifier Value
@@ -1620,6 +1829,29 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 190,
+                     *         "option_id": 222,
+                     *         "label": "Yes",
+                     *         "sort_order": 0,
+                     *         "value_data": {},
+                     *         "is_default": false,
+                     *         "adjusters": {
+                     *           "price": {
+                     *             "adjuster": "relative",
+                     *             "adjuster_value": 5
+                     *           },
+                     *           "weight": {},
+                     *           "image_url": "",
+                     *           "purchasing_disabled": {
+                     *             "status": false,
+                     *             "message": ""
+                     *           }
+                     *         }
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["productModifierOptionValue_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -1758,6 +1990,29 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 190,
+                     *         "option_id": 222,
+                     *         "label": "Yes",
+                     *         "sort_order": 0,
+                     *         "value_data": {},
+                     *         "is_default": false,
+                     *         "adjusters": {
+                     *           "price": {
+                     *             "adjuster": "relative",
+                     *             "adjuster_value": 5
+                     *           },
+                     *           "weight": {},
+                     *           "image_url": "",
+                     *           "purchasing_disabled": {
+                     *             "status": false,
+                     *             "message": ""
+                     *           }
+                     *         }
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         /**
                          * Modifier Value
@@ -1936,6 +2191,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "image_url": "https://cdn8.bigcommerce.com/s-id30h7ohwf/product_images/attribute_rule_images/85_source_1536863430.png"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         /**
                          * Resource Image

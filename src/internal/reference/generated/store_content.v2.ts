@@ -1101,6 +1101,81 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example [
+                     *       {
+                     *         "id": 3,
+                     *         "title": "Hello Again",
+                     *         "url": "/blog/hello-again/",
+                     *         "preview_url": "/blog/hello-again/",
+                     *         "body": "<p>Jelly beans muffin marzipan gingerbread donut dessert. Cheesecake cheesecake sugar plum cookie cake tart. Soufflé sesame snaps jelly beans brownie chocolate tart. Marshmallow jujubes candy pie. Gummies lemon drops tart soufflé pastry pie. Caramels wafer biscuit gummi bears. Liquorice toffee wafer bear claw marzipan jelly-o. Dessert bear claw topping icing croissant. Pie bonbon chocolate bar chocolate bar tiramisu chocolate lemon drops candy.</p><p>Marshmallow cupcake sweet roll candy marshmallow caramels cotton candy pie icing. Powder jelly beans chupa chups lollipop liquorice marzipan dessert soufflé sesame snaps. Macaroon chupa chups gummies cheesecake ice cream caramels sesame snaps cotton candy gingerbread. Chocolate cake fruitcake tart bear claw lemon drops tart dragée tart apple pie. Halvah chupa chups soufflé jelly soufflé marshmallow. Croissant tart tart. Gingerbread apple pie biscuit.</p><p>Wafer lemon drops tart pastry brownie chocolate bar jelly. Dragée muffin cupcake liquorice caramels marzipan gingerbread marzipan. Apple pie pudding jelly sweet roll croissant bonbon wafer. Cookie chocolate bar sesame snaps bonbon macaroon candy canes donut sugar plum. Bear claw bonbon tootsie roll bonbon. Apple pie gummies donut sweet. Marzipan bear claw cotton candy topping dragée bonbon danish powder.</p>",
+                     *         "tags": [
+                     *           "sugar",
+                     *           "sweet",
+                     *           "spice",
+                     *           "everything",
+                     *           "nice"
+                     *         ],
+                     *         "summary": "Jelly beans muffin marzipan gingerbread donut dessert. Cheesecake cheesecake sugar plum cookie cake tart. Soufflé sesame snaps jelly beans brownie chocolate tart. Marshmallow jujubes candy pie. Gummies lemon drops tart soufflé pastry pie. Caramels wafer biscuit gummi bears. Liquorice toffee wafer bear claw marzipan jelly-o. Dessert bear claw topping icing croissant. Pie bonbon chocolate bar [...]",
+                     *         "is_published": true,
+                     *         "published_date": {
+                     *           "date": "2018-05-18 08:26:42.000000",
+                     *           "timezone_type": 1,
+                     *           "timezone": "+00:00"
+                     *         },
+                     *         "published_date_iso8601": "2018-05-18T13:26:42+0000",
+                     *         "meta_description": "Cupcakes post 2",
+                     *         "meta_keywords": "sugar,sweet,spice,everything,nice",
+                     *         "author": "",
+                     *         "thumbnail_path": ""
+                     *       },
+                     *       {
+                     *         "id": 2,
+                     *         "title": "Hello",
+                     *         "url": "/blog/hello/",
+                     *         "preview_url": "/blog/hello/",
+                     *         "body": "<p>Jelly beans muffin marzipan gingerbread donut dessert. Cheesecake cheesecake sugar plum cookie cake tart. Soufflé sesame snaps jelly beans brownie chocolate tart. Marshmallow jujubes candy pie. Gummies lemon drops tart soufflé pastry pie. Caramels wafer biscuit gummi bears. Liquorice toffee wafer bear claw marzipan jelly-o. Dessert bear claw topping icing croissant. Pie bonbon chocolate bar chocolate bar tiramisu chocolate lemon drops candy.</p><p>Marshmallow cupcake sweet roll candy marshmallow caramels cotton candy pie icing. Powder jelly beans chupa chups lollipop liquorice marzipan dessert soufflé sesame snaps. Macaroon chupa chups gummies cheesecake ice cream caramels sesame snaps cotton candy gingerbread. Chocolate cake fruitcake tart bear claw lemon drops tart dragée tart apple pie. Halvah chupa chups soufflé jelly soufflé marshmallow. Croissant tart tart. Gingerbread apple pie biscuit.</p><p>Wafer lemon drops tart pastry brownie chocolate bar jelly. Dragée muffin cupcake liquorice caramels marzipan gingerbread marzipan. Apple pie pudding jelly sweet roll croissant bonbon wafer. Cookie chocolate bar sesame snaps bonbon macaroon candy canes donut sugar plum. Bear claw bonbon tootsie roll bonbon. Apple pie gummies donut sweet. Marzipan bear claw cotton candy topping dragée bonbon danish powder.</p>",
+                     *         "tags": [
+                     *           "cupcakes",
+                     *           "sugar",
+                     *           "sweet"
+                     *         ],
+                     *         "summary": "Jelly beans muffin marzipan gingerbread donut dessert. Cheesecake cheesecake sugar plum cookie cake tart. Soufflé sesame snaps jelly beans brownie chocolate tart. Marshmallow jujubes candy pie. Gummies lemon drops tart soufflé pastry pie. Caramels wafer biscuit gummi bears. Liquorice toffee wafer bear claw marzipan jelly-o. Dessert bear claw topping icing croissant. Pie bonbon chocolate bar [...]",
+                     *         "is_published": true,
+                     *         "published_date": {
+                     *           "date": "2018-05-18 08:26:00.000000",
+                     *           "timezone_type": 1,
+                     *           "timezone": "+00:00"
+                     *         },
+                     *         "published_date_iso8601": "2018-05-18T13:26:00+0000",
+                     *         "meta_description": "cupcake blog post",
+                     *         "meta_keywords": "cupcakes,sugar,sweet",
+                     *         "author": "",
+                     *         "thumbnail_path": ""
+                     *       },
+                     *       {
+                     *         "id": 1,
+                     *         "title": "Your first blog post!",
+                     *         "url": "/your-first-blog-post/",
+                     *         "preview_url": "/your-first-blog-post/",
+                     *         "body": "<p><strong>Welcome to your blog!</strong><br> A blog is a great place to share details on your products, business and whatever else you think your shoppers might like to hear from you. You can include photos in your blog posts and even videos. For ideas and inspiration on how to structure your blog, take a look at the BigCommerce <a href='http://blog.bigcommerce.com/' target='_blank' rel='nofollow'>ecommerce blog</a>.</p><p><strong>How can I delete this post?</strong><br>To delete this post and add your own, login to your <a href='/admin' target='_blank'>admin area</a> and go to Storefront > Blog in the left hand menu.</p><p><strong>Powered by BigCommerce</strong><br>Your website, online store and blog are powered by BigCommerce <a href='http://www.bigcommerce.com/' target='_blank' rel='nofollow'>ecommerce software</a>. It includes everything you need to run a beautiful online store including <a href='http://www.bigcommerce.com/templates/' target='_blank' rel='nofollow'>ecommerce website templates</a>, <a href='http://www.bigcommerce.com/features/hosting/' target='_blank' rel='nofollow'>ecommerce hosting</a>, an <a href='http://www.bigcommerce.com/features/setup/' target='_blank' rel='nofollow'>online shopping cart</a> and more.</p>",
+                     *         "tags": [
+                     *           "Blog",
+                     *           "SEO"
+                     *         ],
+                     *         "summary": " Welcome to your blog! A blog is a great place to share details on your products, business and whatever else you think your shoppers might like to hear from you. You can include photos in your blog posts and even videos. For ideas and inspiration on how to structure your blog, take a look [...]",
+                     *         "is_published": true,
+                     *         "published_date": {
+                     *           "date": "2014-02-15 14:46:34.000000",
+                     *           "timezone_type": 1,
+                     *           "timezone": "+00:00"
+                     *         },
+                     *         "published_date_iso8601": "2014-02-15T19:46:34+0000",
+                     *         "meta_description": "",
+                     *         "meta_keywords": "Blog,SEO",
+                     *         "author": "",
+                     *         "thumbnail_path": ""
+                     *       }
+                     *     ] */
                     readonly "application/json": readonly components["schemas"]["blogPost_Full"][];
                 };
             };
@@ -1129,6 +1204,30 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "id": 3,
+                     *       "title": "Welcome to BigCommerce",
+                     *       "url": "/blog/welcome-bigcommerce/",
+                     *       "preview_url": "/blog/welcome-bigcommerce/",
+                     *       "body": "<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>",
+                     *       "tags": [
+                     *         "BigCommerce",
+                     *         "welcome",
+                     *         "ecommerce"
+                     *       ],
+                     *       "summary": "<p>We power ecommerce websites for successful retailers all over the world</p>",
+                     *       "is_published": true,
+                     *       "published_date": {
+                     *         "date": "2018-05-18T08:26:42.000Z",
+                     *         "timezone_type": 1,
+                     *         "timezone": "+00:00"
+                     *       },
+                     *       "published_date_iso8601": "2018-05-18T13:26:42.000Z",
+                     *       "meta_description": "Welcome Post",
+                     *       "meta_keywords": "BigCommerce, welcome, ecommerce",
+                     *       "author": "BigCommerce",
+                     *       "thumbnail_path": ""
+                     *     } */
                     readonly "application/json": components["schemas"]["blogPost_Base_Res"];
                 };
             };
@@ -1190,6 +1289,30 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "id": 3,
+                     *       "title": "Welcome to BigCommerce",
+                     *       "url": "/blog/welcome-bigcommerce/",
+                     *       "preview_url": "/blog/welcome-bigcommerce/",
+                     *       "body": "<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>",
+                     *       "tags": [
+                     *         "BigCommerce",
+                     *         "welcome",
+                     *         "ecommerce"
+                     *       ],
+                     *       "summary": "<p>We power ecommerce websites for successful retailers all over the world</p>",
+                     *       "is_published": true,
+                     *       "published_date": {
+                     *         "date": "2018-05-18T08:26:42.000Z",
+                     *         "timezone_type": 1,
+                     *         "timezone": "+00:00"
+                     *       },
+                     *       "published_date_iso8601": "2018-05-18T13:26:42.000Z",
+                     *       "meta_description": "Welcome Post",
+                     *       "meta_keywords": "BigCommerce, welcome, ecommerce",
+                     *       "author": "BigCommerce",
+                     *       "thumbnail_path": ""
+                     *     } */
                     readonly "application/json": components["schemas"]["blogPost_Full"];
                 };
             };
@@ -1221,6 +1344,30 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "id": 3,
+                     *       "title": "Welcome to BigCommerce",
+                     *       "url": "/blog/welcome-bigcommerce/",
+                     *       "preview_url": "/blog/welcome-bigcommerce/",
+                     *       "body": "<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>",
+                     *       "tags": [
+                     *         "BigCommerce",
+                     *         "welcome",
+                     *         "ecommerce"
+                     *       ],
+                     *       "summary": "<p>We power ecommerce websites for successful retailers all over the world</p>",
+                     *       "is_published": true,
+                     *       "published_date": {
+                     *         "date": "2018-05-18T08:26:42.000Z",
+                     *         "timezone_type": 1,
+                     *         "timezone": "+00:00"
+                     *       },
+                     *       "published_date_iso8601": "2018-05-18T13:26:42.000Z",
+                     *       "meta_description": "Welcome Post",
+                     *       "meta_keywords": "BigCommerce, welcome, ecommerce",
+                     *       "author": "BigCommerce",
+                     *       "thumbnail_path": ""
+                     *     } */
                     readonly "application/json": components["schemas"]["blogPost_Base_Res"];
                 };
             };
@@ -1277,6 +1424,9 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "count": 27
+                     *     } */
                     readonly "application/json": components["schemas"]["count_Response"];
                 };
             };
@@ -1304,6 +1454,30 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example [
+                     *       {
+                     *         "id": 6,
+                     *         "channel_id": 11,
+                     *         "name": "Contact Form",
+                     *         "meta_title": "",
+                     *         "email": "janedoe@example.com",
+                     *         "body": "We are happy to answer questions or help you with...",
+                     *         "is_visible": true,
+                     *         "parent_id": 5,
+                     *         "sort_order": 3,
+                     *         "meta_keywords": "",
+                     *         "type": "page",
+                     *         "contact_fields": "fullname,companyname,phone,orderno,rma",
+                     *         "meta_description": "",
+                     *         "is_homepage": false,
+                     *         "layout_file": "page.html",
+                     *         "is_customers_only": false,
+                     *         "search_keywords": "",
+                     *         "has_mobile_version": false,
+                     *         "mobile_body": "",
+                     *         "url": "/contact-us/"
+                     *       }
+                     *     ] */
                     readonly "application/json": readonly components["schemas"]["page_Full"][];
                 };
             };
@@ -1351,6 +1525,26 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "id": 6,
+                     *       "channel_id": 11,
+                     *       "name": "Contact Form",
+                     *       "meta_title": "",
+                     *       "body": "We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.",
+                     *       "is_visible": true,
+                     *       "parent_id": 5,
+                     *       "sort_order": 3,
+                     *       "meta_keywords": "",
+                     *       "type": "page",
+                     *       "meta_description": "",
+                     *       "is_homepage": false,
+                     *       "layout_file": "page.html",
+                     *       "is_customers_only": true,
+                     *       "search_keywords": "",
+                     *       "has_mobile_version": false,
+                     *       "mobile_body": "",
+                     *       "url": "/contact-us/"
+                     *     } */
                     readonly "application/json": components["schemas"]["page_Full"];
                 };
             };
@@ -1387,6 +1581,28 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "id": 1,
+                     *       "channel_id": 11,
+                     *       "name": "RSS Syndication",
+                     *       "meta_title": "",
+                     *       "body": "%%Syndicate%%",
+                     *       "is_visible": true,
+                     *       "parent_id": 0,
+                     *       "sort_order": 5,
+                     *       "meta_keywords": "0",
+                     *       "type": "page",
+                     *       "meta_description": "",
+                     *       "is_homepage": false,
+                     *       "layout_file": "",
+                     *       "is_customers_only": false,
+                     *       "search_keywords": "0",
+                     *       "has_mobile_version": false,
+                     *       "feed": "",
+                     *       "link": "",
+                     *       "mobile_body": "0",
+                     *       "url": "/rss-syndication/"
+                     *     } */
                     readonly "application/json": components["schemas"]["page_Full"];
                 };
             };
@@ -1418,6 +1634,28 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "id": 2,
+                     *       "channel_id": 11,
+                     *       "name": "Shipping & Returns",
+                     *       "meta_title": "",
+                     *       "body": "<em>To edit this page simply login to the control panel, click the <strong style='font-weight: 400'>Website Content</strong> tab and choose the </em> <strong style='font-weight: 400'><em>View Web Pages option. Click Edit next to the Shipping & Returns page and you can change this text. A sample returns policy is shown below which you can edit as needed.</em><em style='font-style: normal'><br/><br/></em></strong><em style='font-style: normal'><strong>Returns Policy</strong></em><strong style='font-weight: 400'></em></em><em style='font-style: normal'><br/><br/></em>You may return most new, unopened items within 30 days of delivery for a full refund. We'll also pay the return shipping costs if the return is a result of our error (you received an incorrect or defective item, etc.).<br/><br/>You should expect to receive your refund within four weeks of giving your package to the return shipper, however, in many cases you will receive a refund more quickly. This time period includes the transit time for us to receive your return from the shipper (5 to 10 business days), the time it takes us to process your return once we receive it (3 to 5 business days), and the time it takes your bank to process our refund request (5 to 10 business days).<br/><br/>If you need to return an item, please <a href='/contact-us/'>Contact Us</a> with your order number and details about the product you would like to return. We will respond quickly with instructions for how to return items from your order.<br/><br/></strong><strong>Shipping</em></em></em></strong><strong style='font-weight: 400'><em style='font-style: normal'><br/><br/></em>We can ship to virtually any address in the world. Note that there are restrictions on some products, and some products cannot be shipped to international destinations.<br/><br/>When you place an order, we will estimate shipping and delivery dates for you based on the availability of your items and the shipping options you choose. Depending on the shipping provider you choose, shipping date estimates may appear on the shipping quotes page.<br/><br/>Please also note that the shipping rates for many items we sell are weight-based. The weight of any such item can be found on its detail page. To reflect the policies of the shipping companies we use, all weights will be rounded up to the next full pound.<br/>",
+                     *       "is_visible": true,
+                     *       "parent_id": 0,
+                     *       "sort_order": 2,
+                     *       "meta_keywords": "",
+                     *       "type": "page",
+                     *       "meta_description": "",
+                     *       "is_homepage": false,
+                     *       "layout_file": "page.html",
+                     *       "is_customers_only": false,
+                     *       "search_keywords": "",
+                     *       "has_mobile_version": false,
+                     *       "feed": "",
+                     *       "link": "",
+                     *       "mobile_body": "",
+                     *       "url": "/shipping-returns/"
+                     *     } */
                     readonly "application/json": components["schemas"]["page_Full"];
                 };
             };
@@ -1480,6 +1718,7 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": readonly components["schemas"]["redirect"][];
+                    /** @example  */
                     readonly "Response Schema": unknown;
                 };
             };
@@ -1508,6 +1747,15 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "id": 3,
+                     *       "path": "/mens_clothing",
+                     *       "forward": {
+                     *         "type": "category",
+                     *         "ref": 3
+                     *       },
+                     *       "url": "http://store.example.com/mens"
+                     *     } */
                     readonly "application/json": components["schemas"]["redirect"];
                 };
             };
@@ -1553,6 +1801,15 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "id": 1,
+                     *       "path": "/smith-journal-13/",
+                     *       "forward": {
+                     *         "type": "product",
+                     *         "ref": 111
+                     *       },
+                     *       "url": "http://store-store_hash.mybigcommerce.com/towels/bath-towels/hand-towels/"
+                     *     } */
                     readonly "application/json": components["schemas"]["redirect"];
                 };
             };
@@ -1613,6 +1870,15 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "id": 1,
+                     *       "path": "/smith-journal-13/",
+                     *       "forward": {
+                     *         "type": "product",
+                     *         "ref": 111
+                     *       },
+                     *       "url": "http://store-store_hash.mybigcommerce.com/towels/bath-towels/hand-towels/"
+                     *     } */
                     readonly "application/json": components["schemas"]["redirect"];
                 };
             };
@@ -1658,6 +1924,9 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "count": 27
+                     *     } */
                     readonly "application/json": components["schemas"]["count_Response"];
                 };
             };

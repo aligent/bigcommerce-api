@@ -1286,6 +1286,64 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 220,
+                     *         "product_id": 192,
+                     *         "name": "Color (Colors only)",
+                     *         "display_name": "Color",
+                     *         "type": "swatch",
+                     *         "sort_order": 0,
+                     *         "option_values": [
+                     *           {
+                     *             "id": 174,
+                     *             "label": "Beige",
+                     *             "sort_order": 1,
+                     *             "value_data": {
+                     *               "colors": [
+                     *                 "#FAFAEB"
+                     *               ]
+                     *             },
+                     *             "is_default": false
+                     *           },
+                     *           {
+                     *             "id": 175,
+                     *             "label": "Grey",
+                     *             "sort_order": 2,
+                     *             "value_data": {
+                     *               "colors": [
+                     *                 "#BDBDBD"
+                     *               ]
+                     *             },
+                     *             "is_default": false
+                     *           },
+                     *           {
+                     *             "id": 176,
+                     *             "label": "Black",
+                     *             "sort_order": 3,
+                     *             "value_data": {
+                     *               "colors": [
+                     *                 "#000000"
+                     *               ]
+                     *             },
+                     *             "is_default": false
+                     *           },
+                     *           {
+                     *             "id": 189,
+                     *             "label": "Black-Walnut",
+                     *             "sort_order": 4,
+                     *             "value_data": {
+                     *               "colors": [
+                     *                 "#e80ee8"
+                     *               ]
+                     *             },
+                     *             "is_default": false
+                     *           }
+                     *         ],
+                     *         "config": {}
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         /** Option */
                         readonly data?: {
@@ -1595,6 +1653,66 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 174,
+                     *           "label": "Beige",
+                     *           "sort_order": 1,
+                     *           "value_data": {
+                     *             "colors": [
+                     *               "#FAFAEB"
+                     *             ]
+                     *           },
+                     *           "is_default": false
+                     *         },
+                     *         {
+                     *           "id": 175,
+                     *           "label": "Grey",
+                     *           "sort_order": 2,
+                     *           "value_data": {
+                     *             "colors": [
+                     *               "#BDBDBD"
+                     *             ]
+                     *           },
+                     *           "is_default": false
+                     *         },
+                     *         {
+                     *           "id": 176,
+                     *           "label": "Black",
+                     *           "sort_order": 3,
+                     *           "value_data": {
+                     *             "colors": [
+                     *               "#000000"
+                     *             ]
+                     *           },
+                     *           "is_default": false
+                     *         },
+                     *         {
+                     *           "id": 189,
+                     *           "label": "Black-Walnut",
+                     *           "sort_order": 4,
+                     *           "value_data": {
+                     *             "colors": [
+                     *               "#e80ee8"
+                     *             ]
+                     *           },
+                     *           "is_default": false
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 4,
+                     *           "count": 4,
+                     *           "per_page": 50,
+                     *           "current_page": 1,
+                     *           "total_pages": 1,
+                     *           "links": {
+                     *             "current": "?page=1&limit=50"
+                     *           }
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly ({
                             /**
@@ -1681,6 +1799,19 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 44,
+                     *         "label": "Pick a color",
+                     *         "sort_order": 9,
+                     *         "value_data": {
+                     *           "colors": [
+                     *             "#123c91, #FFFF00, #397a44"
+                     *           ]
+                     *         },
+                     *         "is_default": false
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         /** Option Value */
                         readonly data?: {
@@ -1771,6 +1902,19 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 44,
+                     *         "label": "Pick a color",
+                     *         "sort_order": 9,
+                     *         "value_data": {
+                     *           "colors": [
+                     *             "#123c91, #FFFF00, #397a44"
+                     *           ]
+                     *         },
+                     *         "is_default": false
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         /** Option Value */
                         readonly data?: {
@@ -1885,6 +2029,19 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 44,
+                     *         "label": "Pick a color",
+                     *         "sort_order": 9,
+                     *         "value_data": {
+                     *           "colors": [
+                     *             "#123c91, #FFFF00, #397a44"
+                     *           ]
+                     *         },
+                     *         "is_default": false
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         /** Option Value */
                         readonly data?: {

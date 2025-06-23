@@ -1244,6 +1244,154 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 19,
+                     *           "parent_id": 0,
+                     *           "name": "Garden",
+                     *           "description": "<p>This is the garden description</p>",
+                     *           "views": 0,
+                     *           "sort_order": 2,
+                     *           "page_title": "page title",
+                     *           "meta_keywords": [
+                     *             "meta keyword"
+                     *           ],
+                     *           "meta_description": "meta description",
+                     *           "layout_file": "category.html",
+                     *           "image_url": "",
+                     *           "is_visible": true,
+                     *           "search_keywords": "search keywords",
+                     *           "default_product_sort": "use_store_settings",
+                     *           "custom_url": {
+                     *             "url": "/garden/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 20,
+                     *           "parent_id": 0,
+                     *           "name": "Publications",
+                     *           "description": "",
+                     *           "views": 0,
+                     *           "sort_order": 4,
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "",
+                     *           "layout_file": "category_with_facets.html",
+                     *           "image_url": "",
+                     *           "is_visible": true,
+                     *           "search_keywords": "",
+                     *           "default_product_sort": "use_store_settings",
+                     *           "custom_url": {
+                     *             "url": "/publications/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 21,
+                     *           "parent_id": 0,
+                     *           "name": "Kitchen",
+                     *           "description": "",
+                     *           "views": 0,
+                     *           "sort_order": 3,
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "",
+                     *           "layout_file": "category_with_facets.html",
+                     *           "image_url": "",
+                     *           "is_visible": true,
+                     *           "search_keywords": "",
+                     *           "default_product_sort": "use_store_settings",
+                     *           "custom_url": {
+                     *             "url": "/kitchen/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 22,
+                     *           "parent_id": 0,
+                     *           "name": "Utility",
+                     *           "description": "",
+                     *           "views": 0,
+                     *           "sort_order": 5,
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "",
+                     *           "layout_file": "category_with_facets.html",
+                     *           "image_url": "",
+                     *           "is_visible": true,
+                     *           "search_keywords": "",
+                     *           "default_product_sort": "use_store_settings",
+                     *           "custom_url": {
+                     *             "url": "/utility/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 23,
+                     *           "parent_id": 0,
+                     *           "name": "Shop All",
+                     *           "description": "",
+                     *           "views": 0,
+                     *           "sort_order": 0,
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "",
+                     *           "layout_file": "category_with_facets.html",
+                     *           "image_url": "",
+                     *           "is_visible": true,
+                     *           "search_keywords": "",
+                     *           "default_product_sort": "use_store_settings",
+                     *           "custom_url": {
+                     *             "url": "/shop-all/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 39,
+                     *           "parent_id": 19,
+                     *           "name": "Bath",
+                     *           "description": "",
+                     *           "views": 0,
+                     *           "sort_order": 0,
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "",
+                     *           "layout_file": "category.html",
+                     *           "image_url": "",
+                     *           "is_visible": true,
+                     *           "search_keywords": "",
+                     *           "default_product_sort": "use_store_settings",
+                     *           "custom_url": {
+                     *             "url": "/garden/bath/",
+                     *             "is_customized": false
+                     *           }
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 6,
+                     *           "count": 6,
+                     *           "per_page": 50,
+                     *           "current_page": 1,
+                     *           "total_pages": 1,
+                     *           "links": {
+                     *             "current": "?page=1&limit=50"
+                     *           }
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["Category"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -1869,6 +2017,46 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 6,
+                     *           "key": "Location",
+                     *           "value": "4HG",
+                     *           "namespace": "Warehouse Locations",
+                     *           "permission_set": "app_only",
+                     *           "resource_type": "category",
+                     *           "resource_id": 111,
+                     *           "description": "Location in the warehouse",
+                     *           "date_created": "1973-01-20T21:34:57.903Z",
+                     *           "date_modified": "1990-12-30T00:29:23.515Z"
+                     *         },
+                     *         {
+                     *           "id": 7,
+                     *           "key": "Location",
+                     *           "value": "4HG",
+                     *           "namespace": "Warehouse Locations",
+                     *           "permission_set": "read",
+                     *           "resource_type": "category",
+                     *           "resource_id": 111,
+                     *           "description": "Location in the warehouse",
+                     *           "date_created": "1973-01-20T21:34:57.903Z",
+                     *           "date_modified": "1990-12-30T00:29:23.515Z"
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 2,
+                     *           "count": 2,
+                     *           "per_page": 50,
+                     *           "current_page": 1,
+                     *           "total_pages": 1,
+                     *           "links": {
+                     *             "current": "?page=1&limit=50"
+                     *           }
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["metafield_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -1904,6 +2092,21 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 4,
+                     *         "key": "location_id",
+                     *         "value": "Shelf 3, Bin 5",
+                     *         "namespace": "App Namespace",
+                     *         "permission_set": "app_only",
+                     *         "resource_type": "category",
+                     *         "resource_id": 137,
+                     *         "description": "Where products are located",
+                     *         "date_created": "2021-08-06T19:15:35+00:00",
+                     *         "date_modified": "2021-08-06T19:15:35+00:00"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -1916,6 +2119,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2001,6 +2210,21 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 4,
+                     *         "key": "location_id",
+                     *         "value": "Shelf 3, Bin 5",
+                     *         "namespace": "App Namespace",
+                     *         "permission_set": "app_only",
+                     *         "resource_type": "category",
+                     *         "resource_id": 137,
+                     *         "description": "Where products are located",
+                     *         "date_created": "2021-08-06T19:15:35+00:00",
+                     *         "date_modified": "2021-08-06T19:15:35+00:00"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -2056,6 +2280,21 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 4,
+                     *         "key": "location_id",
+                     *         "value": "Shelf 3, Bin 5",
+                     *         "namespace": "App Namespace",
+                     *         "permission_set": "app_only",
+                     *         "resource_type": "category",
+                     *         "resource_id": 137,
+                     *         "description": "Where products are located",
+                     *         "date_created": "2021-08-06T19:15:35+00:00",
+                     *         "date_modified": "2021-08-06T19:15:35+00:00"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -2068,6 +2307,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2169,6 +2414,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/product_images/k/group_1545334669__76009.png"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: {
                             readonly image_url?: string;
@@ -2477,6 +2728,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2538,6 +2795,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2591,6 +2854,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;

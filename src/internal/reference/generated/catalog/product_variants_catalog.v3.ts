@@ -1168,6 +1168,130 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 382,
+                     *           "product_id": 192,
+                     *           "sku": "SMIT",
+                     *           "sku_id": 348,
+                     *           "price": 10,
+                     *           "calculated_price": 10,
+                     *           "sale_price": 8,
+                     *           "retail_price": 10,
+                     *           "map_price": {},
+                     *           "weight": 4,
+                     *           "calculated_weight": 2,
+                     *           "width": 5,
+                     *           "height": 5,
+                     *           "depth": 5,
+                     *           "is_free_shipping": false,
+                     *           "fixed_cost_shipping_price": 10,
+                     *           "purchasing_disabled": false,
+                     *           "purchasing_disabled_message": "",
+                     *           "image_url": "",
+                     *           "cost_price": 0,
+                     *           "upc": "",
+                     *           "mpn": "",
+                     *           "gtin": "",
+                     *           "inventory_level": 0,
+                     *           "inventory_warning_level": 0,
+                     *           "bin_picking_number": "",
+                     *           "option_values": [
+                     *             {
+                     *               "id": 174,
+                     *               "label": "Beige",
+                     *               "option_id": 220,
+                     *               "option_display_name": "Color"
+                     *             }
+                     *           ]
+                     *         },
+                     *         {
+                     *           "id": 383,
+                     *           "product_id": 192,
+                     *           "sku": "SMIT-1",
+                     *           "sku_id": 349,
+                     *           "price": 25,
+                     *           "calculated_price": 25,
+                     *           "sale_price": 20,
+                     *           "retail_price": 25,
+                     *           "map_price": {},
+                     *           "weight": 2,
+                     *           "calculated_weight": 1,
+                     *           "width": 5,
+                     *           "height": 5,
+                     *           "depth": 5,
+                     *           "is_free_shipping": false,
+                     *           "fixed_cost_shipping_price": 10,
+                     *           "purchasing_disabled": false,
+                     *           "purchasing_disabled_message": "",
+                     *           "image_url": "",
+                     *           "cost_price": 25,
+                     *           "upc": "",
+                     *           "mpn": "",
+                     *           "gtin": "",
+                     *           "inventory_level": 0,
+                     *           "inventory_warning_level": 0,
+                     *           "bin_picking_number": "",
+                     *           "option_values": [
+                     *             {
+                     *               "id": 175,
+                     *               "label": "Grey",
+                     *               "option_id": 220,
+                     *               "option_display_name": "Color"
+                     *             }
+                     *           ]
+                     *         },
+                     *         {
+                     *           "id": 384,
+                     *           "product_id": 192,
+                     *           "sku": "SMIT-2",
+                     *           "sku_id": 350,
+                     *           "price": 25,
+                     *           "calculated_price": 25,
+                     *           "sale_price": 20,
+                     *           "retail_price": 25,
+                     *           "map_price": {},
+                     *           "weight": 2,
+                     *           "calculated_weight": 1,
+                     *           "width": 5,
+                     *           "height": 5,
+                     *           "depth": 5,
+                     *           "is_free_shipping": false,
+                     *           "fixed_cost_shipping_price": 10,
+                     *           "purchasing_disabled": false,
+                     *           "purchasing_disabled_message": "",
+                     *           "image_url": "",
+                     *           "cost_price": 25,
+                     *           "upc": "",
+                     *           "mpn": "",
+                     *           "gtin": "",
+                     *           "inventory_level": 0,
+                     *           "inventory_warning_level": 0,
+                     *           "bin_picking_number": "",
+                     *           "option_values": [
+                     *             {
+                     *               "id": 176,
+                     *               "label": "Black",
+                     *               "option_id": 220,
+                     *               "option_display_name": "Color"
+                     *             }
+                     *           ]
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 3,
+                     *           "count": 3,
+                     *           "per_page": 50,
+                     *           "current_page": 1,
+                     *           "total_pages": 1,
+                     *           "links": {
+                     *             "current": "?page=1&limit=50"
+                     *           }
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["productVariant_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -1287,6 +1411,45 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 384,
+                     *         "product_id": 192,
+                     *         "sku": "SMIT-2",
+                     *         "sku_id": 350,
+                     *         "price": 25,
+                     *         "calculated_price": 25,
+                     *         "sale_price": 20,
+                     *         "retail_price": 25,
+                     *         "map_price": {},
+                     *         "weight": 2,
+                     *         "calculated_weight": 1,
+                     *         "width": 5,
+                     *         "height": 5,
+                     *         "depth": 5,
+                     *         "is_free_shipping": false,
+                     *         "fixed_cost_shipping_price": 10,
+                     *         "purchasing_disabled": false,
+                     *         "purchasing_disabled_message": "",
+                     *         "image_url": "",
+                     *         "cost_price": 25,
+                     *         "upc": "",
+                     *         "mpn": "",
+                     *         "gtin": "",
+                     *         "inventory_level": 0,
+                     *         "inventory_warning_level": 0,
+                     *         "bin_picking_number": "",
+                     *         "option_values": [
+                     *           {
+                     *             "id": 176,
+                     *             "label": "Black",
+                     *             "option_id": 220,
+                     *             "option_display_name": "Color"
+                     *           }
+                     *         ]
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["productVariant_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -1343,6 +1506,37 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "bin_picking_number": "0",
+                     *         "calculated_price": 85,
+                     *         "calculated_weight": 1,
+                     *         "cost_price": 0,
+                     *         "depth": 22,
+                     *         "fixed_cost_shipping_price": 0,
+                     *         "gtin": "",
+                     *         "height": 14.6,
+                     *         "id": 65,
+                     *         "inventory_level": 0,
+                     *         "inventory_warning_level": 0,
+                     *         "is_free_shipping": false,
+                     *         "map_price": 0,
+                     *         "mpn": "TR-SML02",
+                     *         "option_values": [],
+                     *         "price": 89,
+                     *         "product_id": 81,
+                     *         "purchasing_disabled": true,
+                     *         "purchasing_disabled_message": "This item is not available.",
+                     *         "retail_price": 89,
+                     *         "sale_price": 85,
+                     *         "sku": "OTS",
+                     *         "sku_id": 10,
+                     *         "upc": "",
+                     *         "weight": 1,
+                     *         "width": 2
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["productVariant_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -1484,6 +1678,21 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 4,
+                     *         "key": "location_id",
+                     *         "value": "Shelf 3, Bin 5",
+                     *         "namespace": "App Namespace",
+                     *         "permission_set": "app_only",
+                     *         "resource_type": "variant",
+                     *         "resource_id": 137,
+                     *         "description": "Where products are located",
+                     *         "date_created": "2021-08-06T19:15:35+00:00",
+                     *         "date_modified": "2021-08-06T19:15:35+00:00"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -1496,6 +1705,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -1584,6 +1799,21 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 8,
+                     *         "key": "location_id",
+                     *         "value": "Shelf 3, Bin 5",
+                     *         "namespace": "Inventory Namespace",
+                     *         "permission_set": "read",
+                     *         "resource_type": "variant",
+                     *         "resource_id": 158,
+                     *         "description": "Where products are located",
+                     *         "date_created": "2018-09-13T16:42:37+00:00",
+                     *         "date_modified": "2018-09-13T16:42:37+00:00"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -1643,6 +1873,21 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 8,
+                     *         "key": "location_id",
+                     *         "value": "Shelf 3, Bin 5",
+                     *         "namespace": "Inventory Namespace",
+                     *         "permission_set": "read",
+                     *         "resource_type": "variant",
+                     *         "resource_id": 158,
+                     *         "description": "Where products are located",
+                     *         "date_created": "2018-09-13T16:42:37+00:00",
+                     *         "date_modified": "2018-09-13T16:42:37+00:00"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -1655,6 +1900,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -1769,6 +2020,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "image_url": "https://cdn8.bigcommerce.com/s-id30h7ohwf/product_images/attribute_rule_images/85_source_1536863430.png"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         /**
                          * Resource Image
@@ -2303,6 +2560,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "errors": {},
+                     *       "status": 413,
+                     *       "title": "The request payload is too large. The maximum items allowed in the array is 50",
+                     *       "type": "/api-docs/getting-started/api-status-codes"
+                     *     } */
                     readonly "application/json": unknown;
                 };
             };
@@ -2431,6 +2694,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2492,6 +2761,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2545,6 +2820,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;

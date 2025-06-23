@@ -133,6 +133,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "promotions_triggered_by_products_with_zero_product_price": true,
+                     *       "promotions_apply_on_products_with_custom_product_price": false,
+                     *       "number_of_coupons_allowed_at_checkout": 1,
+                     *       "promotions_applied_on_original_product_price": true
+                     *     } */
                     readonly "application/json": components["schemas"]["GlobalPromotionSettings"];
                 };
             };

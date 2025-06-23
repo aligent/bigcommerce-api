@@ -101,6 +101,9 @@ export interface paths {
         /**
          * Get a category tree
          * @description Returns a category tree.
+         *
+         *     **Note:**
+         *     The default rate limit for this endpoint is 1 concurrent request.
          */
         readonly get: operations["getCategoryTree"];
     };
@@ -767,6 +770,30 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 0,
+                     *           "name": "string",
+                     *           "channels": [
+                     *             0
+                     *           ]
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 246,
+                     *           "count": 5,
+                     *           "per_page": 5,
+                     *           "current_page": 1,
+                     *           "total_pages": 50,
+                     *           "links": {
+                     *             "next": "?limit=5&page=2",
+                     *             "current": "?limit=5&page=1"
+                     *           }
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": components["schemas"]["CategoryTreeList"];
                 };
             };
@@ -799,6 +826,18 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 0,
+                     *           "name": "string",
+                     *           "channels": [
+                     *             0
+                     *           ]
+                     *         }
+                     *       ],
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": components["schemas"]["CategoryTree"];
                 };
             };
@@ -810,6 +849,17 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 0,
+                     *       "title": "string",
+                     *       "type": "string",
+                     *       "instance": "string",
+                     *       "errors": {
+                     *         "additionalProp1": "string",
+                     *         "additionalProp2": "string",
+                     *         "additionalProp3": "string"
+                     *       }
+                     *     } */
                     readonly "application/json": components["schemas"]["beta4ErrorResponse"];
                 };
             };
@@ -866,6 +916,29 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 0,
+                     *           "parent_id": 0,
+                     *           "depth": 0,
+                     *           "path": [
+                     *             0
+                     *           ],
+                     *           "name": "string",
+                     *           "is_visible": true,
+                     *           "children": [
+                     *             "string"
+                     *           ],
+                     *           "url": "/bath/"
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "type": "object",
+                     *         "properties": {},
+                     *         "description": "Empty meta object; reserved for use later."
+                     *       }
+                     *     } */
                     readonly "application/json": components["schemas"]["CategoryNodeTree"];
                 };
             };
@@ -877,6 +950,17 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 0,
+                     *       "title": "string",
+                     *       "type": "string",
+                     *       "instance": "string",
+                     *       "errors": {
+                     *         "additionalProp1": "string",
+                     *         "additionalProp2": "string",
+                     *         "additionalProp3": "string"
+                     *       }
+                     *     } */
                     readonly "application/json": components["schemas"]["beta4ErrorResponse"];
                 };
             };

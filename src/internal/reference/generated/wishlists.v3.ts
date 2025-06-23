@@ -311,6 +311,95 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 1,
+                     *           "customer_id": 4,
+                     *           "name": "My Wish List",
+                     *           "is_public": false,
+                     *           "token": "02d55481-13eb-4d1e-9d79-9062b518570d",
+                     *           "items": []
+                     *         },
+                     *         {
+                     *           "id": 2,
+                     *           "customer_id": 11,
+                     *           "name": "Christmas",
+                     *           "is_public": false,
+                     *           "token": "02d55481-13eb-4d1e-9d79-9062b518570d",
+                     *           "items": [
+                     *             {
+                     *               "id": 1,
+                     *               "product_id": 167
+                     *             },
+                     *             {
+                     *               "id": 2,
+                     *               "product_id": 174
+                     *             },
+                     *             {
+                     *               "id": 3,
+                     *               "product_id": 184
+                     *             }
+                     *           ]
+                     *         },
+                     *         {
+                     *           "id": 3,
+                     *           "customer_id": 20,
+                     *           "name": "Birthday",
+                     *           "is_public": false,
+                     *           "token": "02d55481-13eb-4d1e-9d79-9062b518570d",
+                     *           "items": [
+                     *             {
+                     *               "id": 4,
+                     *               "product_id": 184
+                     *             },
+                     *             {
+                     *               "id": 5,
+                     *               "product_id": 183
+                     *             }
+                     *           ]
+                     *         },
+                     *         {
+                     *           "id": 4,
+                     *           "customer_id": 20,
+                     *           "name": "Christmas",
+                     *           "is_public": false,
+                     *           "token": "02d55481-13eb-4d1e-9d79-9062b518570d",
+                     *           "items": [
+                     *             {
+                     *               "id": 6,
+                     *               "product_id": 201
+                     *             }
+                     *           ]
+                     *         },
+                     *         {
+                     *           "id": 5,
+                     *           "customer_id": 19,
+                     *           "name": "Wish List",
+                     *           "is_public": false,
+                     *           "token": "02d55481-13eb-4d1e-9d79-9062b518570d",
+                     *           "items": [
+                     *             {
+                     *               "id": 7,
+                     *               "product_id": 173
+                     *             },
+                     *             {
+                     *               "id": 8,
+                     *               "product_id": 176
+                     *             }
+                     *           ]
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 0,
+                     *           "count": 5,
+                     *           "per_page": 50,
+                     *           "current_page": 1,
+                     *           "total_pages": 0
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["wishlist_Full"][];
                         readonly meta?: components["schemas"]["metaCollection"];
@@ -370,6 +459,43 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 30,
+                     *         "customer_id": 10,
+                     *         "name": "Christmas List",
+                     *         "is_public": true,
+                     *         "token": "d2d55481-13eb-4d1e-9d79-9062b518570d",
+                     *         "items": [
+                     *           {
+                     *             "id": 44,
+                     *             "product_id": 77,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 45,
+                     *             "product_id": 80,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 46,
+                     *             "product_id": 81,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 47,
+                     *             "product_id": 86,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 48,
+                     *             "product_id": 88,
+                     *             "variant_id": 1
+                     *           }
+                     *         ]
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["wishlist_Full"];
                         /** @description Response metadata. */
@@ -430,6 +556,43 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 30,
+                     *         "customer_id": 10,
+                     *         "name": "Christmas List",
+                     *         "is_public": true,
+                     *         "token": "d2d55481-13eb-4d1e-9d79-9062b518570d",
+                     *         "items": [
+                     *           {
+                     *             "id": 44,
+                     *             "product_id": 77,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 45,
+                     *             "product_id": 80,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 46,
+                     *             "product_id": 81,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 47,
+                     *             "product_id": 86,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 48,
+                     *             "product_id": 88,
+                     *             "variant_id": 1
+                     *           }
+                     *         ]
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["wishlist_Full"];
                         /** @description Response metadata. */
@@ -498,6 +661,43 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 30,
+                     *         "customer_id": 10,
+                     *         "name": "Christmas List",
+                     *         "is_public": true,
+                     *         "token": "d2d55481-13eb-4d1e-9d79-9062b518570d",
+                     *         "items": [
+                     *           {
+                     *             "id": 44,
+                     *             "product_id": 77,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 45,
+                     *             "product_id": 80,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 46,
+                     *             "product_id": 81,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 47,
+                     *             "product_id": 86,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 48,
+                     *             "product_id": 88,
+                     *             "variant_id": 1
+                     *           }
+                     *         ]
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["wishlist_Full"];
                         /** @description Response metadata. */
@@ -572,6 +772,43 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 30,
+                     *         "customer_id": 10,
+                     *         "name": "Christmas List",
+                     *         "is_public": true,
+                     *         "token": "d2d55481-13eb-4d1e-9d79-9062b518570d",
+                     *         "items": [
+                     *           {
+                     *             "id": 44,
+                     *             "product_id": 77,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 45,
+                     *             "product_id": 80,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 46,
+                     *             "product_id": 81,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 47,
+                     *             "product_id": 86,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 48,
+                     *             "product_id": 88,
+                     *             "variant_id": 1
+                     *           }
+                     *         ]
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["wishlist_Full"];
                         /** @description Response metadata. */
@@ -688,6 +925,43 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 30,
+                     *         "customer_id": 10,
+                     *         "name": "Christmas List",
+                     *         "is_public": true,
+                     *         "token": "d2d55481-13eb-4d1e-9d79-9062b518570d",
+                     *         "items": [
+                     *           {
+                     *             "id": 44,
+                     *             "product_id": 77,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 45,
+                     *             "product_id": 80,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 46,
+                     *             "product_id": 81,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 47,
+                     *             "product_id": 86,
+                     *             "variant_id": 1
+                     *           },
+                     *           {
+                     *             "id": 48,
+                     *             "product_id": 88,
+                     *             "variant_id": 1
+                     *           }
+                     *         ]
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["wishlist_Full"];
                         /** @description Response metadata. */

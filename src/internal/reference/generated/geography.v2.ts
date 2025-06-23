@@ -223,6 +223,28 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
+                /** @example [
+                 *       {
+                 *         "id": 1,
+                 *         "country": "Afghanistan",
+                 *         "country_iso2": "AF",
+                 *         "country_iso3": "AFG",
+                 *         "states": {
+                 *           "url": "https://api.bigcommerce.com/stores/store_hash/v2/countries/1/states",
+                 *           "resource": "/countries/1/states"
+                 *         }
+                 *       },
+                 *       {
+                 *         "id": 2,
+                 *         "country": "Albania",
+                 *         "country_iso2": "AL",
+                 *         "country_iso3": "ALB",
+                 *         "states": {
+                 *           "url": "https://api.bigcommerce.com/stores/store_hash/v2/countries/2/states",
+                 *           "resource": "/countries/2/states"
+                 *         }
+                 *       }
+                 *     ] */
                 readonly "application/json": readonly components["schemas"]["country_Full"][];
             };
         };

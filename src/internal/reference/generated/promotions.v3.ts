@@ -140,6 +140,11 @@ export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
         /**
+         * @description Describes which client originally created the promotion
+         * @enum {unknown}
+         */
+        readonly CreatedFrom: "react_ui" | "legacy_ui" | "api";
+        /**
          * PromotionBase
          * @description **Promotion**
          *     A *promotion* is composed of a condition that a customer can satisfy (such as increasing their cart value above a certain amount or adding an item to their cart) and an action will take place (such as a discount on the customer’s order total, or a free item being added to their cart).
@@ -159,7 +164,7 @@ export interface components {
              * @description An internal name for this rule that the merchant can refer to.
              * @example Buy Product X Get Free Shipping
              */
-            readonly name: string;
+            readonly name?: string;
             /**
              * @description Customer-facing name for this rule, that the merchant want to display to customers.
              * @example WOW!!! FREE SHIPPING for Product X
@@ -169,7 +174,7 @@ export interface components {
             readonly channels?: readonly components["schemas"]["Channel"][];
             readonly customer?: components["schemas"]["Customer"];
             /** @description An ordered list of rules to be executed until the first applicable one applies a discount successfully and the rest will be skipped. */
-            readonly rules: readonly components["schemas"]["Rule"][];
+            readonly rules?: readonly components["schemas"]["Rule"][];
             /**
              * @description A read-only count of the times this rule has been used by customers. A rule is considered to be used when a customer successfully checks out with a rule that has applied a discount to their cart.
              * @example 2
@@ -217,26 +222,106 @@ export interface components {
             readonly schedule?: components["schemas"]["AvailabilityByWeekDay"];
         };
         /**
-         * Coupon Promotion
-         * @description **Coupon Promotion** A shopper must manually apply a *coupon promotion* to their cart.
+         * Patch Coupon Promotion
+         * @description A Partial **Coupon Promotion** that contains properties to patch.
          */
-        readonly PromotionCoupon: components["schemas"]["PromotionBase"] & {
+        readonly PatchCouponPromotion: components["schemas"]["PromotionBase"] & {
+            readonly codes?: components["schemas"]["CouponCode"];
             /**
-             * @description This field only has effect when the `redemption_type` is `COUPON` and `can_be_used_with_other_promotions` is `false`:
-             *     - When the property is set to "true", the coupon will override the applied automatic promotions if it provides a greater discount.
-             *     - When the property is set to "false", the coupon will not be applied if automatic promotions are already applied.
-             *
-             *     Trying to set the value of this field to "true" when the `redemption_type` is not `COUPON`, or when `can_be_used_with_other_promotions` is `true` will yield a 422 error response.
+             * @description This field only has effect when `can_be_used_with_other_promotions` is `false`:
+             *     - When the property is set to `true`, the coupon will override the applied automatic promotions if it provides a greater discount.
+             *     - When the property is set to `fasle`, the coupon will not be applied if automatic promotions are already applied.
+             *     Trying to set the value of this field to `true` when `can_be_used_with_other_promotions` is `true` will yield a 422 error response.
              * @default false
              * @example false
              */
             readonly coupon_overrides_automatic_when_offering_higher_discounts: boolean;
         };
+        readonly DraftCouponPromotion: components["schemas"]["PromotionBase"] & {
+            readonly codes?: components["schemas"]["CouponCode"];
+            /**
+             * @description This field only has effect when `can_be_used_with_other_promotions` is `false`:
+             *     - When the property is set to `true`, the coupon will override the applied automatic promotions if it provides a greater discount.
+             *     - When the property is set to `fasle`, the coupon will not be applied if automatic promotions are already applied.
+             *     Trying to set the value of this field when `can_be_used_with_other_promotions` is `true` will yield a 422 error response.
+             * @default false
+             * @example false
+             */
+            readonly coupon_overrides_automatic_when_offering_higher_discounts: boolean;
+            /**
+             * @description The type of the promotion. Promotions applied automatically have a value of `AUTOMATIC` whereas promotions requiring a coupon have a value of `COUPON`.
+             * @enum {string}
+             */
+            readonly redemption_type: "COUPON";
+        };
         /**
-         * Automatic Promotion
-         * @description The store applies *automatic promotions* to a shopper’s cart once the promotion criteria are satisfied. The shopper cannot manually apply an *automatic promotion*.
+         * Saved Coupon Promotion
+         * @description **Coupon Promotion** A shopper must manually apply a *coupon promotion* to their cart.
          */
-        readonly PromotionAutomatic: components["schemas"]["PromotionBase"];
+        readonly SavedCouponPromotion: WithRequired<components["schemas"]["PromotionBase"], "id" | "name" | "channels" | "customer" | "rules" | "notifications" | "stop" | "currency_code" | "redemption_type" | "current_uses" | "start_date" | "status" | "can_be_used_with_other_promotions"> & {
+            /**
+             * @description An auto-generated unique identifier for the discount rule.
+             * @example 1
+             */
+            readonly id: number;
+            readonly created_from: components["schemas"]["CreatedFrom"];
+            readonly codes?: components["schemas"]["CouponCode"];
+            /**
+             * @description This field only has effect when the `redemption_type` is `COUPON` and `can_be_used_with_other_promotions` is `false`:
+             *     - When the property is set to `true`, the coupon will override the applied automatic promotions if it provides a greater discount.
+             *     - When the property is set to `fasle`, the coupon will not be applied if automatic promotions are already applied.
+             *
+             *     Trying to set the value of this field to `true` when the `redemption_type` is not `COUPON`, or when `can_be_used_with_other_promotions` is `true` will yield a 422 error response.
+             * @default false
+             * @example false
+             */
+            readonly coupon_overrides_automatic_when_offering_higher_discounts: boolean;
+            /**
+             * @description The type of the promotion. Promotions applied automatically have a value of `AUTOMATIC` whereas promotions requiring a coupon have a value of `COUPON`.
+             * @enum {string}
+             */
+            readonly redemption_type: "COUPON";
+            readonly multiple_codes?: {
+                /**
+                 * @default false
+                 * @example false
+                 */
+                readonly has_multiple_codes: boolean;
+            };
+        };
+        /**
+         * Patch Automatic Promotion
+         * @description A Partial **Automatic Promotion** that contains properties to patch.
+         */
+        readonly PatchAutomaticPromotion: components["schemas"]["PromotionBase"];
+        /**
+         * Draft Automatic Promotion
+         * @description A draft **Automatic Promotion** to be created. The store applies *automatic promotions* to a shopper’s cart once the promotion criteria are satisfied. The shopper cannot manually apply an *automatic promotion*.
+         */
+        readonly DraftAutomaticPromotion: WithRequired<components["schemas"]["PromotionBase"], "redemption_type" | "name" | "rules"> & {
+            /**
+             * @description The type of the promotion. Promotions applied automatically have a value of `AUTOMATIC` whereas promotions requiring a coupon have a value of `COUPON`.
+             * @enum {string}
+             */
+            readonly redemption_type: "AUTOMATIC";
+        };
+        /**
+         * Saved Automatic Promotion
+         * @description The store applies *Automatic promotions* to a shopper’s cart once the promotion criteria are satisfied. The shopper cannot manually apply an *automatic promotion*.
+         */
+        readonly SavedAutomaticPromotion: WithRequired<components["schemas"]["PromotionBase"], "id" | "name" | "channels" | "customer" | "rules" | "notifications" | "stop" | "currency_code" | "redemption_type" | "current_uses" | "start_date" | "status" | "can_be_used_with_other_promotions"> & {
+            /**
+             * @description The type of the promotion. Promotions applied automatically have a value of `AUTOMATIC` whereas promotions requiring a coupon have a value of `COUPON`.
+             * @enum {string}
+             */
+            readonly redemption_type: "AUTOMATIC";
+            /**
+             * @description An auto-generated unique identifier for the discount rule.
+             * @example 1
+             */
+            readonly id: number;
+            readonly created_from: components["schemas"]["CreatedFrom"];
+        };
         /** @description Specifies the requirements which make the customer eligible for the promotion.
          *
          *     Note:
@@ -604,7 +689,7 @@ export interface components {
          * @description Contains data about the response including pagination and collection totals.
          */
         readonly CollectionMeta: {
-            readonly pagination?: components["schemas"]["Pagination"];
+            readonly pagination: components["schemas"]["Pagination"];
         };
         /**
          * Pagination
@@ -612,17 +697,17 @@ export interface components {
          */
         readonly Pagination: {
             /** @description Total number of items in the result set. */
-            readonly total?: number;
+            readonly total: number;
             /** @description Total number of items in the collection response. */
-            readonly count?: number;
+            readonly count: number;
             /** @description The amount of items returned in the collection per page, controlled by the limit of items per page parameter. */
-            readonly per_page?: number;
+            readonly per_page: number;
             /** @description The page you are currently on within the collection. */
-            readonly current_page?: number;
+            readonly current_page: number;
             /** @description The total number of pages in the collection. */
-            readonly total_pages?: number;
+            readonly total_pages: number;
             /** @description Pagination links for the previous and next parts of the whole collection. */
-            readonly links?: {
+            readonly links: {
                 /** @description Link to the previous page returned in the response. */
                 readonly previous?: string;
                 /** @description Link to the current page returned in the response. */
@@ -799,7 +884,7 @@ export interface components {
              * @description An auto-generated unique identifier for the coupon code.
              * @example 1
              */
-            readonly id?: number;
+            readonly id: number;
             /**
              * @description A unique code that can be used to manually apply a discount. Only letters, numbers, white spaces, underscores and hyphens are allowed.
              * @example TEST-COUPON-CODE
@@ -809,7 +894,7 @@ export interface components {
              * @description A read-only count of the times this coupon code has been used.
              * @example 2
              */
-            readonly current_uses?: number;
+            readonly current_uses: number;
             /**
              * @description The maximum number of times you can use this coupon code. The default value is 0, which represents unlimited uses.
              * @example 10
@@ -825,7 +910,7 @@ export interface components {
              * @description The date and time when this coupon code was created.
              * @example 2019-01-20T22:00:00.000Z
              */
-            readonly created?: string;
+            readonly created: string;
         };
         /**
          * Bulk Action Response Meta
@@ -989,7 +1074,39 @@ export interface components {
                     readonly errors?: readonly components["schemas"]["BulkActionResponseError"][];
                     readonly meta?: components["schemas"]["BulkActionResponseMeta"];
                 };
+                /** @example {
+                 *       "errors": [
+                 *         {
+                 *           "status": 422,
+                 *           "title": "Parameter id:in is required",
+                 *           "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+                 *         }
+                 *       ],
+                 *       "meta": {
+                 *         "total": 0,
+                 *         "success": 0,
+                 *         "failed": 0
+                 *       }
+                 *     } */
                 readonly "422 - Missing Parameter": unknown;
+                /** @example {
+                 *       "errors": [
+                 *         {
+                 *           "status": 422,
+                 *           "title": "Errors occurred in bulk delete action.",
+                 *           "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                 *           "errors": {
+                 *             "0.constraint": "Failed for id=12. Error: constraint reference error.",
+                 *             "2.code": "Failed for id=14. Error: some relating codes are still present."
+                 *           }
+                 *         }
+                 *       ],
+                 *       "meta": {
+                 *         "total": 5,
+                 *         "success": 3,
+                 *         "failed": 2
+                 *       }
+                 *     } */
                 readonly "422 - Error Deleting": unknown;
             };
         };
@@ -1022,8 +1139,8 @@ export interface components {
             };
             content: {
                 readonly "application/json": {
-                    readonly data?: readonly (components["schemas"]["PromotionAutomatic"] | components["schemas"]["PromotionCoupon"])[];
-                    readonly meta?: components["schemas"]["CollectionMeta"];
+                    readonly data: readonly (components["schemas"]["SavedAutomaticPromotion"] | components["schemas"]["SavedCouponPromotion"])[];
+                    readonly meta: components["schemas"]["CollectionMeta"];
                 };
             };
         };
@@ -1033,7 +1150,7 @@ export interface components {
             };
             content: {
                 readonly "application/json": {
-                    readonly data?: components["schemas"]["PromotionCoupon"] | components["schemas"]["PromotionAutomatic"];
+                    readonly data?: components["schemas"]["SavedCouponPromotion"] | components["schemas"]["SavedAutomaticPromotion"];
                     /** @description Empty meta object, which may be used at a later time. */
                     readonly meta?: {
                         readonly [key: string]: unknown;
@@ -1070,6 +1187,8 @@ export interface components {
         readonly LimitQuery: number;
         /** @description Filter items by `name`. */
         readonly NameQuery: string;
+        /** @description Filter items by both name or code. */
+        readonly Query: string;
         /** @description Filter items by `code`. */
         readonly CodeQuery: string;
         /** @description Filter items by `currency_code`. */
@@ -1125,6 +1244,8 @@ export interface operations {
                 readonly direction?: components["parameters"]["DirectionQuery"];
                 /** @description Filter promotions that target those `channel IDs`.  Example: **?channels=1,2**. Note: promotions that target all the channels are included in the filtering result. */
                 readonly channels?: components["parameters"]["ChannelQuery"];
+                /** @description Filter items by both name or code. */
+                readonly query?: components["parameters"]["Query"];
             };
             readonly header?: {
                 /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
@@ -1161,7 +1282,7 @@ export interface operations {
         };
         readonly requestBody?: {
             readonly content: {
-                readonly "application/json": components["schemas"]["PromotionCoupon"] | components["schemas"]["PromotionAutomatic"];
+                readonly "application/json": components["schemas"]["DraftCouponPromotion"] | components["schemas"]["DraftAutomaticPromotion"];
             };
         };
         readonly responses: {
@@ -1266,7 +1387,7 @@ export interface operations {
         };
         readonly requestBody?: {
             readonly content: {
-                readonly "application/json": components["schemas"]["PromotionCoupon"] | components["schemas"]["PromotionAutomatic"];
+                readonly "application/json": components["schemas"]["PatchCouponPromotion"] | components["schemas"]["PatchAutomaticPromotion"];
             };
         };
         readonly responses: {
@@ -1434,3 +1555,6 @@ export interface operations {
         };
     };
 }
+type WithRequired<T, K extends keyof T> = T & {
+    [P in K]-?: T[P];
+};

@@ -4037,6 +4037,113 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "id": 0,
+                     *       "name": "Smith Journal 13",
+                     *       "type": "physical",
+                     *       "sku": "SM-13",
+                     *       "description": "<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>",
+                     *       "weight": 0,
+                     *       "width": 0,
+                     *       "depth": 0,
+                     *       "height": 0,
+                     *       "price": 0,
+                     *       "cost_price": 0,
+                     *       "retail_price": 0,
+                     *       "sale_price": 0,
+                     *       "map_price": 0,
+                     *       "tax_class_id": 0,
+                     *       "product_tax_code": "string",
+                     *       "categories": [
+                     *         0
+                     *       ],
+                     *       "brand_id": 37,
+                     *       "inventory_level": 0,
+                     *       "inventory_warning_level": 0,
+                     *       "inventory_tracking": "none",
+                     *       "fixed_cost_shipping_price": 0,
+                     *       "is_free_shipping": true,
+                     *       "is_visible": true,
+                     *       "is_featured": true,
+                     *       "related_products": [
+                     *         0
+                     *       ],
+                     *       "warranty": "string",
+                     *       "bin_picking_number": "string",
+                     *       "layout_file": "string",
+                     *       "upc": "string",
+                     *       "search_keywords": "string",
+                     *       "availability": "available",
+                     *       "availability_description": "string",
+                     *       "gift_wrapping_options_type": "any",
+                     *       "gift_wrapping_options_list": [
+                     *         0
+                     *       ],
+                     *       "sort_order": -2147483648,
+                     *       "condition": "New",
+                     *       "is_condition_shown": true,
+                     *       "order_quantity_minimum": 0,
+                     *       "order_quantity_maximum": 0,
+                     *       "page_title": "string",
+                     *       "meta_keywords": [
+                     *         "string"
+                     *       ],
+                     *       "meta_description": "string",
+                     *       "view_count": 0,
+                     *       "preorder_release_date": "2019-08-24T14:15:22Z",
+                     *       "preorder_message": "string",
+                     *       "is_preorder_only": true,
+                     *       "is_price_hidden": true,
+                     *       "price_hidden_label": "string",
+                     *       "custom_url": {
+                     *         "url": "string",
+                     *         "is_customized": true
+                     *       },
+                     *       "open_graph_type": "product",
+                     *       "open_graph_title": "string",
+                     *       "open_graph_description": "string",
+                     *       "open_graph_use_meta_description": true,
+                     *       "open_graph_use_product_name": true,
+                     *       "open_graph_use_image": true,
+                     *       "gtin": "string",
+                     *       "mpn": "string",
+                     *       "date_last_imported": "2015-07-03T18:16:02+00:00",
+                     *       "reviews_rating_sum": 3,
+                     *       "reviews_count": 4,
+                     *       "total_sold": 80,
+                     *       "custom_fields": [
+                     *         {
+                     *           "id": 6,
+                     *           "name": "ISBN",
+                     *           "value": "1234567890123"
+                     *         }
+                     *       ],
+                     *       "bulk_pricing_rules": [
+                     *         {
+                     *           "id": 0,
+                     *           "quantity_min": 10,
+                     *           "quantity_max": 50,
+                     *           "type": "price",
+                     *           "amount": 10
+                     *         }
+                     *       ],
+                     *       "images": [
+                     *         {
+                     *           "image_file": "string",
+                     *           "is_thumbnail": true,
+                     *           "sort_order": -2147483648,
+                     *           "description": "string",
+                     *           "image_url": "string",
+                     *           "id": 0,
+                     *           "product_id": 0,
+                     *           "url_zoom": "string",
+                     *           "url_standard": "string",
+                     *           "url_thumbnail": "string",
+                     *           "url_tiny": "string",
+                     *           "date_modified": "2019-08-24T14:15:22Z"
+                     *         }
+                     *       ]
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["product_Full"][];
                         readonly meta?: unknown;
@@ -4094,6 +4201,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "errors": {},
+                     *       "status": 413,
+                     *       "title": "The request payload is too large. The maximum items allowed in the array is 10.",
+                     *       "type": "/api-docs/getting-started/api-status-codes"
+                     *     } */
                     readonly "application/json": components["schemas"]["error_Base"];
                 };
             };
@@ -4134,6 +4247,113 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "id": 0,
+                     *       "name": "Smith Journal 13",
+                     *       "type": "physical",
+                     *       "sku": "SM-13",
+                     *       "description": "<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>",
+                     *       "weight": 0,
+                     *       "width": 0,
+                     *       "depth": 0,
+                     *       "height": 0,
+                     *       "price": 0,
+                     *       "cost_price": 0,
+                     *       "retail_price": 0,
+                     *       "sale_price": 0,
+                     *       "map_price": 0,
+                     *       "tax_class_id": 0,
+                     *       "product_tax_code": "string",
+                     *       "categories": [
+                     *         0
+                     *       ],
+                     *       "brand_id": 37,
+                     *       "inventory_level": 0,
+                     *       "inventory_warning_level": 0,
+                     *       "inventory_tracking": "none",
+                     *       "fixed_cost_shipping_price": 0,
+                     *       "is_free_shipping": true,
+                     *       "is_visible": true,
+                     *       "is_featured": true,
+                     *       "related_products": [
+                     *         0
+                     *       ],
+                     *       "warranty": "string",
+                     *       "bin_picking_number": "string",
+                     *       "layout_file": "string",
+                     *       "upc": "string",
+                     *       "search_keywords": "string",
+                     *       "availability": "available",
+                     *       "availability_description": "string",
+                     *       "gift_wrapping_options_type": "any",
+                     *       "gift_wrapping_options_list": [
+                     *         0
+                     *       ],
+                     *       "sort_order": -2147483648,
+                     *       "condition": "New",
+                     *       "is_condition_shown": true,
+                     *       "order_quantity_minimum": 0,
+                     *       "order_quantity_maximum": 0,
+                     *       "page_title": "string",
+                     *       "meta_keywords": [
+                     *         "string"
+                     *       ],
+                     *       "meta_description": "string",
+                     *       "view_count": 0,
+                     *       "preorder_release_date": "2019-08-24T14:15:22Z",
+                     *       "preorder_message": "string",
+                     *       "is_preorder_only": true,
+                     *       "is_price_hidden": true,
+                     *       "price_hidden_label": "string",
+                     *       "custom_url": {
+                     *         "url": "string",
+                     *         "is_customized": true
+                     *       },
+                     *       "open_graph_type": "product",
+                     *       "open_graph_title": "string",
+                     *       "open_graph_description": "string",
+                     *       "open_graph_use_meta_description": true,
+                     *       "open_graph_use_product_name": true,
+                     *       "open_graph_use_image": true,
+                     *       "gtin": "string",
+                     *       "mpn": "string",
+                     *       "date_last_imported": "2015-07-03T18:16:02+00:00",
+                     *       "reviews_rating_sum": 3,
+                     *       "reviews_count": 4,
+                     *       "total_sold": 80,
+                     *       "custom_fields": [
+                     *         {
+                     *           "id": 6,
+                     *           "name": "ISBN",
+                     *           "value": "1234567890123"
+                     *         }
+                     *       ],
+                     *       "bulk_pricing_rules": [
+                     *         {
+                     *           "id": 0,
+                     *           "quantity_min": 10,
+                     *           "quantity_max": 50,
+                     *           "type": "price",
+                     *           "amount": 10
+                     *         }
+                     *       ],
+                     *       "images": [
+                     *         {
+                     *           "image_file": "string",
+                     *           "is_thumbnail": true,
+                     *           "sort_order": -2147483648,
+                     *           "description": "string",
+                     *           "image_url": "string",
+                     *           "id": 0,
+                     *           "product_id": 0,
+                     *           "url_zoom": "string",
+                     *           "url_standard": "string",
+                     *           "url_thumbnail": "string",
+                     *           "url_tiny": "string",
+                     *           "date_modified": "2019-08-24T14:15:22Z"
+                     *         }
+                     *       ]
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["product_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -4305,6 +4525,86 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 174,
+                     *         "name": "1L Le Parfait Jar",
+                     *         "type": "physical",
+                     *         "sku": "",
+                     *         "description": "<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>",
+                     *         "weight": 1,
+                     *         "width": 0,
+                     *         "depth": 0,
+                     *         "height": 0,
+                     *         "price": 7.95,
+                     *         "cost_price": 0,
+                     *         "retail_price": 10,
+                     *         "sale_price": 0,
+                     *         "map_price": 0,
+                     *         "tax_class_id": 0,
+                     *         "product_tax_code": "",
+                     *         "calculated_price": 7.95,
+                     *         "categories": [
+                     *           23,
+                     *           21
+                     *         ],
+                     *         "brand_id": 36,
+                     *         "option_set_id": 55,
+                     *         "option_set_display": "right",
+                     *         "inventory_level": 0,
+                     *         "inventory_warning_level": 0,
+                     *         "inventory_tracking": "none",
+                     *         "reviews_rating_sum": 0,
+                     *         "reviews_count": 0,
+                     *         "total_sold": 7,
+                     *         "fixed_cost_shipping_price": 0,
+                     *         "is_free_shipping": false,
+                     *         "is_visible": true,
+                     *         "is_featured": false,
+                     *         "related_products": [
+                     *           -1
+                     *         ],
+                     *         "warranty": "",
+                     *         "bin_picking_number": "",
+                     *         "layout_file": "product.html",
+                     *         "upc": "",
+                     *         "mpn": "",
+                     *         "gtin": "",
+                     *         "search_keywords": "jar, glass",
+                     *         "availability": "available",
+                     *         "availability_description": "",
+                     *         "gift_wrapping_options_type": "any",
+                     *         "gift_wrapping_options_list": [],
+                     *         "sort_order": 0,
+                     *         "condition": "New",
+                     *         "is_condition_shown": false,
+                     *         "order_quantity_minimum": 0,
+                     *         "order_quantity_maximum": 0,
+                     *         "page_title": "",
+                     *         "meta_keywords": [],
+                     *         "meta_description": "",
+                     *         "date_created": "2018-08-15T14:48:46+00:00",
+                     *         "date_modified": "2018-09-05T20:42:07+00:00",
+                     *         "view_count": 10,
+                     *         "preorder_release_date": "2018-09-05T20:42:07+00:00",
+                     *         "preorder_message": "",
+                     *         "is_preorder_only": false,
+                     *         "is_price_hidden": false,
+                     *         "price_hidden_label": "",
+                     *         "custom_url": {
+                     *           "url": "/all/1l-le-parfait-jar/",
+                     *           "is_customized": true
+                     *         },
+                     *         "base_variant_id": 345,
+                     *         "open_graph_type": "product",
+                     *         "open_graph_title": "",
+                     *         "open_graph_description": "",
+                     *         "open_graph_use_meta_description": true,
+                     *         "open_graph_use_product_name": true,
+                     *         "open_graph_use_image": true
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["product_Full"] & {
                             /** @description The channels to which the product is assigned. This field only appears in the response if you include `channels` in the `include` query parameter. */
@@ -4368,6 +4668,280 @@ export interface operations {
                         readonly data?: components["schemas"]["product_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
+                    /** @example {
+                     *       "name": "Smith Journal 13",
+                     *       "type": "physical",
+                     *       "sku": "SM-13",
+                     *       "description": "<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>",
+                     *       "weight": 0,
+                     *       "width": 0,
+                     *       "depth": 0,
+                     *       "height": 0,
+                     *       "price": 0,
+                     *       "cost_price": 0,
+                     *       "retail_price": 0,
+                     *       "sale_price": 0,
+                     *       "map_price": 0,
+                     *       "tax_class_id": 0,
+                     *       "product_tax_code": "string",
+                     *       "categories": [
+                     *         0
+                     *       ],
+                     *       "brand_id": 0,
+                     *       "inventory_level": 0,
+                     *       "inventory_warning_level": 0,
+                     *       "inventory_tracking": "none",
+                     *       "fixed_cost_shipping_price": 0,
+                     *       "is_free_shipping": true,
+                     *       "is_visible": true,
+                     *       "is_featured": true,
+                     *       "related_products": [
+                     *         0
+                     *       ],
+                     *       "warranty": "string",
+                     *       "bin_picking_number": "string",
+                     *       "layout_file": "string",
+                     *       "upc": "string",
+                     *       "search_keywords": "string",
+                     *       "availability": "available",
+                     *       "availability_description": "string",
+                     *       "gift_wrapping_options_type": "any",
+                     *       "gift_wrapping_options_list": [
+                     *         0
+                     *       ],
+                     *       "sort_order": -2147483648,
+                     *       "condition": "New",
+                     *       "is_condition_shown": true,
+                     *       "order_quantity_minimum": 0,
+                     *       "order_quantity_maximum": 0,
+                     *       "page_title": "string",
+                     *       "meta_keywords": [
+                     *         "string"
+                     *       ],
+                     *       "meta_description": "string",
+                     *       "view_count": 0,
+                     *       "preorder_release_date": "2019-08-24T14:15:22+00:00",
+                     *       "preorder_message": "string",
+                     *       "is_preorder_only": true,
+                     *       "is_price_hidden": true,
+                     *       "price_hidden_label": "string",
+                     *       "custom_url": {
+                     *         "url": "string",
+                     *         "is_customized": true
+                     *       },
+                     *       "open_graph_type": "product",
+                     *       "open_graph_title": "string",
+                     *       "open_graph_description": "string",
+                     *       "open_graph_use_meta_description": true,
+                     *       "open_graph_use_product_name": true,
+                     *       "open_graph_use_image": true,
+                     *       "brand_name": "Common Good",
+                     *       "gtin": "string",
+                     *       "mpn": "string",
+                     *       "reviews_rating_sum": 3.2,
+                     *       "reviews_count": 4,
+                     *       "total_sold": 80,
+                     *       "custom_fields": [
+                     *         {
+                     *           "id": 6,
+                     *           "name": "ISBN",
+                     *           "value": "1234567890123"
+                     *         }
+                     *       ],
+                     *       "bulk_pricing_rules": [
+                     *         {
+                     *           "id": 0,
+                     *           "quantity_min": 10,
+                     *           "quantity_max": 50,
+                     *           "type": "price",
+                     *           "amount": 10
+                     *         }
+                     *       ],
+                     *       "images": [
+                     *         {
+                     *           "image_file": "string",
+                     *           "is_thumbnail": true,
+                     *           "sort_order": -2147483648,
+                     *           "description": "string",
+                     *           "image_url": "string",
+                     *           "id": 0,
+                     *           "product_id": 0,
+                     *           "url_zoom": "string",
+                     *           "url_standard": "string",
+                     *           "url_thumbnail": "string",
+                     *           "url_tiny": "string",
+                     *           "date_modified": "2019-08-24T14:15:22+00:00"
+                     *         }
+                     *       ],
+                     *       "videos": [
+                     *         {
+                     *           "title": "string",
+                     *           "description": "string",
+                     *           "sort_order": -2147483648,
+                     *           "type": "youtube",
+                     *           "video_id": "string",
+                     *           "id": 0,
+                     *           "product_id": 0,
+                     *           "length": "string"
+                     *         }
+                     *       ],
+                     *       "date_created": "2018-08-15T14:49:05+00:00",
+                     *       "date_modified": "2018-08-24T14:41:00+00:00",
+                     *       "id": 1,
+                     *       "base_variant_id": 0,
+                     *       "calculated_price": 0,
+                     *       "options": [
+                     *         {
+                     *           "id": 55,
+                     *           "product_id": 4,
+                     *           "display_name": "Add-a-$5-Donation1535042499-187",
+                     *           "type": "radio_buttons",
+                     *           "config": {
+                     *             "default_value": "string",
+                     *             "checked_by_default": true,
+                     *             "checkbox_label": "string",
+                     *             "date_limited": true,
+                     *             "date_limit_mode": "range",
+                     *             "date_earliest_value": "2019-08-24T00:00:00+00:00",
+                     *             "date_latest_value": "2019-08-24T00:00:00+00:00",
+                     *             "file_types_mode": "specific",
+                     *             "file_types_supported": [
+                     *               "images, documents, other"
+                     *             ],
+                     *             "file_types_other": [
+                     *               "pdf"
+                     *             ],
+                     *             "file_max_size": 5,
+                     *             "text_characters_limited": true,
+                     *             "text_min_length": 1,
+                     *             "text_max_length": 55,
+                     *             "text_lines_limited": true,
+                     *             "text_max_lines": 4,
+                     *             "number_limited": true,
+                     *             "number_limit_mode": "lowest",
+                     *             "number_lowest_value": 100,
+                     *             "number_highest_value": 0,
+                     *             "number_integers_only": false,
+                     *             "product_list_adjusts_inventory": true,
+                     *             "product_list_adjusts_pricing": true,
+                     *             "product_list_shipping_calc": "weight"
+                     *           },
+                     *           "sort_order": 1,
+                     *           "option_values": {
+                     *             "is_default": false,
+                     *             "label": "Green",
+                     *             "sort_order": 0,
+                     *             "value_data": {},
+                     *             "id": 0
+                     *           }
+                     *         }
+                     *       ],
+                     *       "modifiers": [
+                     *         {
+                     *           "type": "date",
+                     *           "required": true,
+                     *           "sort_order": 0,
+                     *           "config": {
+                     *             "default_value": "string",
+                     *             "checked_by_default": true,
+                     *             "checkbox_label": "string",
+                     *             "date_limited": true,
+                     *             "date_limit_mode": "range",
+                     *             "date_earliest_value": "2019-08-24T00:00:00+00:00",
+                     *             "date_latest_value": "2019-08-24T00:00:00+00:00",
+                     *             "file_types_mode": "specific",
+                     *             "file_types_supported": [
+                     *               "images, documents, other"
+                     *             ],
+                     *             "file_types_other": [
+                     *               "pdf"
+                     *             ],
+                     *             "file_max_size": 5,
+                     *             "text_characters_limited": true,
+                     *             "text_min_length": 1,
+                     *             "text_max_length": 55,
+                     *             "text_lines_limited": true,
+                     *             "text_max_lines": 4,
+                     *             "number_limited": true,
+                     *             "number_limit_mode": "lowest",
+                     *             "number_lowest_value": 100,
+                     *             "number_highest_value": 0,
+                     *             "number_integers_only": false,
+                     *             "product_list_adjusts_inventory": true,
+                     *             "product_list_adjusts_pricing": true,
+                     *             "product_list_shipping_calc": "weight"
+                     *           },
+                     *           "display_name": "string",
+                     *           "id": 12,
+                     *           "product_id": 77,
+                     *           "name": "Add-a-$5-Donation1535039590-191",
+                     *           "option_values": [
+                     *             {
+                     *               "is_default": false,
+                     *               "label": "Green",
+                     *               "sort_order": 0,
+                     *               "value_data": {},
+                     *               "adjusters": {
+                     *                 "price": {
+                     *                   "adjuster": "relative",
+                     *                   "adjuster_value": 5
+                     *                 },
+                     *                 "weight": {
+                     *                   "adjuster": "relative",
+                     *                   "adjuster_value": 5
+                     *                 },
+                     *                 "image_url": "https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2",
+                     *                 "purchasing_disabled": {
+                     *                   "status": true,
+                     *                   "message": "string"
+                     *                 }
+                     *               },
+                     *               "id": 0,
+                     *               "option_id": 0
+                     *             }
+                     *           ]
+                     *         }
+                     *       ],
+                     *       "option_set_id": 0,
+                     *       "option_set_display": "string",
+                     *       "variants": [
+                     *         {
+                     *           "cost_price": 0,
+                     *           "price": 0,
+                     *           "sale_price": 0,
+                     *           "retail_price": 0,
+                     *           "weight": 0,
+                     *           "width": 0,
+                     *           "height": 0,
+                     *           "depth": 0,
+                     *           "is_free_shipping": true,
+                     *           "fixed_cost_shipping_price": 0,
+                     *           "purchasing_disabled": true,
+                     *           "purchasing_disabled_message": "string",
+                     *           "upc": "string",
+                     *           "inventory_level": 0,
+                     *           "inventory_warning_level": 0,
+                     *           "bin_picking_number": "string",
+                     *           "mpn": "string",
+                     *           "gtin": 12345678905,
+                     *           "id": 0,
+                     *           "product_id": 0,
+                     *           "sku": "string",
+                     *           "sku_id": 0,
+                     *           "option_values": [
+                     *             {
+                     *               "option_display_name": "Color",
+                     *               "label": "Beige",
+                     *               "id": 146,
+                     *               "option_id": 151
+                     *             }
+                     *           ],
+                     *           "calculated_price": 0,
+                     *           "calculated_weight": 0
+                     *         }
+                     *       ],
+                     *       "meta": {}
+                     *     } */
                     readonly "example-1": unknown;
                 };
             };
@@ -4512,6 +5086,48 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 382,
+                     *           "product_id": 158,
+                     *           "is_thumbnail": true,
+                     *           "sort_order": 0,
+                     *           "description": "",
+                     *           "image_file": "a/521/foglinenbeigestripetowel1b_1024x1024__83011__60806.jpg",
+                     *           "url_zoom": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.1280.1280.jpg?c=2",
+                     *           "url_standard": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.560.850.jpg?c=2",
+                     *           "url_thumbnail": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.330.500.jpg?c=2",
+                     *           "url_tiny": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.66.100.jpg?c=2",
+                     *           "date_modified": "2018-08-15T14:48:31+00:00"
+                     *         },
+                     *         {
+                     *           "id": 383,
+                     *           "product_id": 158,
+                     *           "is_thumbnail": false,
+                     *           "sort_order": 0,
+                     *           "description": "",
+                     *           "image_file": "k/050/foglinenbeigestripetowel2b_1024x1024__16082__46564.jpg",
+                     *           "url_zoom": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/383/foglinenbeigestripetowel2b_1024x1024__16082__46564.1534344511.1280.1280.jpg?c=2",
+                     *           "url_standard": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/383/foglinenbeigestripetowel2b_1024x1024__16082__46564.1534344511.560.850.jpg?c=2",
+                     *           "url_thumbnail": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/383/foglinenbeigestripetowel2b_1024x1024__16082__46564.1534344511.330.500.jpg?c=2",
+                     *           "url_tiny": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/383/foglinenbeigestripetowel2b_1024x1024__16082__46564.1534344511.66.100.jpg?c=2",
+                     *           "date_modified": "2018-08-15T14:48:31+00:00"
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 2,
+                     *           "count": 2,
+                     *           "per_page": 50,
+                     *           "current_page": 1,
+                     *           "total_pages": 1,
+                     *           "links": {
+                     *             "current": "?page=1&limit=50"
+                     *           }
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["productImage_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -4715,6 +5331,11 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 422,
+                     *       "title": "image_url must be present if uploading by url",
+                     *       "type": "/api-docs/getting-started/api-status-codes"
+                     *     } */
                     readonly "application/json": {
                         readonly status: number;
                         readonly title: string;
@@ -4753,6 +5374,22 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 485,
+                     *         "product_id": 158,
+                     *         "is_thumbnail": false,
+                     *         "sort_order": 1,
+                     *         "description": "",
+                     *         "image_file": "o/381/product-image__98178.png",
+                     *         "url_zoom": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/485/product-image__98178.1536854227.1280.1280.png?c=2",
+                     *         "url_standard": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/485/product-image__98178.1536854227.560.850.png?c=2",
+                     *         "url_thumbnail": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/485/product-image__98178.1536854227.330.500.png?c=2",
+                     *         "url_tiny": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/485/product-image__98178.1536854227.66.100.png?c=2",
+                     *         "date_modified": "2018-09-13T15:57:07+00:00"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["productImage_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -5015,6 +5652,52 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 6,
+                     *           "type": "youtube",
+                     *           "video_id": "PqBTp23RLhI",
+                     *           "product_id": 192,
+                     *           "sort_order": 1,
+                     *           "title": "Creating and Editing Banners | BigCommerce Tutorials",
+                     *           "description": "Learn how to create and edit marketing banners. Marketing banners are a great way to advertise sales, display coupon codes, and add design elements. Let’s take a look at how you can leverage banners to convert your store’s visitors into paying customers.",
+                     *           "length": "01:54"
+                     *         },
+                     *         {
+                     *           "id": 7,
+                     *           "type": "youtube",
+                     *           "video_id": "EhYBjzqd-nI",
+                     *           "product_id": 192,
+                     *           "sort_order": 2,
+                     *           "title": "BigCommerce Company Values",
+                     *           "description": "These are the core principles upon which BigCommerce was built, guiding what we do and how we do it. Each employee learns them, loves them and lives them. Our merchants benefit from them every time they use our product or get help from our support team.\n\nJoin the BigCommerce team and help us build software that changes lives!\n\nhttps://www.bigcommerce.com/careers/",
+                     *           "length": "03:30"
+                     *         },
+                     *         {
+                     *           "id": 8,
+                     *           "type": "youtube",
+                     *           "video_id": "vAUdo4kRjrU",
+                     *           "product_id": 192,
+                     *           "sort_order": 3,
+                     *           "title": "TOP WORKPLACES 2016 - Austin American Statesman + BigCommerce",
+                     *           "description": "We've been named one of Austin American-Statesmanʼs Top WorkPlaces for the 5th year in a row! Hereʼs what some employees have to say:\n\n“I am given the freedom and trust to make a difference.”\n\n“Everyone believes in the product and growing the company.”\n\n“I'm appreciated for the work I do and there is room to grown within the company.”\n\nWork With Us!\nhttp://www.bigcommerce.com/careers.php",
+                     *           "length": "01:37"
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 3,
+                     *           "count": 3,
+                     *           "per_page": 50,
+                     *           "current_page": 1,
+                     *           "total_pages": 1,
+                     *           "links": {
+                     *             "current": "?page=1&limit=50"
+                     *           }
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["productVideo_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -5082,6 +5765,13 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "title": "Your Video",
+                     *       "description": "Company Values",
+                     *       "sort_order": 1,
+                     *       "type": "youtube",
+                     *       "video_id": "123345AA"
+                     *     } */
                     readonly "application/json": {
                         /**
                          * Product Video
@@ -5170,6 +5860,13 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "title": "Your Video",
+                     *       "description": "Company Values",
+                     *       "sort_order": 1,
+                     *       "type": "youtube",
+                     *       "video_id": "123345AA"
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["productVideo_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -5245,6 +5942,13 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "title": "Your Video",
+                     *       "description": "Company Values",
+                     *       "sort_order": 1,
+                     *       "type": "youtube",
+                     *       "video_id": "123345AA"
+                     *     } */
                     readonly "application/json": {
                         /**
                          * Product Video
@@ -5363,6 +6067,72 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 82,
+                     *           "product_id": 195,
+                     *           "sort_order": 0,
+                     *           "enabled": true,
+                     *           "stop": false,
+                     *           "price_adjuster": {
+                     *             "adjuster": "relative",
+                     *             "adjuster_value": 8
+                     *           },
+                     *           "weight_adjuster": {},
+                     *           "purchasing_disabled": false,
+                     *           "purchasing_disabled_message": "",
+                     *           "purchasing_hidden": false,
+                     *           "image_url": "",
+                     *           "conditions": [
+                     *             {
+                     *               "rule_id": 82,
+                     *               "modifier_id": 221,
+                     *               "modifier_value_id": 175,
+                     *               "variant_id": 1,
+                     *               "combination_id": 0
+                     *             }
+                     *           ]
+                     *         },
+                     *         {
+                     *           "id": 83,
+                     *           "product_id": 195,
+                     *           "sort_order": 1,
+                     *           "enabled": true,
+                     *           "stop": false,
+                     *           "price_adjuster": {},
+                     *           "weight_adjuster": {
+                     *             "adjuster": "relative",
+                     *             "adjuster_value": 3
+                     *           },
+                     *           "purchasing_disabled": false,
+                     *           "purchasing_disabled_message": "",
+                     *           "purchasing_hidden": false,
+                     *           "image_url": "",
+                     *           "conditions": [
+                     *             {
+                     *               "rule_id": 83,
+                     *               "modifier_id": 221,
+                     *               "modifier_value_id": 174,
+                     *               "variant_id": 1,
+                     *               "combination_id": 0
+                     *             }
+                     *           ]
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 2,
+                     *           "count": 2,
+                     *           "per_page": 50,
+                     *           "current_page": 1,
+                     *           "total_pages": 1,
+                     *           "links": {
+                     *             "current": "?page=1&limit=50"
+                     *           }
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["complexRule_Base"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -6313,6 +7083,27 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 83,
+                     *         "quantity_min": 1,
+                     *         "quantity_max": 3,
+                     *         "type": "price",
+                     *         "amount": 1
+                     *       },
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 2,
+                     *           "count": 2,
+                     *           "per_page": 50,
+                     *           "current_page": 1,
+                     *           "total_pages": 1,
+                     *           "links": {
+                     *             "current": "?page=1&limit=50"
+                     *           }
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         readonly data?: {
                             /** @description Unique ID of the *Bulk Pricing Rule*. Read-Only. */
@@ -6351,6 +7142,16 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 83,
+                     *         "quantity_min": 1,
+                     *         "quantity_max": 3,
+                     *         "type": "price",
+                     *         "amount": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: {
                             /** @description Unique ID of the *Bulk Pricing Rule*. Read-Only. */
@@ -6391,6 +7192,16 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 83,
+                     *         "quantity_min": 1,
+                     *         "quantity_max": 3,
+                     *         "type": "price",
+                     *         "amount": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: {
                             /** @description Unique ID of the *Bulk Pricing Rule*. Read-Only. */
@@ -6453,6 +7264,16 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 83,
+                     *         "quantity_min": 1,
+                     *         "quantity_max": 3,
+                     *         "type": "price",
+                     *         "amount": 1
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: {
                             /** @description Unique ID of the *Bulk Pricing Rule*. Read-Only. */
@@ -6609,6 +7430,46 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 6,
+                     *           "key": "Location",
+                     *           "value": "4HG",
+                     *           "namespace": "Warehouse Locations",
+                     *           "permission_set": "app_only",
+                     *           "resource_type": "product",
+                     *           "resource_id": 111,
+                     *           "description": "Location in the warehouse",
+                     *           "date_created": "1973-01-20T21:34:57.903Z",
+                     *           "date_modified": "1990-12-30T00:29:23.515Z"
+                     *         },
+                     *         {
+                     *           "id": 7,
+                     *           "key": "Sublocation",
+                     *           "value": "4HG",
+                     *           "namespace": "Warehouse Locations",
+                     *           "permission_set": "read",
+                     *           "resource_type": "product",
+                     *           "resource_id": 111,
+                     *           "description": "Location in the warehouse",
+                     *           "date_created": "1973-01-20T21:34:57.903Z",
+                     *           "date_modified": "1990-12-30T00:29:23.515Z"
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 2,
+                     *           "count": 2,
+                     *           "per_page": 50,
+                     *           "current_page": 1,
+                     *           "total_pages": 1,
+                     *           "links": {
+                     *             "current": "?page=1&limit=50"
+                     *           }
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["metafield_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -6644,6 +7505,21 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 8,
+                     *         "key": "location_id",
+                     *         "value": "Shelf 3, Bin 5",
+                     *         "namespace": "Inventory Namespace",
+                     *         "permission_set": "read",
+                     *         "resource_type": "product",
+                     *         "resource_id": 158,
+                     *         "description": "Where products are located",
+                     *         "date_created": "2018-09-13T16:42:37+00:00",
+                     *         "date_modified": "2018-09-13T16:42:37+00:00"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -6656,6 +7532,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -6739,6 +7621,21 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 4,
+                     *         "key": "location_id",
+                     *         "value": "Shelf 3, Bin 5",
+                     *         "namespace": "App Namespace",
+                     *         "permission_set": "app_only",
+                     *         "resource_type": "product",
+                     *         "resource_id": 137,
+                     *         "description": "Where products are located",
+                     *         "date_created": "2021-08-06T19:15:35+00:00",
+                     *         "date_modified": "2021-08-06T19:15:35+00:00"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -6795,6 +7692,21 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 4,
+                     *         "key": "location_id",
+                     *         "value": "Shelf 3, Bin 5",
+                     *         "namespace": "App Namespace",
+                     *         "permission_set": "app_only",
+                     *         "resource_type": "product",
+                     *         "resource_id": 137,
+                     *         "description": "Where products are located",
+                     *         "date_created": "2021-08-06T19:15:35+00:00",
+                     *         "date_modified": "2021-08-06T19:15:35+00:00"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -6807,6 +7719,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -7050,6 +7968,22 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "title": "irur",
+                     *         "text": "anim aute",
+                     *         "status": "Lorem ad sed voluptate",
+                     *         "rating": 3,
+                     *         "email": "esse Lorem laborum aute",
+                     *         "name": "ut in ",
+                     *         "date_reviewed": "2011-12-31T13:40:42.971Z",
+                     *         "id": 82495037,
+                     *         "product_id": 22609026,
+                     *         "date_created": "1985-01-17T07:37:20.439Z",
+                     *         "date_modified": "2004-09-28T14:38:21.973Z"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         /**
                          * Product Review
@@ -7148,6 +8082,22 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "title": "irur",
+                     *         "text": "anim aute",
+                     *         "status": "Lorem ad sed voluptate",
+                     *         "rating": 3,
+                     *         "email": "esse Lorem laborum aute",
+                     *         "name": "ut in ",
+                     *         "date_reviewed": "2011-12-31T13:40:42.971Z",
+                     *         "id": 82495037,
+                     *         "product_id": 22609026,
+                     *         "date_created": "1985-01-17T07:37:20.439Z",
+                     *         "date_modified": "2004-09-28T14:38:21.973Z"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         /**
                          * Product Review
@@ -7271,6 +8221,22 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "title": "irur",
+                     *         "text": "anim aute",
+                     *         "status": "Lorem ad sed voluptate",
+                     *         "rating": 3,
+                     *         "email": "esse Lorem laborum aute",
+                     *         "name": "ut in ",
+                     *         "date_reviewed": "2011-12-31T13:40:42.971Z",
+                     *         "id": 82495037,
+                     *         "product_id": 22609026,
+                     *         "date_created": "1985-01-17T07:37:20.439Z",
+                     *         "date_modified": "2004-09-28T14:38:21.973Z"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         /**
                          * Product Review
@@ -7753,6 +8719,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -7809,6 +8781,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -7859,6 +8837,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;

@@ -473,6 +473,111 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "product_id": 1,
+                     *           "variant_id": 1,
+                     *           "options": [
+                     *             {
+                     *               "option_id": 1,
+                     *               "value_id": 1
+                     *             }
+                     *           ],
+                     *           "reference_request": {
+                     *             "product_id": 1,
+                     *             "variant_id": 1,
+                     *             "options": [
+                     *               {
+                     *                 "option_id": 1,
+                     *                 "value_id": 1
+                     *               }
+                     *             ]
+                     *           },
+                     *           "retail_price": {
+                     *             "as_entered": 1.5,
+                     *             "entered_inclusive": true,
+                     *             "tax_exclusive": 1.1,
+                     *             "tax_inclusive": 1.5
+                     *           },
+                     *           "sale_price": {
+                     *             "as_entered": 1.5,
+                     *             "entered_inclusive": true,
+                     *             "tax_exclusive": 1.1,
+                     *             "tax_inclusive": 1.5
+                     *           },
+                     *           "minimum_advertised_price": {
+                     *             "as_entered": 1.5,
+                     *             "entered_inclusive": true,
+                     *             "tax_exclusive": 1.1,
+                     *             "tax_inclusive": 1.5
+                     *           },
+                     *           "saved": {
+                     *             "as_entered": 1.5,
+                     *             "entered_inclusive": true,
+                     *             "tax_exclusive": 1.1,
+                     *             "tax_inclusive": 1.5
+                     *           },
+                     *           "price": {
+                     *             "as_entered": 1.5,
+                     *             "entered_inclusive": true,
+                     *             "tax_exclusive": 1.1,
+                     *             "tax_inclusive": 1.5
+                     *           },
+                     *           "calculated_price": {
+                     *             "as_entered": 1.5,
+                     *             "entered_inclusive": true,
+                     *             "tax_exclusive": 1.1,
+                     *             "tax_inclusive": 1.5
+                     *           },
+                     *           "price_range": {
+                     *             "minimum": {
+                     *               "as_entered": 1.5,
+                     *               "entered_inclusive": true,
+                     *               "tax_exclusive": 1.1,
+                     *               "tax_inclusive": 1.5
+                     *             },
+                     *             "maximum": {
+                     *               "as_entered": 1.5,
+                     *               "entered_inclusive": true,
+                     *               "tax_exclusive": 1.1,
+                     *               "tax_inclusive": 1.5
+                     *             }
+                     *           },
+                     *           "retail_price_range": {
+                     *             "minimum": {
+                     *               "as_entered": 1.5,
+                     *               "entered_inclusive": true,
+                     *               "tax_exclusive": 1.1,
+                     *               "tax_inclusive": 1.5
+                     *             },
+                     *             "maximum": {
+                     *               "as_entered": 1.5,
+                     *               "entered_inclusive": true,
+                     *               "tax_exclusive": 1.1,
+                     *               "tax_inclusive": 1.5
+                     *             }
+                     *           },
+                     *           "bulk_pricing": [
+                     *             {
+                     *               "minimum": 1,
+                     *               "maximum": 1,
+                     *               "discount_amount": 1,
+                     *               "discount_type": "percent",
+                     *               "tax_discount_amount": [
+                     *                 {
+                     *                   "as_entered": 10,
+                     *                   "tax_inclusive": 10,
+                     *                   "tax_exclusive": 10,
+                     *                   "entered_inclusive": false
+                     *                 }
+                     *               ]
+                     *             }
+                     *           ]
+                     *         }
+                     *       ],
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly (components["schemas"]["ReferenceRequest"] & {
                             readonly reference_request?: components["schemas"]["ReferenceRequest"];
