@@ -1,6 +1,6 @@
 {
   "name": "@aligent/bigcommerce-api",
-  "version": "0.0.1-alpha.3",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "test": "tsd",
@@ -66,5 +66,5 @@
     "node-fetch": "^3.3.2",
     "query-string": "^9.1.1"
   },
-  "packageManager": "yarn@4.9.1+sha512.f95ce356460e05be48d66401c1ae64ef84d163dd689964962c6888a9810865e39097a5e9de748876c2e0bf89b232d583c33982773e9903ae7a76257270986538"
+  "packageManager": "yarn@4.9.2"
 }

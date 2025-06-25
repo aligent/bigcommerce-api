@@ -1215,6 +1215,9 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "count": 27
+                     *     } */
                     readonly "application/json": components["schemas"]["count_Full"];
                 };
             };
@@ -1249,6 +1252,9 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "success": false
+                     *     } */
                     readonly "application/json": components["schemas"]["validatePassword"];
                 };
             };
@@ -1526,6 +1532,9 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "count": 27
+                     *     } */
                     readonly "application/json": components["schemas"]["count_Full"];
                 };
             };
@@ -1767,6 +1776,9 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "count": 27
+                     *     } */
                     readonly "application/json": components["schemas"]["count_Full"];
                 };
             };

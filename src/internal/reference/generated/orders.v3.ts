@@ -2821,6 +2821,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2935,6 +2941,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -3257,6 +3269,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -3313,6 +3331,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -3363,6 +3387,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;

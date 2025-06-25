@@ -885,6 +885,9 @@ export interface components {
         };
     };
     parameters: {
+        /** @description Sort direction. Acceptable values are: `asc`, `desc`.
+         *      */
+        readonly DirectionQuery: "asc" | "desc";
         /** @description The ID of the brand to which the resource belongs.
          *      */
         readonly BrandIdPath: number;
@@ -987,6 +990,9 @@ export interface operations {
                 readonly exclude_fields?: components["parameters"]["ExcludeFieldsQuery"];
                 /** @description Field name to sort by. */
                 readonly sort?: components["parameters"]["SortQuery"];
+                /** @description Sort direction. Acceptable values are: `asc`, `desc`.
+                 *      */
+                readonly direction?: components["parameters"]["DirectionQuery"];
             };
             readonly header?: {
                 /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
@@ -1002,6 +1008,249 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 35,
+                     *           "name": "Sagaform",
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "",
+                     *           "image_url": "",
+                     *           "search_keywords": "",
+                     *           "custom_url": {
+                     *             "url": "/brands/Sagaform.html",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 36,
+                     *           "name": "OFS",
+                     *           "page_title": "OFS",
+                     *           "meta_keywords": [
+                     *             "modern",
+                     *             "clean",
+                     *             "contemporary"
+                     *           ],
+                     *           "meta_description": "OFS is a modern brand.",
+                     *           "image_url": "",
+                     *           "search_keywords": "kitchen, laundry, cart, storage",
+                     *           "custom_url": {
+                     *             "url": "/brands/OFS.html",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 37,
+                     *           "name": "Common Good",
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "",
+                     *           "image_url": "https://cdn8.bigcommerce.com/s-jrah6gmn/product_images/k/screen%20shot%202018-05-07%20at%2012.24.24%20pm_1525785365__65102.png",
+                     *           "search_keywords": "",
+                     *           "custom_url": {
+                     *             "url": "/brands/Common-Good.html",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 38,
+                     *           "name": "BigCommerce",
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "",
+                     *           "image_url": "",
+                     *           "search_keywords": "",
+                     *           "custom_url": {
+                     *             "url": "/bigcommerce/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 39,
+                     *           "name": "Test Brand One",
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "",
+                     *           "image_url": "https://cdn8.bigcommerce.com/s-jrah6gmn/product_images/q/apihqggzm__53766.jpg",
+                     *           "search_keywords": "",
+                     *           "custom_url": {
+                     *             "url": "/test-brand-one/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 40,
+                     *           "name": "Fog Linen Work",
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "description",
+                     *           "image_url": "",
+                     *           "search_keywords": "",
+                     *           "custom_url": {
+                     *             "url": "/fog-linen-work/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 41,
+                     *           "name": "Barr-Co.",
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "description",
+                     *           "image_url": "",
+                     *           "search_keywords": "",
+                     *           "custom_url": {
+                     *             "url": "/barr-co/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 42,
+                     *           "name": "Thames & Hudson",
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "description",
+                     *           "image_url": "",
+                     *           "search_keywords": "",
+                     *           "custom_url": {
+                     *             "url": "/thames-hudson/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 43,
+                     *           "name": "Able Brewing",
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "description",
+                     *           "image_url": "",
+                     *           "search_keywords": "",
+                     *           "custom_url": {
+                     *             "url": "/able-brewing/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 44,
+                     *           "name": "Chemex",
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "description",
+                     *           "image_url": "",
+                     *           "search_keywords": "",
+                     *           "custom_url": {
+                     *             "url": "/chemex/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 45,
+                     *           "name": "Kinfolk",
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "description",
+                     *           "image_url": "",
+                     *           "search_keywords": "",
+                     *           "custom_url": {
+                     *             "url": "/kinfolk/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 46,
+                     *           "name": "Iris Hantverk",
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "description",
+                     *           "image_url": "",
+                     *           "search_keywords": "",
+                     *           "custom_url": {
+                     *             "url": "/iris-hantverk/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 47,
+                     *           "name": "Gather Journal",
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "description",
+                     *           "image_url": "",
+                     *           "search_keywords": "",
+                     *           "custom_url": {
+                     *             "url": "/gather-journal/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 48,
+                     *           "name": "Openhouse Magazine",
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "description",
+                     *           "image_url": "",
+                     *           "search_keywords": "",
+                     *           "custom_url": {
+                     *             "url": "/openhouse-magazine/",
+                     *             "is_customized": false
+                     *           }
+                     *         },
+                     *         {
+                     *           "id": 49,
+                     *           "name": "Smith Journal",
+                     *           "page_title": "",
+                     *           "meta_keywords": [
+                     *             ""
+                     *           ],
+                     *           "meta_description": "description",
+                     *           "image_url": "",
+                     *           "search_keywords": "",
+                     *           "custom_url": {
+                     *             "url": "/smith-journal/",
+                     *             "is_customized": false
+                     *           }
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 15,
+                     *           "count": 15,
+                     *           "per_page": 50,
+                     *           "current_page": 1,
+                     *           "total_pages": 1,
+                     *           "links": {
+                     *             "current": "?page=1&limit=50"
+                     *           }
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["brand_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -1094,6 +1343,25 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 50,
+                     *         "name": "Common Good",
+                     *         "meta_keywords": [
+                     *           "modern",
+                     *           "clean",
+                     *           "contemporary"
+                     *         ],
+                     *         "meta_description": "Common Good is a modern brand",
+                     *         "image_url": "",
+                     *         "search_keywords": "kitchen, laundry, cart, storage",
+                     *         "custom_url": {
+                     *           "url": "/brands/Common-Good.html",
+                     *           "is_customized": false
+                     *         }
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         /**
                          * Brand
@@ -1269,6 +1537,25 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 50,
+                     *         "name": "Common Good",
+                     *         "meta_keywords": [
+                     *           "modern",
+                     *           "clean",
+                     *           "contemporary"
+                     *         ],
+                     *         "meta_description": "Common Good is a modern brand",
+                     *         "image_url": "",
+                     *         "search_keywords": "kitchen, laundry, cart, storage",
+                     *         "custom_url": {
+                     *           "url": "/brands/Common-Good.html",
+                     *           "is_customized": false
+                     *         }
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["brand_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -1388,6 +1675,25 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 50,
+                     *         "name": "Common Good",
+                     *         "meta_keywords": [
+                     *           "modern",
+                     *           "clean",
+                     *           "contemporary"
+                     *         ],
+                     *         "meta_description": "Common Good is a modern brand",
+                     *         "image_url": "",
+                     *         "search_keywords": "kitchen, laundry, cart, storage",
+                     *         "custom_url": {
+                     *           "url": "/brands/Common-Good.html",
+                     *           "is_customized": false
+                     *         }
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         /**
                          * Brand
@@ -1595,6 +1901,48 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": [
+                     *         {
+                     *           "id": 6,
+                     *           "key": "Location",
+                     *           "value": "4HG",
+                     *           "namespace": "Warehouse Locations",
+                     *           "permission_set": "app_only",
+                     *           "resource_type": "brand",
+                     *           "resource_id": 111,
+                     *           "description": "Location in the warehouse",
+                     *           "date_created": "1973-01-20T21:34:57.903Z",
+                     *           "date_modified": "1990-12-30T00:29:23.515Z",
+                     *           "owner_client_id": "e8o0nm9ujew7byzu6x5dwjqe2rya2fv"
+                     *         },
+                     *         {
+                     *           "id": 7,
+                     *           "key": "Brand location",
+                     *           "value": "4HG",
+                     *           "namespace": "Warehouse Locations",
+                     *           "permission_set": "read",
+                     *           "resource_type": "brand",
+                     *           "resource_id": 111,
+                     *           "description": "Location in the warehouse",
+                     *           "date_created": "1973-01-20T21:34:57.903Z",
+                     *           "date_modified": "1990-12-30T00:29:23.515Z",
+                     *           "owner_client_id": "e8o0nm9ujew7byzu6x5dwjqe2rya2fv"
+                     *         }
+                     *       ],
+                     *       "meta": {
+                     *         "pagination": {
+                     *           "total": 2,
+                     *           "count": 2,
+                     *           "per_page": 50,
+                     *           "current_page": 1,
+                     *           "total_pages": 1,
+                     *           "links": {
+                     *             "current": "?page=1&limit=50"
+                     *           }
+                     *         }
+                     *       }
+                     *     } */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["metafield_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -1646,6 +1994,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -1731,6 +2085,22 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 4,
+                     *         "key": "location_id",
+                     *         "value": "Shelf 3, Bin 5",
+                     *         "namespace": "App Namespace",
+                     *         "permission_set": "app_only",
+                     *         "resource_type": "product",
+                     *         "resource_id": 137,
+                     *         "description": "Where products are located",
+                     *         "date_created": "2021-08-06T19:15:35+00:00",
+                     *         "date_modified": "2021-08-06T19:15:35+00:00",
+                     *         "owner_client_id": "e8o0nm9ujew7byzu6x5dwjqe2rya2fv"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -1787,6 +2157,21 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "id": 4,
+                     *         "key": "location_id",
+                     *         "value": "Shelf 3, Bin 5",
+                     *         "namespace": "App Namespace",
+                     *         "permission_set": "app_only",
+                     *         "resource_type": "product",
+                     *         "resource_id": 137,
+                     *         "description": "Where products are located",
+                     *         "date_created": "2021-08-06T19:15:35+00:00",
+                     *         "date_modified": "2021-08-06T19:15:35+00:00"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -1799,6 +2184,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -1900,6 +2291,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "data": {
+                     *         "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/product_images/k/group_1545334669__76009.png"
+                     *       },
+                     *       "meta": {}
+                     *     } */
                     readonly "application/json": {
                         readonly data?: {
                             readonly image_url?: string;
@@ -2079,6 +2476,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "errors": {}
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2145,6 +2548,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2198,6 +2607,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
+                    /** @example {
+                     *       "status": 400,
+                     *       "title": "Input is invalid",
+                     *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                     *       "detail": "Syntax error"
+                     *     } */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;

@@ -399,13 +399,13 @@ export interface components {
              *
              * @default ""
              */
-            readonly meta_keywords: string;
+            readonly meta_keywords: string | null;
             /**
              * @description Description contained within the element of this page.
              *
              * @default ""
              */
-            readonly meta_description: string;
+            readonly meta_description: string | null;
         };
         readonly searchKeywords: {
             /**
@@ -414,7 +414,7 @@ export interface components {
              * @default ""
              * @example trousers,pockets,luxury
              */
-            readonly search_keywords: string;
+            readonly search_keywords: string | null;
         };
     };
     responses: {

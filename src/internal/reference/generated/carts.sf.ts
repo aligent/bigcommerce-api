@@ -786,6 +786,11 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
+                /** @example {
+                 *       "status": 409,
+                 *       "title": "The request cannot be processed due to a possible conflict. Please review the changes and try again.",
+                 *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+                 *     } */
                 readonly "application/json": {
                     readonly status?: number;
                     readonly title?: string;
