@@ -95,7 +95,7 @@ type Expected = {
     readonly open_graph_use_meta_description: boolean;
     readonly open_graph_use_product_name: boolean;
     readonly open_graph_use_image: boolean;
-    readonly images: readonly {
+    readonly images: ReadonlyArray<{
         readonly is_thumbnail?: boolean;
         readonly sort_order?: number;
         readonly description?: string;
@@ -107,7 +107,7 @@ type Expected = {
         readonly url_standard?: string;
         readonly url_thumbnail?: string;
         readonly url_tiny?: string;
-    }[];
+    }>;
     readonly primary_image: {
         readonly id?: number;
         readonly product_id?: number;
