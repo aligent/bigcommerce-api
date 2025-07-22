@@ -4637,8 +4637,11 @@ export interface operations {
     readonly updateProduct: {
         readonly parameters: {
             readonly query?: {
-                /** @description Sub-resources to include on a product, in a comma-separated list. If `options` or `modifiers` is used, results are limited to 10 per page. The ID and the specified fields will be returned. */
-                readonly include_fields?: components["parameters"]["IncludeFieldsEnumParam"];
+                /** @description A comma-separated list of sub-resources to return with a product object.
+                 *     When you specify `options` or `modifiers`, results are limited to 10 per page. */
+                readonly include?: components["parameters"]["IncludeParamGetProducts"];
+                /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
+                readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
             };
             readonly header?: {
                 /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */

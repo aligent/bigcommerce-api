@@ -270,6 +270,27 @@ export interface paths {
          */
         readonly put: operations["updateCheckoutSettings"];
     };
+    readonly "/checkouts/settings/channels/{channelId}": {
+        readonly parameters: {
+            readonly query?: never;
+            readonly path: {
+                readonly channelId: number;
+            };
+            readonly cookie?: never;
+        };
+        /**
+         * Get Channel-Specific Checkout Settings
+         * @description Returns the checkout settings for a given channel (storefront) by channelId.
+         */
+        readonly get: operations["get-channel-checkout-settings"];
+        /**
+         * Update Channel-Specific Checkout Settings
+         * @description Updates the checkout settings for a given channel (storefront) by channelId.
+         *
+         *     This endpoint will update all settings included in the request body. Any settings excluded will remain unchanged. All non-boolean
+         */
+        readonly put: operations["put-channel-checkout-settings"];
+    };
     readonly "/checkouts/{checkoutId}/token": {
         readonly parameters: {
             readonly query?: never;
@@ -1086,6 +1107,19 @@ export interface components {
             readonly custom_checkout_sri_hash?: string;
             readonly custom_order_confirmation_sri_hash?: string;
         };
+        /** Channel-Specific Checkouts Settings */
+        readonly ChannelCheckoutsSettings: {
+            readonly checkout_type?: string;
+            readonly guest_checkout_type?: string;
+            readonly guest_checkout_for_existing_accounts?: string;
+            readonly policy_consent?: string;
+            readonly order_confirmation_contact_email?: string;
+            readonly is_order_terms_and_conditions_enabled?: boolean;
+            readonly order_terms_and_conditions_type?: string;
+            readonly order_terms_and_conditions_link?: string;
+            readonly order_terms_and_conditions_textarea?: string;
+            readonly should_redirect_to_storefront_for_auth?: boolean;
+        } & components["schemas"]["CheckoutsSettings"];
         /** Checkouts settings request */
         readonly CheckoutsSettingsRequest: {
             /** @description Custom checkout script URL to replace our default checkout. To reset a store to optimized one-page checkout, pass an empty string for `custom_checkout_script_url` and `custom_order_confirmation_script_url`. */
@@ -4162,8 +4196,7 @@ export interface operations {
                  *       "cart": {
                  *         "discounts": [
                  *           {
-                 *             "discounted_amount": 10,
-                 *             "name": "manual-discount"
+                 *             "discounted_amount": 10
                  *           }
                  *         ]
                  *       },
@@ -4174,8 +4207,6 @@ export interface operations {
                         readonly discounts?: readonly {
                             /** @example 10 */
                             readonly discounted_amount: number;
-                            /** @example manual */
-                            readonly name?: string;
                         }[];
                         readonly line_items?: readonly {
                             /** @example 8edef915-8e8e-4ebd-bece-31fbb1191a7e */
@@ -12084,6 +12115,74 @@ export interface operations {
                      *     } */
                     readonly "WebDAV protocol": unknown;
                 };
+            };
+        };
+    };
+    readonly "get-channel-checkout-settings": {
+        readonly parameters: {
+            readonly query?: never;
+            readonly header?: never;
+            readonly path: {
+                readonly channelId: number;
+            };
+            readonly cookie?: never;
+        };
+        readonly requestBody?: never;
+        readonly responses: {
+            /** @description Channel checkout settings retrieved successfully */
+            readonly 200: {
+                headers: {
+                    readonly [name: string]: unknown;
+                };
+                content: {
+                    readonly "application/json": {
+                        readonly data?: components["schemas"]["ChannelCheckoutsSettings"];
+                        readonly meta?: components["schemas"]["MetaOpen"];
+                    };
+                };
+            };
+            /** @description Invalid channelId or invalid request */
+            readonly 422: {
+                headers: {
+                    readonly [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    readonly "put-channel-checkout-settings": {
+        readonly parameters: {
+            readonly query?: never;
+            readonly header?: never;
+            readonly path: {
+                readonly channelId: number;
+            };
+            readonly cookie?: never;
+        };
+        readonly requestBody?: {
+            readonly content: {
+                readonly "application/json": components["schemas"]["ChannelCheckoutsSettings"];
+            };
+        };
+        readonly responses: {
+            /** @description Channel checkout settings updated successfully */
+            readonly 200: {
+                headers: {
+                    readonly [name: string]: unknown;
+                };
+                content: {
+                    readonly "application/json": {
+                        readonly data?: components["schemas"]["ChannelCheckoutsSettings"];
+                        readonly meta?: components["schemas"]["MetaOpen"];
+                    };
+                };
+            };
+            /** @description Invalid channelId or invalid request */
+            readonly 422: {
+                headers: {
+                    readonly [name: string]: unknown;
+                };
+                content?: never;
             };
         };
     };

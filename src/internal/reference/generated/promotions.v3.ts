@@ -95,7 +95,7 @@ export interface paths {
          * @description Get codes for a particular promotion.
          *
          *     **Note:**
-         *     The default rate limit for this endpoint is 40 concurrent requests.
+         *     The default rate limit for this endpoint is 10 concurrent requests.
          */
         readonly get: operations["getPromotionCodes"];
         /**
@@ -115,6 +115,22 @@ export interface paths {
          *     * The default rate limit for this endpoint is 40 concurrent requests.
          */
         readonly delete: operations["deleteCouponCodes"];
+    };
+    readonly "/promotions/{promotion_id}/codegen": {
+        readonly parameters: {
+            readonly query?: never;
+            readonly path?: never;
+            readonly cookie?: never;
+        };
+        /**
+         * Generate Multiple Coupon Codes
+         * @description Generate a batch of coupon codes for a particular bulk coupon promotion.
+         *
+         *     **Note:**
+         *     * batch_size (number of codes generated per request) is limited to 250. If batch_size is not an integer or larger than 250, it will return a 422 error code.
+         *     * The default rate limit for this endpoint is 10 concurrent requests.
+         */
+        readonly post: operations["generatePromotionCodesBatch"];
     };
     readonly "/promotions/{promotion_id}/codes/{code_id}": {
         readonly parameters: {
@@ -237,6 +253,10 @@ export interface components {
              */
             readonly coupon_overrides_automatic_when_offering_higher_discounts: boolean;
         };
+        /**
+         * Draft Coupon Promotion
+         * @description A draft **Coupon Promotion** to be created. A shopper must manually apply a *coupon promotion* to their cart.
+         */
         readonly DraftCouponPromotion: components["schemas"]["PromotionBase"] & {
             readonly codes?: components["schemas"]["CouponCode"];
             /**
@@ -912,6 +932,13 @@ export interface components {
              */
             readonly created: string;
         };
+        readonly BulkCouponCode: {
+            /**
+             * @description A unique, 16-character code that can be used to manually apply a discount. The code consists of randomly generated capital letters and numbers.
+             * @example OMHYFQ4S26EY63UW
+             */
+            readonly code?: string;
+        };
         /**
          * Bulk Action Response Meta
          * @description Contains data about the bulk action response including the number of total, failed and success.
@@ -1108,6 +1135,32 @@ export interface components {
                  *       }
                  *     } */
                 readonly "422 - Error Deleting": unknown;
+            };
+        };
+        readonly BulkCouponCodesResponse: {
+            headers: {
+                readonly [name: string]: unknown;
+            };
+            content: {
+                readonly "application/json": {
+                    readonly data?: {
+                        /**
+                         * Format: date-time
+                         * @description The date and time when the codes were created.
+                         * @example 2019-01-20T22:00:00+00:00
+                         */
+                        readonly created?: string;
+                        /** @description The maximum number of times each code can be used. */
+                        readonly max_uses?: number;
+                        /** @description The maximum number of times each customer can use a code. */
+                        readonly max_uses_per_customer?: number;
+                        /** @description The number of codes generated in the batch. */
+                        readonly batch_size?: number;
+                        readonly codes?: readonly components["schemas"]["BulkCouponCode"][];
+                    };
+                    /** @description Empty meta object, which may be used at a later time. */
+                    readonly meta?: Record<string, unknown>;
+                };
             };
         };
         readonly PromotionCodeResponse: {
@@ -1526,6 +1579,73 @@ export interface operations {
                 content?: never;
             };
             readonly 422: components["responses"]["BulkDeleteResponse"];
+        };
+    };
+    readonly generatePromotionCodesBatch: {
+        readonly parameters: {
+            readonly query?: never;
+            readonly header?: {
+                /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body. */
+                readonly "Content-Type"?: components["parameters"]["ContentType"];
+                /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
+                readonly Accept?: components["parameters"]["Accept"];
+            };
+            readonly path: {
+                /** @description The ID of the associated promotion. */
+                readonly promotion_id: components["parameters"]["PromotionIdPath"];
+            };
+            readonly cookie?: never;
+        };
+        readonly requestBody: {
+            readonly content: {
+                readonly "application/json": {
+                    /**
+                     * @description The number of coupon codes to generate in each batch. The maximum value is 250.
+                     * @example 5
+                     */
+                    readonly batch_size: number;
+                    /**
+                     * @description The maximum number of times each coupon code can be used. The default value is 1. The value 0 means unlimited usage.
+                     * @example 10
+                     */
+                    readonly max_uses?: number;
+                    /**
+                     * @description The maximum number of times a specific customer can use each coupon code. The default value is 1. The value 0 means unlimited usage.
+                     * @example 5
+                     */
+                    readonly max_uses_per_customer?: number;
+                };
+            };
+        };
+        readonly responses: {
+            readonly 201: components["responses"]["BulkCouponCodesResponse"];
+            /** @description Invalid request. */
+            readonly 400: {
+                headers: {
+                    readonly [name: string]: unknown;
+                };
+                content: {
+                    readonly "application/json": components["schemas"]["ErrorResponse400"];
+                };
+            };
+            /** @description Forbidden. */
+            readonly 403: {
+                headers: {
+                    readonly [name: string]: unknown;
+                };
+                content: {
+                    readonly "application/json": components["schemas"]["ErrorResponse403"];
+                };
+            };
+            /** @description The request payload is invalid. */
+            readonly 422: {
+                headers: {
+                    readonly [name: string]: unknown;
+                };
+                content: {
+                    readonly "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
         };
     };
     readonly deleteCouponCode: {

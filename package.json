@@ -1,6 +1,6 @@
 {
   "name": "@aligent/bigcommerce-api",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "test": "tsd",
@@ -47,24 +47,24 @@
   "author": "Aligent",
   "license": "MIT",
   "devDependencies": {
-    "@aligent/ts-code-standards": "^4.0.0",
-    "@types/node": "^22.13.14",
-    "diff": "^8.0.0-beta",
-    "eslint": "^9.25.1",
-    "openapi-typescript": "^7.6.1",
-    "prettier": "^3.5.3",
+    "@aligent/ts-code-standards": "^4.0.2",
+    "@types/node": "^22.16.5",
+    "diff": "^8.0.2",
+    "eslint": "^9.31.0",
+    "openapi-typescript": "^7.8.0",
+    "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
-    "simple-git": "^3.27.0",
+    "simple-git": "^3.28.0",
     "ts-morph": "^26.0.0",
     "tsd": "^0.32.0",
     "tshy": "^3.0.2",
-    "typescript": "^5.8.2",
+    "typescript": "^5.8.3",
     "uuid": "^11.1.0"
   },
   "dependencies": {
-    "form-data": "^4.0.2",
+    "form-data": "^4.0.4",
     "node-fetch": "^3.3.2",
-    "query-string": "^9.1.1"
+    "query-string": "^9.2.2"
   },
   "packageManager": "yarn@4.9.2"
 }
