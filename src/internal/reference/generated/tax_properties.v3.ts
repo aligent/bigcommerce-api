@@ -188,6 +188,8 @@ export interface components {
         readonly idin: readonly number[];
         /** @description ID of tax property. To target multiple tax properties, provide a comma-separated list of IDs such as `12,34,56`. */
         readonly idin_required: readonly number[];
+        /** @description Filter result by the type of tax property. To target multiple types, provide a comma-separated list of types such as `customer,product`. */
+        readonly typein: readonly string[];
     };
     requestBodies: never;
     headers: never;
@@ -200,6 +202,8 @@ export interface operations {
             readonly query?: {
                 /** @description ID of tax property. To target multiple tax properties, provide a comma-separated list of IDs such as `12,34,56`. */
                 readonly "id:in"?: components["parameters"]["idin"];
+                /** @description Filter result by the type of tax property. To target multiple types, provide a comma-separated list of types such as `customer,product`. */
+                readonly "type:in"?: components["parameters"]["typein"];
             };
             readonly header?: {
                 /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */

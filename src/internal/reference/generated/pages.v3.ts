@@ -154,7 +154,7 @@ export interface components {
          *
          */
         readonly PagesCollectionResponse: {
-            readonly data?: readonly (components["schemas"]["typePage"] | components["schemas"]["typeBlog"] | components["schemas"]["typeContactForm"] | components["schemas"]["typeFeed"] | components["schemas"]["typeRaw"] | components["schemas"]["typeLink"])[];
+            readonly data?: readonly (components["schemas"]["typePage"] | components["schemas"]["typeBlog"] | components["schemas"]["typeContactForm"] | components["schemas"]["typeRaw"] | components["schemas"]["typeLink"])[];
             readonly meta?: components["schemas"]["ResponseMeta"];
         };
         /**
@@ -163,7 +163,7 @@ export interface components {
          *
          */
         readonly SinglePageResponse: {
-            readonly data?: components["schemas"]["typePage"] | components["schemas"]["typeBlog"] | components["schemas"]["typeContactForm"] | components["schemas"]["typeFeed"] | components["schemas"]["typeRaw"] | components["schemas"]["typeLink"];
+            readonly data?: components["schemas"]["typePage"] | components["schemas"]["typeBlog"] | components["schemas"]["typeContactForm"] | components["schemas"]["typeRaw"] | components["schemas"]["typeLink"];
             readonly meta?: components["schemas"]["ResponseMeta"];
         };
         /** @description Properties of the page modification request body. */
@@ -205,7 +205,7 @@ export interface components {
              * @example page
              * @enum {string}
              */
-            readonly type?: "page" | "raw" | "contact_form" | "feed" | "link" | "blog";
+            readonly type?: "page" | "raw" | "contact_form" | "link" | "blog";
             /**
              * @description HTML or variable that populates the element of this page, in default/desktop view. Required in a `POST` request if the page type is `raw`.
              *
@@ -221,9 +221,6 @@ export interface components {
             /** @description Applicable when the page type is `contact_form`: contact email address that receives messages sent via the form. Must be unique. */
             readonly email?: string;
             readonly meta_title?: string | null;
-            /** @description The URL of the RSS feed. Required in a `POST` request if the page type is `feed`.
-             *      */
-            readonly feed?: string;
             /** @description Required in a `POST` request to create a link if the page type is `link`.
              *      */
             readonly link?: string;
@@ -300,7 +297,7 @@ export interface components {
              * @example page
              * @enum {string}
              */
-            readonly type: "page" | "raw" | "contact_form" | "feed" | "link" | "blog";
+            readonly type: "page" | "raw" | "contact_form" | "link" | "blog";
             /**
              * @description Determines whether this page loads at the siteʼs root route. For example, at `https://example.com/`.
              * @default false
@@ -357,15 +354,6 @@ export interface components {
              * @example fullname,companyname,phone,orderno,rma
              */
             readonly contact_fields?: string;
-        };
-        /**
-         * feed
-         * @description `type: feed`.  Makes RSS-syndicated content feeds available in the menu of other pages that contain markup. No page body.
-         */
-        readonly typeFeed: components["schemas"]["anyTypePage"] & components["schemas"]["pageMeta"] & components["schemas"]["searchKeywords"] & {
-            /** @description The URL of the RSS feed. Required in a `POST` request if the page type is `feed`.
-             *      */
-            readonly feed: string;
         };
         /**
          * raw
@@ -440,7 +428,7 @@ export interface components {
             };
             content: {
                 readonly "application/json": {
-                    readonly data?: components["schemas"]["typePage"] | components["schemas"]["typeBlog"] | components["schemas"]["typeContactForm"] | components["schemas"]["typeFeed"] | components["schemas"]["typeRaw"] | components["schemas"]["typeLink"];
+                    readonly data?: components["schemas"]["typePage"] | components["schemas"]["typeBlog"] | components["schemas"]["typeContactForm"] | components["schemas"]["typeRaw"] | components["schemas"]["typeLink"];
                     readonly meta?: components["schemas"]["ResponseMeta"];
                 };
             };
@@ -606,7 +594,7 @@ export interface operations {
         };
         readonly requestBody: {
             readonly content: {
-                readonly "application/json": (components["schemas"]["typePage"] | components["schemas"]["typeBlog"] | components["schemas"]["typeContactForm"] | components["schemas"]["typeFeed"] | components["schemas"]["typeRaw"] | components["schemas"]["typeLink"]) | readonly (components["schemas"]["typePage"] | components["schemas"]["typeBlog"] | components["schemas"]["typeContactForm"] | components["schemas"]["typeFeed"] | components["schemas"]["typeRaw"] | components["schemas"]["typeLink"])[];
+                readonly "application/json": (components["schemas"]["typePage"] | components["schemas"]["typeBlog"] | components["schemas"]["typeContactForm"] | components["schemas"]["typeRaw"] | components["schemas"]["typeLink"]) | readonly (components["schemas"]["typePage"] | components["schemas"]["typeBlog"] | components["schemas"]["typeContactForm"] | components["schemas"]["typeRaw"] | components["schemas"]["typeLink"])[];
             };
         };
         readonly responses: {
