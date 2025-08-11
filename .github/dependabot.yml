@@ -7,6 +7,10 @@ updates:
     open-pull-requests-limit: 10
     commit-message:
       prefix: "TCS-3"
+    ignore:
+      # Only allow @types/node updates within major version 22.x.x
+      - dependency-name: "@types/node"
+        versions: [">= 23.0.0"]
     groups:
       minor-and-patch:
         applies-to: version-updates
