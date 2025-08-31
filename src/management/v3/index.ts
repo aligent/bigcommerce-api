@@ -12,7 +12,7 @@ import {
     Transport,
 } from '../../internal/operation.js';
 import type { V3 as reference } from '../../internal/reference/index.js';
-import type { Const, RemoveStart, SimplifyDeep } from '../../internal/type-utils.js';
+import type { Const, RemovePrefix, SimplifyDeep } from '../../internal/type-utils.js';
 import type { NarrowResponse } from './response-narrowing.js';
 
 export type Operations = reference.Operation;
@@ -84,7 +84,7 @@ export class Client<CustomEndpoints extends string = never> {
         params: Const<Params & Operations[`GET ${Path}`]['parameters']>
     ): Promise<ResponseData<`GET ${Path}`, Params> | null>;
 
-    get<T = unknown>(path: RemoveStart<'GET ', CustomEndpoints>, params?: Parameters): Promise<T>;
+    get<T = unknown>(path: RemovePrefix<'GET ', CustomEndpoints>, params?: Parameters): Promise<T>;
 
     async get(path: string, params?: Parameters): Promise<unknown> {
         const res = await this.send(`GET ${path}`, params);
@@ -103,7 +103,7 @@ export class Client<CustomEndpoints extends string = never> {
     ): AsyncIterable<ListItemType<Path, Params>>;
 
     list<T = unknown>(
-        path: RemoveStart<'GET ', CustomEndpoints>,
+        path: RemovePrefix<'GET ', CustomEndpoints>,
         params?: Parameters
     ): AsyncIterable<T>;
 
@@ -132,7 +132,10 @@ export class Client<CustomEndpoints extends string = never> {
         params: Const<Params & Operations[`POST ${Path}`]['parameters']>
     ): Promise<ResponseData<`POST ${Path}`, Params>>;
 
-    post<T = unknown>(path: RemoveStart<'POST ', CustomEndpoints>, params?: Parameters): Promise<T>;
+    post<T = unknown>(
+        path: RemovePrefix<'POST ', CustomEndpoints>,
+        params?: Parameters
+    ): Promise<T>;
 
     async post(path: string, params?: Parameters): Promise<unknown> {
         const res = await this.send(`POST ${path}`, params);
@@ -149,7 +152,7 @@ export class Client<CustomEndpoints extends string = never> {
         params: Const<Params & Operations[`PUT ${Path}`]['parameters']>
     ): Promise<ResponseData<`PUT ${Path}`, Params>>;
 
-    put<T = unknown>(path: RemoveStart<'PUT ', CustomEndpoints>, params?: Parameters): Promise<T>;
+    put<T = unknown>(path: RemovePrefix<'PUT ', CustomEndpoints>, params?: Parameters): Promise<T>;
 
     async put(path: string, params?: Parameters): Promise<unknown> {
         const res = await this.send(`PUT ${path}`, params);
@@ -170,7 +173,7 @@ export class Client<CustomEndpoints extends string = never> {
     ): Promise<ResponseData<`DELETE ${Path}`, Params> | null>;
 
     delete<T = unknown>(
-        path: RemoveStart<'DELETE ', CustomEndpoints>,
+        path: RemovePrefix<'DELETE ', CustomEndpoints>,
         params?: Parameters
     ): Promise<T>;
 
