@@ -3,6 +3,34 @@ import type { Flatten, IsOptional } from '../type-utils.js';
 
 // Takes an OpenAPI paths specification and converts it into our internal operation index format,
 // removing any undefined endpoints and flattening the paths into a single type
+/**
+ * @description Converts an OpenAPI paths specification into our internal operation index format
+ * - REST operations are combined with their parent path e.g. 'GET /path/a'
+ * - Parameters are kept, or defaulted to an empty object if not present
+ * - Response and Request objects are reformatted with generics
+ *
+ * Only application/json request and response bodies are included
+ *
+ * @example
+ * ```ts
+ * type A = InferOperationIndex<{
+ *   '/path/a': {
+ *      put: {
+ *          parameters: { a: string };
+ *          requestBody: { content: { 'application/json': { b: string } } };
+ *      };
+ *   };
+ * }>;
+ * // A is {
+ * //   'PUT /path/a': RequiredRequestBody<{
+ * //          a: string;
+ * //       },
+ * //       unknown,
+ * //       {
+ * //          b: string;
+ * //       }>
+ * //   }
+ */
 export type InferOperationIndex<PathsSpec> = Flatten<{
     [PathStr in keyof PathsSpec & string]: PathOperationIndex<PathStr, PathsSpec[PathStr]>;
 }>;
@@ -17,11 +45,11 @@ type PathOperationIndex<Path extends string, PathSpec> = {
     [K in keyof PathSpec as PathKey<K, Path>]: PathSpec[K] extends {
         parameters?: infer Params;
         responses?: infer Responses;
-          }
-            ? {
+    }
+        ? {
               parameters: Params & ParamsRequestBody<PathSpec[K]>;
               response: ResponseUnion<Responses>;
-              }
+          }
         : never;
 };
 

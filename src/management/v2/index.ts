@@ -12,26 +12,33 @@ import {
 import type { V2 as reference } from '../../internal/reference/index.js';
 import type { Const, RemovePrefix, SimplifyDeep } from '../../internal/type-utils.js';
 
-export type Operations = reference.Operation;
+type Operations = reference.Operation;
 
-export type RequestLine = keyof Operations;
+type RequestLine = keyof Operations;
 
-export type NoParamsRequestLine = keyof OperationIndex.FilterOptionalParams<Operations>;
+type NoParamsRequestLine = keyof OperationIndex.FilterOptionalParams<Operations>;
 
-export type InferResponse<ReqLine extends RequestLine> = SimplifyDeep<
-    Operations[ReqLine]['response']
->;
+type InferResponse<ReqLine extends RequestLine> = SimplifyDeep<Operations[ReqLine]['response']>;
 
-export type ResponseData<ReqLine extends RequestLine> =
+type ResponseData<ReqLine extends RequestLine> =
     Response.Success<Operations[ReqLine]['response']> extends { readonly body: infer Data }
         ? SimplifyDeep<Data>
         : never;
 
-export type Config = Omit<FetchTransportOptions, 'baseUrl' | 'headers'> & {
+type Config = Omit<FetchTransportOptions, 'baseUrl' | 'headers'> & {
     readonly storeHash: string;
     readonly accessToken: string;
 };
 
+/**
+ * @description Client for interacting with the BigCommerce V2 Management API
+ * @template CustomEndpoints - A string literal type representing custom API paths
+ *   that are not part of the official BigCommerce API specification. This allows
+ *   type-safe access to non-standard endpoints.
+ * @example
+ * ```ts
+ * const client = new Client({ storeHash: '1234567890', accessToken: '1234567890' });
+ */
 export class Client<CustomEndpoints extends string = never> {
     constructor(config: Config);
 

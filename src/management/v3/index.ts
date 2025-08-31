@@ -15,33 +15,59 @@ import type { V3 as reference } from '../../internal/reference/index.js';
 import type { Const, RemovePrefix, SimplifyDeep } from '../../internal/type-utils.js';
 import type { NarrowResponse } from './response-narrowing.js';
 
+/**
+ * @description Represents all possible API Operations in the v3 API
+ * e.g. "GET /catalog/products", "POST /orders", etc. and their matching request specifications
+ */
 export type Operations = reference.Operation;
 
-// RequestLine represents all possible API endpoints in the Operations type
-// e.g. "GET /catalog/products", "POST /orders", etc.
-export type RequestLine = keyof Operations;
+/**
+ * @description Represents all possible API Request paths in the v3 API
+ * e.g. "GET /catalog/products", "POST /orders", etc.
+ */
+type RequestLine = keyof Operations;
 
-// NoParamsRequestLine represents only the API endpoints that have no required parameters
-// This filters Operations to only include endpoints where all parameters are optional
-// e.g. "GET /catalog/products" would be included, but "GET /catalog/products/{id}" would not
-export type NoParamsRequestLine = keyof OperationIndex.FilterOptionalParams<Operations>;
+/**
+ * @description Represents API paths that have no required parameters in the v3 API
+ * e.g. "GET /catalog/products" would be included, but "GET /catalog/products/{id}" would not
+ */
+type NoParamsRequestLine = keyof OperationIndex.FilterOptionalParams<Operations>;
 
-export type InferResponse<ReqLine extends RequestLine, Params extends Parameters> = SimplifyDeep<
+/**
+ * @description Infer and simplify the response type for a given request line and parameters
+ */
+type InferResponse<ReqLine extends RequestLine, Params extends Parameters> = SimplifyDeep<
     NarrowResponse<Operations, Request<ReqLine, Params>, Operations[ReqLine]['response']>
 >;
 
-export type ResponseData<ReqLine extends RequestLine, Params = unknown> =
+/**
+ * @description Infer and simplify the response data type for a given request line and parameters
+ * Returns `never` for invalid requests
+ */
+type ResponseData<ReqLine extends RequestLine, Params = unknown> =
     Response.Success<ResolveResponse<ReqLine, Params>> extends {
         readonly body: { readonly data?: infer Data };
     }
         ? SimplifyDeep<Data>
         : never;
 
-export type Config = Omit<FetchTransportOptions, 'baseUrl' | 'headers'> & {
+/**
+ * @description Configuration options for the V3 client
+ */
+type Config = Omit<FetchTransportOptions, 'baseUrl' | 'headers'> & {
     readonly storeHash: string;
     readonly accessToken: string;
 };
 
+/**
+ * @description Client for interacting with the BigCommerce V3 Management API
+ * @template CustomEndpoints - A string literal type representing custom API paths
+ *   that are not part of the official BigCommerce API specification. This allows
+ *   type-safe access to non-standard endpoints.
+ * @example
+ * ```ts
+ * const client = new Client({ storeHash: '1234567890', accessToken: '1234567890' });
+ */
 export class Client<CustomEndpoints extends string = never> {
     constructor(config: Config);
 

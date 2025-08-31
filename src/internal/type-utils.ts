@@ -1,5 +1,11 @@
-export type Const<A> = (A extends Narrowable ? A : never) | { [K in keyof A]: Const<A[K]> };
+/**
+ * @description Recursively Constrains a type to only include primitives
+ *
+ * // TECH DEBT: Work out if this and SimplifyDeep are both required
+ */
+export type Const<A> = (A extends Primitive ? A : never) | { [K in keyof A]: Const<A[K]> };
 
+type Primitive = string | number | bigint | boolean;
 
 /**
  * @description Removes a string from the start of another string
@@ -13,6 +19,16 @@ export type RemovePrefix<
     Subject extends string,
 > = Subject extends `${Start}${infer End}` ? End : never;
 
+/**
+ * @description Simplifies a deeply nested object type.
+ * The resulting type signatures use primitives rather than generics and are easier to read.
+ * @example
+ * ```ts
+ * type A = { a: { b: Partial<{ c: string }> } }
+ * type B = SimplifyDeep<A>
+ * // B is { a: { b: { c?: string } } }
+ * ```
+ */
 export type SimplifyDeep<Type> = Type extends object
     ? {
           [TypeKey in keyof Type]: SimplifyDeep<Type[TypeKey]>;
