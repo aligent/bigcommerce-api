@@ -8,10 +8,14 @@ import { Agent as HttpsAgent } from 'https';
 import fetch, { Response as FetchResponse } from 'node-fetch';
 import qs from 'query-string';
 
-// Represents HTTP methods supported by the API
+/**
+ * @description HTTP methods supported by the API
+ */
 export type RequestMethod = 'DELETE' | 'GET' | 'PATCH' | 'POST' | 'PUT';
 
-// Represents a complete API request with its endpoint and parameters
+/**
+ * @description Represents a complete API request with its endpoint and parameters
+ */
 export type Request<
     ReqLine extends RequestLine = RequestLine,
     Params extends Parameters = Parameters,
@@ -20,23 +24,37 @@ export type Request<
     readonly parameters: Params;
 };
 
-// Represents an API endpoint in the format "METHOD /path"
-// e.g., "GET /products" or "POST /orders"
+/**
+ * @description Represents an API endpoint in the format "METHOD /path"
+ * e.g., "GET /products" or "POST /orders"
+ */
 export type RequestLine = `${RequestMethod} ${string}`;
 
-// Represents all possible parameter types that can be sent with a request:
-// - path: URL path parameters (e.g., /products/{id})
-// - query: URL query parameters
-// - body: Request body data
-// - header: Custom HTTP headers
+/**
+ * @description Represents all possible parameter types that can be sent with a request:
+ */
 export type Parameters = {
+    /**
+     * @description URL path parameters (e.g., /products/{id})
+     */
     readonly path?: Record<string, any>;
+    /**
+     * @description URL query parameters
+     */
     readonly query?: any;
+    /**
+     * @description Request body data
+     */
     readonly body?: any;
+    /**
+     * @description Custom HTTP headers
+     */
     readonly header?: Record<string, any>;
 };
 
-// Represents an API response with status code and optional body
+/**
+ * @description Represents an API response with status code and optional body
+ */
 export type Response = {
     readonly status: number | string;
     readonly body?: any;
@@ -45,6 +63,10 @@ export type Response = {
 // Namespace for response-related type utilities
 export namespace Response {
     type SuccessStatus = 200 | 201 | 204;
+
+    /**
+     * @description Extracts and formats the possible success responses for an operation
+     */
     export type Success<T extends Response | Operation> = T extends Operation
         ? Success<T['response']>
         : T extends { status: SuccessStatus }
@@ -52,7 +74,9 @@ export namespace Response {
           : never;
 }
 
-// Represents a complete API operation with its parameters and expected response
+/**
+ * @description Represents a complete API operation with its parameters and expected response
+ */
 export type Operation = {
     readonly parameters: Request['parameters'];
     readonly response: Response;
@@ -61,43 +85,59 @@ export type Operation = {
 // Namespace for operation-related type utilities
 // TODO: MI-199 - determine if this is still required
 export namespace Operation {
-    // Extracts the minimal required input parameters for an operation
+    /**
+     * @description Extracts the minimal required input parameters for an operation
+     */
     export type MinimalInput<Op extends Operation> = InputParameters<Op['parameters']>;
 
-    // Transforms API parameters based on their type:
-    // - query parameters are made optional (Partial)
-    // - header parameters have Accept and Content-Type removed since they're handled by the client
-    // - all other parameters (path, body) are kept as-is
-    // TODO: MI-199 should we be making params partial?
-    type TransformParam<
+    /**
+     * @description Makes properties optional if they're on the 'query' object
+     */
+    type MakeQueryParamsOptional<
         OpParams extends Operation['parameters'],
         K extends keyof OpParams,
     > = K extends 'query' ? Partial<OpParams[K]> : OpParams[K];
 
-    // Transforms operation parameters to make certain fields optional
+    /**
+     * @description Makes properties optional if they can be empty objects
+     */
+    type MakeEmptyObjectOptional<T> = {
+        readonly [K in keyof T as {} extends T[K] ? K : never]?: T[K];
+    } & {
+        readonly [K in keyof T as {} extends T[K] ? never : K]: T[K];
+    };
+
+    /**
+     * @description Prepares request parameters by making query params and any possibly empty params optional
+     */
     type InputParameters<OpParams extends Operation['parameters']> = MakeEmptyObjectOptional<{
-        [K in keyof OpParams]: TransformParam<OpParams, K>;
+        [K in keyof OpParams]: MakeQueryParamsOptional<OpParams, K>;
     }>;
 }
 
-// Maps request lines to their corresponding operations
+/**
+ * @description Maps request lines to their corresponding operations
+ */
 export type OperationIndex = Record<string, Operation>;
 
 // Namespace for operation index utilities
 export namespace OperationIndex {
-    // Filters operations to only include those with optional parameters
+    /**
+     * @description Filters operations to only include those with optional parameters
+     */
     export type FilterOptionalParams<Ops extends OperationIndex> = {
         [K in keyof Ops as {} extends Ops[K]['parameters'] ? K : never]: Ops[K];
     };
 }
 
-// Utility type that makes properties optional if they can be empty objects
-type MakeEmptyObjectOptional<T> = {
-    readonly [K in keyof T as {} extends T[K] ? K : never]?: T[K];
-} & {
-    readonly [K in keyof T as {} extends T[K] ? never : K]: T[K];
-};
-
+/**
+ * @description Resolves the path for a request
+ * @example
+ * ```ts
+ * resolvePath('/products/{id}', { id: 123 })
+ * // returns '/products/123'
+ * ```
+ */
 export function resolvePath(parameterizedPath: string, pathParams: Record<string, any>): string {
     return parameterizedPath
         .split('/')
@@ -116,10 +156,14 @@ export function resolvePath(parameterizedPath: string, pathParams: Record<string
         .join('/');
 }
 
-// Transport function type that handles making the actual API requests
+/**
+ * @description Transport function type that handles making the actual API requests
+ */
 export type Transport = (requestLine: string, params?: Parameters) => Promise<Response>;
 
-// Configuration options for the fetch-based transport
+/**
+ * @description Configuration options for the fetch-based transport
+ */
 export type FetchTransportOptions = {
     readonly baseUrl: string;
     readonly headers: Record<string, string>;
@@ -165,6 +209,20 @@ const defaultRetryConfig: Exclude<FetchTransportOptions['retry'], boolean | unde
     },
 };
 
+/**
+ * @description Creates a fetch transport function
+ * @example
+ * ```ts
+ * const transport = fetchTransport({
+ *     baseUrl: 'https://api.bigcommerce.com/stores/1234567890/v3',
+ *     headers: {
+ *         'X-Auth-Token': '1234567890',
+ *     },
+ * });
+ * ```
+ * @param options - The options for the fetch transport
+ * @returns
+ */
 export function fetchTransport(options: FetchTransportOptions): Transport {
     const { agent, baseUrl, headers, retry } = options;
 

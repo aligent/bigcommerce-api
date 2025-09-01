@@ -10,9 +10,7 @@ import type { Operations as Ops } from './index.js';
  */
 export type NoDataElementInResponse = {
     [K in keyof Ops]: Ops[K]['response'] extends { status: 200 | 201 }
-        ? // TECH DEBT: Work out if these eslint rules are reasonable in this context
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          Ops[K]['response']['body'] extends { data?: any }
+        ? Ops[K]['response']['body'] extends { data?: unknown }
             ? never
             : K
         : never;

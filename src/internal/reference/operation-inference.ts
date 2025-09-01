@@ -1,49 +1,82 @@
-// TECH DEBT: Work out if these eslint rules are reasonable in this context
-/* eslint-disable @typescript-eslint/no-empty-object-type */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { RequestMethod } from '../operation.js';
+import type { Flatten, IsOptional } from '../type-utils.js';
 
 // Takes an OpenAPI paths specification and converts it into our internal operation index format,
 // removing any undefined endpoints and flattening the paths into a single type
+/**
+ * @description Converts an OpenAPI paths specification into our internal operation index format
+ * - REST operations are combined with their parent path e.g. 'GET /path/a'
+ * - Parameters are kept, or defaulted to an empty object if not present
+ * - Response and Request objects are reformatted with generics
+ *
+ * Only application/json request and response bodies are included
+ *
+ * @example
+ * ```ts
+ * type A = InferOperationIndex<{
+ *   '/path/a': {
+ *      put: {
+ *          parameters: { a: string };
+ *          requestBody: { content: { 'application/json': { b: string } } };
+ *      };
+ *   };
+ * }>;
+ * // A is {
+ * //   'PUT /path/a': RequiredRequestBody<{
+ * //          a: string;
+ * //       },
+ * //       unknown,
+ * //       {
+ * //          b: string;
+ * //       }>
+ * //   }
+ */
 export type InferOperationIndex<PathsSpec> = Flatten<{
     [PathStr in keyof PathsSpec & string]: PathOperationIndex<PathStr, PathsSpec[PathStr]>;
 }>;
 
-// Takes a record of types and flattens them into a single intersection type
-// This combines all the operations from different paths into one type
-type Flatten<T extends Record<string, any>> = UnionToIntersection<T[keyof T]>;
-type UnionToIntersection<T> = (T extends any ? (x: T) => any : never) extends (x: infer R) => any
-    ? R
-    : never;
-
-// Converts an OpenAPI 3.0 path specification into our operation index format
-// Currently this only extracts type details for application/json request bodies
+/**
+ * @description Formats the OpenAPI parameters, responses, and responseBody specs at a given path
+ * in preparation for flattening the paths in to a single index type
+ *
+ * @see InferOperationIndex for more information
+ */
 type PathOperationIndex<Path extends string, PathSpec> = {
-    [K in keyof PathSpec as K extends RequestMethodLc
-        ? `${Uppercase<K>} ${Path}`
-        : never]: PathSpec[K] extends { parameters?: infer Params; responses?: infer Responses }
-        ? PathSpec[K] extends {
-              requestBody: { content: { 'application/json': infer RequestBody } };
+    [K in keyof PathSpec as PathKey<K, Path>]: PathSpec[K] extends {
+        parameters?: infer Params;
+        responses?: infer Responses;
+    }
+        ? {
+              parameters: Params & ParamsRequestBody<PathSpec[K]>;
+              response: ResponseUnion<Responses>;
           }
-            ? {
-                  readonly parameters: (unknown extends Params ? {} : Params) & {
-                      body: RequestBody;
-                  };
-                  readonly response: Response<Responses>;
-              }
-            : {
-                  readonly parameters: unknown extends Params ? {} : Params;
-                  readonly response: Response<Responses>;
-              }
         : never;
 };
 
-// Lowercase version of our RequestMethod type
-// Used for matching HTTP methods in OpenAPI specs which are typically lowercase
-type RequestMethodLc = Lowercase<RequestMethod>;
+/**
+ * @description Combines the REST operation method with the endpoint path to form a unique key
+ * @example
+ * ```ts
+ * type A = PathKey<'get', '/path/a'>
+ * // A is 'GET /path/a'
+ */
+type PathKey<K, Path extends string> =
+    K extends Lowercase<RequestMethod> ? `${Uppercase<K>} ${Path}` : never;
 
-// Converts OpenAPI response specifications into our internal response format
-type Response<ResponsesSpec> = {
+/**
+ * @description Converts OpenAPI response specifications into a union of possible responses
+ * Only responses with a 'application/json' content type are included
+ *
+ * @example
+ * ```ts
+ * type A = Response<{
+ *   200: { content: { 'application/json': { a: string } } };
+ *   204: { content: { 'application/json': {} } };
+ * }>;
+ * // A is { status: 200, body: { a: string } } | { status: 204, body: {} }
+ * ```
+ */
+type ResponseUnion<ResponsesSpec> = {
     [Status in keyof ResponsesSpec]: {
         status: Status;
         body: ResponsesSpec[Status] extends { content: { 'application/json': infer ResponseBody } }
@@ -51,3 +84,27 @@ type Response<ResponsesSpec> = {
             : never;
     };
 }[keyof ResponsesSpec];
+
+/**
+ * @description Extracts the request body from an OpenAPI specification
+ * - Keeps the optional or required nature of the request body from the original spec
+ * - Only includes 'application/json' content type request bodies
+ * - Returns a type with no body property if the original spec has no request body property (e.g. GET requests)
+ *
+ * @example
+ * ```ts
+ * type A = ParamsRequestBody<{
+ *   requestBody: { content: { 'application/json': { a: string } } };
+ * }>;
+ * // A is { body: { a: string } }
+ * ```
+ */
+type ParamsRequestBody<PathSpec> = PathSpec extends {
+    requestBody?: { content: { 'application/json': infer RequestBody } };
+}
+    ? unknown extends RequestBody
+        ? unknown
+        : IsOptional<PathSpec, 'requestBody'> extends true
+          ? Partial<{ body: RequestBody }>
+          : { body: RequestBody }
+    : never;

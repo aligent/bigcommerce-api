@@ -19,6 +19,9 @@ import type {
  * Currently, this module supports `include`, `include_fields` and `exclude_fields`.
  */
 
+/**
+ * @description Modifies the response type to reflect optional include, include_fields, and exclude_fields parameters
+ */
 export type NarrowResponse<
     Ops extends OperationIndex,
     Req extends Request,
