@@ -252,6 +252,14 @@ export interface components {
              * @example false
              */
             readonly coupon_overrides_automatic_when_offering_higher_discounts: boolean;
+            /**
+             * @description The type of the coupon promotion, whether it will have single or multiple codes.
+             *
+             *     Must be the same as existing value because changing coupon type is not supported. The field is there just for the ease of drafting PUT payload.
+             * @example BULK
+             * @enum {string}
+             */
+            readonly coupon_type?: "SINGLE" | "BULK";
         };
         /**
          * Draft Coupon Promotion
@@ -273,6 +281,13 @@ export interface components {
              * @enum {string}
              */
             readonly redemption_type: "COUPON";
+            /**
+             * @description The type of the coupon promotion, whether it will have single or multiple codes, defaults to "SINGLE" if not provided.
+             * @default SINGLE
+             * @example BULK
+             * @enum {string}
+             */
+            readonly coupon_type: "SINGLE" | "BULK";
         };
         /**
          * Saved Coupon Promotion
@@ -308,6 +323,12 @@ export interface components {
                  */
                 readonly has_multiple_codes: boolean;
             };
+            /**
+             * @description The type of the coupon promotion, whether it will have single or multiple codes.
+             * @example BULK
+             * @enum {string}
+             */
+            readonly coupon_type: "SINGLE" | "BULK";
         };
         /**
          * Patch Automatic Promotion
@@ -342,11 +363,13 @@ export interface components {
             readonly id: number;
             readonly created_from: components["schemas"]["CreatedFrom"];
         };
-        /** @description Specifies the requirements which make the customer eligible for the promotion.
+        /**
+         * @description Specifies the requirements which make the customer eligible for the promotion.
          *
          *     Note:
          *     - Only "group_ids" or "excluded_group_ids" should be specified (have non-empty array data), but not both.
-         *     - group_id zero (0) signifies guest customers or registered customers who are not assigned to any groups. */
+         *     - group_id zero (0) signifies guest customers or registered customers who are not assigned to any groups.
+         */
         readonly Customer: {
             /**
              * @description A list of customer group IDs that the promotion targets. Only customers in those groups are eligible for this promotion. When unspecified, or set to an empty array, this requirement is not effective, and all customers who satisfy the other requirements (minimum_order_count, excluded_group_ids) are eligible for the promotion.
@@ -588,8 +611,10 @@ export interface components {
                 readonly discount: components["schemas"]["Discount"];
             };
         };
-        /** @description **Gift Item Action**
-         *     Give a gift item for free. */
+        /**
+         * @description **Gift Item Action**
+         *     Give a gift item for free.
+         */
         readonly GiftItemAction: {
             readonly gift_item?: {
                 /** @description Quantity of gift item to give. */
@@ -633,9 +658,11 @@ export interface components {
         readonly CartItemsAction: {
             readonly cart_items?: {
                 readonly discount: components["schemas"]["Discount"];
-                /** @description Set this value to true to distribute the discount as a total among matching items. By default, the discount applies to each item.
+                /**
+                 * @description Set this value to true to distribute the discount as a total among matching items. By default, the discount applies to each item.
                  *     Example: If set to false, the discount is $10 and you have 2 eligible items for this discount in the cart, both items will be discounted by $10, with a total of $20 off the order.
-                 *     If set to true, $10 will be distributed among the 2 items, weighted by their respective price. In a case where there are 2 of the same items, each item will be discounted by $5. */
+                 *     If set to true, $10 will be distributed among the 2 items, weighted by their respective price. In a case where there are 2 of the same items, each item will be discounted by $5.
+                 */
                 readonly as_total?: boolean;
                 readonly items?: components["schemas"]["ItemMatcher"];
                 /** @description Setting this value to true enables you to discount items that are used to satisfy the condition. By default items that are used to satisfy the condition are excluded from receiving the discount. For example, "Buy 1 Get 1 20% off." When the cart only contains 1 item, the discount won’t apply. */
@@ -698,7 +725,6 @@ export interface components {
         /**
          * Collection Meta
          * @description Contains data about paginating the response via cursors. If no pagination details are specified, then both properties will be present.  When a 'before' or 'after' cursor is provided, only the 'cursor_pagination' property will be present. When a 'page' parameter is provided, only the offset based 'pagination' property will be present.
-         *
          */
         readonly OptionalCursorCollectionMeta: {
             readonly pagination?: components["schemas"]["DeprecatedPagination"];
@@ -740,7 +766,6 @@ export interface components {
          * Pagination
          * @deprecated
          * @description Data about the response, including pagination and collection totals. This property has been deprecated and cursor_pagination should be used instead.
-         *
          */
         readonly DeprecatedPagination: {
             /** @description Total number of items in the result set. */
@@ -780,26 +805,22 @@ export interface components {
             readonly per_page: number;
             /**
              * @description The cursor to the first item in the result set. Can be used with the "before" query parameter to paginate backwards. This property is omitted when the result set is empty.
-             *
              * @example eyJpZCI6IjIzNzU1NyJ9
              */
             readonly start_cursor?: string;
             /**
              * @description The cursor to the last item in the result set. Can be used with the "after" query parameter to paginate forwards. This property is omitted when the result set is empty.
-             *
              * @example eyJpZCI6IjIzNzU1NyJ9
              */
             readonly end_cursor?: string;
             readonly links: {
                 /**
                  * @description Link to the previous page returned in the response. This property is omitted when the result set is empty or on the first page.
-                 *
                  * @example ?limit=5&before=eyJpZCI6IjIzNzU1NyJ9
                  */
                 readonly previous?: string;
                 /**
                  * @description Link to the next page returned in the response. This property is omitted when the result set is empty.
-                 *
                  * @example ?limit=5&after=eyJpZCI6IjIzNzU1NyJ9
                  */
                 readonly next?: string;
@@ -834,6 +855,18 @@ export interface components {
          */
         readonly ErrorResponse403: {
             /** @description Forbidden. */
+            readonly status?: string;
+            /** @description The error title describing the particular error. */
+            readonly title?: string;
+            /** @description Error payload for the BigCommerce API. */
+            readonly error?: string;
+        };
+        /**
+         * 405 Error Response
+         * @description The requested method is not allowed for the specified resource.
+         */
+        readonly ErrorResponse405: {
+            /** @description Method not allowed. */
             readonly status?: string;
             /** @description The error title describing the particular error. */
             readonly title?: string;
@@ -1101,7 +1134,8 @@ export interface components {
                     readonly errors?: readonly components["schemas"]["BulkActionResponseError"][];
                     readonly meta?: components["schemas"]["BulkActionResponseMeta"];
                 };
-                /** @example {
+                /**
+                 * @example {
                  *       "errors": [
                  *         {
                  *           "status": 422,
@@ -1114,9 +1148,11 @@ export interface components {
                  *         "success": 0,
                  *         "failed": 0
                  *       }
-                 *     } */
+                 *     }
+                 */
                 readonly "422 - Missing Parameter": unknown;
-                /** @example {
+                /**
+                 * @example {
                  *       "errors": [
                  *         {
                  *           "status": 422,
@@ -1133,7 +1169,8 @@ export interface components {
                  *         "success": 3,
                  *         "failed": 2
                  *       }
-                 *     } */
+                 *     }
+                 */
                 readonly "422 - Error Deleting": unknown;
             };
         };
@@ -1223,20 +1260,20 @@ export interface components {
         readonly CodeIdPath: string;
         /** @description Filter items by `id`. */
         readonly IdQuery: number;
-        /** @description A comma-separated list of promotions to filter or target with this operation.
+        /**
+         * @description A comma-separated list of promotions to filter or target with this operation.
          *
-         *     Example: **?id:in=11,12,13,14** */
+         *     Example: **?id:in=11,12,13,14**
+         */
         readonly IdInQuery: readonly number[];
         /** @description Query parameter that specifies the page number in a paginated list of resources. */
         readonly PageQuery: number;
         /**
          * @deprecated
          * @description Query parameter that specifies the page number in a paginated list of resources. This field is deprecated and the 'before' and 'after' cursor parameters should be used instead.
-         *
          */
         readonly DeprecatedPageQuery: number;
-        /** @description Query parameter that limits the number of items displayed per page in a paginated list of resources. When none is specified a default value of 50 is used.
-         *      */
+        /** @description Query parameter that limits the number of items displayed per page in a paginated list of resources. When none is specified a default value of 50 is used. */
         readonly LimitQuery: number;
         /** @description Filter items by `name`. */
         readonly NameQuery: string;
@@ -1256,11 +1293,9 @@ export interface components {
         readonly DirectionQuery: "asc" | "desc";
         /** @description The ID of the associated promotion. */
         readonly PromotionIdPath: string;
-        /** @description A cursor that can be used for backwards pagination. Will fetch results before the position corresponding to the cursor. Cannot be used with the 'page' query parameter. Cannot be used with the 'after' query parameter.
-         *      */
+        /** @description A cursor that can be used for backwards pagination. Will fetch results before the position corresponding to the cursor. Cannot be used with the 'page' query parameter. Cannot be used with the 'after' query parameter. */
         readonly BeforeCursorQuery: string;
-        /** @description A cursor that can be used for forwards pagination. Will fetch results after the position corresponding to the cursor. Cannot be used with the 'page' query parameter. Cannot be used with the 'before' query parameter.
-         *      */
+        /** @description A cursor that can be used for forwards pagination. Will fetch results after the position corresponding to the cursor. Cannot be used with the 'page' query parameter. Cannot be used with the 'before' query parameter. */
         readonly AfterCursorQuery: string;
         /** @description Filter promotions that target those `channel IDs`.  Example: **?channels=1,2**. Note: promotions that target all the channels are included in the filtering result. */
         readonly ChannelQuery: readonly number[];
@@ -1288,8 +1323,7 @@ export interface operations {
                 readonly status?: components["parameters"]["StatusQuery"];
                 /** @description Query parameter that specifies the page number in a paginated list of resources. */
                 readonly page?: components["parameters"]["PageQuery"];
-                /** @description Query parameter that limits the number of items displayed per page in a paginated list of resources. When none is specified a default value of 50 is used.
-                 *      */
+                /** @description Query parameter that limits the number of items displayed per page in a paginated list of resources. When none is specified a default value of 50 is used. */
                 readonly limit?: components["parameters"]["LimitQuery"];
                 /** @description Query parameter that specifies the field name to sort by. The default value is *id*. */
                 readonly sort?: components["parameters"]["SortQuery"];
@@ -1372,9 +1406,11 @@ export interface operations {
     readonly deletePromotions: {
         readonly parameters: {
             readonly query: {
-                /** @description A comma-separated list of promotions to filter or target with this operation.
+                /**
+                 * @description A comma-separated list of promotions to filter or target with this operation.
                  *
-                 *     Example: **?id:in=11,12,13,14** */
+                 *     Example: **?id:in=11,12,13,14**
+                 */
                 readonly "id:in": components["parameters"]["IdInQuery"];
             };
             readonly header?: {
@@ -1483,20 +1519,16 @@ export interface operations {
     readonly getPromotionCodes: {
         readonly parameters: {
             readonly query?: {
-                /** @description A cursor that can be used for backwards pagination. Will fetch results before the position corresponding to the cursor. Cannot be used with the 'page' query parameter. Cannot be used with the 'after' query parameter.
-                 *      */
+                /** @description A cursor that can be used for backwards pagination. Will fetch results before the position corresponding to the cursor. Cannot be used with the 'page' query parameter. Cannot be used with the 'after' query parameter. */
                 readonly before?: components["parameters"]["BeforeCursorQuery"];
-                /** @description A cursor that can be used for forwards pagination. Will fetch results after the position corresponding to the cursor. Cannot be used with the 'page' query parameter. Cannot be used with the 'before' query parameter.
-                 *      */
+                /** @description A cursor that can be used for forwards pagination. Will fetch results after the position corresponding to the cursor. Cannot be used with the 'page' query parameter. Cannot be used with the 'before' query parameter. */
                 readonly after?: components["parameters"]["AfterCursorQuery"];
                 /**
                  * @deprecated
                  * @description Query parameter that specifies the page number in a paginated list of resources. This field is deprecated and the 'before' and 'after' cursor parameters should be used instead.
-                 *
                  */
                 readonly page?: components["parameters"]["DeprecatedPageQuery"];
-                /** @description Query parameter that limits the number of items displayed per page in a paginated list of resources. When none is specified a default value of 50 is used.
-                 *      */
+                /** @description Query parameter that limits the number of items displayed per page in a paginated list of resources. When none is specified a default value of 50 is used. */
                 readonly limit?: components["parameters"]["LimitQuery"];
             };
             readonly header?: {
@@ -1548,15 +1580,17 @@ export interface operations {
             };
         };
         readonly responses: {
-            readonly 200: components["responses"]["PromotionCodeResponse"];
+            readonly 201: components["responses"]["PromotionCodeResponse"];
         };
     };
     readonly deleteCouponCodes: {
         readonly parameters: {
             readonly query: {
-                /** @description A comma-separated list of promotions to filter or target with this operation.
+                /**
+                 * @description A comma-separated list of promotions to filter or target with this operation.
                  *
-                 *     Example: **?id:in=11,12,13,14** */
+                 *     Example: **?id:in=11,12,13,14**
+                 */
                 readonly "id:in": components["parameters"]["IdInQuery"];
             };
             readonly header?: {
@@ -1635,6 +1669,15 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": components["schemas"]["ErrorResponse403"];
+                };
+            };
+            /** @description Method not allowed. Bulk code generation is only supported for promotions with redemption_type of 'COUPON' and coupon_type of 'BULK'. */
+            readonly 405: {
+                headers: {
+                    readonly [name: string]: unknown;
+                };
+                content: {
+                    readonly "application/json": components["schemas"]["ErrorResponse405"];
                 };
             };
             /** @description The request payload is invalid. */

@@ -12,8 +12,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -37,6 +36,8 @@ export interface paths {
          *
          *     **Notes**
          *     It takes two separate requests to create a new checkbox modifier with option values. Perform a request to create a modifier, then perform a second request to update option values.
+         *
+         *     Date modifiers are required to be provided in [ISO-8601 ATOM](https://www.php.net/manual/en/class.datetimeinterface.php#datetimeinterface.constants.atom) format. Excluding them in a request will throw a server error.
          */
         readonly post: operations["createProductModifier"];
     };
@@ -48,11 +49,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the product modifier.
-                 *      */
+                /** @description The ID of the product modifier. */
                 readonly modifier_id: components["parameters"]["ModifierIdParam"];
             };
             readonly cookie?: never;
@@ -65,6 +64,8 @@ export interface paths {
         /**
          * Update a product modifier
          * @description Updates a product modifier.
+         *
+         *     Date modifiers are required to be provided in [ISO-8601 ATOM](https://www.php.net/manual/en/class.datetimeinterface.php#datetimeinterface.constants.atom) format. Excluding them in a request will throw a server error.
          */
         readonly put: operations["updateProductModifier"];
         /**
@@ -81,11 +82,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the product modifier.
-                 *      */
+                /** @description The ID of the product modifier. */
                 readonly modifier_id: components["parameters"]["ModifierIdParam"];
             };
             readonly cookie?: never;
@@ -116,14 +115,11 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the product modifier.
-                 *      */
+                /** @description The ID of the product modifier. */
                 readonly modifier_id: components["parameters"]["ModifierIdParam"];
-                /** @description The ID of the product modifier value.
-                 *      */
+                /** @description The ID of the product modifier value. */
                 readonly value_id: components["parameters"]["ValueIdParam"];
             };
             readonly cookie?: never;
@@ -158,14 +154,11 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the product modifier.
-                 *      */
+                /** @description The ID of the product modifier. */
                 readonly modifier_id: components["parameters"]["ModifierIdParam"];
-                /** @description The ID of the product modifier value.
-                 *      */
+                /** @description The ID of the product modifier value. */
                 readonly value_id: components["parameters"]["ValueIdParam"];
             };
             readonly cookie?: never;
@@ -192,12 +185,10 @@ export interface components {
         readonly productModifier_Base: {
             /**
              * @description BigCommerce API, which determines how it will display on the storefront. Acceptable values: `date`, `checkbox`, `file`, `text`, `multi_line_text`, `numbers_only_text`, `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. Required in a /POST.
-             *
              * @enum {string}
              */
             readonly type: "date" | "checkbox" | "file" | "text" | "multi_line_text" | "numbers_only_text" | "radio_buttons" | "rectangles" | "dropdown" | "product_list" | "product_list_with_images" | "swatch";
-            /** @description Whether or not this modifier is required at checkout. Required in a /POST.
-             *      */
+            /** @description Whether or not this modifier is required at checkout. Required in a /POST. */
             readonly required: boolean;
             /** @description The order the modifiers display on the product detail page. */
             readonly sort_order?: number;
@@ -212,39 +203,36 @@ export interface components {
         readonly productModifier_Post: {
             /**
              * @description BigCommerce API, which determines how it will display on the storefront. Acceptable values: `date`, `checkbox`, `file`, `text`, `multi_line_text`, `numbers_only_text`, `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. Required in a /POST.
-             *
              * @enum {string}
              */
             readonly type: "date" | "checkbox" | "file" | "text" | "multi_line_text" | "numbers_only_text" | "radio_buttons" | "rectangles" | "dropdown" | "product_list" | "product_list_with_images" | "swatch";
-            /** @description Whether or not this modifier is required at checkout. Required in a /POST.
-             *      */
+            /** @description Whether or not this modifier is required at checkout. Required in a /POST. */
             readonly required: boolean;
             /** @description The order the modifiers display on the product detail page. */
             readonly sort_order?: number;
             readonly config?: components["schemas"]["config_Full"];
+            /** @description Contains information about the values for modifier types with options. Certain fields are not used for specific modifier types. See [Option Values](#option-values) for more details. */
             readonly option_values?: readonly {
-                /** @description The unique numeric ID of the value; increments sequentially.
-                 *      */
+                /** @description The unique numeric ID of the value; increments sequentially. */
                 readonly id?: number;
                 /**
                  * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                 *
                  * @example false
                  */
                 readonly is_default?: boolean;
                 /** @description Adjuster for Complex Rules. */
                 readonly adjusters?: {
                     readonly price?: {
-                        /** @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                        /**
+                         * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
                          *       enum:
                          *         - relative
                          *         - percentage
                          *       x-nullable: true
-                         *      */
+                         */
                         readonly adjuster?: string;
                         /**
                          * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                         *
                          * @example 5
                          */
                         readonly adjuster_value?: number;
@@ -261,22 +249,20 @@ export interface components {
         readonly productModifier_Full: components["schemas"]["productModifier_Base"] & {
             /**
              * @description The unique numeric ID of the modifier; increments sequentially.
-             *
              * @example 12
              */
             readonly id?: number;
             /**
              * @description The unique numeric ID of the product to which the option belongs.
-             *
              * @example 77
              */
             readonly product_id?: number;
             /**
              * @description The unique option name. Auto-generated from the display name, a timestamp, and the product ID.
-             *
              * @example Add-a-$5-Donation1535039590-191
              */
             readonly name?: string;
+            /** @description Contains information about the values for modifier types with options. Certain fields are not used for specific modifier types. See [Option Values](#option-values) for more details. */
             readonly option_values?: readonly components["schemas"]["productModifierOptionValue_Full"][];
         };
         /**
@@ -286,24 +272,20 @@ export interface components {
         readonly productModifierOptionValue_Base: {
             /**
              * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-             *
              * @example false
              */
             readonly is_default?: boolean;
             /**
              * @description The text display identifying the value on the storefront. Required in a /POST.
-             *
              * @example Green
              */
             readonly label: string;
             /**
              * @description The order in which the value will be displayed on the product page. Required in a /POST.
-             *
              * @example 0
              */
             readonly sort_order: number;
-            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexadecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.
-             *      */
+            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated.  See [Option Values](#option-values) for more details. */
             readonly value_data?: Record<string, unknown> | null;
             readonly adjusters?: components["schemas"]["adjusters_Full"];
         };
@@ -312,8 +294,7 @@ export interface components {
          * @description Product modifier `option_value`.
          */
         readonly productModifierOptionValue_Full: components["schemas"]["productModifierOptionValue_Base"] & {
-            /** @description The unique numeric ID of the value; increments sequentially.
-             *      */
+            /** @description The unique numeric ID of the value; increments sequentially. */
             readonly id?: number;
             readonly option_id?: number;
         };
@@ -324,13 +305,11 @@ export interface components {
         readonly adjuster_Full: {
             /**
              * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-             *
              * @enum {string|null}
              */
             readonly adjuster?: "relative" | "percentage" | null;
             /**
              * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-             *
              * @example 5
              */
             readonly adjuster_value?: number;
@@ -349,48 +328,39 @@ export interface components {
         readonly pagination_Full: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 36
              */
             readonly total?: number;
             /**
              * @description Total number of items in the collection response.
-             *
              * @example 36
              */
             readonly count?: number;
             /**
              * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-             *
              * @example 50
              */
             readonly per_page?: number;
             /**
              * @description The page you are currently on within the collection.
-             *
              * @example 1
              */
             readonly current_page?: number;
             /**
              * @description The total number of pages in the collection.
-             *
              * @example 1
              */
             readonly total_pages?: number;
-            /** @description Pagination links for the previous and next parts of the whole collection.
-             *      */
+            /** @description Pagination links for the previous and next parts of the whole collection. */
             readonly links?: {
-                /** @description Link to the previous page returned in the response.
-                 *      */
+                /** @description Link to the previous page returned in the response. */
                 readonly previous?: string;
                 /**
                  * @description Link to the current page returned in the response.
-                 *
                  * @example ?page=1&limit=50
                  */
                 readonly current?: string;
-                /** @description Link to the next page returned in the response.
-                 *      */
+                /** @description Link to the next page returned in the response. */
                 readonly next?: string;
             };
         };
@@ -403,125 +373,99 @@ export interface components {
         };
         /**
          * config_Full
-         * @description The values for option config can vary based on the Modifier created.
+         * @description The values for option config can vary based on the Modifier created. See [Configs](#configs) to learn more about the type-specific `config` fields.
          */
         readonly config_Full: {
-            /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
-             *      */
+            /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601 ATOM formatted string, or on a text option as a string. See [Configs](#configs) for more details. */
             readonly default_value?: string;
-            /** @description (checkbox) Flag for setting the checkbox to be checked by default.
-             *      */
+            /** @description (checkbox) Flag for setting the checkbox to be checked by default. */
             readonly checked_by_default?: boolean;
-            /** @description (checkbox) Label displayed for the checkbox option.
-             *      */
+            /** @description (checkbox) Label displayed for the checkbox option. */
             readonly checkbox_label?: string;
-            /** @description (date) Flag to limit the dates allowed to be entered on a date option.
-             *      */
+            /** @description (date) Flag to limit the dates allowed to be entered on a date option. */
             readonly date_limited?: boolean;
             /**
              * @description (date) The type of limit that is allowed to be entered on a date option.
-             *
              * @example range
              * @enum {string}
              */
             readonly date_limit_mode?: "earliest" | "range" | "latest";
             /**
-             * Format: date
-             * @description (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-             *
+             * @description (date) The earliest date allowed to be entered on the date option, as an ISO-8601 ATOM formatted string.
+             * @example 2025-08-15T15:52:01+00:00
              */
             readonly date_earliest_value?: string;
             /**
-             * Format: date
-             * @description (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-             *
+             * @description (date) The latest date allowed to be entered on the date option, as an ISO-8601 ATOM formatted string.
+             * @example 2026-08-15T15:52:01+00:00
              */
             readonly date_latest_value?: string;
             /**
              * @description (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
-             *
              * @example specific
              * @enum {string}
              */
             readonly file_types_mode?: "specific" | "all";
-            /** @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
-             *       `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
-             *       `other` - Allows file types defined in the `file_types_other` array.
-             *      */
+            /** @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`.  See [Supported File Types](#supported-file-types) for more details. */
             readonly file_types_supported?: readonly string[];
-            /** @description (file) A list of other file types allowed with the file upload option.
-             *      */
+            /** @description (file) A list of other file types allowed with the file upload option. See [Supported File Types](#supported-file-types) for more details. */
             readonly file_types_other?: readonly string[];
             /**
-             * @description (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
-             *
+             * @description (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server. See [Configs](#configs) for more details.
              * @example 5
              */
             readonly file_max_size?: number;
-            /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
-             *      */
+            /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input. */
             readonly text_characters_limited?: boolean;
             /**
              * @description (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
-             *
              * @example 1
              */
             readonly text_min_length?: number;
             /**
              * @description (text, multi_line_text) The maximum length allowed for a text or multi line text option.
-             *
              * @example 55
              */
             readonly text_max_length?: number;
             /**
              * @description (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
-             *
              * @example true
              */
             readonly text_lines_limited?: boolean;
             /**
              * @description (multi_line_text) The maximum number of lines allowed on a multi-line text input.
-             *
              * @example 4
              */
             readonly text_max_lines?: number;
             /**
              * @description (numbers_only_text) Flag to limit the value of a number option.
-             *
              * @example true
              */
             readonly number_limited?: boolean;
             /**
              * @description (numbers_only_text) The type of limit on values entered for a number option.
-             *
              * @example lowest
              * @enum {string}
              */
             readonly number_limit_mode?: "lowest" | "highest" | "range";
             /**
              * @description (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
-             *
              * @example 100
              */
             readonly number_lowest_value?: number;
-            /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
-             *      */
+            /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true. */
             readonly number_highest_value?: number;
             /**
              * @description (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
-             *
              * @example false
              */
             readonly number_integers_only?: boolean;
-            /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
-             *      */
+            /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list. */
             readonly product_list_adjusts_inventory?: boolean;
-            /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
-             *      */
+            /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price. */
             readonly product_list_adjusts_pricing?: boolean;
             /**
-             * @description (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
-             *
+             * @description (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. See [Configs](#configs) for more details.
              * @example weight
              * @enum {string}
              */
@@ -533,40 +477,32 @@ export interface components {
             readonly weight?: components["schemas"]["adjuster_Full"];
             /**
              * @description The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
-             *
              * @example https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2
              */
             readonly image_url?: string;
             readonly purchasing_disabled?: {
-                /** @description Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
-                 *      */
+                /** @description Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value. */
                 readonly status?: boolean;
-                /** @description The message displayed on the storefront when the purchasing disabled status is `true`.
-                 *      */
+                /** @description The message displayed on the storefront when the purchasing disabled status is `true`. */
                 readonly message?: string;
             };
         };
     };
     responses: never;
     parameters: {
-        /** @description The ID of the product to which the resource belongs.
-         *      */
+        /** @description The ID of the product to which the resource belongs. */
         readonly ProductIdParam: number;
-        /** @description The ID of the product modifier.
-         *      */
+        /** @description The ID of the product modifier. */
         readonly ModifierIdParam: number;
-        /** @description The ID of the product modifier value.
-         *      */
+        /** @description The ID of the product modifier value. */
         readonly ValueIdParam: number;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
         readonly Accept: string;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body. */
         readonly ContentType: string;
-        /** @description Specifies the page number in a limited (paginated) list of products.
-         *      */
+        /** @description Specifies the page number in a limited (paginated) list of products. */
         readonly PageParam: number;
-        /** @description Controls the number of items per page in a limited (paginated) list of products.
-         *      */
+        /** @description Controls the number of items per page in a limited (paginated) list of products. */
         readonly LimitParam: number;
         /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
         readonly IncludeFieldsParam: readonly string[];
@@ -586,11 +522,9 @@ export interface operations {
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
                 /** @description Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. */
                 readonly exclude_fields?: components["parameters"]["ExcludeFieldsParam"];
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
             };
             readonly header?: {
@@ -598,8 +532,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -611,7 +544,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 206,
@@ -678,7 +612,8 @@ export interface operations {
                      *           }
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["productModifier_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -697,15 +632,15 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
         };
         readonly requestBody?: {
             readonly content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "type": "radio_buttons",
                  *       "required": true,
                  *       "sort_order": 0,
@@ -752,7 +687,8 @@ export interface operations {
                  *         }
                  *       ],
                  *       "display_name": "Donation"
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": components["schemas"]["productModifier_Post"];
             };
         };
@@ -762,7 +698,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 164,
                      *         "product_id": 161,
@@ -822,7 +759,8 @@ export interface operations {
                      *         ]
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: {
                             readonly items?: components["schemas"]["productModifier_Full"];
@@ -831,8 +769,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `Modifier` was in conflict with another option. This is the result of duplicate unique fields, such as `name`.
-             *      */
+            /** @description The `Modifier` was in conflict with another option. This is the result of duplicate unique fields, such as `name`. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -844,18 +781,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description The `Modifier` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Modifier` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -867,11 +801,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -892,11 +824,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the product modifier.
-                 *      */
+                /** @description The ID of the product modifier. */
                 readonly modifier_id: components["parameters"]["ModifierIdParam"];
             };
             readonly cookie?: never;
@@ -914,16 +844,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -944,11 +872,9 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the product modifier.
-                 *      */
+                /** @description The ID of the product modifier. */
                 readonly modifier_id: components["parameters"]["ModifierIdParam"];
             };
             readonly cookie?: never;
@@ -959,146 +885,116 @@ export interface operations {
                 readonly "application/json": {
                     /**
                      * @description BigCommerce API, which determines how it will display on the storefront. Acceptable values: `date`, `checkbox`, `file`, `text`, `multi_line_text`, `numbers_only_text`, `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. Required in a /POST.
-                     *
                      * @enum {string}
                      */
                     readonly type: "date" | "checkbox" | "file" | "text" | "multi_line_text" | "numbers_only_text" | "radio_buttons" | "rectangles" | "dropdown" | "product_list" | "product_list_with_images" | "swatch";
-                    /** @description Whether or not this modifier is required at checkout. Required in a /POST.
-                     *      */
+                    /** @description Whether or not this modifier is required at checkout. Required in a /POST. */
                     readonly required: boolean;
                     /** @description The order the modifiers display on the product detail page. */
                     readonly sort_order?: number;
-                    /** @description The values for option config can vary based on the Modifier created. */
+                    /** @description The values for option config can vary based on the Modifier created. See [Configs](#configs) to learn more about the type-specific `config` fields. */
                     readonly config?: {
-                        /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
-                         *      */
+                        /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601 ATOM formatted string, or on a text option as a string. See [Configs](#configs) for more details. */
                         readonly default_value?: string;
-                        /** @description (checkbox) Flag for setting the checkbox to be checked by default.
-                         *      */
+                        /** @description (checkbox) Flag for setting the checkbox to be checked by default. */
                         readonly checked_by_default?: boolean;
-                        /** @description (checkbox) Label displayed for the checkbox option.
-                         *      */
+                        /** @description (checkbox) Label displayed for the checkbox option. */
                         readonly checkbox_label?: string;
-                        /** @description (date) Flag to limit the dates allowed to be entered on a date option.
-                         *      */
+                        /** @description (date) Flag to limit the dates allowed to be entered on a date option. */
                         readonly date_limited?: boolean;
                         /**
                          * @description (date) The type of limit that is allowed to be entered on a date option.
-                         *
                          * @example range
                          * @enum {string}
                          */
                         readonly date_limit_mode?: "earliest" | "range" | "latest";
                         /**
-                         * Format: date
-                         * @description (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                         *
+                         * @description (date) The earliest date allowed to be entered on the date option, as an ISO-8601 ATOM formatted string.
+                         * @example 2025-08-15T15:52:01+00:00
                          */
                         readonly date_earliest_value?: string;
                         /**
-                         * Format: date
-                         * @description (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                         *
+                         * @description (date) The latest date allowed to be entered on the date option, as an ISO-8601 ATOM formatted string.
+                         * @example 2026-08-15T15:52:01+00:00
                          */
                         readonly date_latest_value?: string;
                         /**
                          * @description (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
-                         *
                          * @example specific
                          * @enum {string}
                          */
                         readonly file_types_mode?: "specific" | "all";
-                        /** @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
-                         *       `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
-                         *       `other` - Allows file types defined in the `file_types_other` array.
-                         *      */
+                        /** @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. See [Supported File Types](#supported-file-types) for more details. */
                         readonly file_types_supported?: readonly string[];
-                        /** @description (file) A list of other file types allowed with the file upload option.
-                         *      */
+                        /** @description (file) A list of other file types allowed with the file upload option. See [Supported File Types](#supported-file-types) for more details. */
                         readonly file_types_other?: readonly string[];
                         /**
-                         * @description (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
-                         *
+                         * @description (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server. See [Configs](#configs) for more details.
                          * @example 5
                          */
                         readonly file_max_size?: number;
-                        /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
-                         *      */
+                        /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input. */
                         readonly text_characters_limited?: boolean;
                         /**
                          * @description (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
-                         *
                          * @example 1
                          */
                         readonly text_min_length?: number;
                         /**
                          * @description (text, multi_line_text) The maximum length allowed for a text or multi line text option.
-                         *
                          * @example 55
                          */
                         readonly text_max_length?: number;
                         /**
                          * @description (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
-                         *
                          * @example true
                          */
                         readonly text_lines_limited?: boolean;
                         /**
                          * @description (multi_line_text) The maximum number of lines allowed on a multi-line text input.
-                         *
                          * @example 4
                          */
                         readonly text_max_lines?: number;
                         /**
                          * @description (numbers_only_text) Flag to limit the value of a number option.
-                         *
                          * @example true
                          */
                         readonly number_limited?: boolean;
                         /**
                          * @description (numbers_only_text) The type of limit on values entered for a number option.
-                         *
                          * @example lowest
                          * @enum {string}
                          */
                         readonly number_limit_mode?: "lowest" | "highest" | "range";
                         /**
                          * @description (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
-                         *
                          * @example 100
                          */
                         readonly number_lowest_value?: number;
-                        /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
-                         *      */
+                        /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true. */
                         readonly number_highest_value?: number;
                         /**
                          * @description (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
-                         *
                          * @example false
                          */
                         readonly number_integers_only?: boolean;
-                        /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
-                         *      */
+                        /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list. */
                         readonly product_list_adjusts_inventory?: boolean;
-                        /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
-                         *      */
+                        /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price. */
                         readonly product_list_adjusts_pricing?: boolean;
                         /**
-                         * @description (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
-                         *
+                         * @description (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. See [Configs](#configs) for more details.
                          * @example weight
                          * @enum {string}
                          */
                         readonly product_list_shipping_calc?: "none" | "weight" | "package";
                     };
-                    /** @description Part of Modifier Value Response  */
+                    /** @description Contains information about the values for modifier types with options. Certain fields are not used for specific modifier types. See [Option Values](#option-values) for more details. */
                     readonly option_values?: readonly {
-                        /** @description The unique numeric ID of the value; increments sequentially.
-                         *      */
+                        /** @description The unique numeric ID of the value; increments sequentially. */
                         readonly id?: number;
                         /**
                          * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                         *
                          * @example false
                          */
                         readonly is_default?: boolean;
@@ -1107,13 +1003,11 @@ export interface operations {
                             readonly price?: {
                                 /**
                                  * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                 *
                                  * @enum {string}
                                  */
                                 readonly adjuster?: "relative" | "percentage";
                                 /**
                                  * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                 *
                                  * @example 5
                                  */
                                 readonly adjuster_value?: number;
@@ -1122,7 +1016,6 @@ export interface operations {
                     }[];
                     /**
                      * @description The name of the option shown on the storefront.
-                     *
                      * @example Donation
                      */
                     readonly display_name?: string;
@@ -1143,175 +1036,142 @@ export interface operations {
                         readonly data?: {
                             /**
                              * @description BigCommerce API, which determines how it will display on the storefront. Acceptable values: `date`, `checkbox`, `file`, `text`, `multi_line_text`, `numbers_only_text`, `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. Required in a /POST.
-                             *
                              * @enum {string}
                              */
                             readonly type: "date" | "checkbox" | "file" | "text" | "multi_line_text" | "numbers_only_text" | "radio_buttons" | "rectangles" | "dropdown" | "product_list" | "product_list_with_images" | "swatch";
-                            /** @description Whether or not this modifier is required at checkout. Required in a /POST.
-                             *      */
+                            /** @description Whether or not this modifier is required at checkout. Required in a /POST. */
                             readonly required: boolean;
                             /** @description The order the modifiers display on the product detail page. */
                             readonly sort_order?: number;
                             /**
                              * Option Config
-                             * @description The values for option config can vary based on the Modifier created.
+                             * @description The values for option config can vary based on the Modifier created. See [Configs](#configs) to learn more about the type-specific `config` fields.
                              */
                             readonly config?: {
-                                /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
-                                 *      */
+                                /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601 ATOM formatted string, or on a text option as a string. See [Configs](#configs) for more details. */
                                 readonly default_value?: string;
-                                /** @description (checkbox) Flag for setting the checkbox to be checked by default.
-                                 *      */
+                                /** @description (checkbox) Flag for setting the checkbox to be checked by default. */
                                 readonly checked_by_default?: boolean;
-                                /** @description (checkbox) Label displayed for the checkbox option.
-                                 *      */
+                                /** @description (checkbox) Label displayed for the checkbox option. */
                                 readonly checkbox_label?: string;
-                                /** @description (date) Flag to limit the dates allowed to be entered on a date option.
-                                 *      */
+                                /** @description (date) Flag to limit the dates allowed to be entered on a date option. */
                                 readonly date_limited?: boolean;
                                 /**
                                  * @description (date) The type of limit that is allowed to be entered on a date option.
-                                 *
                                  * @example range
                                  * @enum {string}
                                  */
                                 readonly date_limit_mode?: "earliest" | "range" | "latest";
                                 /**
-                                 * Format: date
-                                 * @description (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                                 *
+                                 * @description (date) The earliest date allowed to be entered on the date option, as an ISO-8601 ATOM formatted string.
+                                 * @example 2025-08-15T15:52:01+00:00
                                  */
                                 readonly date_earliest_value?: string;
                                 /**
-                                 * Format: date
-                                 * @description (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                                 *
+                                 * @description (date) The latest date allowed to be entered on the date option, as an ISO-8601 ATOM formatted string.
+                                 * @example 2026-08-15T15:52:01+00:00
                                  */
                                 readonly date_latest_value?: string;
                                 /**
                                  * @description (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
-                                 *
                                  * @example specific
                                  * @enum {string}
                                  */
                                 readonly file_types_mode?: "specific" | "all";
-                                /** @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
-                                 *       `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
-                                 *       `other` - Allows file types defined in the `file_types_other` array.
-                                 *      */
+                                /** @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. See [Supported File Types](#supported-file-types) for more details. */
                                 readonly file_types_supported?: readonly string[];
-                                /** @description (file) A list of other file types allowed with the file upload option.
-                                 *      */
+                                /** @description (file) A list of other file types allowed with the file upload option. See [Supported File Types](#supported-file-types) for more details. */
                                 readonly file_types_other?: readonly string[];
                                 /**
-                                 * @description (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
-                                 *
+                                 * @description (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server. See [Configs](#configs) for more details.
                                  * @example 5
                                  */
                                 readonly file_max_size?: number;
-                                /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
-                                 *      */
+                                /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input. */
                                 readonly text_characters_limited?: boolean;
                                 /**
                                  * @description (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
-                                 *
                                  * @example 1
                                  */
                                 readonly text_min_length?: number;
                                 /**
                                  * @description (text, multi_line_text) The maximum length allowed for a text or multi line text option.
-                                 *
                                  * @example 55
                                  */
                                 readonly text_max_length?: number;
                                 /**
                                  * @description (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
-                                 *
                                  * @example true
                                  */
                                 readonly text_lines_limited?: boolean;
                                 /**
                                  * @description (multi_line_text) The maximum number of lines allowed on a multi-line text input.
-                                 *
                                  * @example 4
                                  */
                                 readonly text_max_lines?: number;
                                 /**
                                  * @description (numbers_only_text) Flag to limit the value of a number option.
-                                 *
                                  * @example true
                                  */
                                 readonly number_limited?: boolean;
                                 /**
                                  * @description (numbers_only_text) The type of limit on values entered for a number option.
-                                 *
                                  * @example lowest
                                  * @enum {string}
                                  */
                                 readonly number_limit_mode?: "lowest" | "highest" | "range";
                                 /**
                                  * @description (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
-                                 *
                                  * @example 100
                                  */
                                 readonly number_lowest_value?: number;
-                                /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
-                                 *      */
+                                /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true. */
                                 readonly number_highest_value?: number;
                                 /**
                                  * @description (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
-                                 *
                                  * @example false
                                  */
                                 readonly number_integers_only?: boolean;
-                                /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
-                                 *      */
+                                /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list. */
                                 readonly product_list_adjusts_inventory?: boolean;
-                                /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
-                                 *      */
+                                /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price. */
                                 readonly product_list_adjusts_pricing?: boolean;
                                 /**
-                                 * @description (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
-                                 *
+                                 * @description (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. See [Configs](#configs) for more details.
                                  * @example weight
                                  * @enum {string}
                                  */
                                 readonly product_list_shipping_calc?: "none" | "weight" | "package";
                             };
+                            /** @description Contains information about the values for modifier types with options. Certain fields are not used for specific modifier types. See [Option Values](#option-values) for more details. */
                             readonly option_values?: readonly {
                                 /**
                                  * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                                 *
                                  * @example false
                                  */
                                 readonly is_default?: boolean;
                                 /**
                                  * @description The text display identifying the value on the storefront. Required in a /POST.
-                                 *
                                  * @example Green
                                  */
                                 readonly label: string;
                                 /**
                                  * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                                 *
                                  * @example 0
                                  */
                                 readonly sort_order: number;
-                                /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexadecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                                 *      */
+                                /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. See [Option Values](#option-values) for more details. */
                                 readonly value_data?: Record<string, unknown>;
                                 readonly adjusters?: {
                                     /** @description Adjuster for Complex Rules. */
                                     readonly price?: {
                                         /**
                                          * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                         *
                                          * @enum {string}
                                          */
                                         readonly adjuster?: "relative" | "percentage";
                                         /**
                                          * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                         *
                                          * @example 5
                                          */
                                         readonly adjuster_value?: number;
@@ -1320,58 +1180,48 @@ export interface operations {
                                     readonly weight?: {
                                         /**
                                          * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                         *
                                          * @enum {string}
                                          */
                                         readonly adjuster?: "relative" | "percentage";
                                         /**
                                          * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                         *
                                          * @example 5
                                          */
                                         readonly adjuster_value?: number;
                                     };
                                     /**
                                      * @description The URL for an image displayed on the storefront when the modifier value is selected. Limit of 8MB per file.
-                                     *
                                      * @example https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2
                                      */
                                     readonly image_url?: string;
                                     readonly purchasing_disabled?: {
-                                        /** @description Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
-                                         *      */
+                                        /** @description Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value. */
                                         readonly status?: boolean;
-                                        /** @description The message displayed on the storefront when the purchasing disabled status is `true'.
-                                         *      */
+                                        /** @description The message displayed on the storefront when the purchasing disabled status is `true'. */
                                         readonly message?: string;
                                     };
                                 };
-                                /** @description The unique numeric ID of the value; increments sequentially.
-                                 *      */
+                                /** @description The unique numeric ID of the value; increments sequentially. */
                                 readonly id?: number;
                             }[];
                         } & {
                             /**
                              * @description The unique numeric ID of the modifier; increments sequentially.
-                             *
                              * @example 12
                              */
                             readonly id?: number;
                             /**
                              * @description The unique numeric ID of the product to which the option belongs.
-                             *
                              * @example 77
                              */
                             readonly product_id?: number;
                             /**
                              * @description The unique option name. Auto-generated from the display name, a timestamp, and the product ID.
-                             *
                              * @example Add-a-$5-Donation1535039590-191
                              */
                             readonly name?: string;
                             /**
                              * @description The name of the option shown on the storefront.
-                             *
                              * @example Donation
                              */
                             readonly display_name?: string;
@@ -1380,8 +1230,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `Modifier` was in conflict with another modifier or option. This is the result of duplicate unique fields, such as `name`.
-             *      */
+            /** @description The `Modifier` was in conflict with another modifier or option. This is the result of duplicate unique fields, such as `name`. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1393,18 +1242,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description The `Modifier` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Modifier` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1416,11 +1262,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -1436,11 +1280,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the product modifier.
-                 *      */
+                /** @description The ID of the product modifier. */
                 readonly modifier_id: components["parameters"]["ModifierIdParam"];
             };
             readonly cookie?: never;
@@ -1462,11 +1304,9 @@ export interface operations {
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
                 /** @description Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. */
                 readonly exclude_fields?: components["parameters"]["ExcludeFieldsParam"];
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
             };
             readonly header?: {
@@ -1474,11 +1314,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the product modifier.
-                 *      */
+                /** @description The ID of the product modifier. */
                 readonly modifier_id: components["parameters"]["ModifierIdParam"];
             };
             readonly cookie?: never;
@@ -1490,7 +1328,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 190,
@@ -1546,7 +1385,8 @@ export interface operations {
                      *           }
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["productModifierOptionValue_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -1565,11 +1405,9 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the product modifier.
-                 *      */
+                /** @description The ID of the product modifier. */
                 readonly modifier_id: components["parameters"]["ModifierIdParam"];
             };
             readonly cookie?: never;
@@ -1579,24 +1417,20 @@ export interface operations {
                 readonly "application/json": {
                     /**
                      * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                     *
                      * @example false
                      */
                     readonly is_default?: boolean;
                     /**
                      * @description The text display identifying the value on the storefront. Required in a /POST.
-                     *
                      * @example Green
                      */
                     readonly label: string;
                     /**
                      * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                     *
                      * @example 0
                      */
                     readonly sort_order: number;
-                    /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexadecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                     *      */
+                    /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexadecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. */
                     readonly value_data?: Record<string, unknown>;
                 } & {
                     readonly adjusters?: {
@@ -1607,13 +1441,11 @@ export interface operations {
                         readonly price?: {
                             /**
                              * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                             *
                              * @enum {string|null}
                              */
                             readonly adjuster?: "relative" | "percentage" | null;
                             /**
                              * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                             *
                              * @example 5
                              */
                             readonly adjuster_value?: number;
@@ -1625,29 +1457,24 @@ export interface operations {
                         readonly weight?: {
                             /**
                              * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                             *
                              * @enum {string|null}
                              */
                             readonly adjuster?: "relative" | "percentage" | null;
                             /**
                              * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                             *
                              * @example 5
                              */
                             readonly adjuster_value?: number;
                         };
                         /**
                          * @description The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
-                         *
                          * @example https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2
                          */
                         readonly image_url?: string;
                         readonly purchasing_disabled?: {
-                            /** @description Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
-                             *      */
+                            /** @description Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value. */
                             readonly status?: boolean;
-                            /** @description The message displayed on the storefront when the purchasing disabled status is `true`.
-                             *      */
+                            /** @description The message displayed on the storefront when the purchasing disabled status is `true`. */
                             readonly message?: string;
                         };
                     };
@@ -1660,7 +1487,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 190,
                      *         "option_id": 222,
@@ -1682,7 +1510,8 @@ export interface operations {
                      *         }
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /**
                          * Modifier Value
@@ -1691,24 +1520,20 @@ export interface operations {
                         readonly data?: ({
                             /**
                              * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                             *
                              * @example false
                              */
                             readonly is_default?: boolean;
                             /**
                              * @description The text display identifying the value on the storefront. Required in a /POST.
-                             *
                              * @example Green
                              */
                             readonly label: string;
                             /**
                              * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                             *
                              * @example 0
                              */
                             readonly sort_order: number;
-                            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexadecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                             *      */
+                            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated.  See [Option Values](#option-values) for more details. */
                             readonly value_data?: Record<string, unknown>;
                         } & {
                             readonly adjusters?: {
@@ -1719,13 +1544,11 @@ export interface operations {
                                 readonly price?: {
                                     /**
                                      * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                     *
                                      * @enum {string}
                                      */
                                     readonly adjuster?: "relative" | "percentage";
                                     /**
                                      * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                     *
                                      * @example 5
                                      */
                                     readonly adjuster_value?: number;
@@ -1737,43 +1560,36 @@ export interface operations {
                                 readonly weight?: {
                                     /**
                                      * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                     *
                                      * @enum {string}
                                      */
                                     readonly adjuster?: "relative" | "percentage";
                                     /**
                                      * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                     *
                                      * @example 5
                                      */
                                     readonly adjuster_value?: number;
                                 };
                                 /**
                                  * @description The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
-                                 *
                                  * @example https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2
                                  */
                                 readonly image_url?: string;
                                 readonly purchasing_disabled?: {
-                                    /** @description Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
-                                     *      */
+                                    /** @description Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value. */
                                     readonly status?: boolean;
-                                    /** @description The message displayed on the storefront when the purchasing disabled status is `true`.
-                                     *      */
+                                    /** @description The message displayed on the storefront when the purchasing disabled status is `true`. */
                                     readonly message?: string;
                                 };
                             };
                         }) & {
-                            /** @description The unique numeric ID of the value; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the value; increments sequentially. */
                             readonly id?: number;
                         };
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description The `ModifierValue` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `ModifierValue` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1785,11 +1601,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -1810,14 +1624,11 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the product modifier.
-                 *      */
+                /** @description The ID of the product modifier. */
                 readonly modifier_id: components["parameters"]["ModifierIdParam"];
-                /** @description The ID of the product modifier value.
-                 *      */
+                /** @description The ID of the product modifier value. */
                 readonly value_id: components["parameters"]["ValueIdParam"];
             };
             readonly cookie?: never;
@@ -1829,7 +1640,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 190,
                      *         "option_id": 222,
@@ -1851,23 +1663,22 @@ export interface operations {
                      *         }
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["productModifierOptionValue_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1888,14 +1699,11 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the product modifier.
-                 *      */
+                /** @description The ID of the product modifier. */
                 readonly modifier_id: components["parameters"]["ModifierIdParam"];
-                /** @description The ID of the product modifier value.
-                 *      */
+                /** @description The ID of the product modifier value. */
                 readonly value_id: components["parameters"]["ValueIdParam"];
             };
             readonly cookie?: never;
@@ -1905,24 +1713,20 @@ export interface operations {
                 readonly "application/json": ({
                     /**
                      * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                     *
                      * @example false
                      */
                     readonly is_default?: boolean;
                     /**
                      * @description The text display identifying the value on the storefront. Required in a /POST.
-                     *
                      * @example Green
                      */
                     readonly label: string;
                     /**
                      * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                     *
                      * @example 0
                      */
                     readonly sort_order: number;
-                    /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexadecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                     *      */
+                    /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated.  See [Option Values](#option-values) for more details. */
                     readonly value_data?: Record<string, unknown>;
                 } & {
                     readonly adjusters?: {
@@ -1933,13 +1737,11 @@ export interface operations {
                         readonly price?: {
                             /**
                              * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                             *
                              * @enum {string|null}
                              */
                             readonly adjuster?: "relative" | "percentage" | null;
                             /**
                              * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                             *
                              * @example 5
                              */
                             readonly adjuster_value?: number;
@@ -1951,35 +1753,29 @@ export interface operations {
                         readonly weight?: {
                             /**
                              * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                             *
                              * @enum {string|null}
                              */
                             readonly adjuster?: "relative" | "percentage" | null;
                             /**
                              * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                             *
                              * @example 5
                              */
                             readonly adjuster_value?: number;
                         };
                         /**
                          * @description The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
-                         *
                          * @example https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2
                          */
                         readonly image_url?: string;
                         readonly purchasing_disabled?: {
-                            /** @description Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
-                             *      */
+                            /** @description Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value. */
                             readonly status?: boolean;
-                            /** @description The message displayed on the storefront when the purchasing disabled status is `true`.
-                             *      */
+                            /** @description The message displayed on the storefront when the purchasing disabled status is `true`. */
                             readonly message?: string;
                         };
                     };
                 }) & {
-                    /** @description The unique numeric ID of the value; increments sequentially.
-                     *      */
+                    /** @description The unique numeric ID of the value; increments sequentially. */
                     readonly id?: number;
                 };
             };
@@ -1990,7 +1786,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 190,
                      *         "option_id": 222,
@@ -2012,7 +1809,8 @@ export interface operations {
                      *         }
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /**
                          * Modifier Value
@@ -2021,24 +1819,20 @@ export interface operations {
                         readonly data?: ({
                             /**
                              * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                             *
                              * @example false
                              */
                             readonly is_default?: boolean;
                             /**
                              * @description The text display identifying the value on the storefront. Required in a /POST.
-                             *
                              * @example Green
                              */
                             readonly label: string;
                             /**
                              * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                             *
                              * @example 0
                              */
                             readonly sort_order: number;
-                            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexadecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                             *      */
+                            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated.  See [Option Values](#option-values) for more details. */
                             readonly value_data?: Record<string, unknown>;
                         } & {
                             readonly adjusters?: {
@@ -2049,13 +1843,11 @@ export interface operations {
                                 readonly price?: {
                                     /**
                                      * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                     *
                                      * @enum {string}
                                      */
                                     readonly adjuster?: "relative" | "percentage";
                                     /**
                                      * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                     *
                                      * @example 5
                                      */
                                     readonly adjuster_value?: number;
@@ -2067,43 +1859,36 @@ export interface operations {
                                 readonly weight?: {
                                     /**
                                      * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                     *
                                      * @enum {string}
                                      */
                                     readonly adjuster?: "relative" | "percentage";
                                     /**
                                      * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                     *
                                      * @example 5
                                      */
                                     readonly adjuster_value?: number;
                                 };
                                 /**
                                  * @description The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
-                                 *
                                  * @example https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2
                                  */
                                 readonly image_url?: string;
                                 readonly purchasing_disabled?: {
-                                    /** @description Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
-                                     *      */
+                                    /** @description Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value. */
                                     readonly status?: boolean;
-                                    /** @description The message displayed on the storefront when the purchasing disabled status is `true`.
-                                     *      */
+                                    /** @description The message displayed on the storefront when the purchasing disabled status is `true`. */
                                     readonly message?: string;
                                 };
                             };
                         }) & {
-                            /** @description The unique numeric ID of the value; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the value; increments sequentially. */
                             readonly id?: number;
                         };
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description The `ModifierValue` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `ModifierValue` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2115,11 +1900,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -2135,14 +1918,11 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the product modifier.
-                 *      */
+                /** @description The ID of the product modifier. */
                 readonly modifier_id: components["parameters"]["ModifierIdParam"];
-                /** @description The ID of the product modifier value.
-                 *      */
+                /** @description The ID of the product modifier value. */
                 readonly value_id: components["parameters"]["ValueIdParam"];
             };
             readonly cookie?: never;
@@ -2165,14 +1945,11 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the product to which the resource belongs.
-                 *      */
+                /** @description The ID of the product to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the product modifier.
-                 *      */
+                /** @description The ID of the product modifier. */
                 readonly modifier_id: components["parameters"]["ModifierIdParam"];
-                /** @description The ID of the product modifier value.
-                 *      */
+                /** @description The ID of the product modifier value. */
                 readonly value_id: components["parameters"]["ValueIdParam"];
             };
             readonly cookie?: never;
@@ -2191,20 +1968,21 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "image_url": "https://cdn8.bigcommerce.com/s-id30h7ohwf/product_images/attribute_rule_images/85_source_1536863430.png"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /**
                          * Resource Image
                          * @description An object containing a publicly accessible image URL, or a form post that contains an image file.
                          */
                         readonly data?: {
-                            /** @description A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file.
-                             *      */
+                            /** @description A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file. */
                             readonly image_url?: string;
                         };
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -2220,16 +1998,14 @@ export interface operations {
                     readonly "application/json": Record<string, unknown>;
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2238,8 +2014,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Modifier image was not valid. This is the result of missing `image_file` fields, or of a non-URL value for the `image_file` field. See the response for more details.
-             *      */
+            /** @description Modifier image was not valid. This is the result of missing `image_file` fields, or of a non-URL value for the `image_file` field. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2251,11 +2026,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };

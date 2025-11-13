@@ -75,29 +75,37 @@ export interface paths {
                 readonly cart_id?: components["parameters"]["cart_id"];
                 /** @description The display name of the payment method used on the order. For example, `Manual`, `Credit Card`, `cash`, `Test Payment Gateway`, etc.' */
                 readonly payment_method?: components["parameters"]["payment_method"];
-                /** @description Minimum date the order was created in RFC-2822 or ISO-8601.
+                /**
+                 * @description Minimum date the order was created in RFC-2822 or ISO-8601.
                  *
                  *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
                  *
-                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+                 */
                 readonly min_date_created?: components["parameters"]["min_date_created"];
-                /** @description Maximum date the order was created in RFC-2822 or ISO-8601.
+                /**
+                 * @description Maximum date the order was created in RFC-2822 or ISO-8601.
                  *
                  *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
                  *
-                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+                 */
                 readonly max_date_created?: components["parameters"]["max_date_created"];
-                /** @description Minimum date the order was modified in RFC-2822 or ISO-8601.
+                /**
+                 * @description Minimum date the order was modified in RFC-2822 or ISO-8601.
                  *
                  *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
                  *
-                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+                 */
                 readonly min_date_modified?: components["parameters"]["min_date_modified"];
-                /** @description Maximum date the order was modified in RFC-2822 or ISO-8601.
+                /**
+                 * @description Maximum date the order was modified in RFC-2822 or ISO-8601.
                  *
                  *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
                  *
-                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+                 */
                 readonly max_date_modified?: components["parameters"]["max_date_modified"];
                 /** @description The channel ID of the sales channel the shopper used to place the order. */
                 readonly channel_id?: components["parameters"]["channel_id"];
@@ -400,7 +408,6 @@ export interface paths {
          *      - `carrier_{your_carrier_id}`, when the carrier is a [third-party Shipping Provider](/docs/integrations/shipping)
          *
          *     Acceptable values for `tracking_carrier` include an empty string (`""`) or one of the valid [tracking-carrier values](https://www.aftership.com/docs/tracking/others/supported-couriers).
-         *
          */
         readonly post: operations["createOrderShipments"];
         /**
@@ -1063,10 +1070,16 @@ export interface components {
              */
             readonly order_address_id?: number;
             /**
-             * @description The unique numeric identifier of the tax rate.
+             * @deprecated
+             * @description The unique numeric identifier of the tax rate. This field has been deprecated, use sales_tax_id instead.
              * @example 1
              */
             readonly tax_rate_id?: number;
+            /**
+             * @description A unique identifier for the applied tax rate. This may be a third-party tax provider's identifier.
+             * @example TaxId123
+             */
+            readonly sales_tax_id?: string;
             /**
              * @description A unique numeric identifier for the tax class. If not provided or null, the default fee tax class from the control panel is used.
              * @example 0
@@ -1448,7 +1461,6 @@ export interface components {
             /**
              * @description Additional information to describe the method of shipment (ex. Standard, Ship by Weight, Custom Shipment). Can be used for live quotes from certain shipping providers.
              *     If different from `shipping_provider`, `shipping_method` should correspond to `tracking_carrier`.
-             *
              * @example Ship by Weight
              */
             readonly shipping_method?: string;
@@ -1490,7 +1502,6 @@ export interface components {
             /**
              * @description Additional information to describe the method of shipment (ex. Standard, Ship by Weight, Custom Shipment). Can be used for live quotes from certain shipping providers.
              *     If different from `shipping_provider`, `shipping_method` should correspond to `tracking_carrier`.
-             *
              * @example Ship by Weight
              */
             readonly shipping_method?: string;
@@ -1582,7 +1593,7 @@ export interface components {
              * @example Thank you
              */
             readonly customer_message?: string;
-            /** @description The date the order was created, formatted in the RFC-2822 standard. You set this attribute on Order creation (POST) to support the migration of historical orders. If you do not provide a value, then it will default to the current date/time. e.g., `Tue, 20 Nov 2012 00:00:00 +0000`. */
+            /** @description The date the order was created, formatted in the RFC-2822 standard. You set this attribute on Order creation (POST) to support the migration of historical orders. If you do not provide a value, then it will default to the current date/time. e.g., `Tue, 20 Nov 2012 00:00:00 +0000`. This date time is always in UTC in the api response. */
             readonly date_created?: string;
             /**
              * @description Amount of discount for this transaction. The value can't be negative. (Float, Float-As-String, Integer)
@@ -1686,13 +1697,11 @@ export interface components {
             readonly refunded_amount?: string;
             /**
              * @description The value of shipping cost, excluding tax. When specified in a POST or PUT request, the field `shipping_cost_inc_tax` is also required. The value can't be negative (Float, Float-As-String, Integer)
-             *
              * @example 0.0000
              */
             readonly shipping_cost_ex_tax?: string;
             /**
              * @description The value of shipping cost, including tax. When specified in a POST or PUT request, the field `shipping_cost_ex_tax` is also required. The value can't be negative. (Float, Float-As-String, Integer)
-             *
              * @example 0.0000
              */
             readonly shipping_cost_inc_tax?: string;
@@ -1713,17 +1722,22 @@ export interface components {
              * @example 225.0000
              */
             readonly subtotal_inc_tax?: string;
-            /** @description Read-only.
+            /**
+             * @description Read-only.
              *     BasicTaxProvider - Tax is set to manual and order is created in the store.
              *
              *     AvaTaxProvider - Tax is set to automatic and order is created in the store. Used for Avalara.
              *
              *     "" (empty string) - The order is created with the API, or the tax provider is unknown.
-             *      */
+             */
             readonly tax_provider_id?: string;
             /**
-             * @description The customer’s locale.
-             * @example en
+             * @description The customer’s locale. The supported formats are:
+             *     - 2-char lowercase characters. e.g., `en`
+             *     - 3-char lowercase characters. e.g., `asa`
+             *     - 5-char the language code is 2 lowercase characters and the region code is 2 uppercase characters, with `-` in the middle. e.g., `en-US`
+             *     - 6-char the language code is 2 lowercase character and the region code is three digit number, with `-` in the middle. e.g., `es-419`
+             * @example en, asa, en-US, es-419
              */
             readonly customer_locale?: string;
             /**
@@ -1830,11 +1844,10 @@ export interface components {
              * @example 118
              */
             readonly id?: number;
-            /** @description A read-only value representing the last modification of the order. Do not attempt to modify or set this value in a POST or PUT request. RFC-2822 */
+            /** @description A read-only value representing the last modification of the order. Do not attempt to modify or set this value in a POST or PUT request. RFC-2822. This date time is always in UTC in the api response. */
             readonly date_modified?: string;
             /**
              * @description A read-only value representing the date when the order is fully shipped. Do not attempt to modify or set this value in a POST or PUT request. RFC-2822
-             *
              * @example Wed, 25 Jun 2025 05:22:10 +0000
              */
             readonly date_shipped?: string;
@@ -1968,10 +1981,12 @@ export interface components {
              * @example false
              */
             readonly is_email_opt_in?: boolean;
-            /** @description Reflects the origin of the order. It can affect the order’s icon and source as defined in the control panel listing.
-             *     Allowed values: `www` (Desktop) | `iphone` (Iphone) | `ipad` (Ipad) | `android` (Android) | `mobile` (Mobile) | `manual` (manual order) | `external` (Orders API) | `checkout_api` (Checkout API) | `buybutton` (Buy Button) | `amazon` (Amazon) | `ebay` (Ebay) | `facebookshop` (Facebook Shop) | `facebookcheckout` (Facebook Checkout) | `facebookmarketplace` (Facebook Marketplace) | `pinterest` (Pinterest) | `socialshop` (Social Shop) */
+            /**
+             * @description Reflects the origin of the order. It can affect the order’s icon and source as defined in the control panel listing.
+             *     Allowed values: `www` (Desktop) | `iphone` (Iphone) | `ipad` (Ipad) | `android` (Android) | `mobile` (Mobile) | `manual` (manual order) | `external` (Orders API) | `checkout_api` (Checkout API) | `buybutton` (Buy Button) | `amazon` (Amazon) | `ebay` (Ebay) | `facebookshop` (Facebook Shop) | `facebookcheckout` (Facebook Checkout) | `facebookmarketplace` (Facebook Marketplace) | `pinterest` (Pinterest) | `socialshop` (Social Shop)
+             */
             readonly order_source?: string;
-            readonly consignments?: components["schemas"]["orderConsignments_Resource"];
+            readonly consignments?: components["schemas"]["orderConsignments_Resource"] | components["schemas"]["orderConsignment_Get"];
             readonly products?: components["schemas"]["products_Resource"];
             readonly shipping_addresses?: components["schemas"]["shippingAddresses_Resource"];
             readonly coupons?: components["schemas"]["coupons_Resource"];
@@ -2002,7 +2017,6 @@ export interface components {
         readonly orderCustomProduct_Put: {
             /**
              * @description Alias for name_customer. The product name that is shown to customer in storefront.
-             *
              * @example Fog Linen Chambray Towel - Beige Stripe
              */
             readonly name: string;
@@ -2039,7 +2053,6 @@ export interface components {
          *      - When updating an existing order product, requests that do not contain both fields `xxx` and `xxx_customer` will fail.
          *      - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer, and `xxx_merchant`. If `xxx_merchant` is omitted, it will default to have the catalog value.
          *      - If both fields `xxx` and `xxx_customer` are omitted from the request, they will default to the catalog value.
-         *
          */
         readonly orderCatalogProduct_Put: {
             /** @description The order product `id`. To add a product to an existing order, donʼt include `id` in the payload. `id` is required when updating an order product. */
@@ -2085,7 +2098,6 @@ export interface components {
          *     - If both fields `xxx` and `xxx_customer` are present, they must have same value.
          *     - Empty strings `''` and `null` are invalid for `xxx` and `xxx_customer, and `xxx_merchant`.
          *     - `xxx`, `xxx_customer`, and `xxx_merchant` default to the value from `catalog` if not supplied in the request.
-         *
          */
         readonly orderCatalogProduct_Post: {
             readonly product_id?: number;
@@ -2108,7 +2120,8 @@ export interface components {
             readonly product_options?: readonly {
                 /** @description Numeric ID of an option applied to the product from a list of options available to the product. This field has the same value as `product_option_id` when [retrieving products in an order](/docs/rest-management/orders/order-products#list-order-products). */
                 readonly id?: number;
-                /** @description Depending on the option type, value can be one of the following:
+                /**
+                 * @description Depending on the option type, value can be one of the following:
                  *     - The variant option value id or the modifier value id for modifier types with a list of defined values, such as drop down or checkbox modifiers.
                  *     - The modifier value for modifier types without a list of defined values, such as text field or date field modifiers.
                  *
@@ -2117,7 +2130,8 @@ export interface components {
                  *       - File upload
                  *       - Pick list
                  *     - For date modifiers use either the `YYYY-MM-DDThh:mm:ss±hh:mm` or the `YYYY-MM-DD` ISO-8601 formats. The date field modifier values are saved and returned as timestamps. For values entered using the YYYY-MM-DD format, the store timezone is used when creating the timestamp.
-                 *     - For multi-line text field modifiers, use the `\n` characters for separating the lines. */
+                 *     - For multi-line text field modifiers, use the `\n` characters for separating the lines.
+                 */
                 readonly value?: string;
                 /**
                  * @description Alias for display_name_customer. The product option name that is shown to customer in storefront. `xxx` and `xxx_customer` always hold the same value, updating either `xxx` or `xxx_customer` will change value for both of those fields.
@@ -2364,17 +2378,22 @@ export interface components {
              * @example 225.0000
              */
             readonly subtotal_inc_tax?: string;
-            /** @description Read-only.
+            /**
+             * @description Read-only.
              *     BasicTaxProvider - Tax is set to manual and order is created in the store.
              *
              *     AvaTaxProvider - Tax is set to automatic and order is created in the store. Used for Avalara.
              *
              *     "" (empty string) - The order is created with the API, or the tax provider is unknown.
-             *      */
+             */
             readonly tax_provider_id?: string;
             /**
-             * @description The customer’s locale.
-             * @example en
+             * @description The customer’s locale. The supported formats are:
+             *     - 2-char lowercase characters. e.g., `en`
+             *     - 3-char lowercase characters. e.g., `asa`
+             *     - 5-char the language code is 2 lowercase characters and the region code is 2 uppercase characters, with `-` in the middle. e.g., `en-US`
+             *     - 6-char the language code is 2 lowercase character and the region code is three digit number, with `-` in the middle. e.g., `es-419`
+             * @example en, asa, en-US, es-419
              */
             readonly customer_locale?: string;
             /**
@@ -2553,7 +2572,7 @@ export interface components {
              * @example recipient@email.com
              */
             readonly recipient_email?: string;
-            readonly line_items?: readonly components["schemas"]["products_Resource"][];
+            readonly line_items?: readonly components["schemas"]["products_Resource"][] | readonly components["schemas"]["orderProducts"][];
         };
         readonly pickupConsignment_Get: {
             /**
@@ -2568,7 +2587,7 @@ export interface components {
             readonly pickup_method_id?: number;
         } & components["schemas"]["pickupConsignment_Base"] & {
             readonly location?: components["schemas"]["pickupConsignmentLocation_Get"];
-            readonly line_items?: readonly components["schemas"]["products_Resource"][];
+            readonly line_items?: readonly components["schemas"]["products_Resource"][] | readonly components["schemas"]["orderProducts"][];
         };
         readonly pickupConsignmentLocation_Get: {
             /**
@@ -2584,7 +2603,7 @@ export interface components {
              */
             readonly id?: number;
         } & components["schemas"]["shippingConsignment_Base"] & {
-            readonly line_items?: readonly components["schemas"]["products_Resource"][];
+            readonly line_items?: readonly components["schemas"]["products_Resource"][] | readonly components["schemas"]["orderProducts"][];
             /**
              * @description The total number of items in the order.
              * @example 1
@@ -2720,7 +2739,7 @@ export interface components {
              * @example recipient@email.com
              */
             readonly recipient_email?: string;
-            readonly line_items?: readonly components["schemas"]["products_Resource"][];
+            readonly line_items?: readonly components["schemas"]["products_Resource"][] | readonly components["schemas"]["orderProducts"][];
         };
         /** orderFees_Resp */
         readonly orderFees_Resp: {
@@ -3042,29 +3061,37 @@ export interface components {
         readonly cart_id: string;
         /** @description The display name of the payment method used on the order. For example, `Manual`, `Credit Card`, `cash`, `Test Payment Gateway`, etc.' */
         readonly payment_method: string;
-        /** @description Minimum date the order was created in RFC-2822 or ISO-8601.
+        /**
+         * @description Minimum date the order was created in RFC-2822 or ISO-8601.
          *
          *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
          *
-         *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+         *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+         */
         readonly min_date_created: string;
-        /** @description Maximum date the order was created in RFC-2822 or ISO-8601.
+        /**
+         * @description Maximum date the order was created in RFC-2822 or ISO-8601.
          *
          *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
          *
-         *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+         *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+         */
         readonly max_date_created: string;
-        /** @description Minimum date the order was modified in RFC-2822 or ISO-8601.
+        /**
+         * @description Minimum date the order was modified in RFC-2822 or ISO-8601.
          *
          *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
          *
-         *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+         *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+         */
         readonly min_date_modified: string;
-        /** @description Maximum date the order was modified in RFC-2822 or ISO-8601.
+        /**
+         * @description Maximum date the order was modified in RFC-2822 or ISO-8601.
          *
          *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
          *
-         *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+         *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+         */
         readonly max_date_modified: string;
         /** @description The page to return in the response. */
         readonly page: number;
@@ -3090,9 +3117,11 @@ export interface components {
         readonly shipping_consignment_id: number;
         /** @description Should be specified along with `include=consignments` or `include=consignments.line_items` to return consignments in the supported object structure. The default array structure provided is legacy and may not be supported in the future. */
         readonly consignment_structure: "object";
-        /** @description * `consignments` - include the response returned from the request to the `/orders/{order_id}/consignments` endpoint. You should also specify `consignment_structure=object` as a request parameter when including consignments. The default array structure provided is legacy and may not be supported in the future.
-         *     * `consignments.line_items` - include the response returned from the request to the `/orders/{order_id}/products` endpoint in consignments. This implies `include=consignments`. You should also specify `consignment_structure=object` as a request parameter when including consignments. The default array structure provided is legacy and will be removed in the future.
-         *     * `fees` - include the response returned from the request to the `/orders/{order_id}/fees` endpoint. */
+        /**
+         * @description * `consignments` - include the response returned from the request to the `/orders/{order_id}/consignments` endpoint. Current default array structure is legacy and will be deprecated from **1 Feb 2026**. Specify `consignment_structure=object` as a request parameter when including consignments.
+         *     * `consignments.line_items` - include the response returned from the request to the `/orders/{order_id}/products` endpoint in consignments. This will also includes the resources associated with `include=consignments`. Current default array structure is legacy and will be deprecated from **1 Feb 2026**. Specify `consignment_structure=object` as a request parameter when including consignments.
+         *     * `fees` - include the response returned from the request to the `/orders/{order_id}/fees` endpoint.
+         */
         readonly order_includes: readonly ("consignments" | "consignments.line_items" | "fees")[];
     };
     requestBodies: never;
@@ -3104,9 +3133,11 @@ export interface operations {
     readonly getOrder: {
         readonly parameters: {
             readonly query?: {
-                /** @description * `consignments` - include the response returned from the request to the `/orders/{order_id}/consignments` endpoint. You should also specify `consignment_structure=object` as a request parameter when including consignments. The default array structure provided is legacy and may not be supported in the future.
-                 *     * `consignments.line_items` - include the response returned from the request to the `/orders/{order_id}/products` endpoint in consignments. This implies `include=consignments`. You should also specify `consignment_structure=object` as a request parameter when including consignments. The default array structure provided is legacy and will be removed in the future.
-                 *     * `fees` - include the response returned from the request to the `/orders/{order_id}/fees` endpoint. */
+                /**
+                 * @description * `consignments` - include the response returned from the request to the `/orders/{order_id}/consignments` endpoint. Current default array structure is legacy and will be deprecated from **1 Feb 2026**. Specify `consignment_structure=object` as a request parameter when including consignments.
+                 *     * `consignments.line_items` - include the response returned from the request to the `/orders/{order_id}/products` endpoint in consignments. This will also includes the resources associated with `include=consignments`. Current default array structure is legacy and will be deprecated from **1 Feb 2026**. Specify `consignment_structure=object` as a request parameter when including consignments.
+                 *     * `fees` - include the response returned from the request to the `/orders/{order_id}/fees` endpoint.
+                 */
                 readonly include?: components["parameters"]["order_includes"];
                 /** @description Should be specified along with `include=consignments` or `include=consignments.line_items` to return consignments in the supported object structure. The default array structure provided is legacy and may not be supported in the future. */
                 readonly consignment_structure?: components["parameters"]["consignment_structure"];
@@ -3203,29 +3234,37 @@ export interface operations {
                 readonly cart_id?: components["parameters"]["cart_id"];
                 /** @description The display name of the payment method used on the order. For example, `Manual`, `Credit Card`, `cash`, `Test Payment Gateway`, etc.' */
                 readonly payment_method?: components["parameters"]["payment_method"];
-                /** @description Minimum date the order was created in RFC-2822 or ISO-8601.
+                /**
+                 * @description Minimum date the order was created in RFC-2822 or ISO-8601.
                  *
                  *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
                  *
-                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+                 */
                 readonly min_date_created?: components["parameters"]["min_date_created"];
-                /** @description Maximum date the order was created in RFC-2822 or ISO-8601.
+                /**
+                 * @description Maximum date the order was created in RFC-2822 or ISO-8601.
                  *
                  *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
                  *
-                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+                 */
                 readonly max_date_created?: components["parameters"]["max_date_created"];
-                /** @description Minimum date the order was modified in RFC-2822 or ISO-8601.
+                /**
+                 * @description Minimum date the order was modified in RFC-2822 or ISO-8601.
                  *
                  *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
                  *
-                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+                 */
                 readonly min_date_modified?: components["parameters"]["min_date_modified"];
-                /** @description Maximum date the order was modified in RFC-2822 or ISO-8601.
+                /**
+                 * @description Maximum date the order was modified in RFC-2822 or ISO-8601.
                  *
                  *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
                  *
-                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+                 */
                 readonly max_date_modified?: components["parameters"]["max_date_modified"];
                 /** @description The channel ID of the sales channel the shopper used to place the order. */
                 readonly channel_id?: components["parameters"]["channel_id"];
@@ -3265,29 +3304,37 @@ export interface operations {
                 readonly cart_id?: components["parameters"]["cart_id"];
                 /** @description The display name of the payment method used on the order. For example, `Manual`, `Credit Card`, `cash`, `Test Payment Gateway`, etc.' */
                 readonly payment_method?: components["parameters"]["payment_method"];
-                /** @description Minimum date the order was created in RFC-2822 or ISO-8601.
+                /**
+                 * @description Minimum date the order was created in RFC-2822 or ISO-8601.
                  *
                  *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
                  *
-                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+                 */
                 readonly min_date_created?: components["parameters"]["min_date_created"];
-                /** @description Maximum date the order was created in RFC-2822 or ISO-8601.
+                /**
+                 * @description Maximum date the order was created in RFC-2822 or ISO-8601.
                  *
                  *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
                  *
-                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+                 */
                 readonly max_date_created?: components["parameters"]["max_date_created"];
-                /** @description Minimum date the order was modified in RFC-2822 or ISO-8601.
+                /**
+                 * @description Minimum date the order was modified in RFC-2822 or ISO-8601.
                  *
                  *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
                  *
-                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+                 */
                 readonly min_date_modified?: components["parameters"]["min_date_modified"];
-                /** @description Maximum date the order was modified in RFC-2822 or ISO-8601.
+                /**
+                 * @description Maximum date the order was modified in RFC-2822 or ISO-8601.
                  *
                  *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
                  *
-                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+                 */
                 readonly max_date_modified?: components["parameters"]["max_date_modified"];
                 /** @description The page to return in the response. */
                 readonly page?: components["parameters"]["page"];
@@ -3297,9 +3344,11 @@ export interface operations {
                 readonly sort?: components["parameters"]["sort"];
                 /** @description The channel ID of the sales channel the shopper used to place the order. */
                 readonly channel_id?: components["parameters"]["channel_id"];
-                /** @description * `consignments` - include the response returned from the request to the `/orders/{order_id}/consignments` endpoint. You should also specify `consignment_structure=object` as a request parameter when including consignments. The default array structure provided is legacy and may not be supported in the future.
-                 *     * `consignments.line_items` - include the response returned from the request to the `/orders/{order_id}/products` endpoint in consignments. This implies `include=consignments`. You should also specify `consignment_structure=object` as a request parameter when including consignments. The default array structure provided is legacy and will be removed in the future.
-                 *     * `fees` - include the response returned from the request to the `/orders/{order_id}/fees` endpoint. */
+                /**
+                 * @description * `consignments` - include the response returned from the request to the `/orders/{order_id}/consignments` endpoint. Current default array structure is legacy and will be deprecated from **1 Feb 2026**. Specify `consignment_structure=object` as a request parameter when including consignments.
+                 *     * `consignments.line_items` - include the response returned from the request to the `/orders/{order_id}/products` endpoint in consignments. This will also includes the resources associated with `include=consignments`. Current default array structure is legacy and will be deprecated from **1 Feb 2026**. Specify `consignment_structure=object` as a request parameter when including consignments.
+                 *     * `fees` - include the response returned from the request to the `/orders/{order_id}/fees` endpoint.
+                 */
                 readonly include?: components["parameters"]["order_includes"];
                 /** @description Should be specified along with `include=consignments` or `include=consignments.line_items` to return consignments in the supported object structure. The default array structure provided is legacy and may not be supported in the future. */
                 readonly consignment_structure?: components["parameters"]["consignment_structure"];
@@ -3321,9 +3370,11 @@ export interface operations {
     readonly createOrder: {
         readonly parameters: {
             readonly query?: {
-                /** @description * `consignments` - include the response returned from the request to the `/orders/{order_id}/consignments` endpoint. You should also specify `consignment_structure=object` as a request parameter when including consignments. The default array structure provided is legacy and may not be supported in the future.
-                 *     * `consignments.line_items` - include the response returned from the request to the `/orders/{order_id}/products` endpoint in consignments. This implies `include=consignments`. You should also specify `consignment_structure=object` as a request parameter when including consignments. The default array structure provided is legacy and will be removed in the future.
-                 *     * `fees` - include the response returned from the request to the `/orders/{order_id}/fees` endpoint. */
+                /**
+                 * @description * `consignments` - include the response returned from the request to the `/orders/{order_id}/consignments` endpoint. Current default array structure is legacy and will be deprecated from **1 Feb 2026**. Specify `consignment_structure=object` as a request parameter when including consignments.
+                 *     * `consignments.line_items` - include the response returned from the request to the `/orders/{order_id}/products` endpoint in consignments. This will also includes the resources associated with `include=consignments`. Current default array structure is legacy and will be deprecated from **1 Feb 2026**. Specify `consignment_structure=object` as a request parameter when including consignments.
+                 *     * `fees` - include the response returned from the request to the `/orders/{order_id}/fees` endpoint.
+                 */
                 readonly include?: components["parameters"]["order_includes"];
                 /** @description Should be specified along with `include=consignments` or `include=consignments.line_items` to return consignments in the supported object structure. The default array structure provided is legacy and may not be supported in the future. */
                 readonly consignment_structure?: components["parameters"]["consignment_structure"];
@@ -3673,17 +3724,21 @@ export interface operations {
                 readonly max_id?: components["parameters"]["max_id"];
                 /** @description Customer ID. */
                 readonly customer_id?: components["parameters"]["customer_id"];
-                /** @description Minimum date the order was created in RFC-2822 or ISO-8601.
+                /**
+                 * @description Minimum date the order was created in RFC-2822 or ISO-8601.
                  *
                  *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
                  *
-                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+                 */
                 readonly min_date_created?: components["parameters"]["min_date_created"];
-                /** @description Maximum date the order was created in RFC-2822 or ISO-8601.
+                /**
+                 * @description Maximum date the order was created in RFC-2822 or ISO-8601.
                  *
                  *     RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
                  *
-                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00` */
+                 *     ISO-8601: `2017-04-20T11:32:00.000-04:00`
+                 */
                 readonly max_date_created?: components["parameters"]["max_date_created"];
                 /** @description Whether the message is [flagged](https://support.bigcommerce.com/s/article/Communicating-with-Customers#Messages). */
                 readonly is_flagged?: components["parameters"]["is_flagged"];

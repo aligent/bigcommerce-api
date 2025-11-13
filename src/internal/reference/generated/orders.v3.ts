@@ -12,8 +12,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
             };
             readonly cookie?: never;
@@ -35,8 +34,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
             };
             readonly cookie?: never;
@@ -59,8 +57,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
             };
             readonly cookie?: never;
@@ -87,8 +84,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
             };
             readonly cookie?: never;
@@ -118,8 +114,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
             };
             readonly cookie?: never;
@@ -197,8 +192,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
             };
             readonly cookie?: never;
@@ -208,7 +202,6 @@ export interface paths {
          * @description Gets a `Metafield` object list, by `order_id`.
          *
          *     The maximum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID.
-         *
          */
         readonly get: operations["getOrderMetafields"];
         /**
@@ -227,11 +220,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: number;
             };
             readonly cookie?: never;
@@ -239,7 +230,6 @@ export interface paths {
         /**
          * Get a Metafield
          * @description Gets a `Metafield`, by `order_id`.
-         *
          */
         readonly get: operations["getOrderMetafield"];
         /**
@@ -252,7 +242,6 @@ export interface paths {
         /**
          * Delete a Metafield
          * @description Deletes a `Metafield`.
-         *
          */
         readonly delete: operations["deleteOrderMetafield"];
     };
@@ -494,48 +483,39 @@ export interface components {
         readonly Pagination: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 36
              */
             readonly total?: number;
             /**
              * @description Total number of items in the collection response.
-             *
              * @example 36
              */
             readonly count?: number;
             /**
              * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-             *
              * @example 50
              */
             readonly per_page?: number;
             /**
              * @description The page you are currently on within the collection.
-             *
              * @example 1
              */
             readonly current_page?: number;
             /**
              * @description The total number of pages in the collection.
-             *
              * @example 1
              */
             readonly total_pages?: number;
-            /** @description Pagination links for the previous and next parts of the whole collection.
-             *      */
+            /** @description Pagination links for the previous and next parts of the whole collection. */
             readonly links?: {
-                /** @description Link to the previous page returned in the response.
-                 *      */
+                /** @description Link to the previous page returned in the response. */
                 readonly previous?: string;
                 /**
                  * @description Link to the current page returned in the response.
-                 *
                  * @example ?page=1&limit=50
                  */
                 readonly current?: string;
-                /** @description Link to the next page returned in the response.
-                 *      */
+                /** @description Link to the next page returned in the response. */
                 readonly next?: string;
             };
         };
@@ -646,48 +626,39 @@ export interface components {
             readonly pagination?: {
                 /**
                  * @description Total number of items in the result set.
-                 *
                  * @example 36
                  */
                 readonly total?: number;
                 /**
                  * @description Total number of items in the collection response.
-                 *
                  * @example 36
                  */
                 readonly count?: number;
                 /**
                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                 *
                  * @example 50
                  */
                 readonly per_page?: number;
                 /**
                  * @description The page you are currently on within the collection.
-                 *
                  * @example 1
                  */
                 readonly current_page?: number;
                 /**
                  * @description The total number of pages in the collection.
-                 *
                  * @example 1
                  */
                 readonly total_pages?: number;
-                /** @description Pagination links for the previous and next parts of the whole collection.
-                 *      */
+                /** @description Pagination links for the previous and next parts of the whole collection. */
                 readonly links?: {
-                    /** @description Link to the previous page returned in the response.
-                     *      */
+                    /** @description Link to the previous page returned in the response. */
                     readonly previous?: string;
                     /**
                      * @description Link to the current page returned in the response.
-                     *
                      * @example ?page=1&limit=50
                      */
                     readonly current?: string;
-                    /** @description Link to the next page returned in the response.
-                     *      */
+                    /** @description Link to the next page returned in the response. */
                     readonly next?: string;
                 };
             };
@@ -701,48 +672,39 @@ export interface components {
             readonly meta?: {
                 /**
                  * @description Total number of items in the result set.
-                 *
                  * @example 36
                  */
                 readonly total?: number;
                 /**
                  * @description Total number of items in the collection response.
-                 *
                  * @example 36
                  */
                 readonly count?: number;
                 /**
                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                 *
                  * @example 50
                  */
                 readonly per_page?: number;
                 /**
                  * @description The page you are currently on within the collection.
-                 *
                  * @example 1
                  */
                 readonly current_page?: number;
                 /**
                  * @description The total number of pages in the collection.
-                 *
                  * @example 1
                  */
                 readonly total_pages?: number;
-                /** @description Pagination links for the previous and next parts of the whole collection.
-                 *      */
+                /** @description Pagination links for the previous and next parts of the whole collection. */
                 readonly links?: {
-                    /** @description Link to the previous page returned in the response.
-                     *      */
+                    /** @description Link to the previous page returned in the response. */
                     readonly previous?: string;
                     /**
                      * @description Link to the current page returned in the response.
-                     *
                      * @example ?page=1&limit=50
                      */
                     readonly current?: string;
-                    /** @description Link to the next page returned in the response.
-                     *      */
+                    /** @description Link to the next page returned in the response. */
                     readonly next?: string;
                 };
             };
@@ -762,57 +724,46 @@ export interface components {
         readonly Transaction_Post: {
             /**
              * @description Store event that created the transaction.
-             *
              * @enum {string}
              */
             readonly event: "purchase" | "authorization" | "capture" | "refund" | "void" | "pending" | "settled";
             /**
              * @description The payment method: `credit_card` - a credit card transaction; `electronic_wallet` - an online wallet; `store_credit` - a transaction using store credit; `gift_certificate` - a transaction using a gift certificate; `custom` - manual payment methods; `token` - payment token; `nonce` - temporary payment token; `offsite` - online payment off the site (e.g., PayPal); `offline` - payment method that takes place offline.
-             *
              * @enum {string}
              */
             readonly method: "credit_card" | "electronic_wallet" | "gift_certificate" | "store_credit" | "apple_pay_card" | "apple_pay_token" | "bigpay_token" | "token" | "custom" | "offsite" | "offline" | "nonce";
             /**
              * Format: float
              * @description Amount of money in the transaction.
-             *
              */
             readonly amount: number;
             /**
              * Format: ISO-4217
              * @description Currency used for the transaction.
-             *
              */
             readonly currency: string;
             /**
              * @description The payment gateway, where applicable.
-             *
              * @enum {string}
              */
             readonly gateway: "2checkout" | "adyen" | "amazon" | "authorizenet" | "bankdeposit" | "braintree" | "cheque" | "cod" | "custom" | "firstdatagge4" | "giftcertificate" | "hps" | "instore" | "klarna" | "migs" | "moneyorder" | "nmi" | "paypalexpress" | "paypalpaymentsprous" | "paypalpaymentsprouk" | "plugnpay" | "qbmsv2" | "securenet" | "square" | "storecredit" | "stripe" | "testgateway" | "usaepay";
-            /** @description The transaction ID returned by the payment gateway for this transaction item.
-             *      */
+            /** @description The transaction ID returned by the payment gateway for this transaction item. */
             readonly gateway_transaction_id?: string;
             /**
              * Format: date-time
              * @description The date/time of the transaction.
-             *
              */
             readonly date_created?: string;
-            /** @description True if the transaction performed was a test, or if the gateway is in test mode.
-             *      */
+            /** @description True if the transaction performed was a test, or if the gateway is in test mode. */
             readonly test?: boolean;
             /**
              * @description Status of the transaction.
-             *
              * @enum {string}
              */
             readonly status?: "ok" | "error";
-            /** @description Result of gateway fraud review, if any. Default is `false`.
-             *      */
+            /** @description Result of gateway fraud review, if any. Default is `false`. */
             readonly fraud_review?: boolean;
-            /** @description Identifier for an existing transaction upon which this transaction acts.
-             *      */
+            /** @description Identifier for an existing transaction upon which this transaction acts. */
             readonly reference_transaction_id?: number;
             readonly offline?: components["schemas"]["Offline"];
             readonly custom?: components["schemas"]["Custom"];
@@ -822,8 +773,7 @@ export interface components {
          * @description Error payload for the BigCommerce API.
          */
         readonly NotFound: {
-            /** @description 404 HTTP status code.
-             *      */
+            /** @description 404 HTTP status code. */
             readonly status?: number;
             /** @description The resource at that URL is not found. */
             readonly title?: string;
@@ -834,59 +784,48 @@ export interface components {
         readonly Transaction: {
             /**
              * @description Store event that created the transaction.
-             *
              * @enum {string}
              */
             readonly event: "purchase" | "authorization" | "capture" | "refund" | "void" | "pending" | "settled";
             /**
              * @description The payment method: `credit_card` - a credit card transaction; `electronic_wallet` - an online wallet; `store_credit` - a transaction using store credit; `gift_certificate` - a transaction using a gift certificate; `custom` - manual payment methods; `token` - payment token; `nonce` - temporary payment token; `offsite` - online payment off the site; `offline` - payment method that takes place offline.
-             *
              * @enum {string}
              */
             readonly method: "credit_card" | "electronic_wallet" | "gift_certificate" | "store_credit" | "apple_pay_card" | "bigpay_token" | "apple_pay_token" | "token" | "custom" | "offsite" | "offline" | "nonce";
             /**
              * Format: float
              * @description Amount of money in the transaction.
-             *
              */
             readonly amount: number;
             /**
              * Format: ISO-4217
              * @description Currency used for the transaction.
-             *
              */
             readonly currency: string;
             /**
              * @description The payment gateway, where applicable.
-             *
              * @enum {string}
              */
             readonly gateway: "2checkout" | "adyen" | "amazon" | "authorizenet" | "bankdeposit" | "braintree" | "cheque" | "cod" | "custom" | "firstdatagge4" | "giftcertificate" | "hps" | "instore" | "klarna" | "migs" | "moneyorder" | "nmi" | "paypalexpress" | "paypalpaymentsprous" | "paypalpaymentsprouk" | "plugnpay" | "qbmsv2" | "securenet" | "square" | "storecredit" | "stripe" | "testgateway" | "usaepay";
-            /** @description The transaction ID returned by the payment gateway for this transaction item.
-             *      */
+            /** @description The transaction ID returned by the payment gateway for this transaction item. */
             readonly gateway_transaction_id?: string;
-            /** @description True if the transaction performed was a test, or if the gateway is in test mode.
-             *      */
+            /** @description True if the transaction performed was a test, or if the gateway is in test mode. */
             readonly test?: boolean;
             /**
              * @description Status of the transaction.
-             *
              * @enum {string}
              */
             readonly status?: "ok" | "error";
-            /** @description Result of gateway fraud review, if any. Default is `false`.
-             *      */
+            /** @description Result of gateway fraud review, if any. Default is `false`. */
             readonly fraud_review?: boolean;
-            /** @description Identifier for an existing transaction upon which this transaction acts.
-             *      */
+            /** @description Identifier for an existing transaction upon which this transaction acts. */
             readonly reference_transaction_id?: number;
             /**
              * Offline
              * @description Offline payment (e.g., check or purchase order).
              */
             readonly offline?: {
-                /** @description Display name for the offline payment.
-                 *      */
+                /** @description Display name for the offline payment. */
                 readonly display_name?: string;
             } | null;
             /**
@@ -894,24 +833,19 @@ export interface components {
              * @description Custom payment from manual order.
              */
             readonly custom?: {
-                /** @description Text entered for the payment method in the control panel.
-                 *      */
+                /** @description Text entered for the payment method in the control panel. */
                 readonly payment_method?: string;
             } | null;
-            /** @description The payment method ID used for this transaction.
-             *      */
+            /** @description The payment method ID used for this transaction. */
             readonly payment_method_id?: string;
         } & {
-            /** @description Unique identifier for the transaction.
-             *      */
+            /** @description Unique identifier for the transaction. */
             readonly id?: number;
-            /** @description Identifier for the BigCommerce Order with which this transaction is associated.
-             *      */
+            /** @description Identifier for the BigCommerce Order with which this transaction is associated. */
             readonly order_id?: string;
             /**
              * Format: date-time
              * @description The date/time of the transaction in ISO-8601 format.
-             *
              */
             readonly date_created?: string;
             /** @description This field contains internal BigPay token for stored card that is then mapped to the actual third-party token. We currently do not offer a way to get third party tokens.These tokens are read-only and do not return any information about the payment. */
@@ -948,45 +882,38 @@ export interface components {
             readonly gift_certificate?: {
                 /**
                  * @description The gift-certificate code.
-                 *
                  * @example MB345
                  */
                 readonly code?: string;
                 /**
                  * Format: float
                  * @description The balance on a gift certificate when it was purchased.
-                 *
                  * @example 100
                  */
                 readonly original_balance?: number;
                 /**
                  * Format: float
                  * @description The balance on a gift certificate at the time of this purchase.
-                 *
                  * @example 100
                  */
                 readonly starting_balance?: number;
                 /**
                  * Format: float
                  * @description The remaining balance on a gift certificate.
-                 *
                  * @example 35.42
                  */
                 readonly remaining_balance?: number;
                 /**
                  * @description The status of a gift certificate: `active` - gift certificate is active; `pending` - gift certificate purchase is pending; `disabled` - gift certificate is disabled; `expired` - gift certificate is expired.
-                 *
                  * @enum {string}
                  */
                 readonly status?: "active" | "pending" | "disabled" | "expired";
             } | null;
-            /** @description A store credit model.
-             *      */
+            /** @description A store credit model. */
             readonly store_credit?: {
                 /**
                  * Format: float
                  * @description Remaining balance of shopperʼs store credit.
-                 *
                  * @example 35.42
                  */
                 readonly remaining_balance?: number;
@@ -996,19 +923,15 @@ export interface components {
              * @description Fields for custom payment providers.
              */
             readonly custom_provider_field_result?: {
-                /** @description The receipt number associated with the transaction.
-                 *      */
+                /** @description The receipt number associated with the transaction. */
                 readonly receipt_number?: string | null;
-                /** @description Authorization code for the transaction.
-                 *      */
+                /** @description Authorization code for the transaction. */
                 readonly authorization_code?: string | null;
-                /** @description The fraud response associated with the transaction.
-                 *      */
+                /** @description The fraud response associated with the transaction. */
                 readonly fraud_response?: string | null;
                 /**
                  * Format: float
                  * @description The amount received for the transaction, divided by 100 to convert to the correct currency format.
-                 *
                  */
                 readonly amount_received?: number | null;
             } | null;
@@ -1023,26 +946,20 @@ export interface components {
              * @enum {string}
              */
             readonly card_type?: "alelo" | "alia" | "american_express" | "cabal" | "carnet" | "dankort" | "diners_club" | "discover" | "elo" | "forbrugsforeningen" | "jcb" | "maestro" | "master" | "naranja" | "sodexo" | "unionpay" | "visa" | "vr";
-            /** @description The IIN of a credit card number.
-             *      */
+            /** @description The IIN of a credit card number. */
             readonly card_iin?: string;
-            /** @description The last 4 digits of a credit card number.
-             *      */
+            /** @description The last 4 digits of a credit card number. */
             readonly card_last4?: string;
-            /** @description The expiry month of a credit card.
-             *      */
+            /** @description The expiry month of a credit card. */
             readonly card_expiry_month?: number;
-            /** @description The expiry year of a credit card.
-             *      */
+            /** @description The expiry year of a credit card. */
             readonly card_expiry_year?: number;
         };
-        /** @description A store credit model.
-         *      */
+        /** @description A store credit model. */
         readonly StoreCredit: {
             /**
              * Format: float
              * @description Remaining balance of shopperʼs store credit.
-             *
              * @example 35.42
              */
             readonly remaining_balance?: number;
@@ -1052,8 +969,7 @@ export interface components {
          * @description Custom payment from manual order.
          */
         readonly Custom: {
-            /** @description Text entered for the payment method in the control panel.
-             *      */
+            /** @description Text entered for the payment method in the control panel. */
             readonly payment_method?: string;
         };
         /**
@@ -1061,8 +977,7 @@ export interface components {
          * @description Offline payment (e.g., check or purchase order).
          */
         readonly Offline: {
-            /** @description Display name for the offline payment.
-             *      */
+            /** @description Display name for the offline payment. */
             readonly display_name?: string;
         };
         /**
@@ -1072,34 +987,29 @@ export interface components {
         readonly GiftCertificate: {
             /**
              * @description The gift-certificate code.
-             *
              * @example MB345
              */
             readonly code?: string;
             /**
              * Format: float
              * @description The balance on a gift certificate when it was purchased.
-             *
              * @example 100
              */
             readonly original_balance?: number;
             /**
              * Format: float
              * @description The balance on a gift certificate at the time of this purchase.
-             *
              * @example 100
              */
             readonly starting_balance?: number;
             /**
              * Format: float
              * @description The remaining balance on a gift certificate.
-             *
              * @example 35.42
              */
             readonly remaining_balance?: number;
             /**
              * @description The status of a gift certificate: `active` - gift certificate is active; `pending` - gift certificate purchase is pending; `disabled` - gift certificate is disabled; `expired` - gift certificate is expired.
-             *
              * @enum {string}
              */
             readonly status?: "active" | "pending" | "disabled" | "expired";
@@ -1133,8 +1043,7 @@ export interface components {
          * @description No-content response for the BigCommerce API.
          */
         readonly NoContent: {
-            /** @description 204 HTTP status code.
-             *      */
+            /** @description 204 HTTP status code. */
             readonly status?: number;
             /** @description The error title describing the situation. */
             readonly title?: string;
@@ -1183,17 +1092,14 @@ export interface components {
         };
         /** links_Full */
         readonly links_Full: {
-            /** @description Link to the previous page returned in the response.
-             *      */
+            /** @description Link to the previous page returned in the response. */
             readonly previous?: string;
             /**
              * @description Link to the current page returned in the response.
-             *
              * @example ?page=1&limit=50
              */
             readonly current?: string;
-            /** @description Link to the next page returned in the response.
-             *      */
+            /** @description Link to the next page returned in the response. */
             readonly next?: string;
         };
         /**
@@ -1201,11 +1107,9 @@ export interface components {
          * @description Error payload for the BigCommerce API.
          */
         readonly error_Base: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
         };
@@ -1240,7 +1144,8 @@ export interface components {
             readonly adjustment?: components["schemas"]["AdjustmentAmount"];
             /** @description Indicate if `total_refund_amount` includes tax amount. */
             readonly tax_inclusive?: boolean;
-            /** @description An array of available refund methods.
+            /**
+             * @description An array of available refund methods.
              *
              *     Note that `refund_methods` is an array of refund methods, with each refund method being an array of payment options.
              *
@@ -1295,7 +1200,7 @@ export interface components {
              *     1. Refund up to the entire order amount to store credit.
              *     2. Mark an amount up to the full order amount as refunded externally, through a provider or means not represented directly in BC ("custom").
              *     3. Refund the amount paid by store credit to store credit, and the amount paid by bank deposit with a manual refund, which will be recorded as being refunded against the bank deposit.
-             *      */
+             */
             readonly refund_methods?: readonly components["schemas"]["RefundMethod"][];
         };
         /**
@@ -1316,81 +1221,65 @@ export interface components {
         };
         readonly RefundID_Get: {
             readonly data?: {
-                /** @description Refund ID for the returned refund.
-                 *      */
+                /** @description Refund ID for the returned refund. */
                 readonly id?: number;
                 /** @description Order ID associated with the refund. */
                 readonly order_id?: number;
-                /** @description Reference to the user ID who created the refund. This is automatically populated by BigCommerce.
-                 *      */
+                /** @description Reference to the user ID who created the refund. This is automatically populated by BigCommerce. */
                 readonly user_id?: number;
                 /**
                  * Format: date-time
                  * @description Timestamp of when the refund was created.
-                 *
                  */
                 readonly created?: string;
-                /** @description Reason for refund.
-                 *      */
+                /** @description Reason for refund. */
                 readonly reason?: string;
                 /**
                  * @description A non-negative 2 decimal place rounded value that represents the amount that can be refunded with the correct payment provider(s).
-                 *
                  * @example 109.11
                  */
                 readonly total_amount?: number;
-                /** @description Total tax amount refunded back to the shopper. This can be a negative amount indicating we have collected tax by refunding less to the customer.
-                 *      */
+                /** @description Total tax amount refunded back to the shopper. This can be a negative amount indicating we have collected tax by refunding less to the customer. */
                 readonly total_tax?: number;
-                /** @description Whether refund amount and tax are provided explicitly by merchant override.
-                 *      */
+                /** @description Whether refund amount and tax are provided explicitly by merchant override. */
                 readonly uses_merchant_override_values?: boolean;
                 readonly payments?: readonly {
-                    /** @description Reference to refund payment ID.
-                     *      */
+                    /** @description Reference to refund payment ID. */
                     readonly id?: number;
-                    /** @description Reference to payment provider.
+                    /**
+                     * @description Reference to payment provider.
                      *     example: storecredit
-                     *      */
+                     */
                     readonly provider_id?: string;
                     /**
                      * @description A non-negative two decimal place rounded value represents the amount that can be charged/refunded with payment providers.
-                     *
                      * @example 109.11
                      */
                     readonly amount?: number;
-                    /** @description Indicates whether the payment was offline.
-                     *      */
+                    /** @description Indicates whether the payment was offline. */
                     readonly offline?: boolean;
-                    /** @description Indicates if this payment has been declined by the payment provider.
-                     *      */
+                    /** @description Indicates if this payment has been declined by the payment provider. */
                     readonly is_declined?: boolean;
-                    /** @description Message indicates why the payment was declined.
-                     *      */
+                    /** @description Message indicates why the payment was declined. */
                     readonly declined_message?: string;
                 }[];
                 /** @description Array of items refunded. In cases when `tax_refund_adjustment` was used to create the refund, this array will be empty. */
                 readonly items?: readonly {
                     /**
                      * @description Type of item that was refunded.
-                     *
                      * @enum {string}
                      */
                     readonly item_type?: "PRODUCT" | "GIFT_WRAPPING" | "SHIPPING" | "HANDLING" | "ORDER" | "FEE";
-                    /** @description `order_product.id` corresponding to the item_types of PRODUCT, GIFT_WRAPPING. `order_address.id` corresponding to the item_types of SHIPPING, HANDLING. `order.id` corresponding to the item_type of ORDER, FEE.
-                     *      */
+                    /** @description `order_product.id` corresponding to the item_types of PRODUCT, GIFT_WRAPPING. `order_address.id` corresponding to the item_types of SHIPPING, HANDLING. `order.id` corresponding to the item_type of ORDER, FEE. */
                     readonly item_id?: number;
-                    /** @description Quantity of item refunded. Note: this will only be populated for item_type PRODUCT.
-                     *      */
+                    /** @description Quantity of item refunded. Note: this will only be populated for item_type PRODUCT. */
                     readonly quantity?: number;
                     /**
                      * @description A non-negative two decimal place rounded value that represents the amount that can be refunded with the payment provider(s).
-                     *
                      * @example 109.11
                      */
                     readonly requested_amount?: string | null;
-                    /** @description Reason for refunding an item.
-                     *      */
+                    /** @description Reason for refunding an item. */
                     readonly reason?: string;
                 }[];
             };
@@ -1444,7 +1333,6 @@ export interface components {
          *     Type of refund item that capture refunding of items in the order that are of type quantity.
          *     * `PRODUCT`
          *     * `GIFT_WRAPPING`
-         *
          */
         readonly QuantityBoundItem: {
             /**
@@ -1567,10 +1455,18 @@ export interface components {
          *     - bypass any tax correction due to tax rate/providers changes between when a customer places an order and a merchant initiates a refund
          *     - use explicit values calculated by external systems (e.g., merchants' own Extended Producer Responsibility or Order Management System)
          *
+         *     When using this when submitting refunds, please update the amount in payments section of the request payload to match the override value.
+         *
          *     Note: when using the override, BC internal tax based refund calculation is skipped and therefore order/taxes records are not updated.
          */
         readonly MerchantOverride: {
-            readonly total_amount: components["schemas"]["Amount"];
+            /**
+             * Amount
+             * Format: float
+             * @description A non-negative 2 decimal place rounded value that represents the amount that to be used as override for the refund.
+             * @example 9.99
+             */
+            readonly total_amount: number;
             /** @description Total tax amount refunded back to the shopper. Use 0 value if there is no tax liability change for the refund or tax does not need to be recorded on the refund and would be handled externally. */
             readonly total_tax: number;
         };
@@ -1584,12 +1480,10 @@ export interface components {
         /** Items Refund */
         readonly RefundQuote_ItemsRefund: {
             readonly items: readonly components["schemas"]["ItemsRefund"][];
-            readonly merchant_calculated_override?: components["schemas"]["MerchantOverride"];
         };
         /** Tax Adjustment Refund */
         readonly RefundQuote_TaxAdjustmentAmount: {
             readonly tax_adjustment_amount: components["schemas"]["TaxAdjustmentAmount"];
-            readonly merchant_calculated_override?: components["schemas"]["MerchantOverride"];
         };
         /** Refund */
         readonly Refund: {
@@ -1721,14 +1615,12 @@ export interface components {
             readonly success?: number;
             readonly total?: number;
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponse: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             readonly meta?: components["schemas"]["CollectionMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponse_POST_PUT: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             /**
@@ -1738,14 +1630,12 @@ export interface components {
             readonly errors?: readonly unknown[];
             readonly meta?: components["schemas"]["BatchOperationMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetafieldResponse: {
             readonly data?: components["schemas"]["Metafield"];
             readonly meta?: components["schemas"]["metaEmpty_Full"];
         };
-        /** @description Common Metafield properties.
-         *      */
+        /** @description Common Metafield properties. */
         readonly MetafieldBase: {
             /**
              * @description Determines the visibility and writeability of the field by other API consumers.
@@ -1757,50 +1647,42 @@ export interface components {
              *     |`write`|Open for reading and writing by other API consumers|
              *     |`read_and_sf_access`|Visible to other API consumers, including on storefront|
              *     |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
-             *
              * @enum {string}
              */
             readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace?: string;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key?: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value?: string;
             /**
              * @description Description for the metafields.
-             *
              * @example order
              */
             readonly description?: string;
             /**
              * @description The type of resource with which the metafield is associated.
-             *
              * @example order
              * @enum {string}
              */
             readonly resource_type?: "order" | "brand" | "product" | "variant" | "category";
             /**
              * @description The unique identifier for the resource with which the metafield is associated.
-             *
              * @example 0
              */
             readonly resource_id?: number;
         };
-        /** @description Common Metafield properties.
-         *      */
+        /** @description Common Metafield properties. */
         readonly MetafieldBase_Post: {
             /**
              * @description Determines the visibility and writeability of the field by other API consumers.
@@ -1812,52 +1694,43 @@ export interface components {
              *     |`write`|Open for reading and writing by other API consumers|
              *     |`read_and_sf_access`|Visible to other API consumers, including on storefront|
              *     |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
-             *
              * @enum {string}
              */
             readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace: string;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value: string;
             /**
              * @description Description for the metafields.
-             *
              * @example Name of Staff Member
              */
             readonly description?: string;
         };
-        /** @description Allows app partners to write custom data to various resources in the API.
-         *      */
+        /** @description Allows app partners to write custom data to various resources in the API. */
         readonly Metafield: components["schemas"]["MetafieldBase"] & {
-            /** @description The unique identifier for the metafields.
-             *      */
+            /** @description The unique identifier for the metafields. */
             readonly id?: number;
             /**
              * Format: date-time
              * @description Date and time of the metafieldʼs creation.
-             *
              * @example 2022-06-16T18:39:00+00:00
              */
             readonly date_created?: string;
             /**
              * Format: date-time
              * @description Date and time when the metafield was last updated.
-             *
              * @example 2022-06-16T18:39:00+00:00
              */
             readonly date_modified?: string;
@@ -1867,8 +1740,7 @@ export interface components {
              */
             readonly owner_client_id?: string;
         };
-        /** @description The model for a PUT to update metafield.
-         *      */
+        /** @description The model for a PUT to update metafield. */
         readonly MetafieldPut: components["schemas"]["MetafieldBase_Post"];
         /**
          * GlobalOrderSettings
@@ -1904,31 +1776,32 @@ export interface components {
                 };
             };
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponsePartialSuccess_POST_PUT: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             readonly errors?: readonly components["schemas"]["Error"][];
             readonly meta?: components["schemas"]["WriteCollectionPartialSuccessMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponsePartialSuccess_DELETE: {
-            /** @example [
+            /**
+             * @example [
              *       123
-             *     ] */
+             *     ]
+             */
             readonly data?: readonly number[];
             readonly errors?: readonly components["schemas"]["Error"][];
             readonly meta?: components["schemas"]["WriteCollectionPartialSuccessMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionDeleteResponseSuccess: {
-            /** @example [
+            /**
+             * @example [
              *       123,
              *       124,
              *       125
-             *     ] */
+             *     ]
+             */
             readonly data?: readonly number[];
             /**
              * @description Empty for 200 responses.
@@ -1944,19 +1817,16 @@ export interface components {
         readonly WriteCollectionPartialSuccessMeta: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 3
              */
             readonly total?: number;
             /**
              * @description Total number of items that were successfully deleted.
-             *
              * @example 1
              */
             readonly success?: number;
             /**
              * @description Total number of items that failed to be deleted.
-             *
              * @example 2
              */
             readonly failed?: number;
@@ -1968,59 +1838,49 @@ export interface components {
         readonly WriteCollectionSuccessMeta: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 3
              */
             readonly total?: number;
             /**
              * @description Total number of items that were successfully deleted.
-             *
              * @example 3
              */
             readonly success?: number;
             /**
              * @description Total number of items that failed to be deleted.
-             *
              * @example 0
              */
             readonly failed?: number;
         };
         /**
          * @description Total number of items in the result set.
-         *
          * @example 3
          */
         readonly Total: number;
         /**
          * @description Total number of items that were successfully deleted.
-         *
          * @example 1
          */
         readonly Success: number;
         /**
          * @description Total number of items that failed to be deleted.
-         *
          * @example 2
          */
         readonly Failed: number;
-        /** @description Error response payload for the BigCommerce API.
-         *      */
+        /** @description Error response payload for the BigCommerce API. */
         readonly Error: {
             /**
              * @description The HTTP status code for the error.
-             *
              * @example 422
              */
             readonly status?: number;
             /**
              * @description The error title.
-             *
              * @example Bulk operation has failed
              */
             readonly title?: string;
             /**
              * @description The error type.
-             *
              * @example https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
              */
             readonly type?: string;
@@ -2028,7 +1888,6 @@ export interface components {
         };
         /**
          * @description Error detail response payload for the BigCommerce API.
-         *
          * @example {
          *       "1": "Unauthorized to delete",
          *       "2": "Metafield does not exist"
@@ -2037,28 +1896,23 @@ export interface components {
         readonly ErrorDetail: {
             readonly [key: string]: unknown;
         };
-        /** @description The model for a POST to create metafield.
-         *      */
+        /** @description The model for a POST to create metafield. */
         readonly MetafieldPost_Batch: components["schemas"]["MetafieldBase_Post"] & {
             /**
              * @description The ID for the resource with which the metafield is associated.
-             *
              * @example 42
              */
             readonly resource_id: number;
         };
-        /** @description The model for a PUT to create metafield.
-         *      */
+        /** @description The model for a PUT to create metafield. */
         readonly MetafieldPut_Batch: components["schemas"]["MetafieldBase_Post"] & {
             /**
              * @description The ID of metafield to update.
-             *
              * @example 42
              */
             readonly id: number;
             /**
              * @description The ID for the resource with which the metafield is associated.
-             *
              * @example 42
              */
             readonly resource_id?: number;
@@ -2093,14 +1947,11 @@ export interface components {
                 readonly [key: string]: unknown;
             };
         };
-        /** @description Error payload for the BigCommerce API.
-         *      */
+        /** @description Error payload for the BigCommerce API. */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
         };
@@ -2211,8 +2062,10 @@ export interface components {
                 readonly "application/json": components["schemas"]["error_Base"];
             };
         };
-        /** @description Malformed request syntax. Typically need to fix the JSON.
-         *     Body to resend successfully. */
+        /**
+         * @description Malformed request syntax. Typically need to fix the JSON.
+         *     Body to resend successfully.
+         */
         readonly "400_BadRequest": {
             headers: {
                 readonly [name: string]: unknown;
@@ -2350,15 +2203,13 @@ export interface components {
             content: {
                 readonly "application/json": {
                     readonly data?: components["schemas"]["Transaction_Post"] & {
-                        /** @description Unique identifier for the transaction.
-                         *      */
+                        /** @description Unique identifier for the transaction. */
                         readonly id?: number;
                         /** @description Identifier for the BigCommerce Order with which this transaction is associated. */
                         readonly order_id?: string;
                         /**
                          * Format: date-time
                          * @description The datetime of the transaction.
-                         *
                          */
                         readonly date_created?: string;
                         /** @description This field contains internal BigPay token for stored card that is then mapped to the actual third-party token. We currently do not offer a way to get third party tokens.These tokens are read-only and do not return any information about the payment. */
@@ -2395,15 +2246,13 @@ export interface components {
         };
     };
     parameters: {
-        /** @description The ID of the `Order` to which the transactions belong.
-         *      */
+        /** @description The ID of the `Order` to which the transactions belong. */
         readonly OrderIdParam: number;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
         readonly Accept: string;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body. */
         readonly ContentType: string;
-        /** @description Specifies the page number in a limited (paginated) list of products.
-         *      */
+        /** @description Specifies the page number in a limited (paginated) list of products. */
         readonly PageParam: number;
         /** @description Filter items by minimum date created. For example, `date_created:min=2019-09-04T00:00:00` or `date_created:min=2019-09-04`. Returns metafields created after this date. */
         readonly date_created_min: string;
@@ -2417,24 +2266,19 @@ export interface components {
         readonly date_modified_max: string;
         /** @description Filter items by date modified. For example, `date_modified=2019-09-04T00:00:00`. Returns metafields modified on this date. */
         readonly date_modified: string;
-        /** @description The ID of the `Metafield`.
-         *      */
+        /** @description The ID of the `Metafield`. */
         readonly MetafieldIdParam: number;
-        /** @description Filter based on a metafieldʼs key.
-         *      */
+        /** @description Filter based on a metafieldʼs key. */
         readonly MetafieldKeyParam: string;
         /** @description Filter using a comma-separated list of metafield keys. Could be used with vanilla `key` query parameter. */
         readonly MetafieldKeyInParam: readonly string[];
-        /** @description Filter based on a metafieldʼs key.
-         *      */
+        /** @description Filter based on a metafieldʼs key. */
         readonly MetafieldNamespaceParam: string;
         /** @description Filter using a comma-separated list of metafield namespaces. Can be used with vanilla `namespace` query parameter. */
         readonly MetafieldNamespaceInParam: readonly string[];
-        /** @description Controls the number of items per page in a limited (paginated) list of products.
-         *      */
+        /** @description Controls the number of items per page in a limited (paginated) list of products. */
         readonly LimitParam: number;
-        /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-         *      */
+        /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
         readonly DirectionParam: "asc" | "desc";
         /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
         readonly IncludeFieldsParamMetafields: readonly ("resource_id" | "key" | "value" | "namespace" | "permission_set" | "resource_type" | "description" | "owner_client_id" | "date_created" | "date_modified")[];
@@ -2455,8 +2299,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
             };
             readonly cookie?: never;
@@ -2482,8 +2325,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
             };
             readonly cookie?: never;
@@ -2507,8 +2349,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
             };
             readonly cookie?: never;
@@ -2516,16 +2357,14 @@ export interface operations {
         readonly requestBody?: never;
         readonly responses: {
             readonly 200: components["responses"]["TransactionCollection_Resp"];
-            /** @description No content found to fulfill request.
-             *      */
+            /** @description No content found to fulfill request. */
             readonly 204: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 204 HTTP status code.
-                         *      */
+                        /** @description 204 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the situation. */
                         readonly title?: string;
@@ -2534,16 +2373,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2552,16 +2389,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description Service Unavailable.
-             *      */
+            /** @description Service Unavailable. */
             readonly 503: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 503 HTTP status code.
-                         *      */
+                        /** @description 503 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2581,8 +2416,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
             };
             readonly cookie?: never;
@@ -2610,8 +2444,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
             };
             readonly cookie?: never;
@@ -2634,8 +2467,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
             };
             readonly cookie?: never;
@@ -2647,8 +2479,7 @@ export interface operations {
         };
         readonly responses: {
             readonly 201: components["responses"]["Refund_Resp"];
-            /** @description Unable to process a guest refund with store credit.
-             *      */
+            /** @description Unable to process a guest refund with store credit. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2698,18 +2529,22 @@ export interface operations {
                 readonly "order_id:in"?: readonly number[];
                 /** @description Pass a comma-separated list of refund IDs to filter the included refunds. Accepts multiple values. */
                 readonly "id:in"?: readonly number[];
-                /** @description Filter results so they are later than or equal to provided date.
+                /**
+                 * @description Filter results so they are later than or equal to provided date.
                  *
                  *
                  *     Must be in url-encoded RFC 3339 format.
                  *     e.g. `2020-01-15T01:02:34-01:00` is RFC 3339 format.
-                 *     Url-encoded this will be `2020-01-15T01%3A02%3A34%2B01%3A00` */
+                 *     Url-encoded this will be `2020-01-15T01%3A02%3A34%2B01%3A00`
+                 */
                 readonly "created:min"?: string;
-                /** @description Filter results so they are earlier than or equal to provided date.
+                /**
+                 * @description Filter results so they are earlier than or equal to provided date.
                  *
                  *     Must be in url-encoded RFC 3339 format.
                  *     e.g. `2020-01-15T01:02:34-01:00` is RFC 3339 format.
-                 *     Url-encoded this will be `2020-01-15T01%3A02%3A34%2B01%3A00` */
+                 *     Url-encoded this will be `2020-01-15T01%3A02%3A34%2B01%3A00`
+                 */
                 readonly "created:max"?: string;
                 /** @description Filters by refund payment using the BigCommerce `transaction_id`. */
                 readonly transaction_id?: string;
@@ -2733,20 +2568,15 @@ export interface operations {
     readonly getOrderMetafields: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
-                /** @description Filter based on a metafieldʼs key.
-                 *      */
+                /** @description Filter based on a metafieldʼs key. */
                 readonly key?: components["parameters"]["MetafieldKeyParam"];
-                /** @description Filter based on a metafieldʼs key.
-                 *      */
+                /** @description Filter based on a metafieldʼs key. */
                 readonly namespace?: components["parameters"]["MetafieldNamespaceParam"];
-                /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-                 *      */
+                /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
                 readonly direction?: components["parameters"]["DirectionParam"];
             };
             readonly header?: {
@@ -2754,16 +2584,14 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
             };
             readonly cookie?: never;
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description An array of metafields and metadata.
-             *      */
+            /** @description An array of metafields and metadata. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2784,29 +2612,28 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
             };
             readonly cookie?: never;
         };
-        /** @description A `Metafield` object.
-         *      */
+        /** @description A `Metafield` object. */
         readonly requestBody: {
             readonly content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "permission_set": "app_only",
                  *       "namespace": "Sales Department",
                  *       "key": "Staff Name",
                  *       "value": "Sam",
                  *       "description": "Name of staff member"
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": components["schemas"]["MetafieldBase_Post"];
             };
         };
         readonly responses: {
-            /** @description A `Metafield` object.
-             *      */
+            /** @description A `Metafield` object. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2821,12 +2648,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2835,8 +2664,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The metafield conflicts with another metafield. This can result from duplicate unique key combinations of the appʼs client ID, namespace, key, resource type, and resource ID.
-             *      */
+            /** @description The metafield conflicts with another metafield. This can result from duplicate unique key combinations of the appʼs client ID, namespace, key, resource type, and resource ID. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2845,8 +2673,7 @@ export interface operations {
                     readonly "application/json": components["schemas"]["ErrorResponse"];
                 };
             };
-            /** @description The `Metafield` is not valid. This is the result of missing required fields or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Metafield` is not valid. This is the result of missing required fields or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2865,19 +2692,16 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: number;
             };
             readonly cookie?: never;
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description A `Metafield` object.
-             *      */
+            /** @description A `Metafield` object. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2886,8 +2710,7 @@ export interface operations {
                     readonly "application/json": components["schemas"]["MetafieldResponse"];
                 };
             };
-            /** @description A metafield was not found with this query.
-             *      */
+            /** @description A metafield was not found with this query. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2908,25 +2731,21 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: number;
             };
             readonly cookie?: never;
         };
-        /** @description A `Metafield` object.
-         *      */
+        /** @description A `Metafield` object. */
         readonly requestBody: {
             readonly content: {
                 readonly "application/json": components["schemas"]["MetafieldPut"];
             };
         };
         readonly responses: {
-            /** @description A metafield and metadata.
-             *      */
+            /** @description A metafield and metadata. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2941,12 +2760,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2955,8 +2776,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description A metafield was not found with this query.
-             *      */
+            /** @description A metafield was not found with this query. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2975,27 +2795,23 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Order` to which the transactions belong.
-                 *      */
+                /** @description The ID of the `Order` to which the transactions belong. */
                 readonly order_id: components["parameters"]["OrderIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: number;
             };
             readonly cookie?: never;
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description An empty response.
-             *      */
+            /** @description An empty response. */
             readonly 204: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content?: never;
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3181,24 +2997,19 @@ export interface operations {
     readonly getOrdersMetafields: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
-                /** @description Filter based on a metafieldʼs key.
-                 *      */
+                /** @description Filter based on a metafieldʼs key. */
                 readonly key?: components["parameters"]["MetafieldKeyParam"];
                 /** @description Filter using a comma-separated list of metafield keys. Could be used with vanilla `key` query parameter. */
                 readonly "key:in"?: components["parameters"]["MetafieldKeyInParam"];
-                /** @description Filter based on a metafieldʼs key.
-                 *      */
+                /** @description Filter based on a metafieldʼs key. */
                 readonly namespace?: components["parameters"]["MetafieldNamespaceParam"];
                 /** @description Filter using a comma-separated list of metafield namespaces. Can be used with vanilla `namespace` query parameter. */
                 readonly "namespace:in"?: components["parameters"]["MetafieldNamespaceInParam"];
-                /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-                 *      */
+                /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
                 readonly direction?: components["parameters"]["DirectionParam"];
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
                 readonly include_fields?: components["parameters"]["IncludeFieldsParamMetafields"];
@@ -3221,8 +3032,7 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description List of `Metafield` objects.
-             *      */
+            /** @description List of `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3245,7 +3055,6 @@ export interface operations {
                 readonly "application/json": readonly (components["schemas"]["MetafieldBase_Post"] & {
                     /**
                      * @description The ID of metafield to update.
-                     *
                      * @example 42
                      */
                     readonly id: number;
@@ -3253,8 +3062,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description List of updated `Metafield` objects.
-             *      */
+            /** @description List of updated `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3269,12 +3077,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -3283,8 +3093,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields creation with partial success.
-             *      */
+            /** @description Response object for metafields creation with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3307,7 +3116,6 @@ export interface operations {
                 readonly "application/json": readonly (components["schemas"]["MetafieldBase_Post"] & {
                     /**
                      * @description The ID for the order with which the metafield is associated.
-                     *
                      * @example 42
                      */
                     readonly resource_id: number;
@@ -3315,8 +3123,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description List of created `Metafield` objects.
-             *      */
+            /** @description List of created `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3331,12 +3138,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -3345,8 +3154,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields creation with partial success.
-             *      */
+            /** @description Response object for metafields creation with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3371,8 +3179,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description Response object for metafields deletion with success.
-             *      */
+            /** @description Response object for metafields deletion with success. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3387,12 +3194,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -3401,8 +3210,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields deletion with partial success.
-             *      */
+            /** @description Response object for metafields deletion with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;

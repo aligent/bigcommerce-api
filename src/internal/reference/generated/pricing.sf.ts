@@ -372,9 +372,11 @@ export interface components {
             readonly options?: readonly {
                 /** @description The ID of the variant option or modifier option being configured for this product. */
                 readonly option_id?: number;
-                /** @description The ID of the value matching the option being configured.
+                /**
+                 * @description The ID of the value matching the option being configured.
                  *
-                 *     **Note:** must be ID, not the value. */
+                 *     **Note:** must be ID, not the value.
+                 */
                 readonly value_id?: number;
             }[];
         };
@@ -401,10 +403,11 @@ export interface components {
                 readonly options?: readonly {
                     /** @description The ID of the variant option or modifier option being configured for this product. */
                     readonly option_id?: number;
-                    /** @description The ID of the value matching the option being configured.
+                    /**
+                     * @description The ID of the value matching the option being configured.
                      *
                      *     **Note:** This must be the ID, not the value.
-                     *       */
+                     */
                     readonly value_id?: number;
                 }[];
             }[];
@@ -457,9 +460,11 @@ export interface operations {
                         readonly options?: readonly {
                             /** @description The ID of the variant option or modifier option that is being configured for this product. */
                             readonly option_id?: number;
-                            /** @description The ID of the value matching the option that's being configured.
+                            /**
+                             * @description The ID of the value matching the option that's being configured.
                              *
-                             *     **Note:*** This must be the ID, not the value. */
+                             *     **Note:*** This must be the ID, not the value.
+                             */
                             readonly value_id?: number;
                         }[];
                     }[];
@@ -473,7 +478,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "product_id": 1,
@@ -577,7 +583,8 @@ export interface operations {
                      *         }
                      *       ],
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly (components["schemas"]["ReferenceRequest"] & {
                             readonly reference_request?: components["schemas"]["ReferenceRequest"];

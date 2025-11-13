@@ -55,14 +55,11 @@ export interface components {
         readonly ErrorResponse: components["schemas"]["BaseError"] & {
             readonly errors?: components["schemas"]["DetailedErrors"];
         };
-        /** @description Error payload for the BigCommerce API.
-         *      */
+        /** @description Error payload for the BigCommerce API. */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -164,8 +161,7 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description An array of email templates on the store
-             *      */
+            /** @description An array of email templates on the store */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;

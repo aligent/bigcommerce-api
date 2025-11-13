@@ -31,7 +31,6 @@ export interface paths {
          *
          *     > #### Note
          *     > * Substitute your storefront domain for `yourstore.example.com`.
-         *
          */
         readonly post: operations["postCookieConsent"];
     };

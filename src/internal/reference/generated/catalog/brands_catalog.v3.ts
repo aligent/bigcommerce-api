@@ -44,8 +44,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the brand to which the resource belongs.
-                 *      */
+                /** @description The ID of the brand to which the resource belongs. */
                 readonly brand_id: components["parameters"]["BrandIdPath"];
             };
             readonly cookie?: never;
@@ -76,8 +75,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the brand to which the resource belongs.
-                 *      */
+                /** @description The ID of the brand to which the resource belongs. */
                 readonly brand_id: components["parameters"]["BrandIdPath"];
             };
             readonly cookie?: never;
@@ -103,11 +101,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the brand to which the resource belongs.
-                 *      */
+                /** @description The ID of the brand to which the resource belongs. */
                 readonly brand_id: components["parameters"]["BrandIdPath"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdPath"];
             };
             readonly cookie?: never;
@@ -150,8 +146,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the brand to which the resource belongs.
-                 *      */
+                /** @description The ID of the brand to which the resource belongs. */
                 readonly brand_id: components["parameters"]["BrandIdPath"];
             };
             readonly cookie?: never;
@@ -225,13 +220,11 @@ export interface components {
             readonly name: string;
             /**
              * @description The title shown in the browser while viewing the brand.
-             *
              * @example Common Good
              */
             readonly page_title?: string;
             /**
              * @description An array of meta keywords to include in the HTML.
-             *
              * @example [
              *       "modern",
              *       "clean",
@@ -241,19 +234,16 @@ export interface components {
             readonly meta_keywords?: readonly string[];
             /**
              * @description A meta description to include.
-             *
              * @example Common Good is a modern brand.
              */
             readonly meta_description?: string;
             /**
              * @description A comma-separated list of keywords that can be used to locate this brand.
-             *
              * @example kitchen, laundry, cart, storage
              */
             readonly search_keywords?: string;
             /**
              * @description Image URL used for this category on the storefront. Images can be uploaded via form file post to `/brands/{brandId}/image`, or by providing a publicly accessible URL in this field.
-             *
              * @example https://cdn8.bigcommerce.com/s-12345/product_images/k/your-image-name.png
              */
             readonly image_url?: string;
@@ -266,19 +256,16 @@ export interface components {
         readonly metafield_Base: {
             /**
              * @description The name of the field, for example: `location_id`, `color`. Required for POST.
-             *
              * @example Location
              */
             readonly key: string;
             /**
              * @description The value of the field, for example: `1`, `blue`. Required for POST.
-             *
              * @example 4HG
              */
             readonly value: string;
             /**
              * @description Namespace for the metafield, for organizational purposes. This is set by the developer. Required for POST.
-             *
              * @example Warehouse Locations
              */
             readonly namespace: string;
@@ -297,7 +284,6 @@ export interface components {
             readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Description for the metafields.
-             *
              * @example Location in the warehouse
              */
             readonly description?: string;
@@ -307,11 +293,9 @@ export interface components {
          * @description The custom URL for the product on the storefront.
          */
         readonly customUrl_Full: {
-            /** @description Product URL on the storefront.
-             *      */
+            /** @description Product URL on the storefront. */
             readonly url?: string;
-            /** @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
-             *      */
+            /** @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides). */
             readonly is_customized?: boolean;
         };
         /**
@@ -328,48 +312,39 @@ export interface components {
         readonly pagination_Full: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 36
              */
             readonly total?: number;
             /**
              * @description Total number of items in the collection response.
-             *
              * @example 36
              */
             readonly count?: number;
             /**
              * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-             *
              * @example 50
              */
             readonly per_page?: number;
             /**
              * @description The page you are currently on within the collection.
-             *
              * @example 1
              */
             readonly current_page?: number;
             /**
              * @description The total number of pages in the collection.
-             *
              * @example 1
              */
             readonly total_pages?: number;
-            /** @description Pagination links for the previous and next parts of the whole collection.
-             *      */
+            /** @description Pagination links for the previous and next parts of the whole collection. */
             readonly links?: {
-                /** @description Link to the previous page returned in the response.
-                 *      */
+                /** @description Link to the previous page returned in the response. */
                 readonly previous?: string;
                 /**
                  * @description Link to the current page returned in the response.
-                 *
                  * @example ?page=1&limit=50
                  */
                 readonly current?: string;
-                /** @description Link to the next page returned in the response.
-                 *      */
+                /** @description Link to the next page returned in the response. */
                 readonly next?: string;
             };
         };
@@ -383,14 +358,11 @@ export interface components {
         /**
          * error_Base
          * @description Error payload for the BigCommerce API.
-         *
          */
         readonly error_Base: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
         };
@@ -404,28 +376,24 @@ export interface components {
         } & components["schemas"]["metafield_Base"] & {
             /**
              * @description The type of resource with which the metafield is associated.
-             *
              * @example product
              * @enum {string}
              */
             readonly resource_type?: "category" | "brand" | "product" | "variant";
             /**
              * @description The ID of the resource with which the metafield is associated.
-             *
              * @example 111
              */
             readonly resource_id?: number;
             /**
              * Format: date-time
              * @description Date and time of the metafieldʼs creation.
-             *
              * @example 2018-05-07T20:14:17+00:00
              */
             readonly date_created?: string;
             /**
              * Format: date-time
              * @description Date and time when the metafield was last updated.
-             *
              * @example 2018-05-07T20:14:17+00:00
              */
             readonly date_modified?: string;
@@ -435,8 +403,7 @@ export interface components {
              */
             readonly owner_client_id?: string;
         };
-        /** @description Common Metafield properties.
-         *      */
+        /** @description Common Metafield properties. */
         readonly Metafield: {
             /**
              * @description Determines the visibility and writeability of the field by other API consumers.
@@ -447,44 +414,37 @@ export interface components {
              *     | `write` | Open for reading and writing by other API consumers. |
              *     | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
              *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
-             *
              * @enum {string}
              */
             readonly permission_set?: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace?: string;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key?: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value?: string;
             /**
              * @description Description for the metafields.
-             *
              * @example order
              */
             readonly description?: string;
             /**
              * @description The type of resource with which the metafield is associated.
-             *
              * @example cart
              * @enum {string}
              */
             readonly resource_type?: "brand" | "product" | "variant" | "category" | "cart" | "channel" | "location" | "order" | "customer";
             /**
              * @description The unique identifier for the resource with which the metafield is associated.
-             *
              * @example 424242
              */
             readonly resource_id?: number;
@@ -508,14 +468,12 @@ export interface components {
              */
             readonly owner_client_id?: string;
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponse: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             readonly meta?: components["schemas"]["CollectionMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponse_POST_PUT: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             /**
@@ -525,31 +483,32 @@ export interface components {
             readonly errors?: readonly unknown[];
             readonly meta?: components["schemas"]["CollectionMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponsePartialSuccess_POST_PUT: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             readonly errors?: readonly components["schemas"]["Error"][];
             readonly meta?: components["schemas"]["WriteCollectionPartialSuccessMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponsePartialSuccess_DELETE: {
-            /** @example [
+            /**
+             * @example [
              *       123
-             *     ] */
+             *     ]
+             */
             readonly data?: readonly number[];
             readonly errors?: readonly components["schemas"]["Error"][];
             readonly meta?: components["schemas"]["WriteCollectionPartialSuccessMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionDeleteResponseSuccess: {
-            /** @example [
+            /**
+             * @example [
              *       123,
              *       124,
              *       125
-             *     ] */
+             *     ]
+             */
             readonly data?: readonly number[];
             /**
              * @description Empty for 200 responses.
@@ -565,19 +524,16 @@ export interface components {
         readonly WriteCollectionPartialSuccessMeta: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 3
              */
             readonly total?: number;
             /**
              * @description Total number of items that were successfully deleted.
-             *
              * @example 1
              */
             readonly success?: number;
             /**
              * @description Total number of items that failed to be deleted.
-             *
              * @example 2
              */
             readonly failed?: number;
@@ -589,47 +545,39 @@ export interface components {
         readonly WriteCollectionSuccessMeta: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 3
              */
             readonly total?: number;
             /**
              * @description Total number of items that were successfully deleted.
-             *
              * @example 3
              */
             readonly success?: number;
             /**
              * @description Total number of items that failed to be deleted.
-             *
              * @example 0
              */
             readonly failed?: number;
         };
         /**
          * @description Total number of items in the result set.
-         *
          * @example 3
          */
         readonly Total: number;
-        /** @description Error response payload for the BigCommerce API.
-         *      */
+        /** @description Error response payload for the BigCommerce API. */
         readonly Error: {
             /**
              * @description The HTTP status code for the error.
-             *
              * @example 422
              */
             readonly status?: number;
             /**
              * @description The error title.
-             *
              * @example Bulk operation has failed
              */
             readonly title?: string;
             /**
              * @description The error type.
-             *
              * @example https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
              */
             readonly type?: string;
@@ -637,7 +585,6 @@ export interface components {
         };
         /**
          * @description Error detail response payload for the BigCommerce API.
-         *
          * @example {
          *       "1": "Unauthorized to delete",
          *       "2": "Metafield does not exist"
@@ -658,56 +605,46 @@ export interface components {
             readonly pagination?: {
                 /**
                  * @description Total number of items in the result set.
-                 *
                  * @example 36
                  */
                 readonly total?: number;
                 /**
                  * @description Total number of items in the collection response.
-                 *
                  * @example 36
                  */
                 readonly count?: number;
                 /**
                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                 *
                  * @example 50
                  */
                 readonly per_page?: number;
                 /**
                  * @description The page you are currently on within the collection.
-                 *
                  * @example 1
                  */
                 readonly current_page?: number;
                 /**
                  * @description The total number of pages in the collection.
-                 *
                  * @example 1
                  */
                 readonly total_pages?: number;
-                /** @description Pagination links for the previous and next parts of the whole collection.
-                 *      */
+                /** @description Pagination links for the previous and next parts of the whole collection. */
                 readonly links?: {
-                    /** @description Link to the previous page returned in the response.
-                     *      */
+                    /** @description Link to the previous page returned in the response. */
                     readonly previous?: string;
                     /**
                      * @description Link to the current page returned in the response.
-                     *
                      * @example ?page=1&limit=50
                      */
                     readonly current?: string;
-                    /** @description Link to the next page returned in the response.
-                     *      */
+                    /** @description Link to the next page returned in the response. */
                     readonly next?: string;
                 };
             };
         } & {
             readonly [key: string]: unknown;
         };
-        /** @description Common Metafield properties.
-         *      */
+        /** @description Common Metafield properties. */
         readonly MetafieldBase_Post: {
             /**
              * @description Determines the visibility and writeability of the field by other API consumers.
@@ -718,47 +655,39 @@ export interface components {
              *     | `write` | Open for reading and writing by other API consumers. |
              *     | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
              *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
-             *
              * @enum {string}
              */
             readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace: string;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value: string;
             /**
              * @description Description for the metafields.
-             *
              * @example Name of Staff Member
              */
             readonly description?: string;
         };
-        /** @description The model for a POST to create metafield.
-         *      */
+        /** @description The model for a POST to create metafield. */
         readonly MetafieldPost: components["schemas"]["MetafieldBase_Post"] & {
             /**
              * @description The ID for the resource with which the metafield is associated.
-             *
              * @example 42
              */
             readonly resource_id: number;
         };
-        /** @description Common Metafield properties.
-         *      */
+        /** @description Common Metafield properties. */
         readonly MetafieldBase_Put: {
             /**
              * @description Determines the visibility and writeability of the field by other API consumers.
@@ -769,31 +698,26 @@ export interface components {
              *     | `write` | Open for reading and writing by other API consumers. |
              *     | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
              *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
-             *
              * @enum {string}
              */
             readonly permission_set?: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace?: string;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key?: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value?: string;
             /**
              * @description Description for the metafields.
-             *
              * @example Name of Staff Member
              */
             readonly description?: string;
@@ -885,14 +809,11 @@ export interface components {
         };
     };
     parameters: {
-        /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-         *      */
+        /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
         readonly DirectionQuery: "asc" | "desc";
-        /** @description The ID of the brand to which the resource belongs.
-         *      */
+        /** @description The ID of the brand to which the resource belongs. */
         readonly BrandIdPath: number;
-        /** @description The ID of the `Metafield`.
-         *      */
+        /** @description The ID of the `Metafield`. */
         readonly MetafieldIdPath: number;
         /** @description Filter based on a metafieldʼs key. */
         readonly MetafieldKeyParam: string;
@@ -902,23 +823,17 @@ export interface components {
         readonly MetafieldNamespaceParam: string;
         /** @description Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter. */
         readonly MetafieldNamespaceInParam: readonly string[];
-        /** @description 'Query parameter that lets you filter by the minimum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the minimum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date.' */
         readonly date_created_min: string;
-        /** @description 'Query parameter that lets you filter by the maximum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created before this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the maximum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created before this date.' */
         readonly date_created_max: string;
-        /** @description 'Query parameter that lets you filter by the maximum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the maximum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date.' */
         readonly date_modified_max: string;
-        /** @description 'Query parameter that lets you filter by the minimum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified after this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the minimum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified after this date.' */
         readonly date_modified_min: string;
-        /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-         *      */
+        /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
         readonly DirectionParam: "asc" | "desc";
-        /** @description Filter items by ID.
-         *      */
+        /** @description Filter items by ID. */
         readonly IdQuery: number;
         readonly IdInQuery: readonly number[];
         readonly IdNotInQuery: readonly number[];
@@ -926,16 +841,13 @@ export interface components {
         readonly IdMaxQuery: readonly number[];
         readonly IdGreaterQuery: readonly number[];
         readonly IdLessQuery: readonly number[];
-        /** @description Filter items by name.
-         *      */
+        /** @description Filter items by name. */
         readonly NameQuery: string;
-        /** @description Filter items by name.
-         *      */
+        /** @description Filter items by name. */
         readonly NameRequired: string;
         /** @description Filter items by part of a name. For example, `name:like=new` returns brands with names that include `new`. */
         readonly NameLikeQuery: string;
-        /** @description Filter items by page_title.
-         *      */
+        /** @description Filter items by page_title. */
         readonly PageTitleQuery: string;
         /** @description Specifies the page number in a limited (paginated) list of products. */
         readonly PageQuery: number;
@@ -963,8 +875,7 @@ export interface operations {
     readonly getBrands: {
         readonly parameters: {
             readonly query?: {
-                /** @description Filter items by ID.
-                 *      */
+                /** @description Filter items by ID. */
                 readonly id?: components["parameters"]["IdQuery"];
                 readonly "id:in"?: components["parameters"]["IdInQuery"];
                 readonly "id:not_in"?: components["parameters"]["IdNotInQuery"];
@@ -972,13 +883,11 @@ export interface operations {
                 readonly "id:max"?: components["parameters"]["IdMaxQuery"];
                 readonly "id:greater"?: components["parameters"]["IdGreaterQuery"];
                 readonly "id:less"?: components["parameters"]["IdLessQuery"];
-                /** @description Filter items by name.
-                 *      */
+                /** @description Filter items by name. */
                 readonly name?: components["parameters"]["NameQuery"];
                 /** @description Filter items by part of a name. For example, `name:like=new` returns brands with names that include `new`. */
                 readonly "name:like"?: components["parameters"]["NameLikeQuery"];
-                /** @description Filter items by page_title.
-                 *      */
+                /** @description Filter items by page_title. */
                 readonly page_title?: components["parameters"]["PageTitleQuery"];
                 /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageQuery"];
@@ -990,8 +899,7 @@ export interface operations {
                 readonly exclude_fields?: components["parameters"]["ExcludeFieldsQuery"];
                 /** @description Field name to sort by. */
                 readonly sort?: components["parameters"]["SortQuery"];
-                /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-                 *      */
+                /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
                 readonly direction?: components["parameters"]["DirectionQuery"];
             };
             readonly header?: {
@@ -1008,7 +916,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 35,
@@ -1250,7 +1159,8 @@ export interface operations {
                      *           }
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["brand_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -1284,13 +1194,11 @@ export interface operations {
                     readonly name: string;
                     /**
                      * @description The title shown in the browser while viewing the brand.
-                     *
                      * @example Common Good
                      */
                     readonly page_title?: string;
                     /**
                      * @description An array of meta keywords to include in the HTML.
-                     *
                      * @example [
                      *       "modern",
                      *       "clean",
@@ -1300,19 +1208,16 @@ export interface operations {
                     readonly meta_keywords?: readonly string[];
                     /**
                      * @description A meta description to include.
-                     *
                      * @example Common Good is a modern brand.
                      */
                     readonly meta_description?: string;
                     /**
                      * @description A comma-separated list of keywords that can be used to locate this brand.
-                     *
                      * @example kitchen, laundry, cart, storage
                      */
                     readonly search_keywords?: string;
                     /**
                      * @description Image URL used for this category on the storefront. Images can be uploaded via form file post to `/brands/{brandId}/image`, or by providing a publicly accessible URL in this field.
-                     *
                      * @example https://cdn8.bigcommerce.com/s-12345/product_images/k/your-image-name.png
                      */
                     readonly image_url?: string;
@@ -1323,13 +1228,11 @@ export interface operations {
                     readonly custom_url?: {
                         /**
                          * @description Brand URL on the storefront.
-                         *
                          * @example /shoes
                          */
                         readonly url?: string;
                         /**
                          * @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
-                         *
                          * @example true
                          */
                         readonly is_customized?: boolean;
@@ -1343,7 +1246,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 50,
                      *         "name": "Common Good",
@@ -1361,7 +1265,8 @@ export interface operations {
                      *         }
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /**
                          * Brand
@@ -1378,13 +1283,11 @@ export interface operations {
                             readonly name?: string;
                             /**
                              * @description The title shown in the browser while viewing the brand.
-                             *
                              * @example Common Good
                              */
                             readonly page_title?: string;
                             /**
                              * @description An array of meta keywords to include in the HTML.
-                             *
                              * @example [
                              *       "modern",
                              *       "clean",
@@ -1394,19 +1297,16 @@ export interface operations {
                             readonly meta_keywords?: readonly string[];
                             /**
                              * @description A meta description to include.
-                             *
                              * @example Common Good is a modern brand.
                              */
                             readonly meta_description?: string;
                             /**
                              * @description A comma-separated list of keywords that can be used to locate this brand.
-                             *
                              * @example kitchen, laundry, cart, storage
                              */
                             readonly search_keywords?: string;
                             /**
                              * @description Image URL used for this category on the storefront. Images can be uploaded via form file post to `/brands/{brandId}/image`, or by providing a publicly accessible URL in this field.
-                             *
                              * @example https://cdn8.bigcommerce.com/s-12345/product_images/k/your-image-name.png
                              */
                             readonly image_url?: string;
@@ -1417,13 +1317,11 @@ export interface operations {
                             readonly custom_url?: {
                                 /**
                                  * @description Brand URL on the storefront.
-                                 *
                                  * @example /shoes
                                  */
                                 readonly url?: string;
                                 /**
                                  * @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
-                                 *
                                  * @example true
                                  */
                                 readonly is_customized?: boolean;
@@ -1448,11 +1346,9 @@ export interface operations {
                         readonly errors?: {
                             readonly [key: string]: unknown;
                         };
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -1469,11 +1365,9 @@ export interface operations {
                         readonly errors?: {
                             readonly [key: string]: unknown;
                         };
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -1484,11 +1378,9 @@ export interface operations {
     readonly deleteBrands: {
         readonly parameters: {
             readonly query: {
-                /** @description Filter items by name.
-                 *      */
+                /** @description Filter items by name. */
                 readonly name: components["parameters"]["NameRequired"];
-                /** @description Filter items by page_title.
-                 *      */
+                /** @description Filter items by page_title. */
                 readonly page_title?: components["parameters"]["PageTitleQuery"];
             };
             readonly header?: {
@@ -1524,8 +1416,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the brand to which the resource belongs.
-                 *      */
+                /** @description The ID of the brand to which the resource belongs. */
                 readonly brand_id: components["parameters"]["BrandIdPath"];
             };
             readonly cookie?: never;
@@ -1537,7 +1428,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 50,
                      *         "name": "Common Good",
@@ -1555,7 +1447,8 @@ export interface operations {
                      *         }
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["brand_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -1565,16 +1458,14 @@ export interface operations {
             readonly 207: components["responses"]["MultiStatus"];
             readonly 401: components["responses"]["UnauthorizedError"];
             readonly 403: components["responses"]["Error"];
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1597,8 +1488,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the brand to which the resource belongs.
-                 *      */
+                /** @description The ID of the brand to which the resource belongs. */
                 readonly brand_id: components["parameters"]["BrandIdPath"];
             };
             readonly cookie?: never;
@@ -1616,13 +1506,11 @@ export interface operations {
                     readonly name: string;
                     /**
                      * @description The title shown in the browser while viewing the brand.
-                     *
                      * @example Common Good
                      */
                     readonly page_title?: string;
                     /**
                      * @description An array of meta keywords to include in the HTML.
-                     *
                      * @example [
                      *       "modern",
                      *       "clean",
@@ -1632,19 +1520,16 @@ export interface operations {
                     readonly meta_keywords?: readonly string[];
                     /**
                      * @description A meta description to include.
-                     *
                      * @example Common Good is a modern brand.
                      */
                     readonly meta_description?: string;
                     /**
                      * @description A comma-separated list of keywords that can be used to locate this brand.
-                     *
                      * @example kitchen, laundry, cart, storage
                      */
                     readonly search_keywords?: string;
                     /**
                      * @description Image URL used for this category on the storefront. Images can be uploaded via form file post to `/brands/{brandId}/image`, or by providing a publicly accessible URL in this field.
-                     *
                      * @example https://cdn8.bigcommerce.com/s-12345/product_images/k/your-image-name.png
                      */
                     readonly image_url?: string;
@@ -1655,13 +1540,11 @@ export interface operations {
                     readonly custom_url?: {
                         /**
                          * @description Brand URL on the storefront.
-                         *
                          * @example /shoes
                          */
                         readonly url?: string;
                         /**
                          * @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
-                         *
                          * @example true
                          */
                         readonly is_customized?: boolean;
@@ -1675,7 +1558,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 50,
                      *         "name": "Common Good",
@@ -1693,7 +1577,8 @@ export interface operations {
                      *         }
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /**
                          * Brand
@@ -1710,13 +1595,11 @@ export interface operations {
                             readonly name: string;
                             /**
                              * @description The title shown in the browser while viewing the brand.
-                             *
                              * @example Common Good
                              */
                             readonly page_title?: string;
                             /**
                              * @description An array of meta keywords to include in the HTML.
-                             *
                              * @example [
                              *       "modern",
                              *       "clean",
@@ -1726,19 +1609,16 @@ export interface operations {
                             readonly meta_keywords?: readonly string[];
                             /**
                              * @description A meta description to include.
-                             *
                              * @example Common Good is a modern brand.
                              */
                             readonly meta_description?: string;
                             /**
                              * @description A comma-separated list of keywords that can be used to locate this brand.
-                             *
                              * @example kitchen, laundry, cart, storage
                              */
                             readonly search_keywords?: string;
                             /**
                              * @description Image URL used for this category on the storefront. Images can be uploaded via form file post to `/brands/{brandId}/image`, or by providing a publicly accessible URL in this field.
-                             *
                              * @example https://cdn8.bigcommerce.com/s-12345/product_images/k/your-image-name.png
                              */
                             readonly image_url?: string;
@@ -1749,13 +1629,11 @@ export interface operations {
                             readonly custom_url?: {
                                 /**
                                  * @description Brand URL on the storefront.
-                                 *
                                  * @example /shoes
                                  */
                                 readonly url?: string;
                                 /**
                                  * @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
-                                 *
                                  * @example true
                                  */
                                 readonly is_customized?: boolean;
@@ -1768,16 +1646,14 @@ export interface operations {
             readonly 207: components["responses"]["MultiStatus"];
             readonly 401: components["responses"]["UnauthorizedError"];
             readonly 403: components["responses"]["Error"];
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1785,8 +1661,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `Brand` was in conflict with another product. This is the result of duplicate unique values, such as `name`.
-             *      */
+            /** @description The `Brand` was in conflict with another product. This is the result of duplicate unique values, such as `name`. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1797,18 +1672,15 @@ export interface operations {
                         readonly errors?: {
                             readonly [key: string]: unknown;
                         };
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description The `Brand` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Brand` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1819,11 +1691,9 @@ export interface operations {
                         readonly errors?: {
                             readonly [key: string]: unknown;
                         };
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -1839,8 +1709,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the brand to which the resource belongs.
-                 *      */
+                /** @description The ID of the brand to which the resource belongs. */
                 readonly brand_id: components["parameters"]["BrandIdPath"];
             };
             readonly cookie?: never;
@@ -1861,8 +1730,7 @@ export interface operations {
     readonly getBrandMetafields: {
         readonly parameters: {
             readonly query?: {
-                /** @description Filter items by ID.
-                 *      */
+                /** @description Filter items by ID. */
                 readonly id?: components["parameters"]["IdQuery"];
                 readonly "id:in"?: components["parameters"]["IdInQuery"];
                 readonly "id:not_in"?: components["parameters"]["IdNotInQuery"];
@@ -1888,8 +1756,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the brand to which the resource belongs.
-                 *      */
+                /** @description The ID of the brand to which the resource belongs. */
                 readonly brand_id: components["parameters"]["BrandIdPath"];
             };
             readonly cookie?: never;
@@ -1901,7 +1768,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 6,
@@ -1942,7 +1810,8 @@ export interface operations {
                      *           }
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["metafield_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -1961,8 +1830,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the brand to which the resource belongs.
-                 *      */
+                /** @description The ID of the brand to which the resource belongs. */
                 readonly brand_id: components["parameters"]["BrandIdPath"];
             };
             readonly cookie?: never;
@@ -1994,12 +1862,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2008,8 +1878,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique key combination of the appʼs client id, namespace, key, resource_type, and resource_id.
-             *      */
+            /** @description The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique key combination of the appʼs client id, namespace, key, resource_type, and resource_id. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2021,18 +1890,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2044,11 +1910,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -2069,11 +1933,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the brand to which the resource belongs.
-                 *      */
+                /** @description The ID of the brand to which the resource belongs. */
                 readonly brand_id: components["parameters"]["BrandIdPath"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdPath"];
             };
             readonly cookie?: never;
@@ -2085,7 +1947,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 4,
                      *         "key": "location_id",
@@ -2100,23 +1963,22 @@ export interface operations {
                      *         "owner_client_id": "e8o0nm9ujew7byzu6x5dwjqe2rya2fv"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2137,11 +1999,9 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the brand to which the resource belongs.
-                 *      */
+                /** @description The ID of the brand to which the resource belongs. */
                 readonly brand_id: components["parameters"]["BrandIdPath"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdPath"];
             };
             readonly cookie?: never;
@@ -2157,7 +2017,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 4,
                      *         "key": "location_id",
@@ -2171,7 +2032,8 @@ export interface operations {
                      *         "date_modified": "2021-08-06T19:15:35+00:00"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -2184,12 +2046,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2198,16 +2062,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2226,11 +2088,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the brand to which the resource belongs.
-                 *      */
+                /** @description The ID of the brand to which the resource belongs. */
                 readonly brand_id: components["parameters"]["BrandIdPath"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdPath"];
             };
             readonly cookie?: never;
@@ -2243,16 +2103,14 @@ export interface operations {
                 };
                 content?: never;
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2271,8 +2129,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the brand to which the resource belongs.
-                 *      */
+                /** @description The ID of the brand to which the resource belongs. */
                 readonly brand_id: components["parameters"]["BrandIdPath"];
             };
             readonly cookie?: never;
@@ -2291,12 +2148,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/product_images/k/group_1545334669__76009.png"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: {
                             readonly image_url?: string;
@@ -2321,8 +2180,7 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2343,11 +2201,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -2363,8 +2219,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the brand to which the resource belongs.
-                 *      */
+                /** @description The ID of the brand to which the resource belongs. */
                 readonly brand_id: components["parameters"]["BrandIdPath"];
             };
             readonly cookie?: never;
@@ -2394,8 +2249,7 @@ export interface operations {
                 readonly namespace?: components["parameters"]["MetafieldNamespaceParam"];
                 /** @description Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter. */
                 readonly "namespace:in"?: components["parameters"]["MetafieldNamespaceInParam"];
-                /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-                 *      */
+                /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
                 readonly direction?: components["parameters"]["DirectionParam"];
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
                 readonly include_fields?: components["parameters"]["IncludeFieldsParamMetafields"];
@@ -2409,8 +2263,7 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description List of `Metafield` objects.
-             *      */
+            /** @description List of `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2452,7 +2305,6 @@ export interface operations {
                 readonly "application/json": readonly (components["schemas"]["MetafieldBase_Put"] & {
                     /**
                      * @description The ID of metafield to update.
-                     *
                      * @example 42
                      */
                     readonly id: number;
@@ -2460,8 +2312,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description List of updated `Metafield` objects.
-             *      */
+            /** @description List of updated `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2476,12 +2327,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "errors": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2524,7 +2377,6 @@ export interface operations {
                 readonly "application/json": readonly (components["schemas"]["MetafieldBase_Post"] & {
                     /**
                      * @description The ID for the brand with which the metafield is associated.
-                     *
                      * @example 42
                      */
                     readonly resource_id: number;
@@ -2532,8 +2384,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description List of created `Metafield` objects.
-             *      */
+            /** @description List of created `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2548,12 +2399,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2562,8 +2415,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields creation with partial success.
-             *      */
+            /** @description Response object for metafields creation with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2591,8 +2443,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description Response object for metafields deletion with success.
-             *      */
+            /** @description Response object for metafields deletion with success. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2607,12 +2458,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2621,8 +2474,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields deletion with partial success.
-             *      */
+            /** @description Response object for metafields deletion with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;

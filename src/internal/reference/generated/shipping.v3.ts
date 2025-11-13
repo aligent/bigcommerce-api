@@ -321,9 +321,11 @@ export interface components {
                 readonly "application/json": components["schemas"]["error_Full"];
             };
         };
-        /** @description If this occurs, you should retry the request. If you are unable to successfully make a request, please check the [BigCommerce system status](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up.
+        /**
+         * @description If this occurs, you should retry the request. If you are unable to successfully make a request, please check the [BigCommerce system status](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up.
          *
-         *     Occurs when the store is down for maintenance, is being upgraded to a new version, or is suspended for administrative or billing reasons. */
+         *     Occurs when the store is down for maintenance, is being upgraded to a new version, or is suspended for administrative or billing reasons.
+         */
         readonly "503_ServiceUnavailable": {
             headers: {
                 readonly [name: string]: unknown;
@@ -536,12 +538,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -556,11 +560,13 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 422,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -636,12 +642,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -656,11 +664,13 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 422,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;

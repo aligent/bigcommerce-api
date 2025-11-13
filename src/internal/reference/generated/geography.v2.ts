@@ -223,7 +223,8 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
-                /** @example [
+                /**
+                 * @example [
                  *       {
                  *         "id": 1,
                  *         "country": "Afghanistan",
@@ -244,7 +245,8 @@ export interface components {
                  *           "resource": "/countries/2/states"
                  *         }
                  *       }
-                 *     ] */
+                 *     ]
+                 */
                 readonly "application/json": readonly components["schemas"]["country_Full"][];
             };
         };

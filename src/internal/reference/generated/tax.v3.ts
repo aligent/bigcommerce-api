@@ -23,7 +23,6 @@ export interface paths {
          *
          *     > #### Note
          *     > * Requires **read** permissions on the **Information and Settings** scope.
-         *
          */
         readonly get: operations["getTaxProviderConnection"];
         /**
@@ -47,7 +46,6 @@ export interface paths {
          *     > #### Note
          *     > * This operation will be logged in [Store Logs](https://support.bigcommerce.com/s/article/Using-Store-Logs) under **Staff Actions**.
          *     > * Requires **write** permissions on the **Information and Settings** [scope](/docs/start/authentication/api-accounts#oauth-scopes).
-         *
          */
         readonly delete: operations["deleteTaxProviderConnection"];
     };
@@ -60,9 +58,11 @@ export interface components {
             readonly data?: {
                 /** @description Identifies a unique account on the external tax provider infrastructure. May be used to reconcile the two platforms. */
                 readonly username?: string;
-                /** @description Describes whether the stored credentials are considered complete and configured, ready to be used for Tax Provider API requests.
+                /**
+                 * @description Describes whether the stored credentials are considered complete and configured, ready to be used for Tax Provider API requests.
                  *
-                 *     Merchants may enable any **configured** tax provider for storefront tax quotation. */
+                 *     Merchants may enable any **configured** tax provider for storefront tax quotation.
+                 */
                 readonly configured?: boolean;
                 /** @description The countries and subdivisions in which this tax provider connection is active. */
                 readonly target?: {

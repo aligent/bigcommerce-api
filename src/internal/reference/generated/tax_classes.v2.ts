@@ -103,7 +103,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example [
+                    /**
+                     * @example [
                      *       {
                      *         "id": "1",
                      *         "name": "Non-Taxable Products",
@@ -122,7 +123,8 @@ export interface operations {
                      *         "created_at": "1973-01-20T21:34:57.903+00:00",
                      *         "updated_at": "1990-12-30T00:29:23.515+00:00"
                      *       }
-                     *     ] */
+                     *     ]
+                     */
                     readonly "application/json": readonly components["schemas"]["taxClass_Full"][];
                 };
             };
@@ -148,12 +150,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": "1",
                      *       "name": "Shipping",
                      *       "created_at": "1973-01-20T21:34:57.903+00:00",
                      *       "updated_at": "1990-12-30T00:29:23.515+00:00"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["taxClass_Full"];
                 };
             };

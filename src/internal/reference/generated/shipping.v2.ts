@@ -1976,7 +1976,8 @@ export interface operations {
         };
         readonly requestBody: {
             readonly content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "name": "Per Order",
                  *       "type": "perorder",
                  *       "settings": {
@@ -1989,7 +1990,8 @@ export interface operations {
                  *       "channel_ids": [
                  *         1
                  *       ]
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": components["schemas"]["shippingMethod_Base"];
             };
         };
@@ -2097,7 +2099,8 @@ export interface operations {
         };
         readonly requestBody: {
             readonly content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "settings": {
                  *         "rate": 11
                  *       },
@@ -2108,7 +2111,8 @@ export interface operations {
                  *         2,
                  *         3
                  *       ]
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": components["schemas"]["shippingMethod_Base"];
             };
         };
@@ -2163,13 +2167,15 @@ export interface operations {
         /** @description The request body will vary by carrier. See [Create a Carrier Connection](/docs/rest-management/shipping-v2/shipping-carrier#create-a-carrier-connection). */
         readonly requestBody?: {
             readonly content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "carrier_id": "endicia",
                  *       "connection": {
                  *         "account_id": "yourEndiciaAccountId",
                  *         "pass_phrase": "yourEndiciaPassphrase"
                  *       }
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": components["schemas"]["carrierConnection"];
             };
         };
@@ -2181,14 +2187,16 @@ export interface operations {
                 };
                 content?: never;
             };
-            /** @description If a required field is not provided, the request will return a 400 response.
+            /**
+             * @description If a required field is not provided, the request will return a 400 response.
              *
              *     [
              *         {
              *             "status": 400,
              *             "message": "Required fields missing [key]"
              *         }
-             *     ] */
+             *     ]
+             */
             readonly 400: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2213,13 +2221,15 @@ export interface operations {
         };
         readonly requestBody?: {
             readonly content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "carrier_id": "auspost",
                  *       "connection": {
                  *         "auth_key": "yourAusPostAuthKey",
                  *         "test_mode": false
                  *       }
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": components["schemas"]["carrierConnection"];
             };
         };
@@ -2231,7 +2241,8 @@ export interface operations {
                 };
                 content?: never;
             };
-            /** @description Invalid requests will return a 400 response.
+            /**
+             * @description Invalid requests will return a 400 response.
              *
              *         [
              *           {
@@ -2248,7 +2259,7 @@ export interface operations {
              *             "message": "Required fields missing [key]"
              *           }
              *         ]
-             *      */
+             */
             readonly 400: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2271,9 +2282,11 @@ export interface operations {
         };
         readonly requestBody: {
             readonly content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "carrier_id": "fedex"
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": {
                     /** @example fedex */
                     readonly carrier_id?: string;
@@ -2288,14 +2301,16 @@ export interface operations {
                 };
                 content?: never;
             };
-            /** @description If a required field is not provided, the request will return a 400 response.
+            /**
+             * @description If a required field is not provided, the request will return a 400 response.
              *
              *     [
              *         {
              *             "status": 400,
              *             "message": "Required fields missing [key]"
              *         }
-             *     ] */
+             *     ]
+             */
             readonly 400: {
                 headers: {
                     readonly [name: string]: unknown;

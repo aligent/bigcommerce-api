@@ -73,14 +73,11 @@ export interface components {
         readonly DetailedErrors: {
             readonly [key: string]: string;
         };
-        /** @description Error payload for the BigCommerce API.
-         *      */
+        /** @description Error payload for the BigCommerce API. */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -121,7 +118,7 @@ export interface components {
         readonly IdInQuery: readonly number[];
         /** @description Return results or act upon only template associations in the specified channel. */
         readonly ChannelIdQuery: number;
-        /** @description A comma-separated list of entity IDs to return or act upon. Must be used together with the `type` filter. Currently, all supported entities have integer-type IDs.  */
+        /** @description A comma-separated list of entity IDs to return or act upon. Must be used together with the `type` filter. Currently, all supported entities have integer-type IDs. */
         readonly EntityIdInQuery: readonly number[];
         /** @description Filter associations by type. */
         readonly TypeQuery: "product" | "category" | "brand" | "page";
@@ -143,7 +140,7 @@ export interface operations {
             readonly query?: {
                 /** @description Return results or act upon only template associations in the specified channel. */
                 readonly channel_id?: components["parameters"]["ChannelIdQuery"];
-                /** @description A comma-separated list of entity IDs to return or act upon. Must be used together with the `type` filter. Currently, all supported entities have integer-type IDs.  */
+                /** @description A comma-separated list of entity IDs to return or act upon. Must be used together with the `type` filter. Currently, all supported entities have integer-type IDs. */
                 readonly "entity_id:in"?: components["parameters"]["EntityIdInQuery"];
                 /** @description Filter associations by type. */
                 readonly type?: components["parameters"]["TypeQuery"];
@@ -226,7 +223,7 @@ export interface operations {
                 readonly channel_id?: components["parameters"]["ChannelIdQuery"];
                 /** @description Filter associations by type. */
                 readonly type?: components["parameters"]["TypeQuery"];
-                /** @description A comma-separated list of entity IDs to return or act upon. Must be used together with the `type` filter. Currently, all supported entities have integer-type IDs.  */
+                /** @description A comma-separated list of entity IDs to return or act upon. Must be used together with the `type` filter. Currently, all supported entities have integer-type IDs. */
                 readonly "entity_id:in"?: components["parameters"]["EntityIdInQuery"];
             };
             readonly header?: {

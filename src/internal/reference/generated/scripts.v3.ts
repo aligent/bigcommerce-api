@@ -92,48 +92,39 @@ export interface components {
             readonly pagination?: {
                 /**
                  * @description Total number of items in the result set.
-                 *
                  * @example 36
                  */
                 readonly total?: number;
                 /**
                  * @description Total number of items in the collection response.
-                 *
                  * @example 36
                  */
                 readonly count?: number;
                 /**
                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                 *
                  * @example 50
                  */
                 readonly per_page?: number;
                 /**
                  * @description The page you are currently on within the collection.
-                 *
                  * @example 1
                  */
                 readonly current_page?: number;
                 /**
                  * @description The total number of pages in the collection.
-                 *
                  * @example 1
                  */
                 readonly total_pages?: number;
-                /** @description Pagination links for the previous and next parts of the whole collection.
-                 *      */
+                /** @description Pagination links for the previous and next parts of the whole collection. */
                 readonly links?: {
-                    /** @description Link to the previous page returned in the response.
-                     *      */
+                    /** @description Link to the previous page returned in the response. */
                     readonly previous?: string;
                     /**
                      * @description Link to the current page returned in the response.
-                     *
                      * @example ?page=1&limit=50
                      */
                     readonly current?: string;
-                    /** @description Link to the next page returned in the response.
-                     *      */
+                    /** @description Link to the next page returned in the response. */
                     readonly next?: string;
                 };
             };
@@ -145,48 +136,39 @@ export interface components {
         readonly Pagination: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 36
              */
             readonly total?: number;
             /**
              * @description Total number of items in the collection response.
-             *
              * @example 36
              */
             readonly count?: number;
             /**
              * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-             *
              * @example 50
              */
             readonly per_page?: number;
             /**
              * @description The page you are currently on within the collection.
-             *
              * @example 1
              */
             readonly current_page?: number;
             /**
              * @description The total number of pages in the collection.
-             *
              * @example 1
              */
             readonly total_pages?: number;
-            /** @description Pagination links for the previous and next parts of the whole collection.
-             *      */
+            /** @description Pagination links for the previous and next parts of the whole collection. */
             readonly links?: {
-                /** @description Link to the previous page returned in the response.
-                 *      */
+                /** @description Link to the previous page returned in the response. */
                 readonly previous?: string;
                 /**
                  * @description Link to the current page returned in the response.
-                 *
                  * @example ?page=1&limit=50
                  */
                 readonly current?: string;
-                /** @description Link to the next page returned in the response.
-                 *      */
+                /** @description Link to the next page returned in the response. */
                 readonly next?: string;
             };
         };
@@ -199,11 +181,9 @@ export interface components {
         };
         /** Error Response */
         readonly ErrorResponse: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -216,14 +196,11 @@ export interface components {
         /**
          * Base Error
          * @description Error payload for the BigCommerce API.
-         *
          */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -237,8 +214,7 @@ export interface components {
          * @description Error payload for the BigCommerce API.
          */
         readonly NotFound: {
-            /** @description 404 HTTP status code.
-             *      */
+            /** @description 404 HTTP status code. */
             readonly status?: number;
             /** @description The error title describing the particular error. */
             readonly title?: string;
@@ -252,7 +228,6 @@ export interface components {
         readonly NoContent: {
             /**
              * @description 204 HTTP status code.
-             *
              * @example 204
              */
             readonly status?: number;
@@ -372,7 +347,6 @@ export interface components {
              * @description Array of [Subresource integrity (SRI) hashes](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) for external SRC scripts that lets browsers validate the contents of the script.
              *
              *     The hash is the `integrity` attribute on the `script` tag. You can add up to five hashes for a script and generate them using any SRI standard-supported algorithm, including SHA-256, SHA-384, and SHA-512. If you provide more than one hash, they will all be added to the `integrity` attribute in order, separated by whitespace.
-             *
              * @example [
              *       "sha384-DgtwqxoPLKnJSER+TUmSPIpE6ZbVb2ZZwR241HHiqJipLiZQPN/JkKX5xxrEHUTt",
              *       "sha384-UiwrqEuzfCtJKLI+dXmPNOpE6ZvBh2IIqT371rJiqJxyKjZ6PP/JmSD5hdsEUPOl"
@@ -403,18 +377,15 @@ export interface components {
         readonly PageParam: number;
         /** @description Controls the number of items per page in a limited (paginated) list of products. */
         readonly LimitParam: number;
-        /** @description Scripts field name to sort by.
-         *      */
+        /** @description Scripts field name to sort by. */
         readonly ScriptsSortKeyParam: "name" | "description" | "date_created" | "date_modified";
-        /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-         *      */
+        /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
         readonly DirectionParam: "asc" | "desc";
         /** @description The identifier for a specific template. */
         readonly TemplateUUID: string;
         /** @description The template file, for example: `pages/home`. */
         readonly RequiredTemplateFile: string;
-        /** @description The query string associated with a widget's name and description.
-         *      */
+        /** @description The query string associated with a widget's name and description. */
         readonly QueryWidgetsParam: string;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
         readonly Accept: string;
@@ -434,11 +405,9 @@ export interface operations {
                 readonly page?: number;
                 /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: number;
-                /** @description Field name to sort the scripts by. Note: Since `id` increments when new scripts are added, you can use that field to sort by script create date.
-                 *      */
+                /** @description Field name to sort the scripts by. Note: Since `id` increments when new scripts are added, you can use that field to sort by script create date. */
                 readonly sort?: "name" | "description" | "date_created" | "date_modified";
-                /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-                 *      */
+                /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
                 readonly direction?: "asc" | "desc";
                 /** @description Filters list of scripts by the associated channel ID. */
                 readonly "channel_id:in"?: readonly number[];
@@ -463,19 +432,16 @@ export interface operations {
                     };
                 };
             };
-            /** @description This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                         readonly instance?: string;
@@ -514,19 +480,16 @@ export interface operations {
                     readonly "application/json": components["schemas"]["script_Response"];
                 };
             };
-            /** @description This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                         readonly instance?: string;
@@ -564,19 +527,16 @@ export interface operations {
                     readonly "application/json": components["schemas"]["script_Response"];
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                         readonly instance?: string;
@@ -588,19 +548,16 @@ export interface operations {
                     };
                 };
             };
-            /** @description This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                         readonly instance?: string;
@@ -643,19 +600,16 @@ export interface operations {
                     readonly "application/json": components["schemas"]["script_Response"];
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                         readonly instance?: string;
@@ -667,19 +621,16 @@ export interface operations {
                     };
                 };
             };
-            /** @description This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                         readonly instance?: string;
@@ -723,11 +674,9 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                         readonly instance?: string;
@@ -746,11 +695,9 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                         readonly instance?: string;

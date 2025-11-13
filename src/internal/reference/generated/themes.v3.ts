@@ -200,11 +200,9 @@ export interface components {
         };
         /** Error Response */
         readonly ErrorResponse: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -217,14 +215,11 @@ export interface components {
         /**
          * Base Error
          * @description Error payload for the BigCommerce API.
-         *
          */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -238,8 +233,7 @@ export interface components {
          * @description Error payload for the BigCommerce API.
          */
         readonly NotFound: {
-            /** @description 404 HTTP status code.
-             *      */
+            /** @description 404 HTTP status code. */
             readonly status?: number;
             /** @description The error title describing the particular error. */
             readonly title?: string;
@@ -259,8 +253,7 @@ export interface components {
          * @description No-content response for the BigCommerce API.
          */
         readonly NoContent: {
-            /** @description 204 HTTP status code.
-             *      */
+            /** @description 204 HTTP status code. */
             readonly status?: number;
             /** @description The error title describing the situation. */
             readonly title?: string;
@@ -356,7 +349,6 @@ export interface components {
         /**
          * Themes Collection Response
          * @description Response payload for the BigCommerce API.
-         *
          */
         readonly ThemesCollectionResponse: {
             readonly data?: readonly {
@@ -393,7 +385,6 @@ export interface components {
         /**
          * Theme Response
          * @description Response payload for the BigCommerce API.
-         *
          */
         readonly ThemeResponse: {
             readonly data?: components["schemas"]["Theme"];
@@ -530,11 +521,9 @@ export interface components {
         readonly Accept: string;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body. */
         readonly ContentType: string;
-        /** @description Specifies the page number in a limited (paginated) list.
-         *      */
+        /** @description Specifies the page number in a limited (paginated) list. */
         readonly PageParam: number;
-        /** @description Controls the number of items per page in a limited (paginated) list of products.
-         *      */
+        /** @description Controls the number of items per page in a limited (paginated) list of products. */
         readonly LimitParam: number;
     };
     requestBodies: never;
@@ -605,11 +594,9 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                         readonly instance?: string;
@@ -653,11 +640,9 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                         readonly instance?: string;
@@ -699,11 +684,9 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                         readonly instance?: string;
@@ -754,11 +737,9 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                         readonly instance?: string;
@@ -810,11 +791,9 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                         readonly instance?: string;
@@ -858,11 +837,9 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                         readonly instance?: string;
@@ -885,11 +862,9 @@ export interface operations {
                 readonly variation_uuid?: string;
                 /** @description Filter configurations by passing a comma-separated list of channel IDs. */
                 readonly "channel_id:in"?: readonly number[];
-                /** @description Specifies the page number in a limited (paginated) list.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
             };
             readonly header?: {

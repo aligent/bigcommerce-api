@@ -46,14 +46,11 @@ export interface components {
         readonly ErrorResponse: components["schemas"]["BaseError"] & {
             readonly errors?: components["schemas"]["DetailedErrors"];
         };
-        /** @description Error payload for the BigCommerce API.
-         *      */
+        /** @description Error payload for the BigCommerce API. */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The title of the message describing the particular error.
-             *      */
+            /** @description The title of the message describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -104,6 +101,10 @@ export interface operations {
                 readonly "severity:max"?: number;
                 /** @description A comma-separated list of log IDs by which to filter. For example, `?id:in=3,4,6`. */
                 readonly "id:in"?: readonly number[];
+                /** @description The log key by which to sort results. If left blank, results will be reported in order of creation. This parameter is case-sensitive. */
+                readonly sort?: "date_created" | "type";
+                /** @description The direction in which to sort results. Defaults to ascending (`asc`). This parameter is case-sensitive. */
+                readonly direction?: "asc" | "desc";
             };
             readonly header?: never;
             readonly path?: never;

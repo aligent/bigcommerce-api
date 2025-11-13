@@ -25,7 +25,6 @@ export interface paths {
          *
          *      **Limits**
          *      * Limit of 10 concurrent requests.
-         *
          */
         readonly put: operations["PutSegmentObjects"];
         /**
@@ -34,13 +33,11 @@ export interface paths {
          *
          *     **Limits**
          *     * Limit of 10 concurrent requests.
-         *
          */
         readonly post: operations["SegmentsPostRequest"];
         /**
          * Delete Segments
          * @description Deletes one or more *Segments* from a store. This will not delete any associated *Shopper Profiles*.
-         *
          */
         readonly delete: operations["DeleteStoreSegment"];
     };
@@ -62,7 +59,6 @@ export interface paths {
          * @description Returns a list of *Shopper Profiles* that are associated with a given *Segment*.
          *
          *     **NOTE**: The `modify` Customers OAuth scope is a requirement for this endpoint.
-         *
          */
         readonly get: operations["GetSegmentProfiles"];
         /**
@@ -77,7 +73,6 @@ export interface paths {
         /**
          * Remove Shopper Profiles from a Segment
          * @description Remove one or more *Shopper Profiles* that are associated with a *Segment*. This operation only removes the association; it doesn't delete the *Shopper Profiles*.
-         *
          */
         readonly delete: operations["DeleteShopperProfile"];
     };
@@ -94,19 +89,16 @@ export interface paths {
         /**
          * Get All Shopper Profiles
          * @description Returns a paginated *Shopper Profiles* list.
-         *
          */
         readonly get: operations["GetShopperList"];
         /**
          * Create Shopper Profiles
          * @description Creates a *Shopper Profile*.
-         *
          */
         readonly post: operations["ShopperProfilesRequest"];
         /**
          * Delete Shopper Profiles
          * @description Deletes one or more *Shopper Profiles* from a store.
-         *
          */
         readonly delete: operations["DeleteStoreShopperProfile"];
     };
@@ -133,17 +125,14 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly SegmentsResponse: {
             readonly data?: readonly components["schemas"]["Segment"][];
             readonly meta?: Record<string, unknown>;
         };
-        /** @description Request payload for the BigCommerce API.
-         *      */
+        /** @description Request payload for the BigCommerce API. */
         readonly SegmentsPostRequest: readonly components["schemas"]["SegmentPost"][];
-        /** @description Request payload for the BigCommerce API.
-         *      */
+        /** @description Request payload for the BigCommerce API. */
         readonly SegmentsPutRequest: readonly components["schemas"]["SegmentPut"][];
         readonly SegmentPost: {
             /**
@@ -174,56 +163,46 @@ export interface components {
              */
             readonly description?: string;
         };
-        /** @description Data about the response including pagination, and collection totals.
-         *      */
+        /** @description Data about the response including pagination, and collection totals. */
         readonly Pagination: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 1
              */
             readonly total?: number;
             /**
              * @description Total number of items in the collection response.
-             *
              * @example 1
              */
             readonly count?: number;
             /**
              * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-             *
              * @example 50
              */
             readonly per_page?: number;
             /**
              * @description The page you are currently on within the collection.
-             *
              * @example 1
              */
             readonly current_page?: number;
             /**
              * @description The total number of pages in the collection.
-             *
              * @example 1
              */
             readonly total_pages?: number;
         };
-        /** @description Data about the response including pagination, and collection totals.
-         *      */
+        /** @description Data about the response including pagination, and collection totals. */
         readonly CollectionMeta: {
             readonly pagination?: components["schemas"]["Pagination"];
         };
         readonly ErrorResponse: components["schemas"]["BaseError"] & {
             readonly errors?: components["schemas"]["DetailedErrors"];
         };
-        /** @description Error payload for the BigCommerce API.
-         *      */
+        /** @description Error payload for the BigCommerce API. */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -235,38 +214,32 @@ export interface components {
             /**
              * Format: uuid
              * @description The ID of the segment.
-             *
              */
             readonly id?: string;
             /**
              * @description The name of the segment.
-             *
              * @example My Segment
              */
             readonly name?: string;
             /**
              * @description The description of the segment.
-             *
              * @example Description
              */
             readonly description?: string;
             /**
              * Format: date-time
              * @description The date of which the segment was created.
-             *
              * @example 2022-09-15T23:44:05Z
              */
             readonly created_at?: string;
             /**
              * Format: date-time
              * @description The date of which the segment was updated.
-             *
              * @example 2022-09-15T23:44:05Z
              */
             readonly updated_at?: string;
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly SegmentCollectionResponse: {
             readonly data?: readonly components["schemas"]["Segment"][];
             readonly meta?: components["schemas"]["CollectionMeta"];
@@ -275,25 +248,21 @@ export interface components {
             /**
              * Format: uuid
              * @description The ID of the *Shopper Profile*.
-             *
              */
             readonly id?: string;
             /**
              * @description The ID of the registered *Customer* associated with this *Shopper Profile*.
-             *
              * @example 1
              */
             readonly customer_id?: number;
             /**
              * Format: date-time
              * @description The date and time when the *Shopper Profile* was created.
-             *
              */
             readonly created_at?: string;
             /**
              * Format: date-time
              * @description The date and time when the *Shopper Profile* was last updated.
-             *
              */
             readonly updated_at?: string;
         };
@@ -306,14 +275,12 @@ export interface components {
             readonly data?: readonly components["schemas"]["ShopperProfile"][];
             readonly meta?: components["schemas"]["CollectionMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly ShopperProfilesCollectionResponse: {
             readonly data?: readonly components["schemas"]["ShopperProfile"][];
             readonly meta?: components["schemas"]["CollectionMeta"];
         };
-        /** @description Request payload for the BigCommerce API.
-         *      */
+        /** @description Request payload for the BigCommerce API. */
         readonly ShopperProfilesPostRequest: readonly components["schemas"]["ShopperProfilePost"][];
         readonly ShopperProfilePost: {
             /**
@@ -322,8 +289,7 @@ export interface components {
              */
             readonly customer_id?: number;
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly ShopperProfilesResponse: {
             readonly data?: readonly components["schemas"]["ShopperProfile"][];
             readonly meta?: Record<string, unknown>;
@@ -339,14 +305,11 @@ export interface components {
         readonly SegmentIdPathParam: string;
         /** @description The *Shopper Profile* ID. */
         readonly ShopperIdPathParam: string;
-        /** @description Comma separated IDs.
-         *      */
+        /** @description Comma separated IDs. */
         readonly FilterIdParam: readonly string[];
-        /** @description Page number.
-         *      */
+        /** @description Page number. */
         readonly FilterPageParam: number;
-        /** @description Items count per page.
-         *      */
+        /** @description Items count per page. */
         readonly FilterLimitParam: number;
     };
     requestBodies: never;
@@ -358,14 +321,11 @@ export interface operations {
     readonly GetPaginatedSegmentsList: {
         readonly parameters: {
             readonly query?: {
-                /** @description Page number.
-                 *      */
+                /** @description Page number. */
                 readonly page?: components["parameters"]["FilterPageParam"];
-                /** @description Items count per page.
-                 *      */
+                /** @description Items count per page. */
                 readonly limit?: components["parameters"]["FilterLimitParam"];
-                /** @description Comma separated IDs.
-                 *      */
+                /** @description Comma separated IDs. */
                 readonly "id:in"?: components["parameters"]["FilterIdParam"];
             };
             readonly header?: {
@@ -405,8 +365,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description An array of created *Segments*.
-             *      */
+            /** @description An array of created *Segments*. */
             readonly 201: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -415,8 +374,7 @@ export interface operations {
                     readonly "application/json": components["schemas"]["SegmentsResponse"];
                 };
             };
-            /** @description The *Segment* was not valid. This is the result of either missing required fields, or because of invalid data. See the response for more details.
-             *      */
+            /** @description The *Segment* was not valid. This is the result of either missing required fields, or because of invalid data. See the response for more details. */
             readonly 400: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -455,8 +413,7 @@ export interface operations {
                     readonly "application/json": components["schemas"]["SegmentsResponse"];
                 };
             };
-            /** @description The *Segment* was not valid. This is the result of either missing required fields, or because of invalid data. See the response for more details.
-             *      */
+            /** @description The *Segment* was not valid. This is the result of either missing required fields, or because of invalid data. See the response for more details. */
             readonly 400: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -492,8 +449,7 @@ export interface operations {
     readonly DeleteStoreSegment: {
         readonly parameters: {
             readonly query?: {
-                /** @description Comma separated IDs.
-                 *      */
+                /** @description Comma separated IDs. */
                 readonly "id:in"?: components["parameters"]["FilterIdParam"];
             };
             readonly header?: {
@@ -505,8 +461,7 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description An empty response.
-             *      */
+            /** @description An empty response. */
             readonly 204: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -518,11 +473,9 @@ export interface operations {
     readonly GetSegmentProfiles: {
         readonly parameters: {
             readonly query?: {
-                /** @description Page number.
-                 *      */
+                /** @description Page number. */
                 readonly page?: components["parameters"]["FilterPageParam"];
-                /** @description Items count per page.
-                 *      */
+                /** @description Items count per page. */
                 readonly limit?: components["parameters"]["FilterLimitParam"];
             };
             readonly header?: {
@@ -537,8 +490,7 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description An array of *Shopper Profiles* objects and metadata.
-             *      */
+            /** @description An array of *Shopper Profiles* objects and metadata. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -608,8 +560,7 @@ export interface operations {
     readonly DeleteShopperProfile: {
         readonly parameters: {
             readonly query?: {
-                /** @description Comma separated IDs.
-                 *      */
+                /** @description Comma separated IDs. */
                 readonly "id:in"?: components["parameters"]["FilterIdParam"];
             };
             readonly header?: {
@@ -624,8 +575,7 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description An empty response.
-             *      */
+            /** @description An empty response. */
             readonly 204: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -637,11 +587,9 @@ export interface operations {
     readonly GetShopperList: {
         readonly parameters: {
             readonly query?: {
-                /** @description Page number.
-                 *      */
+                /** @description Page number. */
                 readonly page?: components["parameters"]["FilterPageParam"];
-                /** @description Items count per page.
-                 *      */
+                /** @description Items count per page. */
                 readonly limit?: components["parameters"]["FilterLimitParam"];
             };
             readonly header?: {
@@ -653,8 +601,7 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description An array of *Shopper Profiles* objects and metadata.
-             *      */
+            /** @description An array of *Shopper Profiles* objects and metadata. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -683,8 +630,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description An array of created *Shopper Profiles*.
-             *      */
+            /** @description An array of created *Shopper Profiles*. */
             readonly 201: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -693,8 +639,7 @@ export interface operations {
                     readonly "application/json": components["schemas"]["ShopperProfilesResponse"];
                 };
             };
-            /** @description The *Segment* was not valid. This is the result of either missing required fields, or because of invalid data. See the response for more details.
-             *      */
+            /** @description The *Segment* was not valid. This is the result of either missing required fields, or because of invalid data. See the response for more details. */
             readonly 400: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -708,8 +653,7 @@ export interface operations {
     readonly DeleteStoreShopperProfile: {
         readonly parameters: {
             readonly query?: {
-                /** @description Comma separated IDs.
-                 *      */
+                /** @description Comma separated IDs. */
                 readonly "id:in"?: components["parameters"]["FilterIdParam"];
             };
             readonly header?: {
@@ -721,8 +665,7 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description An empty response.
-             *      */
+            /** @description An empty response. */
             readonly 204: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -734,11 +677,9 @@ export interface operations {
     readonly GetListShopperProfile: {
         readonly parameters: {
             readonly query?: {
-                /** @description Page number.
-                 *      */
+                /** @description Page number. */
                 readonly page?: components["parameters"]["FilterPageParam"];
-                /** @description Items count per page.
-                 *      */
+                /** @description Items count per page. */
                 readonly limit?: components["parameters"]["FilterLimitParam"];
             };
             readonly header?: {
@@ -753,8 +694,7 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description An array of *Segments* objects and metadata.
-             *      */
+            /** @description An array of *Segments* objects and metadata. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;

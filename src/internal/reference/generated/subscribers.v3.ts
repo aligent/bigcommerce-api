@@ -79,13 +79,11 @@ export interface components {
             /**
              * Format: date-time
              * @description The date on which the subscriber was modified.
-             *
              */
             readonly date_modified?: string;
             /**
              * Format: date-time
              * @description The date of which the subscriber was created.
-             *
              */
             readonly date_created?: string;
             /**
@@ -101,20 +99,15 @@ export interface components {
          * @description Common Subscriber properties.
          */
         readonly subscriber_Base: {
-            /** @description The email of the subscriber. Must be unique.
-             *      */
+            /** @description The email of the subscriber. Must be unique. */
             readonly email?: string;
-            /** @description The first name of the subscriber.
-             *      */
+            /** @description The first name of the subscriber. */
             readonly first_name?: string;
-            /** @description The last name of the subscriber.
-             *      */
+            /** @description The last name of the subscriber. */
             readonly last_name?: string;
-            /** @description The source of the subscriber. Values are: `storefront`, `order`, or `custom`.
-             *      */
+            /** @description The source of the subscriber. Values are: `storefront`, `order`, or `custom`. */
             readonly source?: string;
-            /** @description The ID of the source order, if source was an order.
-             *      */
+            /** @description The ID of the source order, if source was an order. */
             readonly order_id?: number | null;
             /** @description The channel ID where the subscriber was created. */
             readonly channel_id?: number;
@@ -127,48 +120,38 @@ export interface components {
             readonly consents?: readonly ("marketing_newsletter" | "abandoned_cart")[];
         };
         readonly Subscriber: {
-            /** @description The unique numeric ID of the subscriber; increments sequentially.
-             *      */
+            /** @description The unique numeric ID of the subscriber; increments sequentially. */
             readonly id?: number;
-            /** @description The email of the subscriber. Must be unique.
-             *      */
+            /** @description The email of the subscriber. Must be unique. */
             readonly email?: string;
-            /** @description The first name of the subscriber.
-             *      */
+            /** @description The first name of the subscriber. */
             readonly first_name?: string;
-            /** @description The last name of the subscriber.
-             *      */
+            /** @description The last name of the subscriber. */
             readonly last_name?: string;
-            /** @description The source of the subscriber. Values are: `storefront`, `order`, or `custom`.
-             *      */
+            /** @description The source of the subscriber. Values are: `storefront`, `order`, or `custom`. */
             readonly source?: string;
-            /** @description The ID of the source order, if source was an order.
-             *      */
+            /** @description The ID of the source order, if source was an order. */
             readonly order_id?: number | null;
         } & {
             /**
              * Format: date-time
              * @description The date on which the subscriber was modified.
-             *
              */
             readonly date_modified?: string;
             /**
              * Format: date-time
              * @description The date of which the subscriber was created.
-             *
              */
             readonly date_created?: string;
         };
         /**
          * subscriber_Post
          * @description The model for a POST to create a subscriber.
-         *
          */
         readonly subscriber_Post: components["schemas"]["subscriber_Base"];
         /**
          * subscriber_Put
          * @description The model for a PUT to update a subscriber.
-         *
          */
         readonly subscriber_Put: components["schemas"]["subscriber_Base"];
         /**
@@ -183,48 +166,39 @@ export interface components {
             readonly pagination?: {
                 /**
                  * @description Total number of items in the result set.
-                 *
                  * @example 36
                  */
                 readonly total?: number;
                 /**
                  * @description Total number of items in the collection response.
-                 *
                  * @example 36
                  */
                 readonly count?: number;
                 /**
                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                 *
                  * @example 50
                  */
                 readonly per_page?: number;
                 /**
                  * @description The page you are currently on within the collection.
-                 *
                  * @example 1
                  */
                 readonly current_page?: number;
                 /**
                  * @description The total number of pages in the collection.
-                 *
                  * @example 1
                  */
                 readonly total_pages?: number;
-                /** @description Pagination links for the previous and next parts of the whole collection.
-                 *      */
+                /** @description Pagination links for the previous and next parts of the whole collection. */
                 readonly links?: {
-                    /** @description Link to the previous page returned in the response.
-                     *      */
+                    /** @description Link to the previous page returned in the response. */
                     readonly previous?: string;
                     /**
                      * @description Link to the current page returned in the response.
-                     *
                      * @example ?page=1&limit=50
                      */
                     readonly current?: string;
-                    /** @description Link to the next page returned in the response.
-                     *      */
+                    /** @description Link to the next page returned in the response. */
                     readonly next?: string;
                 };
             };
@@ -236,48 +210,39 @@ export interface components {
         readonly Pagination: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 36
              */
             readonly total?: number;
             /**
              * @description Total number of items in the collection response.
-             *
              * @example 36
              */
             readonly count?: number;
             /**
              * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-             *
              * @example 50
              */
             readonly per_page?: number;
             /**
              * @description The page you are currently on within the collection.
-             *
              * @example 1
              */
             readonly current_page?: number;
             /**
              * @description The total number of pages in the collection.
-             *
              * @example 1
              */
             readonly total_pages?: number;
-            /** @description Pagination links for the previous and next parts of the whole collection.
-             *      */
+            /** @description Pagination links for the previous and next parts of the whole collection. */
             readonly links?: {
-                /** @description Link to the previous page returned in the response.
-                 *      */
+                /** @description Link to the previous page returned in the response. */
                 readonly previous?: string;
                 /**
                  * @description Link to the current page returned in the response.
-                 *
                  * @example ?page=1&limit=50
                  */
                 readonly current?: string;
-                /** @description Link to the next page returned in the response.
-                 *      */
+                /** @description Link to the next page returned in the response. */
                 readonly next?: string;
             };
         };
@@ -290,11 +255,9 @@ export interface components {
         };
         /** Error Response */
         readonly ErrorResponse: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -307,14 +270,11 @@ export interface components {
         /**
          * Base Error
          * @description Error payload for the BigCommerce API.
-         *
          */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -324,8 +284,7 @@ export interface components {
          * @description Error payload for the BigCommerce API.
          */
         readonly NotFound: {
-            /** @description 404 HTTP status code.
-             *      */
+            /** @description 404 HTTP status code. */
             readonly status?: number;
             /** @description The error title describing the particular error. */
             readonly title?: string;
@@ -362,20 +321,15 @@ export interface components {
         };
     };
     parameters: {
-        /** @description Filter items by email.
-         *      */
+        /** @description Filter items by email. */
         readonly FilterEmailParam: string;
-        /** @description Filter items by first_name.
-         *      */
+        /** @description Filter items by first_name. */
         readonly FilterFirstNameParam: string;
-        /** @description Filter items by last_name.
-         *      */
+        /** @description Filter items by last_name. */
         readonly FilterLastNameParam: string;
-        /** @description Filter items by source.
-         *      */
+        /** @description Filter items by source. */
         readonly FilterSourceParam: string;
-        /** @description Filter items by order_id.
-         *      */
+        /** @description Filter items by order_id. */
         readonly FilterOrderIdParam: number;
         /** @description Filter items by date_modified. For example `v3/catalog/products?date_last_imported:min=2018-06-15` */
         readonly FilterDateModifiedParam: string;
@@ -383,8 +337,7 @@ export interface components {
         readonly FilterDateModifiedMinParam: string;
         /** @description Filter items by maximum date modified, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date. */
         readonly FilterDateModifiedMaxParam: string;
-        /** @description Filter items by date_created.
-         *      */
+        /** @description Filter items by date_created. */
         readonly FilterDateCreatedParam: string;
         /** @description Filter items by minimum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date. */
         readonly FilterDateCreatedMinParam: string;
@@ -394,21 +347,18 @@ export interface components {
         readonly PageParam: number;
         /** @description Controls the number of items per page in a limited (paginated) list of products. */
         readonly LimitParam: number;
-        /** @description Scripts field name to sort by.
-         *      */
+        /** @description Scripts field name to sort by. */
         readonly ScriptsSortKeyParam: "name" | "description" | "date_created" | "date_modified";
-        /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-         *      */
+        /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
         readonly DirectionParam: "asc" | "desc";
-        /** @description Filter items by ID.
-         *      */
+        /** @description Filter items by ID. */
         readonly IdParam: number;
-        /** @description Filter items by ID.
+        /**
+         * @description Filter items by ID.
          *     `id:in=4,5,6`
-         *      */
+         */
         readonly IdInParam: readonly number[];
-        /** @description The ID of the subscriber requested.
-         *      */
+        /** @description The ID of the subscriber requested. */
         readonly SubscriberIdParam: number;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
         readonly Accept: string;
@@ -424,23 +374,17 @@ export interface operations {
     readonly getSubscribers: {
         readonly parameters: {
             readonly query: {
-                /** @description Filter items by email.
-                 *      */
+                /** @description Filter items by email. */
                 readonly email?: components["parameters"]["FilterEmailParam"];
-                /** @description Filter items by first_name.
-                 *      */
+                /** @description Filter items by first_name. */
                 readonly first_name?: components["parameters"]["FilterFirstNameParam"];
-                /** @description Filter items by last_name.
-                 *      */
+                /** @description Filter items by last_name. */
                 readonly last_name?: components["parameters"]["FilterLastNameParam"];
-                /** @description Filter items by source.
-                 *      */
+                /** @description Filter items by source. */
                 readonly source?: components["parameters"]["FilterSourceParam"];
-                /** @description Filter items by order_id.
-                 *      */
+                /** @description Filter items by order_id. */
                 readonly order_id?: components["parameters"]["FilterOrderIdParam"];
-                /** @description Filter items by date_created.
-                 *      */
+                /** @description Filter items by date_created. */
                 readonly date_created?: components["parameters"]["FilterDateCreatedParam"];
                 /** @description Filter items by minimum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date. */
                 readonly "date_created:min"?: components["parameters"]["FilterDateCreatedMinParam"];
@@ -456,12 +400,12 @@ export interface operations {
                 readonly page?: components["parameters"]["PageParam"];
                 /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
-                /** @description Filter items by ID.
-                 *      */
+                /** @description Filter items by ID. */
                 readonly id: components["parameters"]["IdParam"];
-                /** @description Filter items by ID.
+                /**
+                 * @description Filter items by ID.
                  *     `id:in=4,5,6`
-                 *      */
+                 */
                 readonly "id:in"?: components["parameters"]["IdInParam"];
             };
             readonly header?: {
@@ -515,8 +459,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `Subscriber` was in conflict with another subscriber. This is the result of duplicate unique values, such as email.
-             *      */
+            /** @description The `Subscriber` was in conflict with another subscriber. This is the result of duplicate unique values, such as email. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -528,18 +471,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description The `Subscriber` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Subscriber` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -551,11 +491,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -566,23 +504,17 @@ export interface operations {
     readonly deleteSubscribers: {
         readonly parameters: {
             readonly query?: {
-                /** @description Filter items by email.
-                 *      */
+                /** @description Filter items by email. */
                 readonly email?: components["parameters"]["FilterEmailParam"];
-                /** @description Filter items by first_name.
-                 *      */
+                /** @description Filter items by first_name. */
                 readonly first_name?: components["parameters"]["FilterFirstNameParam"];
-                /** @description Filter items by last_name.
-                 *      */
+                /** @description Filter items by last_name. */
                 readonly last_name?: components["parameters"]["FilterLastNameParam"];
-                /** @description Filter items by source.
-                 *      */
+                /** @description Filter items by source. */
                 readonly source?: components["parameters"]["FilterSourceParam"];
-                /** @description Filter items by order_id.
-                 *      */
+                /** @description Filter items by order_id. */
                 readonly order_id?: components["parameters"]["FilterOrderIdParam"];
-                /** @description Filter items by date_created.
-                 *      */
+                /** @description Filter items by date_created. */
                 readonly date_created?: components["parameters"]["FilterDateCreatedParam"];
                 /** @description Filter items by date_modified. For example `v3/catalog/products?date_last_imported:min=2018-06-15` */
                 readonly date_modified?: components["parameters"]["FilterDateModifiedParam"];
@@ -612,8 +544,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Subscriber` requested.
-                 *      */
+                /** @description The ID of the `Subscriber` requested. */
                 readonly subscriber_id: number;
             };
             readonly cookie?: never;
@@ -631,16 +562,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -661,8 +590,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Subscriber` requested.
-                 *      */
+                /** @description The ID of the `Subscriber` requested. */
                 readonly subscriber_id: number;
             };
             readonly cookie?: never;
@@ -684,16 +612,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -702,8 +628,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `Subscriber` was in conflict with another subscriber. This is the result of duplicate unique values, such as `email`.
-             *      */
+            /** @description The `Subscriber` was in conflict with another subscriber. This is the result of duplicate unique values, such as `email`. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -715,18 +640,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description The `Subscriber` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Subscriber` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -738,11 +660,9 @@ export interface operations {
                             readonly additionalProperties?: string;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -758,8 +678,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Subscriber` requested.
-                 *      */
+                /** @description The ID of the `Subscriber` requested. */
                 readonly subscriber_id: number;
             };
             readonly cookie?: never;

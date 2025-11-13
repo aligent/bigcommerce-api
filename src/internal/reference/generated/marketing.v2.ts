@@ -76,7 +76,6 @@ export interface paths {
          * Delete All Coupons
          * @description ## Usage Notes
          *     * Deleting a coupon via this endpoint will delete the coupon but not the promotion it is attached to
-         *
          */
         readonly delete: operations["deleteCoupons"];
     };
@@ -468,7 +467,6 @@ export interface components {
             /**
              * @description Id of the banner.
              *     This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
-             *
              * @example 1
              */
             readonly id?: number;
@@ -678,7 +676,8 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
-                /** @example [
+                /**
+                 * @example [
                  *       {
                  *         "id": 1,
                  *         "name": "This is a banner",
@@ -705,7 +704,8 @@ export interface components {
                  *         "date_to": "0",
                  *         "visible": "1"
                  *       }
-                 *     ] */
+                 *     ]
+                 */
                 readonly "application/json": readonly components["schemas"]["banner_Full"][];
             };
         };
@@ -714,7 +714,8 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "id": 1,
                  *       "name": "Sale Banner",
                  *       "content": "<p> Sale! Tuesday at 9am! </p>",
@@ -726,7 +727,8 @@ export interface components {
                  *       "date_from": "0",
                  *       "date_to": "0",
                  *       "visible": "1"
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": components["schemas"]["banner_Full"];
             };
         };
@@ -735,9 +737,11 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "count": 27
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": {
                     readonly count?: number;
                 };
@@ -748,7 +752,8 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "id": 1,
                  *       "name": "$5 off",
                  *       "type": "per_total_discount",
@@ -769,7 +774,8 @@ export interface components {
                  *       "restricted_to": {},
                  *       "shipping_methods": [],
                  *       "date_created": "Tue, 13 Mar 2018 16:18:59 +0000"
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": components["schemas"]["coupon_Full"];
             };
         };
@@ -778,7 +784,8 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
-                /** @example [
+                /**
+                 * @example [
                  *       {
                  *         "id": 1,
                  *         "name": "$5 off",
@@ -827,7 +834,8 @@ export interface components {
                  *         ],
                  *         "date_created": "Tue, 12 Jun 2018 20:22:19 +0000"
                  *       }
-                 *     ] */
+                 *     ]
+                 */
                 readonly "application/json": readonly components["schemas"]["coupon_Full"][];
             };
         };
@@ -836,7 +844,8 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
-                /** @example [
+                /**
+                 * @example [
                  *       {
                  *         "id": 24,
                  *         "code": "10R-5E2-BO4-RWT",
@@ -888,7 +897,8 @@ export interface components {
                  *         "purchase_date": "1603306",
                  *         "currency_code": "USD"
                  *       }
-                 *     ] */
+                 *     ]
+                 */
                 readonly "application/json": readonly components["schemas"]["giftCertificate_Full"][];
             };
         };
@@ -897,7 +907,8 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "id": 1,
                  *       "customer_id": 5,
                  *       "order_id": 116,
@@ -914,7 +925,8 @@ export interface components {
                  *       "purchase_date": "1603306",
                  *       "expiry_date": "1694738",
                  *       "currency_code": "USD"
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": components["schemas"]["giftCertificate_Full"];
             };
         };
@@ -967,7 +979,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example [
+                    /**
+                     * @example [
                      *       {
                      *         "id": 1,
                      *         "name": "$5 off",
@@ -1016,7 +1029,8 @@ export interface operations {
                      *         ],
                      *         "date_created": "Tue, 12 Jun 2018 20:22:19 +0000"
                      *       }
-                     *     ] */
+                     *     ]
+                     */
                     readonly "application/json": readonly components["schemas"]["coupon_Full"][];
                 };
             };
@@ -1045,7 +1059,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 1,
                      *       "name": "$5 off",
                      *       "type": "per_total_discount",
@@ -1066,7 +1081,8 @@ export interface operations {
                      *       "restricted_to": {},
                      *       "shipping_methods": [],
                      *       "date_created": "Tue, 13 Mar 2018 16:18:59 +0000"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["coupon_Full"];
                 };
             };
@@ -1112,9 +1128,11 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "count": 27
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly count?: number;
                     };
@@ -1148,7 +1166,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 1,
                      *       "name": "$5 off",
                      *       "type": "per_total_discount",
@@ -1169,7 +1188,8 @@ export interface operations {
                      *       "restricted_to": {},
                      *       "shipping_methods": [],
                      *       "date_created": "Tue, 13 Mar 2018 16:18:59 +0000"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["coupon_Full"];
                 };
             };
@@ -1224,7 +1244,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example [
+                    /**
+                     * @example [
                      *       {
                      *         "id": 1,
                      *         "name": "This is a banner",
@@ -1251,7 +1272,8 @@ export interface operations {
                      *         "date_to": "0",
                      *         "visible": "1"
                      *       }
-                     *     ] */
+                     *     ]
+                     */
                     readonly "application/json": readonly components["schemas"]["banner_Full"][];
                 };
             };
@@ -1280,7 +1302,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 1,
                      *       "name": "Sale Banner",
                      *       "content": "<p> Sale! Tuesday at 9am! </p>",
@@ -1292,7 +1315,8 @@ export interface operations {
                      *       "date_from": "0",
                      *       "date_to": "0",
                      *       "visible": "1"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["banner_Full"];
                 };
             };
@@ -1338,7 +1362,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 1,
                      *       "name": "Sale Banner",
                      *       "content": "<p> Sale! Tuesday at 9am! </p>",
@@ -1350,7 +1375,8 @@ export interface operations {
                      *       "date_from": "0",
                      *       "date_to": "0",
                      *       "visible": "1"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["banner_Full"];
                 };
             };
@@ -1382,7 +1408,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 1,
                      *       "name": "Sale Banner",
                      *       "content": "<p> Sale! Tuesday at 9am! </p>",
@@ -1394,7 +1421,8 @@ export interface operations {
                      *       "date_from": "0",
                      *       "date_to": "0",
                      *       "visible": "1"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["banner_Full"];
                 };
             };
@@ -1440,9 +1468,11 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "count": 27
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly count?: number;
                     };
@@ -1470,7 +1500,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 1,
                      *       "customer_id": 5,
                      *       "order_id": 116,
@@ -1487,7 +1518,8 @@ export interface operations {
                      *       "purchase_date": "1603306",
                      *       "expiry_date": "1694738",
                      *       "currency_code": "USD"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["giftCertificate_Full"];
                 };
             };
@@ -1519,7 +1551,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 1,
                      *       "customer_id": 5,
                      *       "order_id": 116,
@@ -1536,7 +1569,8 @@ export interface operations {
                      *       "purchase_date": "1603306",
                      *       "expiry_date": "1672670738",
                      *       "currency_code": "USD"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["giftCertificate_Full"];
                 };
             };
@@ -1578,6 +1612,10 @@ export interface operations {
                 readonly from_email?: string;
                 readonly page?: number;
                 readonly limit?: number;
+                /** @description Field to sort results by. */
+                readonly sort?: "id";
+                /** @description Sort direction. Defaults to asc. */
+                readonly direction?: "asc" | "desc";
             };
             readonly header?: {
                 /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
@@ -1593,7 +1631,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example [
+                    /**
+                     * @example [
                      *       {
                      *         "id": 24,
                      *         "code": "10R-5E2-BO4-RWT",
@@ -1648,7 +1687,8 @@ export interface operations {
                      *         "purchase_date": "1672670738",
                      *         "currency_code": "USD"
                      *       }
-                     *     ] */
+                     *     ]
+                     */
                     readonly "application/json": readonly components["schemas"]["giftCertificate_Full"][];
                 };
             };
@@ -1677,7 +1717,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 1,
                      *       "customer_id": 5,
                      *       "order_id": 116,
@@ -1694,7 +1735,8 @@ export interface operations {
                      *       "purchase_date": "1603306",
                      *       "expiry_date": "1694738",
                      *       "currency_code": "USD"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["giftCertificate_Full"];
                 };
             };

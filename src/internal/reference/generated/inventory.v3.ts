@@ -21,7 +21,6 @@ export interface paths {
          *     **Limits**
          *     * For maximum inventory levels, see [Inventory adjustments](/docs/store-operations/catalog/inventory-adjustments#inventory-adjustments).
          *     * Limit of 2000 items for payload length, see [Optimizing performance](/docs/store-operations/catalog/inventory-adjustments#optimizing-performance) for more information.
-         *
          */
         readonly put: operations["put-absolute-adjustment"];
     };
@@ -42,7 +41,6 @@ export interface paths {
          *     **Limits**
          *     * For maximum inventory levels, see [Inventory adjustments](/docs/store-operations/catalog/inventory-adjustments#inventory-adjustments).
          *     * Limit of 2000 items for payload length, see [Optimizing performance](/docs/store-operations/catalog/inventory-adjustments#optimizing-performance) for more information.
-         *
          */
         readonly post: operations["post-relative-adjustment"];
     };
@@ -62,7 +60,6 @@ export interface paths {
          *
          *     **Limits**
          *     * Limit of 1000 items for payload length.
-         *
          */
         readonly get: operations["get-inventory-items"];
     };
@@ -82,17 +79,14 @@ export interface paths {
          *
          *     **Limits**
          *     * Limit of 1000 items for payload length.
-         *
          */
         readonly get: operations["get-location-inventory-items"];
         /**
          * Update Inventory Settings for a Location
-         * @description
-         *     Update inventory settings for items at a location.
+         * @description Update inventory settings for items at a location.
          *
          *     **Limits**
          *     * Limit of 2000 items for payload length.
-         *
          */
         readonly put: operations["put-location-inventory-items"];
     };
@@ -105,8 +99,7 @@ export interface components {
             readonly status?: number;
             /** @description Human readable error message. */
             readonly title?: string;
-            /** @description URL identifying the error type. Dereferencing the URL leads to documentation about the error type.
-             *      */
+            /** @description URL identifying the error type. Dereferencing the URL leads to documentation about the error type. */
             readonly type?: string;
             /** @description Detailed summary describing the particular error. */
             readonly errors?: {
@@ -298,22 +291,18 @@ export interface components {
                 };
                 /**
                  * @description Safety stock. Decreases the amount available for selling items at that amount. If missing, the value will remain the same.
-                 *
                  * @example 5
                  */
                 readonly safety_stock?: number;
-                /** @description Shows whether an item is available for purchase independent of quantity. If missing, the value will remain the same.
-                 *      */
+                /** @description Shows whether an item is available for purchase independent of quantity. If missing, the value will remain the same. */
                 readonly is_in_stock?: boolean;
                 /**
                  * @description Inventory warning level for the product. The store owner will be informed when the product's inventory level drops below the warning level. If missing, the value will remain the same.
-                 *
                  * @example 10
                  */
                 readonly warning_level?: number;
                 /**
                  * @description Warehouse location identifier; bin picking number for the item.
-                 *
                  * @example 1
                  */
                 readonly bin_picking_number?: string;
@@ -350,7 +339,6 @@ export interface components {
             readonly settings?: {
                 /**
                  * @description Safety stock. Decreases the amount available for selling an item. If missing, the value will remain the same.
-                 *
                  * @default 0
                  * @example 2
                  */
@@ -362,14 +350,12 @@ export interface components {
                 readonly is_in_stock: boolean;
                 /**
                  * @description Inventory warning level for the product. The store owner will be informed when the product's inventory level drops below the warning level. If missing, the value will remain the same.
-                 *
                  * @default 0
                  * @example 2
                  */
                 readonly warning_level: number;
                 /**
                  * @description Warehouse location identifier; bin picking number for the item.
-                 *
                  * @example 1
                  */
                 readonly bin_picking_number?: string;
@@ -543,8 +529,7 @@ export interface operations {
                     readonly "application/json": components["schemas"]["SimpleTransactionResponse"];
                 };
             };
-            /** @description Incorrect entity. The adjustment was not valid. This is the result of missing required fields or invalid data. See the response for more details.
-             *      */
+            /** @description Incorrect entity. The adjustment was not valid. This is the result of missing required fields or invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -673,8 +658,7 @@ export interface operations {
                     readonly "application/json": components["schemas"]["SimpleTransactionResponse"];
                 };
             };
-            /** @description Incorrect entity. Item was not valid due to missing required fields or invalid data. See the response for more details.
-             *      */
+            /** @description Incorrect entity. Item was not valid due to missing required fields or invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;

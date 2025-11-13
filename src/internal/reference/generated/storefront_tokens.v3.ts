@@ -20,6 +20,8 @@ export interface paths {
          *
          *     **Required Scopes**
          *     * `Manage` `Storefront API Tokens`
+         *
+         *     > NOTE: While neither `channel_id` nor `channel_ids` is labelled as required, one must be included in the request body. Including neither will throw an error, and including both will result in unexpected behaviors.
          */
         readonly post: operations["createToken"];
         /**
@@ -44,6 +46,8 @@ export interface paths {
          *
          *     **Required Scopes**
          *     * `Manage` `Storefront API Customer Impersonation Tokens`
+         *
+         *     > NOTE: While neither `channel_id` nor `channel_ids` is labelled as required, one must be included in the request body. Including neither will throw an error, and including both will result in unexpected behaviors.
          */
         readonly post: operations["createTokenWithCustomerImpersonation"];
     };
@@ -57,7 +61,7 @@ export interface components {
              * @example 1885635176
              */
             readonly expires_at: number;
-        } & (components["schemas"]["Channels"] | components["schemas"]["Channel"]);
+        } & components["schemas"]["Channels"] & components["schemas"]["Channel"];
         readonly TokenPostSimple: {
             /** @description List of allowed domains for Cross-Origin Request Sharing. Currently accepts a maximum of two domains per created token. */
             readonly allowed_cors_origins?: readonly string[];
@@ -79,7 +83,7 @@ export interface components {
              * @description Channel ID that is valid for the requested token. Use this field to enter a channel ID. Do not use this field if you have more than one channel. We support this field for backwards compatibility, but `channel_ids` is preferred. You can not use both `channel_id` and `channel_ids` in your request.
              * @example 1
              */
-            readonly channel_id: number;
+            readonly channel_id?: number;
         };
         /** channel_ids */
         readonly Channels: {
@@ -90,19 +94,16 @@ export interface components {
              *       1
              *     ]
              */
-            readonly channel_ids: readonly number[];
+            readonly channel_ids?: readonly number[];
         };
         readonly ErrorResponse: components["schemas"]["BaseError"] & {
             readonly errors?: components["schemas"]["DetailedErrors"];
         };
-        /** @description Error payload for the BigCommerce API.
-         *      */
+        /** @description Error payload for the BigCommerce API. */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
         };
@@ -146,13 +147,6 @@ export interface operations {
         };
         readonly requestBody?: {
             readonly content: {
-                /** @example {
-                 *       "allowed_cors_origins": [
-                 *         "https://www.yourstorefront.com"
-                 *       ],
-                 *       "channel_id": 1,
-                 *       "expires_at": 1885635176
-                 *     } */
                 readonly "application/json": components["schemas"]["TokenPostSimple"] & components["schemas"]["TokenPostImpersonation"];
             };
         };

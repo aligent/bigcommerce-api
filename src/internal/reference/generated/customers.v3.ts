@@ -190,7 +190,6 @@ export interface paths {
          *
          *     **Notes:**
          *     * Global customer settings don't apply on a channel when there are channel specific settings configured through [Channel Settings](/docs/rest-management/customers/channel-settings).
-         *
          */
         readonly get: operations["getCustomersSettings"];
         /**
@@ -214,7 +213,6 @@ export interface paths {
          *     **Notes:**
          *
          *      * `null` value configuration indicates that there is no override provided for a given channel; thus, values are inherited from [Global Settings](/docs/rest-management/customers/global-settings).
-         *
          */
         readonly get: operations["getCustomersSettingsChannel"];
         /**
@@ -397,7 +395,6 @@ export interface paths {
         /**
          * Get a Customer Metafield
          * @description Returns a single *Customer Metafield*.
-         *
          */
         readonly get: operations["getMetafieldsCustomerId"];
         /**
@@ -408,7 +405,6 @@ export interface paths {
         /**
          * Delete a Customer Metafield
          * @description Deletes a customer metafield. To delete a customer metafield, use 'customerId' and 'metafieldId' in the query parameters.
-         *
          */
         readonly delete: operations["deleteCustomerMetafieldsId"];
     };
@@ -644,8 +640,7 @@ export interface components {
              *     ]
              */
             readonly channel_ids?: readonly number[];
-            /** @description Array of form fields. Controlled by formfields parameter.
-             *      */
+            /** @description Array of form fields. Controlled by formfields parameter. */
             readonly form_fields?: readonly components["schemas"]["formFieldValue"][];
             /** @description Indicates whether to send a customer registered welcome email. */
             readonly trigger_account_created_notification?: boolean;
@@ -686,8 +681,7 @@ export interface components {
             readonly origin_channel_id?: number;
             /** @description Arrays of channels the customer can access. */
             readonly channel_ids?: readonly number[];
-            /** @description Array of form fields. Controlled by formfields parameter.
-             *      */
+            /** @description Array of form fields. Controlled by formfields parameter. */
             readonly form_fields?: readonly components["schemas"]["formFieldValue"][];
         };
         /** attributeValue_Base */
@@ -867,8 +861,7 @@ export interface components {
              * @example 1
              */
             readonly id: number;
-            /** @description Array of form fields. Controlled by formfields parameter.
-             *      */
+            /** @description Array of form fields. Controlled by formfields parameter. */
             readonly form_fields?: readonly components["schemas"]["formFieldValue"][];
         };
         /** address_Post */
@@ -936,8 +929,7 @@ export interface components {
              * @example 1
              */
             readonly customer_id: number;
-            /** @description The address custom form field values
-             *      */
+            /** @description The address custom form field values */
             readonly form_fields?: readonly components["schemas"]["formFieldValue"][];
         };
         /**
@@ -1104,6 +1096,10 @@ export interface components {
             /**
              * Format: date-time
              * @description The date of which the customer consent was last updated.
+             *
+             *     > NOTE
+             *     >
+             *     > Currently, this field returns the time of the current API Call, not the time of last update. For PUT requests, this is typically accurate; however, it will not be accurate for GET requests.
              */
             readonly updated_at?: string;
         };
@@ -1345,8 +1341,10 @@ export interface components {
                  */
                 readonly default_customer_group_id?: number;
             };
-            /** @description * Determines if a channel allows global customer to login
-             *     * Determines if customers created on this channel will get global access/login */
+            /**
+             * @description * Determines if a channel allows global customer to login
+             *     * Determines if customers created on this channel will get global access/login
+             */
             readonly allow_global_logins?: boolean;
         };
         /** ValidateCustomerCredentialsObject */
@@ -1365,8 +1363,7 @@ export interface components {
             /** @description indicates if the provided credentials are valid. */
             readonly is_valid?: boolean;
         };
-        /** @description Common metafield properties.
-         *      */
+        /** @description Common metafield properties. */
         readonly Metafield: {
             /**
              * @description Determines the visibility and writeability of the field by other API consumers.
@@ -1377,44 +1374,37 @@ export interface components {
              *     | `write` | Open for reading and writing by other API consumers. |
              *     | `read_and_sf_access` | Visible to other API consumers, including on storefront. |
              *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on storefront. |
-             *
              * @enum {string}
              */
             readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace: string;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value: string;
             /**
              * @description Description for the metafields.
-             *
              * @example order
              */
             readonly description: string;
             /**
              * @description The type of resource with which the metafield is associated.
-             *
              * @example cart
              * @enum {string}
              */
             readonly resource_type: "brand" | "product" | "variant" | "category" | "cart" | "channel" | "location" | "order" | "customer";
             /**
              * @description The unique identifier for the resource with which the metafield is associated.
-             *
              * @example 424242
              */
             readonly resource_id: number;
@@ -1438,8 +1428,7 @@ export interface components {
              */
             readonly owner_client_id?: string;
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponse: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             readonly meta?: components["schemas"]["CollectionMeta"];
@@ -1454,31 +1443,32 @@ export interface components {
             readonly errors?: readonly unknown[];
             readonly meta?: components["schemas"]["CollectionMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponsePartialSuccess_POST_PUT: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             readonly errors?: readonly components["schemas"]["Error"][];
             readonly meta?: components["schemas"]["WriteCollectionPartialSuccessMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponsePartialSuccess_DELETE: {
-            /** @example [
+            /**
+             * @example [
              *       123
-             *     ] */
+             *     ]
+             */
             readonly data?: readonly number[];
             readonly errors?: readonly components["schemas"]["Error"][];
             readonly meta?: components["schemas"]["WriteCollectionPartialSuccessMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionDeleteResponseSuccess: {
-            /** @example [
+            /**
+             * @example [
              *       123,
              *       124,
              *       125
-             *     ] */
+             *     ]
+             */
             readonly data?: readonly number[];
             /**
              * @description Empty for 200 responses.
@@ -1494,19 +1484,16 @@ export interface components {
         readonly WriteCollectionPartialSuccessMeta: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 3
              */
             readonly total?: number;
             /**
              * @description Total number of items that were successfully deleted.
-             *
              * @example 1
              */
             readonly success?: number;
             /**
              * @description Total number of items that failed to be deleted.
-             *
              * @example 2
              */
             readonly failed?: number;
@@ -1518,59 +1505,49 @@ export interface components {
         readonly WriteCollectionSuccessMeta: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 3
              */
             readonly total?: number;
             /**
              * @description Total number of items that were successfully deleted.
-             *
              * @example 3
              */
             readonly success?: number;
             /**
              * @description Total number of items that failed to be deleted.
-             *
              * @example 0
              */
             readonly failed?: number;
         };
         /**
          * @description Total number of items in the result set.
-         *
          * @example 3
          */
         readonly Total: number;
         /**
          * @description Total number of items that were successfully deleted.
-         *
          * @example 1
          */
         readonly Success: number;
         /**
          * @description Total number of items that failed to be deleted.
-         *
          * @example 2
          */
         readonly Failed: number;
-        /** @description Error response payload for the BigCommerce API.
-         *      */
+        /** @description Error response payload for the BigCommerce API. */
         readonly Error: {
             /**
              * @description The HTTP status code for the error.
-             *
              * @example 422
              */
             readonly status?: number;
             /**
              * @description The error title.
-             *
              * @example Bulk operation has failed
              */
             readonly title?: string;
             /**
              * @description The error type.
-             *
              * @example https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
              */
             readonly type?: string;
@@ -1578,7 +1555,6 @@ export interface components {
         };
         /**
          * @description Error detail response payload for the BigCommerce API.
-         *
          * @example {
          *       "1": "Unauthorized to delete",
          *       "2": "Metafield does not exist"
@@ -1599,56 +1575,46 @@ export interface components {
             readonly pagination?: {
                 /**
                  * @description Total number of items in the result set.
-                 *
                  * @example 36
                  */
                 readonly total?: number;
                 /**
                  * @description Total number of items in the collection response.
-                 *
                  * @example 36
                  */
                 readonly count?: number;
                 /**
                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                 *
                  * @example 50
                  */
                 readonly per_page?: number;
                 /**
                  * @description The page you are currently on within the collection.
-                 *
                  * @example 1
                  */
                 readonly current_page?: number;
                 /**
                  * @description The total number of pages in the collection.
-                 *
                  * @example 1
                  */
                 readonly total_pages?: number;
-                /** @description Pagination links for the previous and next parts of the whole collection.
-                 *      */
+                /** @description Pagination links for the previous and next parts of the whole collection. */
                 readonly links?: {
-                    /** @description Link to the previous page returned in the response.
-                     *      */
+                    /** @description Link to the previous page returned in the response. */
                     readonly previous?: string;
                     /**
                      * @description Link to the current page returned in the response.
-                     *
                      * @example ?page=1&limit=50
                      */
                     readonly current?: string;
-                    /** @description Link to the next page returned in the response.
-                     *      */
+                    /** @description Link to the next page returned in the response. */
                     readonly next?: string;
                 };
             };
         } & {
             readonly [key: string]: unknown;
         };
-        /** @description Common Metafield properties.
-         *      */
+        /** @description Common Metafield properties. */
         readonly MetafieldBase_Post: {
             /**
              * @description Determines the visibility and writeability of the field by other API consumers.
@@ -1665,31 +1631,26 @@ export interface components {
             readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace: string;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value: string;
             /**
              * @description Description for the metafields.
-             *
              * @example Name of Staff Member
              */
             readonly description?: string;
         };
-        /** @description Common Metafield properties.
-         *      */
+        /** @description Common Metafield properties. */
         readonly MetafieldBase_Put: {
             /**
              * @description Determines the visibility and writeability of the field by other API consumers.
@@ -1701,31 +1662,26 @@ export interface components {
              *     | `write` | Open for reading and writing by other API consumers. |
              *     | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
              *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
-             *
              * @enum {string}
              */
             readonly permission_set?: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace?: string;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key?: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value?: string;
             /**
              * @description Description for the metafields.
-             *
              * @example Name of Staff Member
              */
             readonly description?: string;
@@ -1740,28 +1696,24 @@ export interface components {
         } & components["schemas"]["metafield_Base"] & {
             /**
              * @description The type of resource with which the metafield is associated.
-             *
              * @example customer
              * @enum {string}
              */
             readonly resource_type?: "category" | "brand" | "product" | "variant" | "customer";
             /**
              * @description The ID of the resource with which the metafield is associated.
-             *
              * @example 111
              */
             readonly resource_id?: number;
             /**
              * Format: date-time
              * @description Date and time of the metafieldʼs creation. Read-Only.
-             *
              * @example 2018-05-07T20:14:17+00:00
              */
             readonly date_created?: string;
             /**
              * Format: date-time
              * @description Date and time when the metafield was last updated. Read-Only.
-             *
              * @example 2018-05-07T20:14:17+00:00
              */
             readonly date_modified?: string;
@@ -1773,19 +1725,16 @@ export interface components {
         readonly metafield_Base: {
             /**
              * @description The name of the field, for example: `location_id`, `color`. Required for POST.
-             *
              * @example Location
              */
             readonly key: string;
             /**
              * @description The value of the field, for example: `1`, `blue`. Required for POST.
-             *
              * @example 4HG
              */
             readonly value: string;
             /**
              * @description Namespace for the metafield, for organizational purposes. This is set by the developer. Required for POST.
-             *
              * @example Warehouse Locations
              */
             readonly namespace: string;
@@ -1804,7 +1753,6 @@ export interface components {
             readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Description for the metafields.
-             *
              * @example Location in the warehouse
              */
             readonly description?: string;
@@ -1828,8 +1776,7 @@ export interface components {
          * @description Error payload for the BigCommerce API.
          */
         readonly NotFound: {
-            /** @description 404 HTTP status code.
-             *      */
+            /** @description 404 HTTP status code. */
             readonly status?: number;
             /** @description The error title describing the particular error. */
             readonly title?: string;
@@ -1843,48 +1790,39 @@ export interface components {
         readonly pagination_Full: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 36
              */
             readonly total?: number;
             /**
              * @description Total number of items in the collection response.
-             *
              * @example 36
              */
             readonly count?: number;
             /**
              * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-             *
              * @example 50
              */
             readonly per_page?: number;
             /**
              * @description The page you are currently on within the collection.
-             *
              * @example 1
              */
             readonly current_page?: number;
             /**
              * @description The total number of pages in the collection.
-             *
              * @example 1
              */
             readonly total_pages?: number;
-            /** @description Pagination links for the previous and next parts of the whole collection.
-             *      */
+            /** @description Pagination links for the previous and next parts of the whole collection. */
             readonly links?: {
-                /** @description Link to the previous page returned in the response.
-                 *      */
+                /** @description Link to the previous page returned in the response. */
                 readonly previous?: string;
                 /**
                  * @description Link to the current page returned in the response.
-                 *
                  * @example ?page=1&limit=50
                  */
                 readonly current?: string;
-                /** @description Link to the next page returned in the response.
-                 *      */
+                /** @description Link to the next page returned in the response. */
                 readonly next?: string;
             };
         };
@@ -2077,9 +2015,11 @@ export interface components {
                          * @description Attribute ID.
                          */
                         readonly attribute_id: number;
-                        /** @description Attribute value. This will always be a string, regardless of the attributes type.
+                        /**
+                         * @description Attribute value. This will always be a string, regardless of the attributes type.
                          *
-                         *     Corresponds to `value` used in customer attribute values `PUT` requests. */
+                         *     Corresponds to `value` used in customer attribute values `PUT` requests.
+                         */
                         readonly attribute_value: string;
                         /**
                          * Format: int32
@@ -2264,8 +2204,7 @@ export interface components {
         readonly metafieldId: number;
         /** @description The ID of the customer. */
         readonly customerId: number;
-        /** @description Specifies the page number in a limited (paginated) list of products.
-         *      */
+        /** @description Specifies the page number in a limited (paginated) list of products. */
         readonly PageParam: number;
         /** @description Filter based on a metafieldʼs key. */
         readonly MetafieldKeyParam: string;
@@ -2275,8 +2214,7 @@ export interface components {
         readonly MetafieldNamespaceParam: string;
         /** @description Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter. */
         readonly MetafieldNamespaceInParam: readonly string[];
-        /** @description Controls the number of items per page in a limited (paginated) list of products.
-         *      */
+        /** @description Controls the number of items per page in a limited (paginated) list of products. */
         readonly LimitParam: number;
         /** @description Filter items by minimum date created. For example, `date_created:min=2019-09-04T00:00:00` or `date_created:min=2019-09-04`. Returns metafields created after this date. */
         readonly date_created_min: string;
@@ -2286,8 +2224,7 @@ export interface components {
         readonly date_modified_min: string;
         /** @description Filter items by maximum date modified. For example, `date_modified:max=2019-09-04T00:00:00` or `date_modified:max=2019-09-04`. Returns metafields modified before this date. */
         readonly date_modified_max: string;
-        /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-         *      */
+        /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
         readonly DirectionParam: "asc" | "desc";
         /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
         readonly IncludeFieldsParamMetafields: readonly ("resource_id" | "key" | "value" | "namespace" | "permission_set" | "resource_type" | "description" | "owner_client_id" | "date_created" | "date_modified")[];
@@ -2305,8 +2242,10 @@ export interface operations {
                 readonly page?: number;
                 /** @description Items count per page. `limit=50` */
                 readonly limit?: number;
-                /** @description Filter items by ID.
-                 *     `id:in=4,5,6` */
+                /**
+                 * @description Filter items by ID.
+                 *     `id:in=4,5,6`
+                 */
                 readonly "id:in"?: readonly number[];
                 /** @description Filter items by company. `company:in=bigcommerce,commongood` */
                 readonly "company:in"?: readonly string[];
@@ -2328,16 +2267,21 @@ export interface operations {
                 readonly "email:in"?: readonly string[];
                 /** @description Filter items by first_name and last_name. `name=james moriarty` */
                 readonly "name:in"?: readonly string[];
-                /** @description Filter items by substring in first_name and last_name.
+                /**
+                 * @description Filter items by substring in first_name and last_name.
                  *     `name:like=moriarty,sherlock`
-                 *     Concatenates the first_name and last_name fields. */
+                 *     Concatenates the first_name and last_name fields.
+                 */
                 readonly "name:like"?: readonly string[];
                 /** @description Filter items by phone number. `phone:in=555-55-5555` */
                 readonly "phone:in"?: string;
-                /** @description Filter items by registration_ip_address. If the customer was created using the API, then registration address is blank.
-                 *     `registration_ip_address:in=12.345.6.789` */
+                /**
+                 * @description Filter items by registration_ip_address. If the customer was created using the API, then registration address is blank.
+                 *     `registration_ip_address:in=12.345.6.789`
+                 */
                 readonly "registration_ip_address:in"?: readonly number[];
-                /** @description Indicates whether to include customer sub-resources:
+                /**
+                 * @description Indicates whether to include customer sub-resources:
                  *      * `addresses` - customer addresses
                  *      * `storecredit` - store credit
                  *      * `attributes` - customer attributes and address attributes
@@ -2345,11 +2289,12 @@ export interface operations {
                  *      * `shopper_profile_id` - the ID of the shopper profile associated with the customer (Beta)
                  *      * `segment_ids`- segments the customer belongs to (Beta)
                  *
-                 *      `include=addresses,storecredit,attributes,formfields,shopper_profile_id,segment_ids` */
+                 *      `include=addresses,storecredit,attributes,formfields,shopper_profile_id,segment_ids`
+                 */
                 readonly include?: readonly ("addresses" | "storecredit" | "attributes" | "formfields" | "shopper_profile_id" | "segment_ids")[];
                 /** @description Sort items by date_created, date_modified, or last_name:* `date_created:asc` - date created, ascending* `date_created:desc` - date created, descending* `last_name:asc` - last name, ascending* `last_name:desc` - last name, descending * `date_modified:asc` - date modified, ascending* `date_modified:desc`- date modified, descending  Example: `sort=last_name:asc` */
                 readonly sort?: "date_created:asc" | "date_created:desc" | "last_name:asc" | "last_name:desc" | "date_modified:asc" | "date_modified:desc";
-                /** @description The cursor reference of the last entry for the previous page. Use the `end_cursor` value from the last response to get the next page (`end_cursor` is only returned on the first page or when the request contains query parameter `before` or `after`). For example `after=eyJpZCI6MjA0fQ`.  */
+                /** @description The cursor reference of the last entry for the previous page. Use the `end_cursor` value from the last response to get the next page (`end_cursor` is only returned on the first page or when the request contains query parameter `before` or `after`). For example `after=eyJpZCI6MjA0fQ`. */
                 readonly after?: string;
                 /** @description The cursor reference of the first entry for the next page. Use the `start_cursor` value from the last response to get the previous page (`start_cursor` is only returned on the first page or when the request contains query parameter `before` or `after`). For example `before=eyJpZCI6MjA1fQ`. */
                 readonly before?: string;
@@ -2361,8 +2306,7 @@ export interface operations {
         readonly requestBody?: never;
         readonly responses: {
             readonly 200: components["responses"]["GetCustomerCollectionResponse"];
-            /** @description The optional filter parameter was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The optional filter parameter was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2394,8 +2338,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            /** @description The `Customer` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Customer` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2441,8 +2384,10 @@ export interface operations {
     readonly deleteCustomers: {
         readonly parameters: {
             readonly query: {
-                /** @description Filter items by ID.
-                 *     `id:in=4,5,6` */
+                /**
+                 * @description Filter items by ID.
+                 *     `id:in=4,5,6`
+                 */
                 readonly "id:in": readonly number[];
             };
             readonly header?: never;
@@ -2481,12 +2426,16 @@ export interface operations {
                 readonly "name:in"?: readonly string[];
                 /** @description Filter by the ID of the customer. Also accepts comma-separated IDs to filter for multiple customers. `customer_id:in=23,24,55` */
                 readonly "customer_id:in"?: readonly number[];
-                /** @description Indicates whether to include customer address sub-resources:
+                /**
+                 * @description Indicates whether to include customer address sub-resources:
                  *     * `formfields` - address form fields
-                 *     `include=formfields` */
+                 *     `include=formfields`
+                 */
                 readonly include?: readonly "formfields"[];
-                /** @description Filter items by ID.
-                 *     `id:in=4,5,6` */
+                /**
+                 * @description Filter items by ID.
+                 *     `id:in=4,5,6`
+                 */
                 readonly "id:in"?: readonly number[];
             };
             readonly header?: {
@@ -2518,8 +2467,7 @@ export interface operations {
         };
         readonly responses: {
             readonly 200: components["responses"]["AddressCollectionResponsePostPut"];
-            /** @description The `Address` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Address` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2547,8 +2495,7 @@ export interface operations {
         };
         readonly responses: {
             readonly 200: components["responses"]["AddressCollectionResponsePostPut"];
-            /** @description The `Address` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Address` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2562,8 +2509,10 @@ export interface operations {
     readonly deleteCustomersAddresses: {
         readonly parameters: {
             readonly query: {
-                /** @description Filter items by ID.
-                 *     `id:in=4,5,6` */
+                /**
+                 * @description Filter items by ID.
+                 *     `id:in=4,5,6`
+                 */
                 readonly "id:in": readonly number[];
             };
             readonly header?: {
@@ -2614,8 +2563,7 @@ export interface operations {
                     readonly "application/json": components["schemas"]["ErrorResponse"];
                 };
             };
-            /** @description Allowed number of requests exceeded.
-             *      */
+            /** @description Allowed number of requests exceeded. */
             readonly 429: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2793,8 +2741,7 @@ export interface operations {
         };
         readonly responses: {
             readonly 200: components["responses"]["CustomerAttributesResponse"];
-            /** @description The `Attribute` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Attribute` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2822,8 +2769,7 @@ export interface operations {
         };
         readonly responses: {
             readonly 200: components["responses"]["CustomerAttributesResponse"];
-            /** @description The `Attribute` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Attribute` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2912,8 +2858,7 @@ export interface operations {
         };
         readonly responses: {
             readonly 200: components["responses"]["CustomerAttributeValueCollectionResponse"];
-            /** @description The `CustomerAttributeValue` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `CustomerAttributeValue` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2927,8 +2872,10 @@ export interface operations {
     readonly deleteCustomersAttributeValues: {
         readonly parameters: {
             readonly query: {
-                /** @description Filter items by ID.
-                 *     `id:in=4,5,6` */
+                /**
+                 * @description Filter items by ID.
+                 *     `id:in=4,5,6`
+                 */
                 readonly "id:in": readonly number[];
             };
             readonly header?: {
@@ -2961,7 +2908,8 @@ export interface operations {
                 readonly address_id?: number;
                 /** @description Filter by the field name. */
                 readonly field_name?: string;
-                /** @description Filter by the field type.
+                /**
+                 * @description Filter by the field type.
                  *      * `checkboxes` - checkboxes field
                  *      * `date` - date field
                  *      * `multiline` - multiline text field
@@ -2969,9 +2917,10 @@ export interface operations {
                  *      * `password` - password field
                  *      * `radiobuttons` - radio buttons field
                  *      * `text` - text field
-                 *      * `picklist` - pick list field */
+                 *      * `picklist` - pick list field
+                 */
                 readonly field_type?: "checkboxes" | "date" | "multiline" | "numbers" | "password" | "radiobuttons" | "text" | "picklist";
-                /** @description The cursor reference of the last entry for the previous page. Use the `end_cursor` value from the last response to get the next page (`end_cursor` is only returned on the first page or when the request contains query parameter `before` or `after`). For example `after=eyJzZXNzaW9uSWQiOjM4LCJmaWVsZElkIjo0MH0`.  */
+                /** @description The cursor reference of the last entry for the previous page. Use the `end_cursor` value from the last response to get the next page (`end_cursor` is only returned on the first page or when the request contains query parameter `before` or `after`). For example `after=eyJzZXNzaW9uSWQiOjM4LCJmaWVsZElkIjo0MH0`. */
                 readonly after?: string;
                 /** @description The cursor reference of the first entry for the next page. Use the `start_cursor` value from the last response to get the previous page (`start_cursor` is only returned on the first page or when the request contains query parameter `before` or `after`). For example `before=eyJzZXNzaW9uSWQiOjgsImZpZWxkSWQiOjMxfQ`. */
                 readonly before?: string;
@@ -3139,10 +3088,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "code": 401,
                      *       "message": "Unauthorized"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["ErrorResponse"];
                 };
             };
@@ -3152,10 +3103,12 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "code": 403,
                      *       "message": "Missing scope"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["ErrorResponse"];
                 };
             };
@@ -3218,12 +3171,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -3232,8 +3187,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `Metafield` conflicts with another `Metafield`. This can result from duplicate unique key combinations of the appʼs client id, namespace, key, resource_type, and resource_id.
-             *      */
+            /** @description The `Metafield` conflicts with another `Metafield`. This can result from duplicate unique key combinations of the appʼs client id, namespace, key, resource_type, and resource_id. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3278,8 +3232,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Not found (A metafield was not found with this query).
-             *      */
+            /** @description Not found (A metafield was not found with this query). */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3310,7 +3263,6 @@ export interface operations {
                 readonly "application/json": components["schemas"]["MetafieldBase_Put"] & {
                     /**
                      * @description The ID of metafield to update.
-                     *
                      * @example 42
                      */
                     readonly id: number;
@@ -3333,12 +3285,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -3347,8 +3301,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Not found (A metafield was not found with this query).
-             *      */
+            /** @description Not found (A metafield was not found with this query). */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3373,16 +3326,14 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description Response object for customer metafields deletion with success.
-             *      */
+            /** @description Response object for customer metafields deletion with success. */
             readonly 204: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content?: never;
             };
-            /** @description Not found (A metafield was not found with this query).
-             *      */
+            /** @description Not found (A metafield was not found with this query). */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3396,11 +3347,9 @@ export interface operations {
     readonly getAllCustomersMetafields: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description Filter based on a metafieldʼs key. */
                 readonly key?: components["parameters"]["MetafieldKeyParam"];
@@ -3410,8 +3359,7 @@ export interface operations {
                 readonly namespace?: components["parameters"]["MetafieldNamespaceParam"];
                 /** @description Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter. */
                 readonly "namespace:in"?: components["parameters"]["MetafieldNamespaceInParam"];
-                /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-                 *      */
+                /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
                 readonly direction?: components["parameters"]["DirectionParam"];
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
                 readonly include_fields?: components["parameters"]["IncludeFieldsParamMetafields"];
@@ -3430,8 +3378,7 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description List of `Metafield` objects.
-             *      */
+            /** @description List of `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3454,7 +3401,6 @@ export interface operations {
                 readonly "application/json": readonly (components["schemas"]["MetafieldBase_Put"] & {
                     /**
                      * @description The ID of metafield to update.
-                     *
                      * @example 42
                      */
                     readonly id: number;
@@ -3477,12 +3423,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -3491,8 +3439,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields creation with partial success.
-             *      */
+            /** @description Response object for metafields creation with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3515,7 +3462,6 @@ export interface operations {
                 readonly "application/json": readonly (components["schemas"]["MetafieldBase_Post"] & {
                     /**
                      * @description The ID for the resource with which the metafield is associated.
-                     *
                      * @example 42
                      */
                     readonly resource_id: number;
@@ -3538,12 +3484,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -3552,8 +3500,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields creation with partial success.
-             *      */
+            /** @description Response object for metafields creation with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3573,8 +3520,7 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description Response object for metafields deletion with success.
-             *      */
+            /** @description Response object for metafields deletion with success. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -3589,12 +3535,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -3603,8 +3551,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields deletion with partial success.
-             *      */
+            /** @description Response object for metafields deletion with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;

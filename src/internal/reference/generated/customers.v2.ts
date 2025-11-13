@@ -462,8 +462,7 @@ export interface components {
             readonly id?: number;
             /** @description Date on which the customer registered from the storefront or was created in the control panel. This is a Read-Only field; do not set or modify its value in a POST or PUT request. */
             readonly date_created?: string;
-            /** @description Date on which the customer updated their details in the storefront or was updated in the control panel. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
-             *      */
+            /** @description Date on which the customer updated their details in the storefront or was updated in the control panel. This is a Read-Only field; do not set or modify its value in a POST or PUT request. */
             readonly date_modified?: string;
         } & components["schemas"]["customer_Base"];
         /** categoryAccessLevel_Full */
@@ -931,11 +930,9 @@ export interface components {
             readonly errors?: readonly components["schemas"]["ErrorBasic"][];
         };
         readonly ErrorBasic: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
         };
@@ -1215,9 +1212,11 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "count": 27
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["count_Full"];
                 };
             };
@@ -1252,9 +1251,11 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "success": false
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["validatePassword"];
                 };
             };
@@ -1532,9 +1533,11 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "count": 27
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["count_Full"];
                 };
             };
@@ -1776,9 +1779,11 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "count": 27
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["count_Full"];
                 };
             };

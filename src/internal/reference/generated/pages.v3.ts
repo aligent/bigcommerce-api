@@ -26,6 +26,8 @@ export interface paths {
         /**
          * Create Pages
          * @description Creates one or more content pages. This endpoint supports bulk operations.
+         *
+         *     Web pages created via this endpoint are subject to the 4000 web page platform limit. Attempting to create pages over the limit will return an error. For more information on platform limits, see [Platform Limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits).
          */
         readonly post: operations["createPages"];
         /**
@@ -74,25 +76,19 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
-        /** @description Error payload for the BigCommerce API.
-         *      */
+        /** @description Error payload for the BigCommerce API. */
         readonly ResponseErrorBrief: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
         };
-        /** @description Error payload for the BigCommerce API.
-         *      */
+        /** @description Error payload for the BigCommerce API. */
         readonly ResponseErrorDetailed: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly detail?: string;
@@ -100,50 +96,36 @@ export interface components {
         /**
          * ResponseErrorItemized
          * @description Error payload for the BigCommerce API.
-         *
          */
         readonly ResponseErrorItemized: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly errors?: readonly string[];
         };
-        /** @description Data about the response, including pagination and collection totals.
-         *      */
+        /** @description Data about the response, including pagination and collection totals. */
         readonly ResponseMeta: {
-            /** @description Data about the response, including pagination and collection totals.
-             *      */
+            /** @description Data about the response, including pagination and collection totals. */
             readonly pagination?: {
-                /** @description Total number of items in the result set.
-                 *      */
+                /** @description Total number of items in the result set. */
                 readonly total?: number;
-                /** @description Total number of items in the collection response.
-                 *      */
+                /** @description Total number of items in the collection response. */
                 readonly count?: number;
-                /** @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                 *      */
+                /** @description The amount of items returned in the collection per page, controlled by the limit parameter. */
                 readonly per_page?: number;
-                /** @description The page you are currently on within the collection.
-                 *      */
+                /** @description The page you are currently on within the collection. */
                 readonly current_page?: number;
-                /** @description The total number of pages in the collection.
-                 *      */
+                /** @description The total number of pages in the collection. */
                 readonly total_pages?: number;
-                /** @description Pagination links for the previous and next parts of the whole collection.
-                 *      */
+                /** @description Pagination links for the previous and next parts of the whole collection. */
                 readonly links?: {
-                    /** @description Link to the previous page returned in the response.
-                     *      */
+                    /** @description Link to the previous page returned in the response. */
                     readonly previous?: string;
-                    /** @description Link to the current page returned in the response.
-                     *      */
+                    /** @description Link to the current page returned in the response. */
                     readonly current?: string;
-                    /** @description Link to the next page returned in the response.
-                     *      */
+                    /** @description Link to the next page returned in the response. */
                     readonly next?: string;
                 };
             };
@@ -151,7 +133,6 @@ export interface components {
         /**
          * Body
          * @description Response payload for the BigCommerce API.
-         *
          */
         readonly PagesCollectionResponse: {
             readonly data?: readonly (components["schemas"]["typePage"] | components["schemas"]["typeBlog"] | components["schemas"]["typeContactForm"] | components["schemas"]["typeRaw"] | components["schemas"]["typeLink"])[];
@@ -160,7 +141,6 @@ export interface components {
         /**
          * PageResponseObject
          * @description Response payload for a single content page.
-         *
          */
         readonly SinglePageResponse: {
             readonly data?: components["schemas"]["typePage"] | components["schemas"]["typeBlog"] | components["schemas"]["typeContactForm"] | components["schemas"]["typeRaw"] | components["schemas"]["typeLink"];
@@ -170,32 +150,29 @@ export interface components {
         readonly PagePutObj: {
             /**
              * @description The ID of the channel where this page should be shown.
-             *
              * @default 1
              * @example 12
              */
             readonly channel_id: number;
             /**
              * @description The name of the page. Must be unique.
-             *
              * @example My Store Page
              */
             readonly name?: string;
-            /** @description Boolean value that specifies the visibility of the page in the storefront’s navigation menu.
+            /**
+             * @description Boolean value that specifies the visibility of the page in the storefront’s navigation menu.
              *
              *     Indicates whether the page is available to users and visible in any menus.
-             *      */
+             */
             readonly is_visible?: boolean;
             /**
              * @description ID of any parent Web page.
-             *
              * @default 0
              * @example 0
              */
             readonly parent_id: number;
             /**
              * @description Specifies the order in which the page is displayed on the storefront. (Lower integers specify earlier display.)
-             *
              * @default 0
              * @example 0
              */
@@ -208,21 +185,17 @@ export interface components {
             readonly type?: "page" | "raw" | "contact_form" | "link" | "blog";
             /**
              * @description HTML or variable that populates the element of this page, in default/desktop view. Required in a `POST` request if the page type is `raw`.
-             *
              * @example <div>Hello World!</div>
              */
             readonly body?: string | null;
-            /** @description Boolean value that specifies whether this page is the storefront’s home page.
-             *      */
+            /** @description Boolean value that specifies whether this page is the storefront’s home page. */
             readonly is_homepage?: boolean;
-            /** @description Boolean value. When `true`, this page is visible only to logged-in customers.
-             *      */
+            /** @description Boolean value. When `true`, this page is visible only to logged-in customers. */
             readonly is_customers_only?: boolean;
             /** @description Applicable when the page type is `contact_form`: contact email address that receives messages sent via the form. Must be unique. */
             readonly email?: string;
             readonly meta_title?: string | null;
-            /** @description Required in a `POST` request to create a link if the page type is `link`.
-             *      */
+            /** @description Required in a `POST` request to create a link if the page type is `link`. */
             readonly link?: string;
             /**
              * @description Applicable when the page type is `contact_form`: comma-separated list of keywords representing the fields enabled in the control panel for storefront display. Possible fields include:
@@ -234,28 +207,23 @@ export interface components {
              *     |`companyname`|Customer’s submitted company name|
              *     |`orderno`|Customer’s submitted order number|
              *     |`rma`|Customer’s submitted RMA (Return Merchandise Authorization) number|
-             *
              * @example fullname,companyname,phone,orderno,rma
              */
             readonly contact_fields?: string;
             /**
              * @description Comma-separated list of SEO-relevant keywords to include in the element of this page.
-             *
              * @default
              */
             readonly meta_keywords: string | null;
-            /** @description Description contained within the element of this page.
-             *      */
+            /** @description Description contained within the element of this page. */
             readonly meta_description?: string | null;
             /**
              * @description Comma-separated list of keywords that shoppers can use to locate this page when searching the store.
-             *
              * @example trousers,pockets,luxury
              */
             readonly search_keywords?: string | null;
             /**
              * @description Relative URL on the storefront for this page.
-             *
              * @example /my-store-page
              */
             readonly url?: string;
@@ -264,8 +232,7 @@ export interface components {
             /** @description The ID of the target page. */
             readonly id: number;
         } & components["schemas"]["PagePutObj"];
-        /** @description Properties of all Pages V3 pages.
-         *      */
+        /** @description Properties of all Pages V3 pages. */
         readonly anyTypePage: {
             readonly id?: number;
             /** @default 1 */
@@ -310,7 +277,6 @@ export interface components {
             readonly is_customers_only: boolean;
             /**
              * @description Relative URL on the storefront for this page.
-             *
              * @example /my-store-page
              */
             readonly url?: string;
@@ -318,7 +284,6 @@ export interface components {
         /**
          * page
          * @description `type: page`. A user-defined plain-text page.
-         *
          */
         readonly typePage: components["schemas"]["anyTypePage"] & components["schemas"]["pageMeta"] & components["schemas"]["searchKeywords"];
         /**
@@ -328,7 +293,6 @@ export interface components {
         readonly typeBlog: unknown & components["schemas"]["anyTypePage"] & components["schemas"]["pageMeta"] & components["schemas"]["searchKeywords"] & {
             /**
              * @description Relative URL on the storefront for this page.
-             *
              * @example /blog/
              */
             readonly url?: string;
@@ -350,7 +314,6 @@ export interface components {
              *     | `companyname` | The customer’s company name. |
              *     | `orderno` | A field that lets customers specify a subject order number. |
              *     | `rma` | A customer’s submitted RMA (Return Merchandise Authorization) number. |
-             *
              * @example fullname,companyname,phone,orderno,rma
              */
             readonly contact_fields?: string;
@@ -362,7 +325,6 @@ export interface components {
         readonly typeRaw: components["schemas"]["anyTypePage"] & components["schemas"]["searchKeywords"] & {
             /**
              * @description HTML or variable that populates the element of this page, in default/desktop view. Required in a `POST` request if the page type is `raw`.
-             *
              * @example <div>Hello World!</div>
              */
             readonly body: string | null;
@@ -384,13 +346,11 @@ export interface components {
             readonly meta_title?: string | null;
             /**
              * @description Comma-separated list of SEO-relevant keywords to include in the element of this page.
-             *
              * @default ""
              */
             readonly meta_keywords: string | null;
             /**
              * @description Description contained within the element of this page.
-             *
              * @default ""
              */
             readonly meta_description: string | null;
@@ -398,7 +358,6 @@ export interface components {
         readonly searchKeywords: {
             /**
              * @description Comma-separated list of keywords that shoppers can use to locate this page when searching the store.
-             *
              * @default ""
              * @example trousers,pockets,luxury
              */
@@ -415,13 +374,15 @@ export interface components {
                 readonly "application/json": unknown;
             };
         };
-        /** @description Created.
+        /**
+         * @description Created.
          *
          *     Response.data will inherit the data type of the request. A single entry passed as an object will return an object for the data property. Any number of entries passed in an array will return an array for the data property.
          *
          *     Properties associated with a page `type` that are not required to create an entry will be created with default values.
          *
-         *     When you make bulk requests, an invalid input in any one entry will return 422. The entries that are valid will still be created. */
+         *     When you make bulk requests, an invalid input in any one entry will return 422. The entries that are valid will still be created.
+         */
         readonly HTTP201CreatePages: {
             headers: {
                 readonly [name: string]: unknown;
@@ -457,7 +418,6 @@ export interface components {
         /**
          * @description When you explicitly set this query parameter to `true`, deleting a parent page will recursively delete all its immediate children and their descendants.
          *     Otherwise, if you set this query parameter to `false` or not provided, deleting a parent page will update its immediate children by setting their `parent_id` to `0` and their `is_visible` status to `false`.
-         *
          * @example true
          */
         readonly deleteChildrenQuery: boolean;
@@ -549,8 +509,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description Updated.
-             *      */
+            /** @description Updated. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -600,9 +559,11 @@ export interface operations {
         readonly responses: {
             readonly 201: components["responses"]["HTTP201CreatePages"];
             readonly 207: components["responses"]["HTTP207Response"];
-            /** @description The input was not valid. This is the result of missing required fields or other invalid arguments. See the response for more details.
+            /**
+             * @description The input was not valid. This is the result of missing required fields or other invalid arguments. See the response for more details.
              *
-             *     When making bulk requests, an invalid input in any one entry will cause the whole request to return 422. The entries that are valid will still be created. */
+             *     When making bulk requests, an invalid input in any one entry will cause the whole request to return 422. The entries that are valid will still be created.
+             */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -621,7 +582,6 @@ export interface operations {
                 /**
                  * @description When you explicitly set this query parameter to `true`, deleting a parent page will recursively delete all its immediate children and their descendants.
                  *     Otherwise, if you set this query parameter to `false` or not provided, deleting a parent page will update its immediate children by setting their `parent_id` to `0` and their `is_visible` status to `false`.
-                 *
                  * @example true
                  */
                 readonly delete_children?: components["parameters"]["deleteChildrenQuery"];

@@ -91,14 +91,11 @@ export interface components {
                 readonly message?: string;
             }[];
         };
-        /** @description Error payload for the BigCommerce API.
-         *      */
+        /** @description Error payload for the BigCommerce API. */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
         };
     };
@@ -133,12 +130,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "promotions_triggered_by_products_with_zero_product_price": true,
                      *       "promotions_apply_on_products_with_custom_product_price": false,
                      *       "number_of_coupons_allowed_at_checkout": 1,
                      *       "promotions_applied_on_original_product_price": true
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["GlobalPromotionSettings"];
                 };
             };
@@ -167,12 +166,14 @@ export interface operations {
         };
         readonly requestBody: {
             readonly content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "promotions_triggered_by_products_with_zero_product_price": true,
                  *       "promotions_apply_on_products_with_custom_product_price": false,
                  *       "number_of_coupons_allowed_at_checkout": 1,
                  *       "promotions_applied_on_original_product_price": true
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": components["schemas"]["GlobalPromotionSettings"];
             };
         };

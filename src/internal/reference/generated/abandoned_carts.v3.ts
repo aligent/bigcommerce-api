@@ -51,9 +51,11 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description Unique cart `UUID`.
+                /**
+                 * @description Unique cart `UUID`.
                  *
-                 *     Unique cart `UUID` token that is generated for abandoned cart emails. */
+                 *     Unique cart `UUID` token that is generated for abandoned cart emails.
+                 */
                 readonly token: string;
             };
             readonly cookie?: never;
@@ -83,11 +85,9 @@ export interface components {
             /**
              * Format: int32
              * @description The HTTP status code
-             *
              */
             readonly status?: number;
-            /** @description The error title describing the particular error
-             *      */
+            /** @description The error title describing the particular error */
             readonly title?: string;
             readonly type?: string;
         };
@@ -202,8 +202,10 @@ export interface components {
                 readonly "application/json": components["schemas"]["errorDetailed_Full"];
             };
         };
-        /** @description Malformed request syntax. Typically need to fix the JSON
-         *     Body to resend successfully. */
+        /**
+         * @description Malformed request syntax. Typically need to fix the JSON
+         *     Body to resend successfully.
+         */
         readonly "400_BadRequest": {
             headers: {
                 readonly [name: string]: unknown;
@@ -433,9 +435,11 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description Unique cart `UUID`.
+                /**
+                 * @description Unique cart `UUID`.
                  *
-                 *     Unique cart `UUID` token that is generated for abandoned cart emails. */
+                 *     Unique cart `UUID` token that is generated for abandoned cart emails.
+                 */
                 readonly token: string;
             };
             readonly cookie?: never;
