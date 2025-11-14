@@ -12,8 +12,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
             };
             readonly cookie?: never;
@@ -50,11 +49,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: components["parameters"]["VariantIdParam"];
             };
             readonly cookie?: never;
@@ -83,11 +80,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: components["parameters"]["VariantIdParam"];
             };
             readonly cookie?: never;
@@ -122,14 +117,11 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: components["parameters"]["VariantIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdParam"];
             };
             readonly cookie?: never;
@@ -171,11 +163,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: components["parameters"]["VariantIdParam"];
             };
             readonly cookie?: never;
@@ -265,7 +255,6 @@ export interface components {
         /**
          * categoriesTree_Resp
          * @description Returns the categories tree, a nested lineage of the categories with parent->child relationship. The Category objects returned are simplified versions of the category objects returned in the rest of this API.
-         *
          */
         readonly categoriesTree_Resp: {
             readonly data?: readonly components["schemas"]["categoriesTreeNode_Full"][];
@@ -278,31 +267,26 @@ export interface components {
         readonly categoriesTreeNode_Full: {
             /**
              * @description The unique numeric ID of the category; increments sequentially.
-             *
              * @example 26
              */
             readonly id?: number;
             /**
              * @description The unique numeric ID of the categoryʼs parent. This field controls where the category sits in the tree of categories that organize the catalog.
-             *
              * @example 25
              */
             readonly parent_id?: number;
             /**
              * @description The name displayed for the category. Name is unique with respect to the categoryʼs siblings.
-             *
              * @example Bath
              */
             readonly name?: string;
             /**
              * @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
-             *
              * @example true
              */
             readonly is_visible?: boolean;
             /**
              * @description The custom URL for the category on the storefront.
-             *
              * @example /towels/bath-towels/
              */
             readonly url?: string;
@@ -340,28 +324,23 @@ export interface components {
             /**
              * Format: double
              * @description Width of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default width (set in the Product resourceʼs `width` field) will be used as the base width.
-             *
              */
             readonly width?: number | null;
             /**
              * Format: double
              * @description Height of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default height (set in the Product resourceʼs `height` field) will be used as the base height.
-             *
              */
             readonly height?: number | null;
             /**
              * Format: double
              * @description Depth of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default depth (set in the Product resourceʼs `depth` field) will be used as the base depth.
-             *
              */
             readonly depth?: number | null;
-            /** @description Flag used to indicate whether the variant has free shipping. If `true`, the shipping cost for the variant will be zero.
-             *      */
+            /** @description Flag used to indicate whether the variant has free shipping. If `true`, the shipping cost for the variant will be zero. */
             readonly is_free_shipping?: boolean;
             /**
              * Format: double
              * @description A fixed shipping cost for the variant. If defined, this value will be used during checkout instead of normal shipping-cost calculation.
-             *
              */
             readonly fixed_cost_shipping_price?: number | null;
             /** @description If `true`, this variant will not be purchasable on the storefront. */
@@ -372,13 +351,15 @@ export interface components {
             readonly upc?: string | null;
             /** @description Publicly available image url */
             readonly image_url?: string;
-            /** @description Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`. The Catalog API returns the inventory for only the default location.
+            /**
+             * @description Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`. The Catalog API returns the inventory for only the default location.
              *
              *     The inventory for a variant cannot exceed 2,147,483,647 in the catalog. The sum of the variant inventories, or the total inventory for a product, cannot exceed 2,147,483,647.
              *
              *     If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
              *
-             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).  */
+             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).
+             */
             readonly inventory_level?: number | null;
             /** @description When the variant hits this inventory level, it is considered low stock. */
             readonly inventory_warning_level?: number | null;
@@ -401,7 +382,6 @@ export interface components {
             /**
              * Format: double
              * @description The price of the variant as seen on the storefront. This price takes into account `sale_price` and any price adjustment rules that are applicable to this variant.
-             *
              */
             readonly calculated_price?: number;
             readonly calculated_weight?: number;
@@ -409,7 +389,6 @@ export interface components {
         /**
          * productVariant_Post
          * @description The model for a POST to create variants on a product.
-         *
          */
         readonly productVariant_Post: {
             /**
@@ -440,28 +419,23 @@ export interface components {
             /**
              * Format: double
              * @description Width of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default width (set in the Product resourceʼs `width` field) will be used as the base width.
-             *
              */
             readonly width?: number | null;
             /**
              * Format: double
              * @description Height of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default height (set in the Product resourceʼs `height` field) will be used as the base height.
-             *
              */
             readonly height?: number | null;
             /**
              * Format: double
              * @description Depth of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default depth (set in the Product resourceʼs `depth` field) will be used as the base depth.
-             *
              */
             readonly depth?: number | null;
-            /** @description Flag used to indicate whether the variant has free shipping. If `true`, the shipping cost for the variant will be zero.
-             *      */
+            /** @description Flag used to indicate whether the variant has free shipping. If `true`, the shipping cost for the variant will be zero. */
             readonly is_free_shipping?: boolean;
             /**
              * Format: double
              * @description A fixed shipping cost for the variant. If defined, this value will be used during checkout instead of normal shipping-cost calculation.
-             *
              */
             readonly fixed_cost_shipping_price?: number | null;
             /** @description If `true`, this variant will not be purchasable on the storefront. */
@@ -470,13 +444,15 @@ export interface components {
             readonly purchasing_disabled_message?: string;
             /** @description The UPC code used in feeds for shopping comparison sites and external channel integrations. */
             readonly upc?: string | null;
-            /** @description Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`. The Catalog API returns the inventory for only the default location.
+            /**
+             * @description Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`. The Catalog API returns the inventory for only the default location.
              *
              *     The inventory for a variant cannot exceed 2,147,483,647 in the catalog. The sum of the variant inventories, or the total inventory for a product, cannot exceed 2,147,483,647.
              *
              *     If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
              *
-             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).  */
+             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).
+             */
             readonly inventory_level?: number | null;
             /** @description When the variant hits this inventory level, it is considered low stock. */
             readonly inventory_warning_level?: number | null;
@@ -504,13 +480,11 @@ export interface components {
         readonly productVariantOptionValue_Full: {
             /**
              * @description The name of the option.
-             *
              * @example Color
              */
             readonly option_display_name?: string;
             /**
              * @description The label of the option value.
-             *
              * @example Beige
              */
             readonly label?: string;
@@ -538,19 +512,16 @@ export interface components {
         readonly metafield_Base: {
             /**
              * @description The name of the field, for example: `location_id`, `color`. Required for POST.
-             *
              * @example Location
              */
             readonly key: string;
             /**
              * @description The value of the field, for example: `1`, `blue`. You must enter a JSON formatted string for [ShipperHQ](/docs/store-operations/shipping/shipper-hq#shipperhq-object-properties) metafields. Required for POST.
-             *
              * @example 4HG
              */
             readonly value: string;
             /**
              * @description Namespace for the metafield, for organizational purposes. This is set by the developer. Required for POST.
-             *
              * @example Warehouse Locations
              */
             readonly namespace: string;
@@ -569,7 +540,6 @@ export interface components {
             readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Description for the metafields.
-             *
              * @example Location in the warehouse
              */
             readonly description?: string;
@@ -593,48 +563,39 @@ export interface components {
         readonly pagination_Full: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 36
              */
             readonly total?: number;
             /**
              * @description Total number of items in the collection response.
-             *
              * @example 36
              */
             readonly count?: number;
             /**
              * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-             *
              * @example 50
              */
             readonly per_page?: number;
             /**
              * @description The page you are currently on within the collection.
-             *
              * @example 1
              */
             readonly current_page?: number;
             /**
              * @description The total number of pages in the collection.
-             *
              * @example 1
              */
             readonly total_pages?: number;
-            /** @description Pagination links for the previous and next parts of the whole collection.
-             *      */
+            /** @description Pagination links for the previous and next parts of the whole collection. */
             readonly links?: {
-                /** @description Link to the previous page returned in the response.
-                 *      */
+                /** @description Link to the previous page returned in the response. */
                 readonly previous?: string;
                 /**
                  * @description Link to the current page returned in the response.
-                 *
                  * @example ?page=1&limit=50
                  */
                 readonly current?: string;
-                /** @description Link to the next page returned in the response.
-                 *      */
+                /** @description Link to the next page returned in the response. */
                 readonly next?: string;
             };
         };
@@ -672,28 +633,24 @@ export interface components {
         } & components["schemas"]["metafield_Base"] & {
             /**
              * @description The type of resource with which the metafield is associated.
-             *
              * @example product
              * @enum {string}
              */
             readonly resource_type?: "category" | "brand" | "product" | "variant";
             /**
              * @description The ID of the resource with which the metafield is associated.
-             *
              * @example 111
              */
             readonly resource_id?: number;
             /**
              * Format: date-time
              * @description Date and time of the metafieldʼs creation. Read-Only.
-             *
              * @example 2018-05-07T20:14:17+00:00
              */
             readonly date_created?: string;
             /**
              * Format: date-time
              * @description Date and time when the metafield was last updated. Read-Only.
-             *
              * @example 2018-05-07T20:14:17+00:00
              */
             readonly date_modified?: string;
@@ -706,26 +663,22 @@ export interface components {
             readonly product_id?: number;
             readonly sku?: string;
         };
-        /** @description Common metafield properties.
-         *      */
+        /** @description Common metafield properties. */
         readonly Metafield: {
             /** @description The unique identifier for the metafield. */
             readonly id?: number;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key?: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value?: string;
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace?: string;
@@ -738,26 +691,22 @@ export interface components {
              *     | `write` | Open for reading and writing by other API consumers. |
              *     | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
              *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
-             *
              * @enum {string}
              */
             readonly permission_set?: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description The type of resource with which the metafield is associated.
-             *
              * @example cart
              * @enum {string}
              */
             readonly resource_type?: "brand" | "product" | "variant" | "category" | "cart" | "channel" | "location" | "order" | "customer";
             /**
              * @description The unique identifier for the resource with which the metafield is associated.
-             *
              * @example 424242
              */
             readonly resource_id?: number;
             /**
              * @description Description for the metafields.
-             *
              * @example order
              */
             readonly description?: string;
@@ -779,14 +728,12 @@ export interface components {
              */
             readonly owner_client_id?: string;
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponse: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             readonly meta?: components["schemas"]["CollectionMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponse_POST_PUT: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             /**
@@ -796,31 +743,32 @@ export interface components {
             readonly errors?: readonly unknown[];
             readonly meta?: components["schemas"]["CollectionMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponsePartialSuccess_POST_PUT: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             readonly errors?: readonly components["schemas"]["Error"][];
             readonly meta?: components["schemas"]["WriteCollectionPartialSuccessMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponsePartialSuccess_DELETE: {
-            /** @example [
+            /**
+             * @example [
              *       123
-             *     ] */
+             *     ]
+             */
             readonly data?: readonly number[];
             readonly errors?: readonly components["schemas"]["Error"][];
             readonly meta?: components["schemas"]["WriteCollectionPartialSuccessMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionDeleteResponseSuccess: {
-            /** @example [
+            /**
+             * @example [
              *       123,
              *       124,
              *       125
-             *     ] */
+             *     ]
+             */
             readonly data?: readonly number[];
             /**
              * @description Empty for 200 responses.
@@ -836,19 +784,16 @@ export interface components {
         readonly WriteCollectionPartialSuccessMeta: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 3
              */
             readonly total?: number;
             /**
              * @description Total number of items that were successfully deleted.
-             *
              * @example 1
              */
             readonly success?: number;
             /**
              * @description Total number of items that failed to be deleted.
-             *
              * @example 2
              */
             readonly failed?: number;
@@ -860,59 +805,49 @@ export interface components {
         readonly WriteCollectionSuccessMeta: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 3
              */
             readonly total?: number;
             /**
              * @description Total number of items that were successfully deleted.
-             *
              * @example 3
              */
             readonly success?: number;
             /**
              * @description Total number of items that failed to be deleted.
-             *
              * @example 0
              */
             readonly failed?: number;
         };
         /**
          * @description Total number of items in the result set.
-         *
          * @example 3
          */
         readonly Total: number;
         /**
          * @description Total number of items that were successfully deleted.
-         *
          * @example 1
          */
         readonly Success: number;
         /**
          * @description Total number of items that failed to be deleted.
-         *
          * @example 2
          */
         readonly Failed: number;
-        /** @description Error response payload for the BigCommerce API.
-         *      */
+        /** @description Error response payload for the BigCommerce API. */
         readonly Error: {
             /**
              * @description The HTTP status code for the error.
-             *
              * @example 422
              */
             readonly status?: number;
             /**
              * @description The error title.
-             *
              * @example Bulk operation has failed
              */
             readonly title?: string;
             /**
              * @description The error type.
-             *
              * @example https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
              */
             readonly type?: string;
@@ -920,7 +855,6 @@ export interface components {
         };
         /**
          * @description Error detail response payload for the BigCommerce API.
-         *
          * @example {
          *       "1": "Unauthorized to delete",
          *       "2": "Metafield does not exist"
@@ -941,72 +875,59 @@ export interface components {
             readonly pagination?: {
                 /**
                  * @description Total number of items in the result set.
-                 *
                  * @example 36
                  */
                 readonly total?: number;
                 /**
                  * @description Total number of items in the collection response.
-                 *
                  * @example 36
                  */
                 readonly count?: number;
                 /**
                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                 *
                  * @example 50
                  */
                 readonly per_page?: number;
                 /**
                  * @description The page you are currently on within the collection.
-                 *
                  * @example 1
                  */
                 readonly current_page?: number;
                 /**
                  * @description The total number of pages in the collection.
-                 *
                  * @example 1
                  */
                 readonly total_pages?: number;
-                /** @description Pagination links for the previous and next parts of the whole collection.
-                 *      */
+                /** @description Pagination links for the previous and next parts of the whole collection. */
                 readonly links?: {
-                    /** @description Link to the previous page returned in the response.
-                     *      */
+                    /** @description Link to the previous page returned in the response. */
                     readonly previous?: string;
                     /**
                      * @description Link to the current page returned in the response.
-                     *
                      * @example ?page=1&limit=50
                      */
                     readonly current?: string;
-                    /** @description Link to the next page returned in the response.
-                     *      */
+                    /** @description Link to the next page returned in the response. */
                     readonly next?: string;
                 };
             };
         } & {
             readonly [key: string]: unknown;
         };
-        /** @description Common metafield properties.
-         *      */
+        /** @description Common metafield properties. */
         readonly MetafieldBase_Post: {
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value: string;
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace: string;
@@ -1019,35 +940,29 @@ export interface components {
              *     | `write` | Open for reading and writing by other API consumers. |
              *     | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
              *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
-             *
              * @enum {string}
              */
             readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Description for the metafields.
-             *
              * @example Name of Staff Member
              */
             readonly description?: string;
         };
-        /** @description Common Metafield properties.
-         *      */
+        /** @description Common Metafield properties. */
         readonly MetafieldBase_Put: {
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key?: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value?: string;
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace?: string;
@@ -1060,13 +975,11 @@ export interface components {
              *     | `write` | Open for reading and writing by other API consumers. |
              *     | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
              *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
-             *
              * @enum {string}
              */
             readonly permission_set?: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Description for the metafields.
-             *
              * @example Name of Staff Member
              */
             readonly description?: string;
@@ -1074,22 +987,20 @@ export interface components {
     };
     responses: never;
     parameters: {
-        /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-         *      */
+        /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
         readonly ProductIdPathParam: number;
-        /** @description ID of the variant on a product, or on an associated Price List Record.
-         *      */
+        /** @description ID of the variant on a product, or on an associated Price List Record. */
         readonly VariantIdParam: number;
-        /** @description The ID of the `Metafield`.
-         *      */
+        /** @description The ID of the `Metafield`. */
         readonly MetafieldIdParam: number;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
         readonly Accept: string;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body. */
         readonly ContentType: string;
-        /** @description Specifies the page number in a limited (paginated) list of products.
-         *      */
+        /** @description Specifies the page number in a limited (paginated) list of products. */
         readonly PageParam: number;
+        /** @description A comma-separated list of entity ID values that filter results to metafields that belong to one of the matching entities. */
+        readonly MetafieldResourceParam: string;
         /** @description Filter based on a metafieldʼs key. */
         readonly MetafieldKeyParam: string;
         /** @description Filter based on comma-separated metafieldʼs keys. Could be used with vanilla `key` query parameter. */
@@ -1098,23 +1009,17 @@ export interface components {
         readonly MetafieldNamespaceParam: string;
         /** @description Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter. */
         readonly MetafieldNamespaceInParam: readonly string[];
-        /** @description Controls the number of items per page in a limited (paginated) list of products.
-         *      */
+        /** @description Controls the number of items per page in a limited (paginated) list of products. */
         readonly LimitParam: number;
-        /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-         *      */
+        /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
         readonly DirectionParam: "asc" | "desc";
-        /** @description 'Query parameter that lets you filter by the minimum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the minimum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date.' */
         readonly date_created_min: string;
-        /** @description 'Query parameter that lets you filter by the maximum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created before this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the maximum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created before this date.' */
         readonly date_created_max: string;
-        /** @description 'Query parameter that lets you filter by the maximum date modified, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the maximum date modified, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date.' */
         readonly date_modified_max: string;
-        /** @description 'Query parameter that lets you filter by the minimum date modified, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified after this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the minimum date modified, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified after this date.' */
         readonly date_modified_min: string;
         /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
         readonly IncludeFieldsParam: readonly string[];
@@ -1124,10 +1029,9 @@ export interface components {
         readonly ExcludeFieldsParam: readonly string[];
         /** @description A comma-separated list of IDs of products you want to request. For example, `?product_id:in=77,80,81`. */
         readonly ProductIdInParam: readonly number[];
-        /** @description Filter items by UPC.
-         *      */
+        /** @description Filter items by UPC. */
         readonly UpcParam: string;
-        /** @description Filter items by variant SKU. To filter by product / base variant SKU, see [Get all products](/docs/rest-catalog/products#get-all-products).  */
+        /** @description Filter items by variant SKU. To filter by product / base variant SKU, see [Get all products](/docs/rest-catalog/products#get-all-products). */
         readonly SkuParam: string;
     };
     requestBodies: never;
@@ -1143,11 +1047,9 @@ export interface operations {
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
                 /** @description Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. */
                 readonly exclude_fields?: components["parameters"]["ExcludeFieldsParam"];
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
             };
             readonly header?: {
@@ -1155,8 +1057,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
             };
             readonly cookie?: never;
@@ -1168,7 +1069,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 382,
@@ -1291,23 +1193,22 @@ export interface operations {
                      *           }
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["productVariant_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1328,8 +1229,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
             };
             readonly cookie?: never;
@@ -1351,9 +1251,11 @@ export interface operations {
                     };
                 };
             };
-            /** @description Multi-status. The product information was updated successfully, but the inventory data failed to update.
+            /**
+             * @description Multi-status. The product information was updated successfully, but the inventory data failed to update.
              *
-             *     Verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again. */
+             *     Verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
+             */
             readonly 207: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1362,16 +1264,14 @@ export interface operations {
                     readonly "application/json": components["schemas"]["MultiStatus"];
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1395,11 +1295,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: components["parameters"]["VariantIdParam"];
             };
             readonly cookie?: never;
@@ -1411,7 +1309,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 384,
                      *         "product_id": 192,
@@ -1449,23 +1348,22 @@ export interface operations {
                      *         ]
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["productVariant_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1486,11 +1384,9 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: components["parameters"]["VariantIdParam"];
             };
             readonly cookie?: never;
@@ -1506,7 +1402,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "bin_picking_number": "0",
                      *         "calculated_price": 85,
@@ -1536,16 +1433,19 @@ export interface operations {
                      *         "width": 2
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["productVariant_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description Multi-status. The product information was updated successfully, but the inventory data failed to update.
+            /**
+             * @description Multi-status. The product information was updated successfully, but the inventory data failed to update.
              *
-             *     Verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again. */
+             *     Verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
+             */
             readonly 207: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1554,16 +1454,14 @@ export interface operations {
                     readonly "application/json": components["schemas"]["MultiStatus"];
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1582,11 +1480,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: components["parameters"]["VariantIdParam"];
             };
             readonly cookie?: never;
@@ -1608,27 +1504,25 @@ export interface operations {
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
                 /** @description Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. */
                 readonly exclude_fields?: components["parameters"]["ExcludeFieldsParam"];
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description Filter based on a metafieldʼs key. */
                 readonly key?: components["parameters"]["MetafieldKeyParam"];
                 /** @description Filter based on a metafieldʼs namespaces. */
                 readonly namespace?: components["parameters"]["MetafieldNamespaceParam"];
+                /** @description A comma-separated list of entity ID values that filter results to metafields that belong to one of the matching entities. */
+                readonly "resource_id:in"?: components["parameters"]["MetafieldResourceParam"];
             };
             readonly header?: {
                 /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: components["parameters"]["VariantIdParam"];
             };
             readonly cookie?: never;
@@ -1658,11 +1552,9 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: components["parameters"]["VariantIdParam"];
             };
             readonly cookie?: never;
@@ -1678,7 +1570,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 4,
                      *         "key": "location_id",
@@ -1692,7 +1585,8 @@ export interface operations {
                      *         "date_modified": "2021-08-06T19:15:35+00:00"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -1705,12 +1599,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -1719,8 +1615,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique-key combinations of the appʼs client id, namespace, key, resource_type, and resource_id.
-             *      */
+            /** @description The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique-key combinations of the appʼs client id, namespace, key, resource_type, and resource_id. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1732,18 +1627,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1755,11 +1647,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -1780,14 +1670,11 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: components["parameters"]["VariantIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdParam"];
             };
             readonly cookie?: never;
@@ -1799,7 +1686,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 8,
                      *         "key": "location_id",
@@ -1813,23 +1701,22 @@ export interface operations {
                      *         "date_modified": "2018-09-13T16:42:37+00:00"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1850,14 +1737,11 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: components["parameters"]["VariantIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdParam"];
             };
             readonly cookie?: never;
@@ -1873,7 +1757,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 8,
                      *         "key": "location_id",
@@ -1887,7 +1772,8 @@ export interface operations {
                      *         "date_modified": "2018-09-13T16:42:37+00:00"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -1900,12 +1786,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -1914,16 +1802,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1942,14 +1828,11 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: components["parameters"]["VariantIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdParam"];
             };
             readonly cookie?: never;
@@ -1962,16 +1845,14 @@ export interface operations {
                 };
                 content?: never;
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1990,11 +1871,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency. */
                 readonly product_id: components["parameters"]["ProductIdPathParam"];
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: components["parameters"]["VariantIdParam"];
             };
             readonly cookie?: never;
@@ -2002,13 +1881,11 @@ export interface operations {
         readonly requestBody?: {
             readonly content: {
                 readonly "application/json": {
-                    /** @description A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file.
-                     *      */
+                    /** @description A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file. */
                     readonly image_url?: string;
                 };
                 readonly "multipart/form-data": {
-                    /** @description A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file.
-                     *      */
+                    /** @description A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file. */
                     readonly image_url?: string;
                 };
             };
@@ -2020,20 +1897,21 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "image_url": "https://cdn8.bigcommerce.com/s-id30h7ohwf/product_images/attribute_rule_images/85_source_1536863430.png"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /**
                          * Resource Image
                          * @description An object containing a publicly accessible image URL, or a form post that contains an image file.
                          */
                         readonly data?: {
-                            /** @description A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file.
-                             *      */
+                            /** @description A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file. */
                             readonly image_url?: string;
                         };
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -2049,16 +1927,14 @@ export interface operations {
                     readonly "application/json": Record<string, unknown>;
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2067,8 +1943,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Image was not valid. This is the result of a missing `image_file` field or of an incorrect file type. See the response for more details.
-             *      */
+            /** @description Image was not valid. This is the result of a missing `image_file` field or of an incorrect file type. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2080,11 +1955,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -2102,11 +1975,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -2119,20 +1990,17 @@ export interface operations {
             readonly query?: {
                 /** @description Filter items by variant ID. */
                 readonly id?: number;
-                /** @description Filter items by variant SKU. To filter by product / base variant SKU, see [Get all products](/docs/rest-catalog/products#get-all-products).  */
+                /** @description Filter items by variant SKU. To filter by product / base variant SKU, see [Get all products](/docs/rest-catalog/products#get-all-products). */
                 readonly sku?: components["parameters"]["SkuParam"];
-                /** @description Filter items by UPC.
-                 *      */
+                /** @description Filter items by UPC. */
                 readonly upc?: components["parameters"]["UpcParam"];
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
                 /** @description Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. */
                 readonly exclude_fields?: components["parameters"]["ExcludeFieldsParam"];
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description A comma-separated list of IDs of products you want to request. For example, `?product_id:in=77,80,81`. */
                 readonly "product_id:in"?: components["parameters"]["ProductIdInParam"];
@@ -2181,28 +2049,23 @@ export interface operations {
                             /**
                              * Format: double
                              * @description Width of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default width (set in the Product resourceʼs `width` field) will be used as the base width.
-                             *
                              */
                             readonly width?: number;
                             /**
                              * Format: double
                              * @description Height of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default height (set in the Product resourceʼs `height` field) will be used as the base height.
-                             *
                              */
                             readonly height?: number;
                             /**
                              * Format: double
                              * @description Depth of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default depth (set in the Product resourceʼs `depth` field) will be used as the base depth.
-                             *
                              */
                             readonly depth?: number;
-                            /** @description Flag used to indicate whether the variant has free shipping. If `true`, the shipping cost for the variant will be zero.
-                             *      */
+                            /** @description Flag used to indicate whether the variant has free shipping. If `true`, the shipping cost for the variant will be zero. */
                             readonly is_free_shipping?: boolean;
                             /**
                              * Format: double
                              * @description A fixed shipping cost for the variant. If defined, this value will be used during checkout instead of normal shipping-cost calculation.
-                             *
                              */
                             readonly fixed_cost_shipping_price?: number;
                             /** @description If `true`, this variant will not be purchasable on the storefront. */
@@ -2211,13 +2074,15 @@ export interface operations {
                             readonly purchasing_disabled_message?: string;
                             /** @description The UPC code used in feeds for shopping comparison sites and external channel integrations. */
                             readonly upc?: string | null;
-                            /** @description Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`. The Catalog API returns the inventory for only the default location.
+                            /**
+                             * @description Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`. The Catalog API returns the inventory for only the default location.
                              *
                              *     The inventory for a variant cannot exceed 2,147,483,647 in the catalog. The sum of the variant inventories, or the total inventory for a product, cannot exceed 2,147,483,647.
                              *
                              *     If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
                              *
-                             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).  */
+                             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).
+                             */
                             readonly inventory_level?: number;
                             /** @description When the variant hits this inventory level, it is considered low stock. */
                             readonly inventory_warning_level?: number;
@@ -2233,13 +2098,11 @@ export interface operations {
                             readonly option_values?: readonly ({
                                 /**
                                  * @description The name of the option.
-                                 *
                                  * @example Color
                                  */
                                 readonly option_display_name?: string;
                                 /**
                                  * @description The label of the option value.
-                                 *
                                  * @example Beige
                                  */
                                 readonly label?: string;
@@ -2250,7 +2113,6 @@ export interface operations {
                             /**
                              * Format: double
                              * @description The price of the variant as seen on the storefront. This price takes into account `sale_price` and any price adjustment rules that are applicable to this variant.
-                             *
                              */
                             readonly calculated_price?: number;
                         })[];
@@ -2265,8 +2127,7 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2325,31 +2186,26 @@ export interface operations {
                     /**
                      * Format: double
                      * @description Width of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default width (set in the Product resourceʼs `width` field) will be used as the base width.
-                     *
                      * @example 5
                      */
                     readonly width?: number;
                     /**
                      * Format: double
                      * @description Height of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default height (set in the Product resourceʼs `height` field) will be used as the base height.
-                     *
                      * @example 5
                      */
                     readonly height?: number;
                     /**
                      * Format: double
                      * @description Depth of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default depth (set in the Product resourceʼs `depth` field) will be used as the base depth.
-                     *
                      * @example 5
                      */
                     readonly depth?: number;
-                    /** @description Flag used to indicate whether the variant has free shipping. If `true`, the shipping cost for the variant will be zero.
-                     *      */
+                    /** @description Flag used to indicate whether the variant has free shipping. If `true`, the shipping cost for the variant will be zero. */
                     readonly is_free_shipping?: boolean;
                     /**
                      * Format: double
                      * @description A fixed shipping cost for the variant. If defined, this value will be used during checkout instead of normal shipping-cost calculation.
-                     *
                      */
                     readonly fixed_cost_shipping_price?: number;
                     /** @description If `true`, this variant will not be purchasable on the storefront. */
@@ -2421,28 +2277,23 @@ export interface operations {
                             /**
                              * Format: double
                              * @description Width of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default width (set in the Product resourceʼs `width` field) will be used as the base width.
-                             *
                              */
                             readonly width?: number;
                             /**
                              * Format: double
                              * @description Height of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default height (set in the Product resourceʼs `height` field) will be used as the base height.
-                             *
                              */
                             readonly height?: number;
                             /**
                              * Format: double
                              * @description Depth of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default depth (set in the Product resourceʼs `depth` field) will be used as the base depth.
-                             *
                              */
                             readonly depth?: number;
-                            /** @description Flag used to indicate whether the variant has free shipping. If `true`, the shipping cost for the variant will be zero.
-                             *      */
+                            /** @description Flag used to indicate whether the variant has free shipping. If `true`, the shipping cost for the variant will be zero. */
                             readonly is_free_shipping?: boolean;
                             /**
                              * Format: double
                              * @description A fixed shipping cost for the variant. If defined, this value will be used during checkout instead of normal shipping-cost calculation.
-                             *
                              */
                             readonly fixed_cost_shipping_price?: number;
                             /** @description If `true`, this variant will not be purchasable on the storefront. */
@@ -2451,13 +2302,15 @@ export interface operations {
                             readonly purchasing_disabled_message?: string;
                             /** @description The UPC code used in feeds for shopping comparison sites and external channel integrations. */
                             readonly upc?: string | null;
-                            /** @description Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`. The Catalog API returns the inventory for only the default location.
+                            /**
+                             * @description Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`. The Catalog API returns the inventory for only the default location.
                              *
                              *     The inventory for a variant cannot exceed 2,147,483,647 in the catalog. The sum of the variant inventories, or the total inventory for a product, cannot exceed 2,147,483,647.
                              *
                              *     If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
                              *
-                             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).  */
+                             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).
+                             */
                             readonly inventory_level?: number;
                             /** @description When the variant hits this inventory level, it is considered low stock. */
                             readonly inventory_warning_level?: number;
@@ -2473,13 +2326,11 @@ export interface operations {
                             readonly option_values?: readonly ({
                                 /**
                                  * @description The name of the option.
-                                 *
                                  * @example Color
                                  */
                                 readonly option_display_name?: string;
                                 /**
                                  * @description The label of the option value.
-                                 *
                                  * @example Beige
                                  */
                                 readonly label?: string;
@@ -2490,7 +2341,6 @@ export interface operations {
                             /**
                              * Format: double
                              * @description The price of the variant as seen on the storefront. This price takes into account `sale_price` and any price adjustment rules that are applicable to this variant.
-                             *
                              */
                             readonly calculated_price?: number;
                         })[];
@@ -2506,48 +2356,39 @@ export interface operations {
                             readonly pagination?: {
                                 /**
                                  * @description Total number of items in the result set.
-                                 *
                                  * @example 36
                                  */
                                 readonly total?: number;
                                 /**
                                  * @description Total number of items in the collection response.
-                                 *
                                  * @example 36
                                  */
                                 readonly count?: number;
                                 /**
                                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                                 *
                                  * @example 50
                                  */
                                 readonly per_page?: number;
                                 /**
                                  * @description The page you are currently on within the collection.
-                                 *
                                  * @example 1
                                  */
                                 readonly current_page?: number;
                                 /**
                                  * @description The total number of pages in the collection.
-                                 *
                                  * @example 1
                                  */
                                 readonly total_pages?: number;
-                                /** @description Pagination links for the previous and next parts of the whole collection.
-                                 *      */
+                                /** @description Pagination links for the previous and next parts of the whole collection. */
                                 readonly links?: {
-                                    /** @description Link to the previous page returned in the response.
-                                     *      */
+                                    /** @description Link to the previous page returned in the response. */
                                     readonly previous?: string;
                                     /**
                                      * @description Link to the current page returned in the response.
-                                     *
                                      * @example ?page=1&limit=50
                                      */
                                     readonly current?: string;
-                                    /** @description Link to the next page returned in the response.
-                                     *      */
+                                    /** @description Link to the next page returned in the response. */
                                     readonly next?: string;
                                 };
                             };
@@ -2560,17 +2401,18 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "errors": {},
                      *       "status": 413,
                      *       "title": "The request payload is too large. The maximum items allowed in the array is 50",
                      *       "type": "/api-docs/getting-started/api-status-codes"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": unknown;
                 };
             };
-            /** @description This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2578,11 +2420,9 @@ export interface operations {
                 content: {
                     readonly "application/json": {
                         readonly batch_errors?: readonly ({
-                            /** @description The HTTP status code.
-                             *      */
+                            /** @description The HTTP status code. */
                             readonly status?: number;
-                            /** @description The error title describing the particular error.
-                             *      */
+                            /** @description The error title describing the particular error. */
                             readonly title?: string;
                             readonly type?: string;
                             readonly instance?: string;
@@ -2600,11 +2440,9 @@ export interface operations {
     readonly getVariantsMetafields: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description Filter based on a metafieldʼs key. */
                 readonly key?: components["parameters"]["MetafieldKeyParam"];
@@ -2614,22 +2452,17 @@ export interface operations {
                 readonly namespace?: components["parameters"]["MetafieldNamespaceParam"];
                 /** @description Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter. */
                 readonly "namespace:in"?: components["parameters"]["MetafieldNamespaceInParam"];
-                /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-                 *      */
+                /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
                 readonly direction?: components["parameters"]["DirectionParam"];
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
                 readonly include_fields?: components["parameters"]["IncludeFieldsParamMetafields"];
-                /** @description 'Query parameter that lets you filter by the minimum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date.'
-                 *      */
+                /** @description 'Query parameter that lets you filter by the minimum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date.' */
                 readonly "date_created:min"?: components["parameters"]["date_created_min"];
-                /** @description 'Query parameter that lets you filter by the maximum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created before this date.'
-                 *      */
+                /** @description 'Query parameter that lets you filter by the maximum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created before this date.' */
                 readonly "date_created:max"?: components["parameters"]["date_created_max"];
-                /** @description 'Query parameter that lets you filter by the minimum date modified, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified after this date.'
-                 *      */
+                /** @description 'Query parameter that lets you filter by the minimum date modified, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified after this date.' */
                 readonly "date_modified:min"?: components["parameters"]["date_modified_min"];
-                /** @description 'Query parameter that lets you filter by the maximum date modified, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date.'
-                 *      */
+                /** @description 'Query parameter that lets you filter by the maximum date modified, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date.' */
                 readonly "date_modified:max"?: components["parameters"]["date_modified_max"];
             };
             readonly header?: {
@@ -2641,8 +2474,7 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description List of `Metafield` objects.
-             *      */
+            /** @description List of `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2670,7 +2502,6 @@ export interface operations {
                 readonly "application/json": readonly (components["schemas"]["MetafieldBase_Put"] & {
                     /**
                      * @description The ID of metafield to update.
-                     *
                      * @example 42
                      */
                     readonly id: number;
@@ -2678,8 +2509,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description List of updated `Metafield` objects.
-             *      */
+            /** @description List of updated `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2694,12 +2524,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2708,8 +2540,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields creation with partial success.
-             *      */
+            /** @description Response object for metafields creation with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2737,7 +2568,6 @@ export interface operations {
                 readonly "application/json": readonly (components["schemas"]["MetafieldBase_Post"] & {
                     /**
                      * @description The ID for the product variant with which the metafield is associated.
-                     *
                      * @example 42
                      */
                     readonly resource_id: number;
@@ -2745,8 +2575,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description List of created `Metafield` objects.
-             *      */
+            /** @description List of created `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2761,12 +2590,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2775,8 +2606,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields creation with partial success.
-             *      */
+            /** @description Response object for metafields creation with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2804,8 +2634,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description Response object for metafields deletion with success.
-             *      */
+            /** @description Response object for metafields deletion with success. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2820,12 +2649,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2834,8 +2665,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields deletion with partial success.
-             *      */
+            /** @description Response object for metafields deletion with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;

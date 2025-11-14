@@ -21,7 +21,6 @@ export interface paths {
          *
          *     > #### Note
          *     > Avoid using this API operation if possible. It is not supported; therefore, all enabled providers may not appear.
-         *
          */
         readonly get: operations["getAllPaymentMethods"];
     };

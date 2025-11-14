@@ -246,14 +246,11 @@ export interface components {
         readonly DetailedErrors: {
             readonly [key: string]: unknown;
         };
-        /** @description Error payload for the BigCommerce API.
-         *      */
+        /** @description Error payload for the BigCommerce API. */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -298,8 +295,7 @@ export interface operations {
                 readonly limit?: number;
                 /** @description Specifies the page number in a limited (paginated) list of items. Used to paginate large collections. */
                 readonly page?: number;
-                /** @description Field name to sort by. Since redirect IDs increment when new redirects are added, you can sort by ID to return results in redirect create date order.
-                 *      */
+                /** @description Field name to sort by. Since redirect IDs increment when new redirects are added, you can sort by ID to return results in redirect create date order. */
                 readonly sort?: "from_path" | "type" | "site_id" | "id";
                 /** @description Sort direction. Acceptable values are `asc`, `desc`. */
                 readonly direction?: "asc" | "desc";

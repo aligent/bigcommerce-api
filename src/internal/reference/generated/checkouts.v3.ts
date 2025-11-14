@@ -226,7 +226,6 @@ export interface paths {
          *
          *     > #### Note
          *     > * The `Try It` feature is not currently supported for this endpoint.
-         *
          */
         readonly delete: operations["CheckoutsFeesByCheckoutIdDelete"];
     };
@@ -1156,7 +1155,8 @@ export interface components {
                 readonly "application/json": {
                     readonly data?: components["schemas"]["Checkout"];
                 };
-                /** @example {
+                /**
+                 * @example {
                  *       "data": {
                  *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                  *         "cart": {
@@ -1328,9 +1328,11 @@ export interface components {
                  *         "customer_message": ""
                  *       },
                  *       "meta": {}
-                 *     } */
+                 *     }
+                 */
                 readonly "Available Shipping Options": unknown;
-                /** @example {
+                /**
+                 * @example {
                  *       "data": {
                  *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                  *         "cart": {
@@ -1465,9 +1467,11 @@ export interface components {
                  *         "customer_message": ""
                  *       },
                  *       "meta": {}
-                 *     } */
+                 *     }
+                 */
                 readonly "Selected Shipping Options": unknown;
-                /** @example {
+                /**
+                 * @example {
                  *       "data": {
                  *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                  *         "cart": {
@@ -1612,9 +1616,11 @@ export interface components {
                  *         "customer_message": ""
                  *       },
                  *       "meta": {}
-                 *     } */
+                 *     }
+                 */
                 readonly "Coupon Applied": unknown;
-                /** @example {
+                /**
+                 * @example {
                  *       "data": {
                  *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                  *         "cart": {
@@ -1717,9 +1723,11 @@ export interface components {
                  *         "customer_message": ""
                  *       },
                  *       "meta": {}
-                 *     } */
+                 *     }
+                 */
                 readonly "No Coupon Applied": unknown;
-                /** @example {
+                /**
+                 * @example {
                  *       "data": {
                  *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                  *         "cart": {
@@ -1837,9 +1845,11 @@ export interface components {
                  *         ]
                  *       },
                  *       "meta": {}
-                 *     } */
+                 *     }
+                 */
                 readonly "Include promotions": unknown;
-                /** @example {
+                /**
+                 * @example {
                  *       "data": {
                  *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
                  *         "cart": {
@@ -2099,7 +2109,8 @@ export interface components {
                  *         ],
                  *         "version": 1
                  *       }
-                 *     } */
+                 *     }
+                 */
                 readonly "example-1": unknown;
             };
         };
@@ -2109,11 +2120,13 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "status": 409,
                  *       "title": "The request cannot be processed due to a possible conflict. Please review the changes and try again.",
                  *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": {
                     readonly status?: number;
                     readonly title?: string;
@@ -2126,7 +2139,8 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "data": {
                  *         "custom_checkout_script_url": "https://example.com/custom-checkout-script.js",
                  *         "order_confirmation_use_custom_checkout_script": false,
@@ -2134,19 +2148,22 @@ export interface components {
                  *         "custom_checkout_supports_uco_settings": false
                  *       },
                  *       "meta": {}
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": {
                     readonly data?: components["schemas"]["CheckoutsSettings"];
                     readonly meta?: Record<string, unknown>;
                 };
-                /** @example {
+                /**
+                 * @example {
                  *       "data": {
                  *         "custom_checkout_script_url": "webdav:vtz-checkout/dist/auto-loader.js",
                  *         "order_confirmation_use_custom_checkout_script": false,
                  *         "custom_order_confirmation_script_url": "webdav:vtz-order-confirmation/dist/auto-loader.js"
                  *       },
                  *       "meta": {}
-                 *     } */
+                 *     }
+                 */
                 readonly "WebDAV protocol": unknown;
             };
         };
@@ -2155,12 +2172,14 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "data": {
                  *         "id": 75
                  *       },
                  *       "meta": {}
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": {
                     readonly data?: components["schemas"]["Order"];
                     readonly meta?: Record<string, unknown>;
@@ -2181,10 +2200,12 @@ export interface components {
         readonly "Content-Type": string;
         /** @description Include the shipping options available to this checkout. */
         readonly IncludeShippingOptions: "consignments.available_shipping_options";
-        /** @description * `cart.line_items.physical_items.options` - physical options
+        /**
+         * @description * `cart.line_items.physical_items.options` - physical options
          *     * `cart.line_items.digital_items.options` - digital options
          *     * `consignments.available_shipping_options` - shipping options
-         *     * `promotions.banners` - promotion options */
+         *     * `promotions.banners` - promotion options
+         */
         readonly IncludeGeneral: readonly ("cart.line_items.physical_items.options" | "cart.line_items.digital_items.options" | "consignments.available_shipping_options" | "promotions.banners")[];
     };
     requestBodies: never;
@@ -2196,10 +2217,12 @@ export interface operations {
     readonly getCheckout: {
         readonly parameters: {
             readonly query?: {
-                /** @description * `cart.line_items.physical_items.options` - physical options
+                /**
+                 * @description * `cart.line_items.physical_items.options` - physical options
                  *     * `cart.line_items.digital_items.options` - digital options
                  *     * `consignments.available_shipping_options` - shipping options
-                 *     * `promotions.banners` - promotion options */
+                 *     * `promotions.banners` - promotion options
+                 */
                 readonly include?: components["parameters"]["IncludeGeneral"];
             };
             readonly header?: {
@@ -2223,7 +2246,8 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -2395,9 +2419,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Available Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -2532,9 +2558,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Selected Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -2679,9 +2707,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -2784,9 +2814,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "No Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -2904,9 +2936,11 @@ export interface operations {
                      *         ]
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Include promotions": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
                      *         "cart": {
@@ -3166,7 +3200,8 @@ export interface operations {
                      *         ],
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "example-1": unknown;
                 };
             };
@@ -3220,7 +3255,8 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -3393,9 +3429,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Available Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -3531,9 +3569,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Selected Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -3679,9 +3719,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -3785,9 +3827,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "No Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -3906,9 +3950,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Include promotions": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
                      *         "cart": {
@@ -4168,7 +4214,8 @@ export interface operations {
                      *         ],
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "example-1": unknown;
                 };
             };
@@ -4192,7 +4239,8 @@ export interface operations {
         };
         readonly requestBody?: {
             readonly content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "cart": {
                  *         "discounts": [
                  *           {
@@ -4201,7 +4249,8 @@ export interface operations {
                  *         ]
                  *       },
                  *       "version": 1
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": {
                     readonly cart?: {
                         readonly discounts?: readonly {
@@ -4229,7 +4278,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -4327,12 +4377,14 @@ export interface operations {
                      *         "fees": []
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -4504,9 +4556,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Available Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -4641,9 +4695,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Selected Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -4788,9 +4844,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -4893,9 +4951,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "No Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -5013,9 +5073,11 @@ export interface operations {
                      *         ]
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Include promotions": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
                      *         "cart": {
@@ -5275,7 +5337,8 @@ export interface operations {
                      *         ],
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "example-1": unknown;
                 };
             };
@@ -5312,7 +5375,8 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -5485,9 +5549,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Available Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -5623,9 +5689,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Selected Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -5771,9 +5839,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -5877,9 +5947,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "No Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -5998,9 +6070,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Include promotions": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
                      *         "cart": {
@@ -6260,7 +6334,8 @@ export interface operations {
                      *         ],
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "example-1": unknown;
                 };
             };
@@ -6298,7 +6373,8 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -6471,9 +6547,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Available Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -6609,9 +6687,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Selected Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -6757,9 +6837,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -6863,9 +6945,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "No Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -6984,9 +7068,11 @@ export interface operations {
                      *         "version": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Include promotions": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
                      *         "cart": {
@@ -7246,7 +7332,8 @@ export interface operations {
                      *         ],
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "example-1": unknown;
                 };
             };
@@ -7286,7 +7373,8 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -7458,9 +7546,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Available Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -7595,9 +7685,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Selected Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -7742,9 +7834,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -7847,9 +7941,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "No Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -7967,9 +8063,11 @@ export interface operations {
                      *         ]
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Include promotions": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
                      *         "cart": {
@@ -8229,7 +8327,8 @@ export interface operations {
                      *         ],
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "example-1": unknown;
                 };
             };
@@ -8270,7 +8369,8 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -8442,9 +8542,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Available Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -8579,9 +8681,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Selected Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -8726,9 +8830,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -8831,9 +8937,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "No Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -8951,9 +9059,11 @@ export interface operations {
                      *         ]
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Include promotions": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
                      *         "cart": {
@@ -9213,7 +9323,8 @@ export interface operations {
                      *         ],
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "example-1": unknown;
                 };
             };
@@ -9249,7 +9360,8 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -9421,9 +9533,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Available Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -9558,9 +9672,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Selected Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -9705,9 +9821,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -9810,9 +9928,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "No Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -9930,9 +10050,11 @@ export interface operations {
                      *         ]
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Include promotions": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
                      *         "cart": {
@@ -10192,7 +10314,8 @@ export interface operations {
                      *         ],
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "example-1": unknown;
                 };
             };
@@ -10228,7 +10351,8 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -10400,9 +10524,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Available Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -10537,9 +10663,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Selected Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -10684,9 +10812,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -10789,9 +10919,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "No Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -10909,9 +11041,11 @@ export interface operations {
                      *         ]
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Include promotions": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
                      *         "cart": {
@@ -11171,7 +11305,8 @@ export interface operations {
                      *         ],
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "example-1": unknown;
                 };
             };
@@ -11208,7 +11343,8 @@ export interface operations {
                         readonly data?: components["schemas"]["Checkout"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -11372,9 +11508,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Available Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
                      *         "cart": {
@@ -11509,9 +11647,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Selected Shipping Options": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -11656,9 +11796,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -11761,9 +11903,11 @@ export interface operations {
                      *         "customer_message": ""
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "No Coupon Applied": unknown;
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": "267c5d6f-0d27-48ea-b731-e7832a4c5537",
                      *         "cart": {
@@ -11881,7 +12025,8 @@ export interface operations {
                      *         ]
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "Include promotions": unknown;
                 };
             };
@@ -12008,12 +12153,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 75
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["Order"];
                         readonly meta?: components["schemas"]["MetaOpen"];
@@ -12039,7 +12186,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "custom_checkout_script_url": "https://example.com/custom-checkout-script.js",
                      *         "order_confirmation_use_custom_checkout_script": false,
@@ -12049,19 +12197,22 @@ export interface operations {
                      *         "order_confirmation_sri_hash": "sha256-0987654321"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["CheckoutsSettings"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "custom_checkout_script_url": "webdav:vtz-checkout/dist/auto-loader.js",
                      *         "order_confirmation_use_custom_checkout_script": false,
                      *         "custom_order_confirmation_script_url": "webdav:vtz-order-confirmation/dist/auto-loader.js"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "WebDAV protocol": unknown;
                 };
             };
@@ -12090,7 +12241,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "custom_checkout_script_url": "https://example.com/custom-checkout-script.js",
                      *         "order_confirmation_use_custom_checkout_script": false,
@@ -12100,19 +12252,22 @@ export interface operations {
                      *         "order_confirmation_sri_hash": "sha256-0987654321"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["CheckoutsSettings"];
                         readonly meta?: components["schemas"]["MetaOpen"];
                     };
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "custom_checkout_script_url": "webdav:vtz-checkout/dist/auto-loader.js",
                      *         "order_confirmation_use_custom_checkout_script": false,
                      *         "custom_order_confirmation_script_url": "webdav:vtz-order-confirmation/dist/auto-loader.js"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "WebDAV protocol": unknown;
                 };
             };
@@ -12248,7 +12403,6 @@ export interface operations {
                         readonly title?: string;
                         /**
                          * @description A link to a list of BigCommerce API status codes.
-                         *
                          * @example https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
                          */
                         readonly type?: string;

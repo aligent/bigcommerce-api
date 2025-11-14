@@ -45,7 +45,7 @@ export interface paths {
         };
         /**
          * Get a Price List
-         * @description  Returns a single *Price List*.
+         * @description Returns a single *Price List*.
          */
         readonly get: operations["getPriceList"];
         /**
@@ -132,7 +132,6 @@ export interface paths {
          *     **Notes**
          *     * Supports up to 40 simultaneous GET requests. Running more than the allowed number of requests concurrently on the same store will result in a `429` status error, and your additional requests will fail.
          *     * Store Pricelist Records data to reduce the number of calls and maximize performance.
-         *
          */
         readonly get: operations["getPriceListRecordsByVariantId"];
     };
@@ -448,31 +447,26 @@ export interface components {
             readonly pagination?: {
                 /**
                  * @description Total number of items in the result set.
-                 *
                  * @example 36
                  */
                 readonly total?: number;
                 /**
                  * @description Total number of items in the collection response.
-                 *
                  * @example 36
                  */
                 readonly count?: number;
                 /**
                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                 *
                  * @example 50
                  */
                 readonly per_page?: number;
                 /**
                  * @description The page you are currently on within the collection.
-                 *
                  * @example 1
                  */
                 readonly current_page?: number;
                 /**
                  * @description The total number of pages in the collection.
-                 *
                  * @example 1
                  */
                 readonly total_pages?: number;
@@ -516,11 +510,9 @@ export interface components {
         };
         /** Error Response */
         readonly ErrorResponse: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -537,8 +529,7 @@ export interface components {
     parameters: {
         /** @description Filter results by a comma-separated list of channel IDs. */
         readonly ChannelIdInParam: readonly number[];
-        /** @description The ID of the `Price List` requested.
-         *      */
+        /** @description The ID of the `Price List` requested. */
         readonly PriceListIdParam: number;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
         readonly Accept: string;
@@ -562,11 +553,9 @@ export interface operations {
     readonly getPriceLists: {
         readonly parameters: {
             readonly query?: {
-                /** @description Filter items by name.
-                 *      */
+                /** @description Filter items by name. */
                 readonly name?: string;
-                /** @description Filter items by date_created.
-                 *      */
+                /** @description Filter items by date_created. */
                 readonly date_created?: string;
                 /** @description Filter items by date_modified. For example `v3/catalog/products?date_last_imported:min=2018-06-15` */
                 readonly date_modified?: string;
@@ -599,7 +588,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 1,
@@ -639,26 +629,24 @@ export interface operations {
                      *           "links": {}
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly ({
                             /**
                              * @description The unique numeric ID of the `Price List`; this number increments sequentially.
-                             *
                              * @example 3
                              */
                             readonly id?: number;
                             /**
                              * Format: date-time
                              * @description The date on which the `Price List` was created.
-                             *
                              * @example 2018-04-05T16:05:12Z
                              */
                             readonly date_created?: string;
                             /**
                              * Format: date-time
                              * @description The date on which the `Price List` was created.
-                             *
                              * @example 2018-04-05T16:05:12Z
                              */
                             readonly date_modified?: string;
@@ -670,7 +658,6 @@ export interface operations {
                             readonly name: string;
                             /**
                              * @description Boolean value that specifies whether this `Price List` and its prices are active or not. Defaults to `true`.
-                             *
                              * @example true
                              */
                             readonly active?: boolean;
@@ -687,31 +674,26 @@ export interface operations {
                             readonly pagination?: {
                                 /**
                                  * @description Total number of items in the result set.
-                                 *
                                  * @example 36
                                  */
                                 readonly total?: number;
                                 /**
                                  * @description Total number of items in the collection response.
-                                 *
                                  * @example 36
                                  */
                                 readonly count?: number;
                                 /**
                                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                                 *
                                  * @example 50
                                  */
                                 readonly per_page?: number;
                                 /**
                                  * @description The page you are currently on within the collection.
-                                 *
                                  * @example 1
                                  */
                                 readonly current_page?: number;
                                 /**
                                  * @description The total number of pages in the collection.
-                                 *
                                  * @example 1
                                  */
                                 readonly total_pages?: number;
@@ -773,7 +755,6 @@ export interface operations {
                     readonly name: string;
                     /**
                      * @description Boolean value that specifies whether this `Price List` and its prices are active or not. Defaults to `true`.
-                     *
                      * @example true
                      */
                     readonly active?: boolean;
@@ -786,7 +767,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 4,
                      *         "name": "Wholesale Group - Trade Show",
@@ -795,27 +777,25 @@ export interface operations {
                      *         "active": false
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /** Price List */
                         readonly data?: {
                             /**
                              * @description The unique numeric ID of the `Price List`; this number increments sequentially.
-                             *
                              * @example 3
                              */
                             readonly id?: number;
                             /**
                              * Format: date-time
                              * @description The date on which the `Price List` was created.
-                             *
                              * @example 2022-04-05T16:05:12Z
                              */
                             readonly date_created?: string;
                             /**
                              * Format: date-time
                              * @description The date on which the `Price List` was created.
-                             *
                              * @example 2022-04-05T16:05:12Z
                              */
                             readonly date_modified?: string;
@@ -827,7 +807,6 @@ export interface operations {
                             readonly name: string;
                             /**
                              * @description Boolean value that specifies whether this `Price List` and its prices are active or not. Defaults to `true`.
-                             *
                              * @example true
                              */
                             readonly active?: boolean;
@@ -836,8 +815,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description `Price List` conflicts with another Price List. This is the result of duplicate unique values, such as `name`.
-             *      */
+            /** @description `Price List` conflicts with another Price List. This is the result of duplicate unique values, such as `name`. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -849,18 +827,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description `Price List` is not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description `Price List` is not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -872,11 +847,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -887,11 +860,9 @@ export interface operations {
     readonly deletePriceLists: {
         readonly parameters: {
             readonly query?: {
-                /** @description Filter by ID. Accepts multiple comma-separated values.
-                 *      */
+                /** @description Filter by ID. Accepts multiple comma-separated values. */
                 readonly "id:in"?: readonly number[];
-                /** @description Filter items by name.
-                 *      */
+                /** @description Filter items by name. */
                 readonly name?: string;
             };
             readonly header?: {
@@ -924,8 +895,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Price List` requested.
-                 *      */
+                /** @description The ID of the `Price List` requested. */
                 readonly price_list_id: number;
             };
             readonly cookie?: never;
@@ -937,7 +907,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 2,
                      *         "name": "B2B",
@@ -946,7 +917,8 @@ export interface operations {
                      *         "active": true
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /**
                          * Price List
@@ -955,21 +927,18 @@ export interface operations {
                         readonly data?: {
                             /**
                              * @description The unique numeric ID of the `Price List`; this number increments sequentially.
-                             *
                              * @example 3
                              */
                             readonly id?: number;
                             /**
                              * Format: date-time
                              * @description The date on which the `Price List` was created.
-                             *
                              * @example 2022-04-05T16:05:12Z
                              */
                             readonly date_created?: string;
                             /**
                              * Format: date-time
                              * @description The date on which the `Price List` was created.
-                             *
                              * @example 2022-04-05T16:05:12Z
                              */
                             readonly date_modified?: string;
@@ -980,7 +949,6 @@ export interface operations {
                             readonly name: string;
                             /**
                              * @description Boolean value that specifies whether this `Price List` and its prices are active or not. Defaults to `true`.
-                             *
                              * @example true
                              */
                             readonly active?: boolean;
@@ -1001,8 +969,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Price List` requested.
-                 *      */
+                /** @description The ID of the `Price List` requested. */
                 readonly price_list_id: number;
             };
             readonly cookie?: never;
@@ -1017,7 +984,6 @@ export interface operations {
                     readonly name: string;
                     /**
                      * @description Whether or not this `Price List` and its prices are active. Defaults to `true`.
-                     *
                      * @example true
                      */
                     readonly active?: boolean;
@@ -1030,7 +996,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 2,
                      *         "name": "BigCommerce",
@@ -1039,27 +1006,25 @@ export interface operations {
                      *         "active": false
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /** Price List */
                         readonly data?: {
                             /**
                              * @description The unique numeric ID of the `Price List`; this number increments sequentially.
-                             *
                              * @example 3
                              */
                             readonly id?: number;
                             /**
                              * Format: date-time
                              * @description The date on which the `Price List` was created.
-                             *
                              * @example 2022-04-05T16:05:12Z
                              */
                             readonly date_created?: string;
                             /**
                              * Format: date-time
                              * @description The date on which the `Price List` was created.
-                             *
                              * @example 2022-04-05T16:05:12Z
                              */
                             readonly date_modified?: string;
@@ -1071,7 +1036,6 @@ export interface operations {
                             readonly name: string;
                             /**
                              * @description Whether or not this `Price List` and its prices are active.  Defaults to `true`.
-                             *
                              * @example true
                              */
                             readonly active?: boolean;
@@ -1080,16 +1044,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1098,8 +1060,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description `Price List` was in conflict with another Price List. This is the result of duplicate unique values, such as `name`.
-             *      */
+            /** @description `Price List` was in conflict with another Price List. This is the result of duplicate unique values, such as `name`. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1111,18 +1072,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description `Price List` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description `Price List` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1134,11 +1092,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -1154,8 +1110,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Price List` requested.
-                 *      */
+                /** @description The ID of the `Price List` requested. */
                 readonly price_list_id: number;
             };
             readonly cookie?: never;
@@ -1187,8 +1142,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description Success response for batch PUT of `Price Records`.
-             *      */
+            /** @description Success response for batch PUT of `Price Records`. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1197,8 +1151,7 @@ export interface operations {
                     readonly "application/json": components["schemas"]["SuccessBatchResponse"];
                 };
             };
-            /** @description Error response for batch PUT of `Price Records`.  May include errors during partial update in non-strict mode.
-             *      */
+            /** @description Error response for batch PUT of `Price Records`.  May include errors during partial update in non-strict mode. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1214,11 +1167,9 @@ export interface operations {
             readonly query?: {
                 /** @description A comma-separated list of IDs for one or more variants for which prices were requested. */
                 readonly "variant_id:in"?: readonly number[];
-                /** @description A comma-separated list of IDs for one or more products for which prices were requested.
-                 *      */
+                /** @description A comma-separated list of IDs for one or more products for which prices were requested. */
                 readonly "product_id:in"?: readonly number[];
-                /** @description Filter items by currency.
-                 *      */
+                /** @description Filter items by currency. */
                 readonly currency?: string;
                 /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: number;
@@ -1228,31 +1179,23 @@ export interface operations {
                 readonly before?: string;
                 /** @description A cursor that can be used for forwards pagination. Will fetch results after the position corresponding to the cursor. Cannot be used with the 'page' query parameter. Cannot be used with the 'before' query parameter. */
                 readonly after?: string;
-                /** @description Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`. Other values will be ignored.
-                 *      */
+                /** @description Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`. Other values will be ignored. */
                 readonly include?: readonly ("bulk_pricing_tiers" | "sku")[];
-                /** @description Filter items by price.
-                 *      */
+                /** @description Filter items by price. */
                 readonly price?: number;
-                /** @description Filter items by sale_price.
-                 *      */
+                /** @description Filter items by sale_price. */
                 readonly sale_price?: number;
-                /** @description Filter items by retail_price.
-                 *      */
+                /** @description Filter items by retail_price. */
                 readonly retail_price?: number;
-                /** @description Filter items by map_price.
-                 *      */
+                /** @description Filter items by map_price. */
                 readonly map_price?: number;
-                /** @description Filter items by calculated_price.
-                 *      */
+                /** @description Filter items by calculated_price. */
                 readonly calculated_price?: number;
-                /** @description Filter items by date_created.
-                 *      */
+                /** @description Filter items by date_created. */
                 readonly date_created?: string;
                 /** @description Filter items by date_modified. For example `v3/catalog/products?date_last_imported:min=2022-06-15` */
                 readonly date_modified?: string;
-                /** @description Filter items by SKU.
-                 *      */
+                /** @description Filter items by SKU. */
                 readonly sku?: string;
                 readonly "sku:in"?: readonly string[];
                 readonly "currency:in"?: readonly string[];
@@ -1276,8 +1219,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Price List` requested.
-                 *      */
+                /** @description The ID of the `Price List` requested. */
                 readonly price_list_id: number;
             };
             readonly cookie?: never;
@@ -1289,7 +1231,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "price_list_id": 3,
@@ -1599,56 +1542,49 @@ export interface operations {
                      *           "links": {}
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly ({
                             /**
                              * Format: double
                              * @description The price of the variant as seen on the storefront if a price record is in effect. It will be equal to the `sale_price`, if set, and the `price` if there is not a `sale_price`. Read only.
-                             *
                              * @example 24.64
                              */
                             readonly calculated_price?: number;
                             /**
                              * Format: date-time
                              * @description The date on which the Price entry was created.
-                             *
                              * @example 2018-08-23T19:59:23Z
                              */
                             readonly date_created?: string;
                             /**
                              * Format: date-time
                              * @description The date on which the Price entry was created.
-                             *
                              * @example 2018-08-23T19:59:23Z
                              */
                             readonly date_modified?: string;
                             /**
                              * @description The ID of the `Product` this `Price Record`ʼs `variant_id` is associated with. Read only.
-                             *
                              * @example 158
                              */
                             readonly product_id?: number;
                         } & {
                             /**
                              * @description The Price List with which this price set is associated.
-                             *
                              * @example 2
                              */
                             readonly price_list_id?: number;
                             /**
                              * @description The variant with which this price set is associated. Either `variant_id` or `sku` is required.
-                             *
                              * @example 325
                              */
                             readonly variant_id?: number;
-                            /** @description The variant with which this price set is associated. Either `sku` or `variant_id` is required.
-                             *      */
+                            /** @description The variant with which this price set is associated. Either `sku` or `variant_id` is required. */
                             readonly sku?: string;
                             /**
                              * Format: ISO-4217
                              * @description The 3-letter currency code with which this price set is associated.
-                             *
                              * @example usd
                              */
                             readonly currency?: string;
@@ -1656,44 +1592,37 @@ export interface operations {
                             /**
                              * Format: double
                              * @description The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product.
-                             *
                              * @example 3.99
                              */
                             readonly price?: number;
                             /**
                              * Format: double
                              * @description The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
-                             *
                              */
                             readonly sale_price?: number;
                             /**
                              * Format: double
                              * @description The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product. If empty, the retail price will be treated as not being set on this variant.
-                             *
                              */
                             readonly retail_price?: number;
                             /**
                              * Format: double
                              * @description The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
-                             *
                              */
                             readonly map_price?: number;
                             readonly bulk_pricing_tiers?: readonly {
                                 /**
                                  * @description The minimum quantity of associated variant in the cart needed to qualify for this tier's pricing.
-                                 *
                                  * @example 1
                                  */
                                 readonly quantity_min?: number;
                                 /**
                                  * @description The maximum allowed quantity of associated variant in the cart to qualify for this tier's pricing. `null` indicates that there is no maximum allowed quantity for this tier.
-                                 *
                                  * @example 10
                                  */
                                 readonly quantity_max?: number | null;
                                 /**
                                  * @description The type of adjustment that is made. Acceptable values: price – the adjustment amount per product; percent – the adjustment as a percentage of the original price; fixed – the adjusted absolute price of the product.
-                                 *
                                  * @example price
                                  * @enum {string}
                                  */
@@ -1701,14 +1630,12 @@ export interface operations {
                                 /**
                                  * Format: double
                                  * @description The price adjustment amount. This value along with the type will decide the price per variant for the pricing tier.
-                                 *
                                  * @example 3
                                  */
                                 readonly amount?: number;
                             }[];
                             /**
                              * @description The SKU code associated with this `Price Record` if requested and it exists.
-                             *
                              * @example SMB-123
                              */
                             readonly sku?: string;
@@ -1725,31 +1652,26 @@ export interface operations {
                             readonly pagination?: {
                                 /**
                                  * @description Total number of items in the result set.
-                                 *
                                  * @example 36
                                  */
                                 readonly total?: number;
                                 /**
                                  * @description Total number of items in the collection response.
-                                 *
                                  * @example 36
                                  */
                                 readonly count?: number;
                                 /**
                                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                                 *
                                  * @example 50
                                  */
                                 readonly per_page?: number;
                                 /**
                                  * @description The page you are currently on within the collection.
-                                 *
                                  * @example 1
                                  */
                                 readonly current_page?: number;
                                 /**
                                  * @description The total number of pages in the collection.
-                                 *
                                  * @example 1
                                  */
                                 readonly total_pages?: number;
@@ -1787,8 +1709,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Allowed number of requests exceeded.
-             *      */
+            /** @description Allowed number of requests exceeded. */
             readonly 429: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1810,8 +1731,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Price List` requested.
-                 *      */
+                /** @description The ID of the `Price List` requested. */
                 readonly price_list_id: number;
             };
             readonly cookie?: never;
@@ -1821,20 +1741,17 @@ export interface operations {
                 readonly "application/json": readonly ({
                     /**
                      * @description The variant ID with which this price set is associated. Either `variant_id` or `sku` is required.
-                     *
                      * @example 331
                      */
                     readonly variant_id?: number;
                     /**
                      * @description The SKU for the variant with which this price set is associated. Either `sku` or `variant_id` is required.
-                     *
                      * @example SMB-123
                      */
                     readonly sku?: string;
                     /**
                      * Format: ISO-4217
                      * @description The 3-letter currency code with which this price set is associated.
-                     *
                      * @example usd
                      */
                     readonly currency?: string;
@@ -1842,47 +1759,40 @@ export interface operations {
                     /**
                      * Format: double
                      * @description The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product.
-                     *
                      * @example 3.99
                      */
                     readonly price?: number;
                     /**
                      * Format: double
                      * @description The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
-                     *
                      * @example 3.49
                      */
                     readonly sale_price?: number;
                     /**
                      * Format: double
                      * @description The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product. If empty, the retail price will be treated as not being set on this variant.
-                     *
                      * @example 4.99
                      */
                     readonly retail_price?: number;
                     /**
                      * Format: double
                      * @description The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
-                     *
                      * @example 2.5
                      */
                     readonly map_price?: number;
                     readonly bulk_pricing_tiers?: readonly {
                         /**
                          * @description The minimum quantity of associated variant in the cart needed to qualify for the pricing of this tier.
-                         *
                          * @example 1
                          */
                         readonly quantity_min?: number;
                         /**
                          * @description The maximum allowed quantity of associated variant in the cart to qualify for the pricing of this tier.
-                         *
                          * @example 10
                          */
                         readonly quantity_max?: number;
                         /**
                          * @description The type of adjustment that is made. Acceptable values: price – the adjustment amount per product; percent – the adjustment as a percentage of the original price; fixed – the adjusted absolute price of the product.
-                         *
                          * @example price
                          * @enum {string}
                          */
@@ -1890,14 +1800,12 @@ export interface operations {
                         /**
                          * Format: double
                          * @description The price adjustment amount. This value along with the type will decide the price per variant for the pricing tier.
-                         *
                          * @example 3
                          */
                         readonly amount?: number;
                     }[];
                     /**
                      * @description The SKU code associated with this `Price Record` if requested and it exists.
-                     *
                      * @example SMB-123
                      */
                     readonly sku?: string;
@@ -1932,23 +1840,19 @@ export interface operations {
                             readonly data?: {
                                 /**
                                  * @description The Price List with which this price set is associated.
-                                 *
                                  * @example 2
                                  */
                                 readonly price_list_id?: number;
                                 /**
                                  * @description The variant ID with which this price set is associated. Either `variant_id` or `sku` is required.
-                                 *
                                  * @example 325
                                  */
                                 readonly variant_id?: number;
-                                /** @description The variant with which this price set is associated. Either `sku` or `variant_id` is required.
-                                 *      */
+                                /** @description The variant with which this price set is associated. Either `sku` or `variant_id` is required. */
                                 readonly sku?: string;
                                 /**
                                  * Format: ISO-4217
                                  * @description The 3-letter currency code with which this price set is associated.
-                                 *
                                  * @example usd
                                  */
                                 readonly currency?: string;
@@ -1961,8 +1865,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Allowed number of requests exceeded.
-             *      */
+            /** @description Allowed number of requests exceeded. */
             readonly 429: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1989,8 +1892,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Price List` requested.
-                 *      */
+                /** @description The ID of the `Price List` requested. */
                 readonly price_list_id: number;
             };
             readonly cookie?: never;
@@ -2003,8 +1905,7 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 204 HTTP status code.
-                         *      */
+                        /** @description 204 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the situation. */
                         readonly title?: string;
@@ -2018,8 +1919,7 @@ export interface operations {
     readonly getPriceListRecordsByVariantId: {
         readonly parameters: {
             readonly query?: {
-                /** @description Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`. Other values will be ignored.
-                 *      */
+                /** @description Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`. Other values will be ignored. */
                 readonly include?: readonly ("bulk_pricing_tiers" | "sku")[];
                 /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: number;
@@ -2035,11 +1935,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Price List` requested.
-                 *      */
+                /** @description The ID of the `Price List` requested. */
                 readonly price_list_id: number;
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: number;
             };
             readonly cookie?: never;
@@ -2056,49 +1954,41 @@ export interface operations {
                             /**
                              * Format: double
                              * @description The price of the variant as seen on the storefront if a price record is in effect. It will be equal to the `sale_price`, if set, and the `price` if there is not a `sale_price`. Read only.
-                             *
                              * @example 24.64
                              */
                             readonly calculated_price?: number;
                             /**
                              * Format: date-time
                              * @description The date on which the Price entry was created.
-                             *
                              * @example 2022-08-23T19:59:23Z
                              */
                             readonly date_created?: string;
                             /**
                              * Format: date-time
                              * @description The date on which the Price entry was created.
-                             *
                              * @example 2022-08-23T19:59:23Z
                              */
                             readonly date_modified?: string;
                             /**
                              * @description The ID of the `Product` this `Price Record`ʼs `variant_id` is associated with. Read only.
-                             *
                              * @example 158
                              */
                             readonly product_id?: number;
                         } & {
                             /**
                              * @description The Price List with which this price set is associated.
-                             *
                              * @example 2
                              */
                             readonly price_list_id?: number;
                             /**
                              * @description The variant ID with which this price set is associated. Either `variant_id` or `sku` is required.
-                             *
                              * @example 325
                              */
                             readonly variant_id?: number;
-                            /** @description The variant ID with which this price set is associated. Either `sku` or `variant_id` is required.
-                             *      */
+                            /** @description The variant ID with which this price set is associated. Either `sku` or `variant_id` is required. */
                             readonly sku?: string;
                             /**
                              * @description The 3-letter currency code with which this price set is associated.
-                             *
                              * @example usd
                              */
                             readonly currency?: string;
@@ -2106,47 +1996,40 @@ export interface operations {
                             /**
                              * Format: double
                              * @description The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product.
-                             *
                              * @example 3.99
                              */
                             readonly price?: number;
                             /**
                              * Format: double
                              * @description The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
-                             *
                              * @example 5.99
                              */
                             readonly sale_price?: number;
                             /**
                              * Format: double
                              * @description The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product. If empty, the retail price will be treated as not being set on this variant.
-                             *
                              * @example 6.99
                              */
                             readonly retail_price?: number;
                             /**
                              * Format: double
                              * @description The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
-                             *
                              * @example 5.99
                              */
                             readonly map_price?: number;
                             readonly bulk_pricing_tiers?: readonly {
                                 /**
                                  * @description The minimum quantity of associated variant in the cart needed to qualify for this tiers pricing.
-                                 *
                                  * @example 1
                                  */
                                 readonly quantity_min?: number;
                                 /**
                                  * @description The maximum allowed quantity of associated variant in the cart to qualify for this tiers pricing.
-                                 *
                                  * @example 10
                                  */
                                 readonly quantity_max?: number;
                                 /**
                                  * @description The type of adjustment that is made. Acceptable values: price – the adjustment amount per product; percent – the adjustment as a percentage of the original price; fixed – the adjusted absolute price of the product.
-                                 *
                                  * @example price
                                  * @enum {string}
                                  */
@@ -2154,14 +2037,12 @@ export interface operations {
                                 /**
                                  * Format: double
                                  * @description The price adjustment amount. This value along with the type will decide the price per variant for the pricing tier.
-                                 *
                                  * @example 3
                                  */
                                 readonly amount?: number;
                             }[];
                             /**
                              * @description The SKU code associated with this `Price Record` if requested and it exists.
-                             *
                              * @example SMB-123
                              */
                             readonly sku?: string;
@@ -2178,31 +2059,26 @@ export interface operations {
                             readonly pagination?: {
                                 /**
                                  * @description Total number of items in the result set.
-                                 *
                                  * @example 36
                                  */
                                 readonly total?: number;
                                 /**
                                  * @description Total number of items in the collection response.
-                                 *
                                  * @example 36
                                  */
                                 readonly count?: number;
                                 /**
                                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                                 *
                                  * @example 50
                                  */
                                 readonly per_page?: number;
                                 /**
                                  * @description The page you are currently on within the collection.
-                                 *
                                  * @example 1
                                  */
                                 readonly current_page?: number;
                                 /**
                                  * @description The total number of pages in the collection.
-                                 *
                                  * @example 1
                                  */
                                 readonly total_pages?: number;
@@ -2243,8 +2119,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Allowed number of requests exceeded.
-             *      */
+            /** @description Allowed number of requests exceeded. */
             readonly 429: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2259,8 +2134,7 @@ export interface operations {
     readonly getPriceListRecord: {
         readonly parameters: {
             readonly query?: {
-                /** @description Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`. Other values will be ignored.
-                 *      */
+                /** @description Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`. Other values will be ignored. */
                 readonly include?: readonly ("bulk_pricing_tiers" | "sku")[];
             };
             readonly header?: {
@@ -2268,14 +2142,11 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Price List` requested.
-                 *      */
+                /** @description The ID of the `Price List` requested. */
                 readonly price_list_id: number;
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: number;
-                /** @description The currency code associated with the price record being acted upon.
-                 *      */
+                /** @description The currency code associated with the price record being acted upon. */
                 readonly currency_code: string;
             };
             readonly cookie?: never;
@@ -2287,7 +2158,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "price_list_id": 4,
                      *         "variant_id": 356,
@@ -2301,7 +2173,8 @@ export interface operations {
                      *         "currency": "eur",
                      *         "product_id": 185
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /**
                          * Price Record
@@ -2311,50 +2184,42 @@ export interface operations {
                             /**
                              * Format: double
                              * @description The price of the variant as seen on the storefront if a price record is in effect. It will be equal to the `sale_price`, if set, and the `price` if there is not a `sale_price`. Read only.
-                             *
                              * @example 24.64
                              */
                             readonly calculated_price?: number;
                             /**
                              * Format: date-time
                              * @description The date on which the Price entry was created.
-                             *
                              * @example 2022-08-23T19:59:23Z
                              */
                             readonly date_created?: string;
                             /**
                              * Format: date-time
                              * @description The date on which the Price entry was created.
-                             *
                              * @example 2022-08-23T19:59:23Z
                              */
                             readonly date_modified?: string;
                             /**
                              * @description The ID of the `Product` this `Price Record`ʼs `variant_id` is associated with. Read only.
-                             *
                              * @example 158
                              */
                             readonly product_id?: number;
                         } & {
                             /**
                              * @description The Price List with which this price set is associated.
-                             *
                              * @example 2
                              */
                             readonly price_list_id?: number;
                             /**
                              * @description The variant with which this price set is associated. Either `variant_id` or `sku` is required.
-                             *
                              * @example 325
                              */
                             readonly variant_id?: number;
-                            /** @description The variant with which this price set is associated. Either `sku` or `variant_id` is required.
-                             *      */
+                            /** @description The variant with which this price set is associated. Either `sku` or `variant_id` is required. */
                             readonly sku?: string;
                             /**
                              * Format: ISO-4217
                              * @description The 3-letter currency code with which this price set is associated.
-                             *
                              * @example usd
                              */
                             readonly currency?: string;
@@ -2362,44 +2227,37 @@ export interface operations {
                             /**
                              * Format: double
                              * @description The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product.
-                             *
                              * @example 3.99
                              */
                             readonly price?: number;
                             /**
                              * Format: double
                              * @description The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
-                             *
                              */
                             readonly sale_price?: number;
                             /**
                              * Format: double
                              * @description The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product. If empty, the retail price will be treated as not being set on this variant.
-                             *
                              */
                             readonly retail_price?: number;
                             /**
                              * Format: double
                              * @description The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
-                             *
                              */
                             readonly map_price?: number;
                             readonly bulk_pricing_tiers?: readonly {
                                 /**
                                  * @description The minimum quantity of associated variant in the cart needed to qualify for the pricing of this tier.
-                                 *
                                  * @example 1
                                  */
                                 readonly quantity_min?: number;
                                 /**
                                  * @description The maximum allowed quantity of associated variant in the cart to qualify for the pricing of this tier.
-                                 *
                                  * @example 10
                                  */
                                 readonly quantity_max?: number;
                                 /**
                                  * @description The type of adjustment that is made. Acceptable values: price – the adjustment amount per product; percent – the adjustment as a percentage of the original price; fixed – the adjusted absolute price of the product.
-                                 *
                                  * @example price
                                  * @enum {string}
                                  */
@@ -2407,14 +2265,12 @@ export interface operations {
                                 /**
                                  * Format: double
                                  * @description The price adjustment amount. This value along with the type will decide the price per variant for the pricing tier.
-                                 *
                                  * @example 3
                                  */
                                 readonly amount?: number;
                             }[];
                             /**
                              * @description The SKU code associated with this `Price Record` if requested and it exists.
-                             *
                              * @example SMB-123
                              */
                             readonly sku?: string;
@@ -2423,8 +2279,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Allowed number of requests exceeded.
-             *      */
+            /** @description Allowed number of requests exceeded. */
             readonly 429: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2446,14 +2301,11 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Price List` requested.
-                 *      */
+                /** @description The ID of the `Price List` requested. */
                 readonly price_list_id: number;
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: number;
-                /** @description The currency code associated with the price record being acted upon.
-                 *      */
+                /** @description The currency code associated with the price record being acted upon. */
                 readonly currency_code: string;
             };
             readonly cookie?: never;
@@ -2464,44 +2316,37 @@ export interface operations {
                     /**
                      * Format: double
                      * @description The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product.
-                     *
                      * @example 3.99
                      */
                     readonly price?: number;
                     /**
                      * Format: double
                      * @description The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
-                     *
                      */
                     readonly sale_price?: number;
                     /**
                      * Format: double
                      * @description The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product.  If empty, the retail price will be treated as not being set on this variant.
-                     *
                      */
                     readonly retail_price?: number;
                     /**
                      * Format: double
                      * @description The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
-                     *
                      */
                     readonly map_price?: number;
                     readonly bulk_pricing_tiers?: readonly {
                         /**
                          * @description The minimum quantity of associated variant in the cart needed to qualify for this tiers pricing.
-                         *
                          * @example 1
                          */
                         readonly quantity_min?: number;
                         /**
                          * @description The maximum allowed quantity of associated variant in the cart to qualify for this tiers pricing.
-                         *
                          * @example 10
                          */
                         readonly quantity_max?: number;
                         /**
                          * @description The type of adjustment that is made. Acceptable values: price – the adjustment amount per product; percent – the adjustment as a percentage of the original price; fixed – the adjusted absolute price of the product.
-                         *
                          * @example price
                          * @enum {string}
                          */
@@ -2509,7 +2354,6 @@ export interface operations {
                         /**
                          * Format: double
                          * @description The price adjustment amount. This value along with the type will decide the price per variant for the pricing tier.
-                         *
                          * @example 3
                          */
                         readonly amount?: number;
@@ -2532,47 +2376,40 @@ export interface operations {
                             /**
                              * Format: double
                              * @description The price of the variant as seen on the storefront if a price record is in effect. It will be equal to the `sale_price`, if set, and the `price` if there is not a `sale_price`. Read only.
-                             *
                              * @example 24.64
                              */
                             readonly calculated_price?: number;
                             /**
                              * Format: date-time
                              * @description The date on which the Price entry was created.
-                             *
                              * @example 2018-08-23T19:59:23Z
                              */
                             readonly date_created?: string;
                             /**
                              * Format: date-time
                              * @description The date on which the Price entry was created.
-                             *
                              * @example 2018-08-23T19:59:23Z
                              */
                             readonly date_modified?: string;
                             /**
                              * @description The ID of the `Product` this `Price Record`ʼs `variant_id` is associated with. Read only.
-                             *
                              * @example 158
                              */
                             readonly product_id?: number;
                         } & {
                             /**
                              * @description The Price List with which this price set is associated.
-                             *
                              * @example 2
                              */
                             readonly price_list_id?: number;
                             /**
                              * @description The variant with which this price set is associated. Either `variant_id` or `sku` is required.
-                             *
                              * @example 325
                              */
                             readonly variant_id?: number;
                             /**
                              * Format: ISO-4217
                              * @description The 3-letter currency code with which this price set is associated.
-                             *
                              * @example usd
                              */
                             readonly currency?: string;
@@ -2580,44 +2417,37 @@ export interface operations {
                             /**
                              * Format: double
                              * @description The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product.
-                             *
                              * @example 3.99
                              */
                             readonly price?: number;
                             /**
                              * Format: double
                              * @description The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
-                             *
                              */
                             readonly sale_price?: number;
                             /**
                              * Format: double
                              * @description The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product.  If empty, the retail price will be treated as not being set on this variant.
-                             *
                              */
                             readonly retail_price?: number;
                             /**
                              * Format: double
                              * @description The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
-                             *
                              */
                             readonly map_price?: number;
                             readonly bulk_pricing_tiers?: readonly {
                                 /**
                                  * @description The minimum quantity of associated variant in the cart needed to qualify for the pricing of this tier.
-                                 *
                                  * @example 1
                                  */
                                 readonly quantity_min?: number;
                                 /**
                                  * @description The maximum allowed quantity of associated variant in the cart to qualify for the pricing of this tier.
-                                 *
                                  * @example 10
                                  */
                                 readonly quantity_max?: number;
                                 /**
                                  * @description The type of adjustment that is made. Acceptable values: price – the adjustment amount per product; percent – the adjustment as a percentage of the original price; fixed – the adjusted absolute price of the product.
-                                 *
                                  * @example price
                                  * @enum {string}
                                  */
@@ -2625,7 +2455,6 @@ export interface operations {
                                 /**
                                  * Format: double
                                  * @description The price adjustment amount. This value along with the type will decide the price per variant for the pricing tier.
-                                 *
                                  * @example 3
                                  */
                                 readonly amount?: number;
@@ -2635,16 +2464,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2653,8 +2480,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description `Price Record` was in conflict with another price record. This is the result of duplicate unique values.
-             *      */
+            /** @description `Price Record` was in conflict with another price record. This is the result of duplicate unique values. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2666,18 +2492,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description `Price Record` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description `Price Record` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2689,18 +2512,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description Allowed number of requests exceeded.
-             *      */
+            /** @description Allowed number of requests exceeded. */
             readonly 429: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2720,14 +2540,11 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Price List` requested.
-                 *      */
+                /** @description The ID of the `Price List` requested. */
                 readonly price_list_id: number;
-                /** @description ID of the variant on a product, or on an associated Price List Record.
-                 *      */
+                /** @description ID of the variant on a product, or on an associated Price List Record. */
                 readonly variant_id: number;
-                /** @description The currency code associated with the price record being acted upon.
-                 *      */
+                /** @description The currency code associated with the price record being acted upon. */
                 readonly currency_code: string;
             };
             readonly cookie?: never;
@@ -2868,8 +2685,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Price List` requested.
-                 *      */
+                /** @description The ID of the `Price List` requested. */
                 readonly price_list_id: components["parameters"]["PriceListIdParam"];
             };
             readonly cookie?: never;

@@ -384,11 +384,9 @@ export interface components {
         readonly StoreHash: string;
         /** @description The ID of the subject currency. */
         readonly CurrencyIdPath: string;
-        /** @description Specifies the page number in a limited (paginated) list of currencies.
-         *      */
+        /** @description Specifies the page number in a limited (paginated) list of currencies. */
         readonly PageNumberQuery: number;
-        /** @description Controls the number of items per page in a limited (paginated) list of currencies.
-         *      */
+        /** @description Controls the number of items per page in a limited (paginated) list of currencies. */
         readonly LimitQuery: number;
         readonly Accept: string;
         readonly ContentType: string;
@@ -402,11 +400,9 @@ export interface operations {
     readonly getCurrencies: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of currencies.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of currencies. */
                 readonly page?: components["parameters"]["PageNumberQuery"];
-                /** @description Controls the number of items per page in a limited (paginated) list of currencies.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of currencies. */
                 readonly limit?: components["parameters"]["LimitQuery"];
             };
             readonly header?: {

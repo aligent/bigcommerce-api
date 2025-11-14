@@ -361,35 +361,25 @@ export interface components {
         /**
          * pagination
          * @description Data about the response, including pagination and collection totals.
-         *
          */
         readonly pagination: {
-            /** @description Total number of items in the result set.
-             *      */
+            /** @description Total number of items in the result set. */
             readonly total?: number;
-            /** @description Total number of items in the collection response.
-             *      */
+            /** @description Total number of items in the collection response. */
             readonly count?: number;
-            /** @description The amount of items returned in the collection per page, controlled by the limit parameter.
-             *      */
+            /** @description The amount of items returned in the collection per page, controlled by the limit parameter. */
             readonly per_page?: number;
-            /** @description The page you are currently on within the collection.
-             *      */
+            /** @description The page you are currently on within the collection. */
             readonly current_page?: number;
-            /** @description The total number of pages in the collection.
-             *      */
+            /** @description The total number of pages in the collection. */
             readonly total_pages?: number;
-            /** @description Pagination links for the previous and next parts of the whole collection.
-             *      */
+            /** @description Pagination links for the previous and next parts of the whole collection. */
             readonly links?: {
-                /** @description Link to the previous page returned in the response.
-                 *      */
+                /** @description Link to the previous page returned in the response. */
                 readonly previous?: string;
-                /** @description Link to the current page returned in the response.
-                 *      */
+                /** @description Link to the current page returned in the response. */
                 readonly current?: string;
-                /** @description Link to the next page returned in the response.
-                 *      */
+                /** @description Link to the next page returned in the response. */
                 readonly next?: string;
             };
         };
@@ -409,14 +399,11 @@ export interface components {
             readonly instance?: string;
             readonly errors?: Record<string, unknown>;
         };
-        /** @description Error payload for the BigCommerce API.
-         *      */
+        /** @description Error payload for the BigCommerce API. */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -612,7 +599,7 @@ export interface components {
             };
             readonly conditional?: components["schemas"]["widgetSchemaConditional"];
         };
-        /** @description The schema for the widget’s merchant-facing UI. For more information on the available schema settings, see [Widget UI Schema](/docs/storefront/widgets/input-reference/schema).  */
+        /** @description The schema for the widget’s merchant-facing UI. For more information on the available schema settings, see [Widget UI Schema](/docs/storefront/widgets/input-reference/schema). */
         readonly widgetSchema: readonly (components["schemas"]["widgetSchemaTab"] | components["schemas"]["widgetSchemaArray"] | components["schemas"]["widgetSchemaHidden"])[];
         /**
          * widgetSchemaHidden
@@ -736,35 +723,25 @@ export interface components {
                      * @description Data about the response, including pagination and collection totals.
                      */
                     readonly meta?: {
-                        /** @description Data about the response, including pagination and collection totals.
-                         *      */
+                        /** @description Data about the response, including pagination and collection totals. */
                         readonly pagination?: {
-                            /** @description Total number of items in the result set.
-                             *      */
+                            /** @description Total number of items in the result set. */
                             readonly total?: number;
-                            /** @description Total number of items in the collection response.
-                             *      */
+                            /** @description Total number of items in the collection response. */
                             readonly count?: number;
-                            /** @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                             *      */
+                            /** @description The amount of items returned in the collection per page, controlled by the limit parameter. */
                             readonly per_page?: number;
-                            /** @description The page you are currently on within the collection.
-                             *      */
+                            /** @description The page you are currently on within the collection. */
                             readonly current_page?: number;
-                            /** @description The total number of pages in the collection.
-                             *      */
+                            /** @description The total number of pages in the collection. */
                             readonly total_pages?: number;
-                            /** @description Pagination links for the previous and next parts of the whole collection.
-                             *      */
+                            /** @description Pagination links for the previous and next parts of the whole collection. */
                             readonly links?: {
-                                /** @description Link to the previous page returned in the response.
-                                 *      */
+                                /** @description Link to the previous page returned in the response. */
                                 readonly previous?: string;
-                                /** @description Link to the current page returned in the response.
-                                 *      */
+                                /** @description Link to the current page returned in the response. */
                                 readonly current?: string;
-                                /** @description Link to the next page returned in the response.
-                                 *      */
+                                /** @description Link to the next page returned in the response. */
                                 readonly next?: string;
                             };
                         };
@@ -872,8 +849,7 @@ export interface components {
                 };
             };
         };
-        /** @description This is the result of missing required fields, or of invalid data. See the response for more details.
-         *      */
+        /** @description This is the result of missing required fields, or of invalid data. See the response for more details. */
         readonly Error422_Resp: {
             headers: {
                 readonly [name: string]: unknown;
@@ -915,16 +891,13 @@ export interface components {
         readonly WidgetUUID: string;
         /** @description The identifier for a specific widget. */
         readonly FilterWidgetUUIDParam: string;
-        /** @description Specifies the page number in a limited (paginated) list of products.
-         *      */
+        /** @description Specifies the page number in a limited (paginated) list of products. */
         readonly PageParam: number;
-        /** @description Controls the number of items per page in a limited (paginated) list of products.
-         *      */
+        /** @description Controls the number of items per page in a limited (paginated) list of products. */
         readonly LimitParam: number;
         /** @description This is an optional query parameter used to fetch a specific widget template version. */
         readonly FilterVersionUUID: string;
-        /** @description The query string associated with a widget's name and description.
-         *      */
+        /** @description The query string associated with a widget's name and description. */
         readonly QueryWidgetsParam: string;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
         readonly Accept: string;
@@ -946,11 +919,9 @@ export interface operations {
     readonly getWidgetTemplates: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description The kind of widget template. */
                 readonly widget_template_kind?: components["parameters"]["FilterWidgetTemplateKindParam"];
@@ -1113,11 +1084,9 @@ export interface operations {
     readonly getWidgets: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description The kind of widget template. */
                 readonly widget_template_kind?: components["parameters"]["FilterWidgetTemplateKindParam"];
@@ -1242,11 +1211,9 @@ export interface operations {
     readonly getPlacements: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description The kind of widget template. */
                 readonly widget_template_kind?: components["parameters"]["FilterWidgetTemplateKindParam"];

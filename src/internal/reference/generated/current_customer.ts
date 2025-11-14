@@ -57,7 +57,8 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description A JWT to decode using the client secret that corresponds with the app client ID you sent as a query parameter.
+            /**
+             * @description A JWT to decode using the client secret that corresponds with the app client ID you sent as a query parameter.
              *
              *     After you decode the JWT, the payload resembles the following:
              *
@@ -78,7 +79,8 @@ export interface operations {
              *         "store_hash": "abc123",
              *         "operation": "current_customer"
              *       }
-             *     ``` */
+             *     ```
+             */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;

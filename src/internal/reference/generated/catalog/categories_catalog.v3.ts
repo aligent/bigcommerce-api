@@ -75,8 +75,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
             };
             readonly cookie?: never;
@@ -129,8 +128,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
             };
             readonly cookie?: never;
@@ -165,11 +163,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdParam"];
             };
             readonly cookie?: never;
@@ -211,8 +207,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
             };
             readonly cookie?: never;
@@ -241,8 +236,7 @@ export interface paths {
     readonly "/catalog/categories/{category_id}/products/sort-order": {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of results.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of results. */
                 readonly page?: components["parameters"]["PageParam"];
             };
             readonly header: {
@@ -250,8 +244,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
             };
             readonly cookie?: never;
@@ -261,16 +254,19 @@ export interface paths {
          * @description Returns a list of products and their sort order for a specific category.
          *
          *     **Limits**
-         *     * page=2&limit=250 will return page 2 of the results with 250 items per page.
+         *
+         *     - page=2&limit=250 will return page 2 of the results with 250 items per page.
          *
          *     **Usage Notes**
+         *
+         *     * Product sort order only takes effect on the storefront when sorting by **Featured Items** in the category. See [Sort Order](https://support.bigcommerce.com/s/article/Sort-Order) for more information.
          *     * Data pairs are displayed in ascending order based on products' `sort_order` values.
          *     * `null` values are allowed for products without specified `sort_order` values.
          *     * Products with `sort_order` value of `null` will be displayed after products with valid numerical values.
          *     * The priorities for determining product sort order on a storefront are the following:
-         *       - Priority 1: Manually specified sort order on Category Level (API).
-         *       - Priority 2: Manually specified sort order on Product (Global) Level (UI/API).
-         *       - Priority 3: Default sorting by Product ID (newly added products go first) (UI/API).
+         *         * Priority 1: Manually specified sort order on Category Level (API).
+         *         * Priority 2: Manually specified sort order on Product (Global) Level (UI/API).
+         *         * Priority 3: Default sorting by Product ID (newly added products go first) (UI/API).
          */
         readonly get: operations["getCategorySortOrders"];
         /**
@@ -319,8 +315,10 @@ export interface components {
          * @description Common Category object properties.
          */
         readonly category_Full: {
-            /** @description Unique ID of the *Category*. Increments sequentially.
-             *     Read-Only. */
+            /**
+             * @description Unique ID of the *Category*. Increments sequentially.
+             *     Read-Only.
+             */
             readonly id?: number;
             /**
              * @description The unique numeric ID of the categoryʼs parent. This field controls where the category sits in the tree of categories that organize the catalog.
@@ -336,55 +334,44 @@ export interface components {
             readonly name?: string;
             /**
              * @description The product description, which can include HTML formatting.
-             *
              * @example <p>We offer a wide variety of products perfect for relaxing</p>
              */
             readonly description?: string;
             /**
              * @description Number of views the category has on the storefront.
-             *
              * @example 1050
              */
             readonly views?: number;
             /**
              * @description Priority this category will be given when included in the menu and category pages. The lower the number, the closer to the top of the results the category will be.
-             *
              * @example 3
              */
             readonly sort_order?: number;
             /**
              * @description Custom title for the category page. If not defined, the category name will be used as the meta title.
-             *
              * @example Bath
              */
             readonly page_title?: string;
-            /** @description A comma-separated list of keywords that can be used to locate the category when searching the store.
-             *      */
+            /** @description A comma-separated list of keywords that can be used to locate the category when searching the store. */
             readonly search_keywords?: string;
-            /** @description Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"].
-             *      */
+            /** @description Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"]. */
             readonly meta_keywords?: readonly string[];
-            /** @description Custom meta description for the category page. If not defined, the storeʼs default meta description will be used.
-             *      */
+            /** @description Custom meta description for the category page. If not defined, the storeʼs default meta description will be used. */
             readonly meta_description?: string;
             /**
              * @description A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
-             *
              * @example category.html
              */
             readonly layout_file?: string;
-            /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
-             *      */
+            /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view. */
             readonly is_visible?: boolean;
             /**
              * @description Determines how the products are sorted on category page load.
-             *
              * @enum {string}
              */
             readonly default_product_sort?: "use_store_settings" | "featured" | "newest" | "best_selling" | "alpha_asc" | "alpha_desc" | "avg_customer_review" | "price_asc" | "price_desc";
             /**
              * @description Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
-             *
              * @example https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png
              */
             readonly image_url?: string;
@@ -397,19 +384,16 @@ export interface components {
         readonly metafield_Base: {
             /**
              * @description The name of the field, for example: `location_id`, `color`. Required for POST.
-             *
              * @example Location
              */
             readonly key: string;
             /**
              * @description The value of the field, for example: `1`, `blue`. Required for POST.
-             *
              * @example 4HG
              */
             readonly value: string;
             /**
              * @description Namespace for the metafield, for organizational purposes. This is set by the developer. Required for POST.
-             *
              * @example Warehouse Locations
              */
             readonly namespace: string;
@@ -428,7 +412,6 @@ export interface components {
             readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Description for the metafields.
-             *
              * @example Location in the warehouse
              */
             readonly description?: string;
@@ -438,11 +421,9 @@ export interface components {
          * @description The custom URL for the product on the storefront.
          */
         readonly customUrl_Full: {
-            /** @description Product URL on the storefront.
-             *      */
+            /** @description Product URL on the storefront. */
             readonly url?: string;
-            /** @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
-             *      */
+            /** @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides). */
             readonly is_customized?: boolean;
         };
         /**
@@ -459,48 +440,39 @@ export interface components {
         readonly pagination_Full: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 36
              */
             readonly total?: number;
             /**
              * @description Total number of items in the collection response.
-             *
              * @example 36
              */
             readonly count?: number;
             /**
              * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-             *
              * @example 50
              */
             readonly per_page?: number;
             /**
              * @description The page you are currently on within the collection.
-             *
              * @example 1
              */
             readonly current_page?: number;
             /**
              * @description The total number of pages in the collection.
-             *
              * @example 1
              */
             readonly total_pages?: number;
-            /** @description Pagination links for the previous and next parts of the whole collection.
-             *      */
+            /** @description Pagination links for the previous and next parts of the whole collection. */
             readonly links?: {
-                /** @description Link to the previous page returned in the response.
-                 *      */
+                /** @description Link to the previous page returned in the response. */
                 readonly previous?: string;
                 /**
                  * @description Link to the current page returned in the response.
-                 *
                  * @example ?page=1&limit=50
                  */
                 readonly current?: string;
-                /** @description Link to the next page returned in the response.
-                 *      */
+                /** @description Link to the next page returned in the response. */
                 readonly next?: string;
             };
         };
@@ -514,14 +486,11 @@ export interface components {
         /**
          * error_Base
          * @description Error payload for the BigCommerce API.
-         *
          */
         readonly error_Base: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -536,43 +505,39 @@ export interface components {
         } & components["schemas"]["metafield_Base"] & {
             /**
              * @description The type of resource with which the metafield is associated.
-             *
              * @example product
              * @enum {string}
              */
             readonly resource_type?: "category" | "brand" | "product" | "variant";
             /**
              * @description The ID of the resource with which the metafield is associated.
-             *
              * @example 111
              */
             readonly resource_id?: number;
             /**
              * Format: date-time
              * @description Date and time of the metafieldʼs creation. Read-Only.
-             *
              * @example 2018-05-07T20:14:17+00:00
              */
             readonly date_created?: string;
             /**
              * Format: date-time
              * @description Date and time when the metafield was last updated. Read-Only.
-             *
              * @example 2018-05-07T20:14:17+00:00
              */
             readonly date_modified?: string;
         };
-        /**
-         * productSortOrder
-         * @description The relative priority of the product among other products inside the category.
-         */
+        /** productSortOrder */
         readonly productSortOrder: {
             /**
              * @description The ID of the associated product.
              * @example 99
              */
             readonly product_id: number;
-            /** @example 4 */
+            /**
+             * @description The relative priority of the product among other products inside the category.
+             * @example 4
+             */
             readonly sort_order: number;
         };
         /** Category */
@@ -587,7 +552,6 @@ export interface components {
         readonly default_product_sort: {
             /**
              * @description Determines how the products are sorted on category page load.
-             *
              * @enum {string}
              */
             readonly default_product_sort?: "use_store_settings" | "featured" | "newest" | "best_selling" | "alpha_asc" | "alpha_desc" | "avg_customer_review" | "price_asc" | "price_desc";
@@ -605,7 +569,6 @@ export interface components {
         readonly description: {
             /**
              * @description The product description, which can include HTML formatting.
-             *
              * @example <p>We offer a wide variety of products perfect for relaxing</p>
              */
             readonly description?: string;
@@ -614,7 +577,6 @@ export interface components {
         readonly views: {
             /**
              * @description Number of views the category has on the storefront.
-             *
              * @example 1050
              */
             readonly views?: number;
@@ -623,7 +585,6 @@ export interface components {
         readonly sort_order: {
             /**
              * @description Priority this category will be given when included in the menu and category pages. The lower the number, the closer to the top of the results the category will be.
-             *
              * @example 3
              */
             readonly sort_order?: number;
@@ -632,57 +593,52 @@ export interface components {
         readonly page_title: {
             /**
              * @description Custom title for the category page. If not defined, the category name will be used as the meta title.
-             *
              * @example Bath
              */
             readonly page_title?: string;
         };
         /** search_keywords */
         readonly search_keywords: {
-            /** @description A comma-separated list of keywords that can be used to locate the category when searching the store.
-             *      */
+            /** @description A comma-separated list of keywords that can be used to locate the category when searching the store. */
             readonly search_keywords?: string;
         };
         /** meta_keywords */
         readonly meta_keywords: {
-            /** @description Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"].
-             *      */
+            /** @description Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"]. */
             readonly meta_keywords?: readonly string[];
         };
         /** layout_file */
         readonly layout_file: {
             /**
              * @description A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
-             *
              * @example category.html
              */
             readonly layout_file?: string;
         };
         /** is_visible */
         readonly is_visible: {
-            /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
-             *      */
+            /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view. */
             readonly is_visible?: boolean;
         };
         /** image_url */
         readonly image_url: {
             /**
              * @description Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
-             *
              * @example https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png
              */
             readonly image_url?: string;
         };
         /** meta_description */
         readonly meta_description: {
-            /** @description Custom meta description for the category page. If not defined, the storeʼs default meta description will be used.
-             *      */
+            /** @description Custom meta description for the category page. If not defined, the storeʼs default meta description will be used. */
             readonly meta_description?: string;
         };
         /** id */
         readonly id: {
-            /** @description Unique ID of the *Category*. Increments sequentially.
-             *     Read-Only. */
+            /**
+             * @description Unique ID of the *Category*. Increments sequentially.
+             *     Read-Only.
+             */
             readonly id?: number;
         };
         /** parent_id */
@@ -694,8 +650,7 @@ export interface components {
              */
             readonly parent_id?: number;
         };
-        /** @description Common Metafield properties.
-         *      */
+        /** @description Common Metafield properties. */
         readonly Metafield: {
             /**
              * @description Determines the visibility and writeability of the field by other API consumers.
@@ -706,44 +661,37 @@ export interface components {
              *     | `write` | Open for reading and writing by other API consumers. |
              *     | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
              *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
-             *
              * @enum {string}
              */
             readonly permission_set?: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace?: string;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key?: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value?: string;
             /**
              * @description Description for the metafields.
-             *
              * @example order
              */
             readonly description?: string;
             /**
              * @description The type of resource with which the metafield is associated.
-             *
              * @example cart
              * @enum {string}
              */
             readonly resource_type?: "brand" | "product" | "variant" | "category" | "cart" | "channel" | "location" | "order" | "customer";
             /**
              * @description The unique identifier for the resource with which the metafield is associated.
-             *
              * @example 424242
              */
             readonly resource_id?: number;
@@ -767,14 +715,12 @@ export interface components {
              */
             readonly owner_client_id?: string;
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponse: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             readonly meta?: components["schemas"]["CollectionMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponse_POST_PUT: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             /**
@@ -784,31 +730,32 @@ export interface components {
             readonly errors?: readonly unknown[];
             readonly meta?: components["schemas"]["CollectionMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponsePartialSuccess_POST_PUT: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             readonly errors?: readonly components["schemas"]["Error"][];
             readonly meta?: components["schemas"]["WriteCollectionPartialSuccessMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponsePartialSuccess_DELETE: {
-            /** @example [
+            /**
+             * @example [
              *       123
-             *     ] */
+             *     ]
+             */
             readonly data?: readonly number[];
             readonly errors?: readonly components["schemas"]["Error"][];
             readonly meta?: components["schemas"]["WriteCollectionPartialSuccessMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionDeleteResponseSuccess: {
-            /** @example [
+            /**
+             * @example [
              *       123,
              *       124,
              *       125
-             *     ] */
+             *     ]
+             */
             readonly data?: readonly number[];
             /**
              * @description Empty for 200 responses.
@@ -824,19 +771,16 @@ export interface components {
         readonly WriteCollectionPartialSuccessMeta: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 3
              */
             readonly total?: number;
             /**
              * @description Total number of items that were successfully deleted.
-             *
              * @example 1
              */
             readonly success?: number;
             /**
              * @description Total number of items that failed to be deleted.
-             *
              * @example 2
              */
             readonly failed?: number;
@@ -848,41 +792,34 @@ export interface components {
         readonly WriteCollectionSuccessMeta: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 3
              */
             readonly total?: number;
             /**
              * @description Total number of items that were successfully deleted.
-             *
              * @example 3
              */
             readonly success?: number;
             /**
              * @description Total number of items that failed to be deleted.
-             *
              * @example 0
              */
             readonly failed?: number;
         };
-        /** @description Error response payload for the BigCommerce API.
-         *      */
+        /** @description Error response payload for the BigCommerce API. */
         readonly Error: {
             /**
              * @description The HTTP status code for the error.
-             *
              * @example 422
              */
             readonly status?: number;
             /**
              * @description The error title.
-             *
              * @example Bulk operation has failed
              */
             readonly title?: string;
             /**
              * @description The error type.
-             *
              * @example https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
              */
             readonly type?: string;
@@ -890,7 +827,6 @@ export interface components {
         };
         /**
          * @description Error detail response payload for the BigCommerce API.
-         *
          * @example {
          *       "1": "Unauthorized to delete",
          *       "2": "Metafield does not exist"
@@ -911,56 +847,46 @@ export interface components {
             readonly pagination?: {
                 /**
                  * @description Total number of items in the result set.
-                 *
                  * @example 36
                  */
                 readonly total?: number;
                 /**
                  * @description Total number of items in the collection response.
-                 *
                  * @example 36
                  */
                 readonly count?: number;
                 /**
                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                 *
                  * @example 50
                  */
                 readonly per_page?: number;
                 /**
                  * @description The page you are currently on within the collection.
-                 *
                  * @example 1
                  */
                 readonly current_page?: number;
                 /**
                  * @description The total number of pages in the collection.
-                 *
                  * @example 1
                  */
                 readonly total_pages?: number;
-                /** @description Pagination links for the previous and next parts of the whole collection.
-                 *      */
+                /** @description Pagination links for the previous and next parts of the whole collection. */
                 readonly links?: {
-                    /** @description Link to the previous page returned in the response.
-                     *      */
+                    /** @description Link to the previous page returned in the response. */
                     readonly previous?: string;
                     /**
                      * @description Link to the current page returned in the response.
-                     *
                      * @example ?page=1&limit=50
                      */
                     readonly current?: string;
-                    /** @description Link to the next page returned in the response.
-                     *      */
+                    /** @description Link to the next page returned in the response. */
                     readonly next?: string;
                 };
             };
         } & {
             readonly [key: string]: unknown;
         };
-        /** @description Common Metafield properties.
-         *      */
+        /** @description Common Metafield properties. */
         readonly MetafieldBase_Post: {
             /**
              * @description Determines the visibility and writeability of the field by other API consumers.
@@ -971,37 +897,31 @@ export interface components {
              *     | `write` | Open for reading and writing by other API consumers. |
              *     | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
              *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
-             *
              * @enum {string}
              */
             readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace: string;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value: string;
             /**
              * @description Description for the metafields.
-             *
              * @example Name of Staff Member
              */
             readonly description?: string;
         };
-        /** @description Common Metafield properties.
-         *      */
+        /** @description Common Metafield properties. */
         readonly MetafieldBase_Put: {
             /**
              * @description Determines the visibility and writeability of the field by other API consumers.
@@ -1012,31 +932,26 @@ export interface components {
              *     | `write` | Open for reading and writing by other API consumers. |
              *     | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
              *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
-             *
              * @enum {string}
              */
             readonly permission_set?: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace?: string;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key?: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value?: string;
             /**
              * @description Description for the metafields.
-             *
              * @example Name of Staff Member
              */
             readonly description?: string;
@@ -1081,29 +996,27 @@ export interface components {
         };
     };
     parameters: {
-        /** @description The ID of the `Category` to which the resource belongs.
-         *      */
+        /** @description The ID of the `Category` to which the resource belongs. */
         readonly CategoryIdParam: number;
-        /** @description The ID of the `Metafield`.
-         *      */
+        /** @description The ID of the `Metafield`. */
         readonly MetafieldIdParam: number;
-        /** @description Filter items by metafield ID.
-         *      */
+        /** @description Filter items by metafield ID. */
         readonly IdMetafieldQueryParam: number;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
         readonly Accept: string;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body. */
         readonly ContentType: string;
-        /** @description Specifies the page number in a limited (paginated) list of results.
-         *      */
+        /** @description Specifies the page number in a limited (paginated) list of results. */
         readonly PageParam: number;
-        /** @description Controls the sort order of the response, for example, `sort=name`.
+        /**
+         * @description Controls the sort order of the response, for example, `sort=name`.
          *
          *     Allowed values:
          *     - `name`: sort categories in alphabetical order by category name.
          *     - `id`: sort in ascending order by category ID.
          *     - `parent_id`: sort in ascending order by the ID of the parent category.
-         *     - `sort_order`: sort in ascending order by sort order value. */
+         *     - `sort_order`: sort in ascending order by sort order value.
+         */
         readonly SortParam: "name" | "id" | "parent_id" | "sort_order";
         /** @description Filter based on a metafieldʼs key. */
         readonly MetafieldKeyParam: string;
@@ -1113,23 +1026,17 @@ export interface components {
         readonly MetafieldNamespaceParam: string;
         /** @description Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter. */
         readonly MetafieldNamespaceInParam: readonly string[];
-        /** @description Controls the number of items per page in a limited (paginated) list of results.
-         *      */
+        /** @description Controls the number of items per page in a limited (paginated) list of results. */
         readonly LimitParam: number;
-        /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-         *      */
+        /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
         readonly DirectionParam: "asc" | "desc";
-        /** @description 'Query parameter that lets you filter by the minimum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the minimum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date.' */
         readonly date_created_min: string;
-        /** @description 'Query parameter that lets you filter by the maximum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created before this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the maximum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created before this date.' */
         readonly date_created_max: string;
-        /** @description 'Query parameter that lets you filter by the maximum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the maximum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date.' */
         readonly date_modified_max: string;
-        /** @description 'Query parameter that lets you filter by the minimum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified after this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the minimum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified after this date.' */
         readonly date_modified_min: string;
         /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
         readonly IncludeFieldsParam: readonly string[];
@@ -1141,15 +1048,13 @@ export interface components {
         readonly KeywordParam: string;
         /** @description Filter items based on whether the product is currently visible on the storefront. */
         readonly IsVisibleParam: boolean;
-        /** @description Filter items by name.
-         *      */
+        /** @description Filter items by name. */
         readonly NameParam: string;
         /** @description Filter items by substring in the name property. `name:like=stick` returns both `Stickers` and `Lipstick colors`. */
         readonly NameLikeParam: string;
         /** @description Filter items by substring in the page title property. `page_title:like=oil` returns both `Soil and mulch` and `Oil pastels`. */
         readonly PageTitleLikeParam: string;
-        /** @description Filter items by page_title.
-         *      */
+        /** @description Filter items by page_title. */
         readonly PageTitleParam: string;
         readonly ParentIdInParam: readonly number[];
         /** @description Filter items by parent_id. If the category is a child or sub-category it can be filtered with the parent_id. */
@@ -1158,8 +1063,7 @@ export interface components {
         readonly ParentIdMaxParam: number;
         readonly ParentIdGreaterParam: number;
         readonly ParentIdLessParam: number;
-        /** @description Filter items by category ID.
-         *      */
+        /** @description Filter items by category ID. */
         readonly IdCategoryQueryParam: number;
         /** @description Explicitly include objects by passing a comma-separated list of IDs. */
         readonly IdInParam: readonly number[];
@@ -1179,8 +1083,7 @@ export interface operations {
     readonly getCategories: {
         readonly parameters: {
             readonly query?: {
-                /** @description Filter items by category ID.
-                 *      */
+                /** @description Filter items by category ID. */
                 readonly id?: components["parameters"]["IdCategoryQueryParam"];
                 /** @description Explicitly include objects by passing a comma-separated list of IDs. */
                 readonly "id:in"?: components["parameters"]["IdInParam"];
@@ -1190,8 +1093,7 @@ export interface operations {
                 readonly "id:max"?: components["parameters"]["IdMaxParam"];
                 readonly "id:greater"?: components["parameters"]["IdGreaterParam"];
                 readonly "id:less"?: components["parameters"]["IdLessParam"];
-                /** @description Filter items by name.
-                 *      */
+                /** @description Filter items by name. */
                 readonly name?: components["parameters"]["NameParam"];
                 /** @description Filter items by substring in the name property. `name:like=stick` returns both `Stickers` and `Lipstick colors`. */
                 readonly "name:like"?: components["parameters"]["NameLikeParam"];
@@ -1202,8 +1104,7 @@ export interface operations {
                 readonly "parent_id:max"?: components["parameters"]["ParentIdMaxParam"];
                 readonly "parent_id:greater"?: components["parameters"]["ParentIdGreaterParam"];
                 readonly "parent_id:less"?: components["parameters"]["ParentIdLessParam"];
-                /** @description Filter items by page_title.
-                 *      */
+                /** @description Filter items by page_title. */
                 readonly page_title?: components["parameters"]["PageTitleParam"];
                 /** @description Filter items by substring in the page title property. `page_title:like=oil` returns both `Soil and mulch` and `Oil pastels`. */
                 readonly "page_title:like"?: components["parameters"]["PageTitleLikeParam"];
@@ -1211,19 +1112,19 @@ export interface operations {
                 readonly keyword?: components["parameters"]["KeywordParam"];
                 /** @description Filter items based on whether the product is currently visible on the storefront. */
                 readonly is_visible?: components["parameters"]["IsVisibleParam"];
-                /** @description Controls the sort order of the response, for example, `sort=name`.
+                /**
+                 * @description Controls the sort order of the response, for example, `sort=name`.
                  *
                  *     Allowed values:
                  *     - `name`: sort categories in alphabetical order by category name.
                  *     - `id`: sort in ascending order by category ID.
                  *     - `parent_id`: sort in ascending order by the ID of the parent category.
-                 *     - `sort_order`: sort in ascending order by sort order value. */
+                 *     - `sort_order`: sort in ascending order by sort order value.
+                 */
                 readonly sort?: components["parameters"]["SortParam"];
-                /** @description Specifies the page number in a limited (paginated) list of results.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of results. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of results.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of results. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
@@ -1244,7 +1145,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 19,
@@ -1391,7 +1293,8 @@ export interface operations {
                      *           }
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["Category"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -1428,55 +1331,44 @@ export interface operations {
                     readonly name: string;
                     /**
                      * @description The category description, which can include HTML formatting.
-                     *
                      * @example <p>We offer a wide variety of products perfect for relaxing</p>
                      */
                     readonly description?: string;
                     /**
                      * @description Number of views the category has on the storefront.
-                     *
                      * @example 1050
                      */
                     readonly views?: number;
                     /**
                      * @description Priority this category will be given when included in the menu and category pages. The lower the number, the closer to the top of the results the category will be.
-                     *
                      * @example 3
                      */
                     readonly sort_order?: number;
                     /**
                      * @description Custom title for the category page. If not defined, the category name will be used as the meta title.
-                     *
                      * @example Bath
                      */
                     readonly page_title?: string;
-                    /** @description A comma-separated list of keywords that can be used to locate the category when searching the store.
-                     *      */
+                    /** @description A comma-separated list of keywords that can be used to locate the category when searching the store. */
                     readonly search_keywords?: string;
-                    /** @description Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"].
-                     *      */
+                    /** @description Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"]. */
                     readonly meta_keywords?: readonly string[];
-                    /** @description Custom meta description for the category page. If not defined, the storeʼs default meta description will be used.
-                     *      */
+                    /** @description Custom meta description for the category page. If not defined, the storeʼs default meta description will be used. */
                     readonly meta_description?: string;
                     /**
                      * @description A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
-                     *
                      * @example category.html
                      */
                     readonly layout_file?: string;
-                    /** @description Flag to determine whether the category should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
-                     *      */
+                    /** @description Flag to determine whether the category should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view. */
                     readonly is_visible?: boolean;
                     /**
                      * @description Determines how the products are sorted on category page load.
-                     *
                      * @enum {string}
                      */
                     readonly default_product_sort?: "use_store_settings" | "featured" | "newest" | "best_selling" | "alpha_asc" | "alpha_desc" | "avg_customer_review" | "price_asc" | "price_desc";
                     /**
                      * @description Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
-                     *
                      * @example https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png
                      */
                     readonly image_url?: string;
@@ -1487,12 +1379,10 @@ export interface operations {
                     readonly custom_url?: {
                         /**
                          * @description Category URL on the storefront.
-                         *
                          * @example /shoes
                          */
                         readonly url?: string;
-                        /** @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
-                         *      */
+                        /** @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides). */
                         readonly is_customized?: boolean;
                     };
                 };
@@ -1519,8 +1409,7 @@ export interface operations {
                     readonly "application/json": components["schemas"]["error_Base"];
                 };
             };
-            /** @description The `Category` was in conflict with another category. This is the result of duplicate unique values, such as `name` or `custom_url`.
-             *      */
+            /** @description The `Category` was in conflict with another category. This is the result of duplicate unique values, such as `name` or `custom_url`. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1532,18 +1421,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description The `Category` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Category` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1555,11 +1441,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -1570,8 +1454,7 @@ export interface operations {
     readonly deleteCategories: {
         readonly parameters: {
             readonly query?: {
-                /** @description Filter items by category ID.
-                 *      */
+                /** @description Filter items by category ID. */
                 readonly id?: components["parameters"]["IdCategoryQueryParam"];
                 /** @description Explicitly include objects by passing a comma-separated list of IDs. */
                 readonly "id:in"?: components["parameters"]["IdInParam"];
@@ -1581,13 +1464,11 @@ export interface operations {
                 readonly "id:max"?: components["parameters"]["IdMaxParam"];
                 readonly "id:greater"?: components["parameters"]["IdGreaterParam"];
                 readonly "id:less"?: components["parameters"]["IdLessParam"];
-                /** @description Filter items by name.
-                 *      */
+                /** @description Filter items by name. */
                 readonly name?: components["parameters"]["NameParam"];
                 /** @description Filter items by parent_id. If the category is a child or sub-category it can be filtered with the parent_id. */
                 readonly parent_id?: components["parameters"]["ParentIdParam"];
-                /** @description Filter items by page_title.
-                 *      */
+                /** @description Filter items by page_title. */
                 readonly page_title?: components["parameters"]["PageTitleParam"];
                 /** @description Filter items by keywords found in the `name`, `description`, or `sku` fields, or in the brand name. */
                 readonly keyword?: components["parameters"]["KeywordParam"];
@@ -1633,8 +1514,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
             };
             readonly cookie?: never;
@@ -1652,16 +1532,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1682,8 +1560,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
             };
             readonly cookie?: never;
@@ -1691,8 +1568,10 @@ export interface operations {
         readonly requestBody: {
             readonly content: {
                 readonly "application/json": {
-                    /** @description Unique ID of the *Category*. Increments sequentially.
-                     *     Read-Only. */
+                    /**
+                     * @description Unique ID of the *Category*. Increments sequentially.
+                     *     Read-Only.
+                     */
                     readonly id?: number;
                     /**
                      * @description The unique numeric ID of the categoryʼs parent. This field controls where the category sits in the tree of categories that organize the catalog.
@@ -1707,55 +1586,44 @@ export interface operations {
                     readonly name: string;
                     /**
                      * @description The product description, which can include HTML formatting.
-                     *
                      * @example <p>We offer a wide variety of products perfect for relaxing</p>
                      */
                     readonly description?: string;
                     /**
                      * @description Number of views the category has on the storefront.
-                     *
                      * @example 1050
                      */
                     readonly views?: number;
                     /**
                      * @description Priority this category will be given when included in the menu and category pages. The lower the number, the closer to the top of the results the category will be.
-                     *
                      * @example 3
                      */
                     readonly sort_order?: number;
                     /**
                      * @description Custom title for the category page. If not defined, the category name will be used as the meta title.
-                     *
                      * @example Bath
                      */
                     readonly page_title?: string;
-                    /** @description A comma-separated list of keywords that can be used to locate the category when searching the store.
-                     *      */
+                    /** @description A comma-separated list of keywords that can be used to locate the category when searching the store. */
                     readonly search_keywords?: string;
-                    /** @description Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"].
-                     *      */
+                    /** @description Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"]. */
                     readonly meta_keywords?: readonly string[];
-                    /** @description Custom meta description for the category page. If not defined, the storeʼs default meta description will be used.
-                     *      */
+                    /** @description Custom meta description for the category page. If not defined, the storeʼs default meta description will be used. */
                     readonly meta_description?: string;
                     /**
                      * @description A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
-                     *
                      * @example category.html
                      */
                     readonly layout_file?: string;
-                    /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
-                     *      */
+                    /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view. */
                     readonly is_visible?: boolean;
                     /**
                      * @description Determines how the products are sorted on category page load.
-                     *
                      * @enum {string}
                      */
                     readonly default_product_sort?: "use_store_settings" | "featured" | "newest" | "best_selling" | "alpha_asc" | "alpha_desc" | "avg_customer_review" | "price_asc" | "price_desc";
                     /**
                      * @description Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
-                     *
                      * @example https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png
                      */
                     readonly image_url?: string;
@@ -1766,12 +1634,10 @@ export interface operations {
                     readonly custom_url?: {
                         /**
                          * @description Category URL on the storefront.
-                         *
                          * @example /shoes
                          */
                         readonly url?: string;
-                        /** @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
-                         *      */
+                        /** @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides). */
                         readonly is_customized?: boolean;
                     };
                 };
@@ -1789,8 +1655,10 @@ export interface operations {
                          * @description Common Category object properties.
                          */
                         readonly data?: {
-                            /** @description Unique ID of the *Category*. Increments sequentially.
-                             *     Read-Only. */
+                            /**
+                             * @description Unique ID of the *Category*. Increments sequentially.
+                             *     Read-Only.
+                             */
                             readonly id?: number;
                             /**
                              * @description The unique numeric ID of the categoryʼs parent. This field controls where the category sits in the tree of categories that organize the catalog.
@@ -1806,55 +1674,44 @@ export interface operations {
                             readonly name?: string;
                             /**
                              * @description The product description, which can include HTML formatting.
-                             *
                              * @example <p>We offer a wide variety of products perfect for relaxing</p>
                              */
                             readonly description?: string;
                             /**
                              * @description Number of views the category has on the storefront.
-                             *
                              * @example 1050
                              */
                             readonly views?: number;
                             /**
                              * @description Priority this category will be given when included in the menu and category pages. The lower the number, the closer to the top of the results the category will be.
-                             *
                              * @example 3
                              */
                             readonly sort_order?: number;
                             /**
                              * @description Custom title for the category page. If not defined, the category name will be used as the meta title.
-                             *
                              * @example Bath
                              */
                             readonly page_title?: string;
-                            /** @description A comma-separated list of keywords that can be used to locate the category when searching the store.
-                             *      */
+                            /** @description A comma-separated list of keywords that can be used to locate the category when searching the store. */
                             readonly search_keywords?: string;
-                            /** @description Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"].
-                             *      */
+                            /** @description Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"]. */
                             readonly meta_keywords?: readonly string[];
-                            /** @description Custom meta description for the category page. If not defined, the storeʼs default meta description will be used.
-                             *      */
+                            /** @description Custom meta description for the category page. If not defined, the storeʼs default meta description will be used. */
                             readonly meta_description?: string;
                             /**
                              * @description A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
-                             *
                              * @example category.html
                              */
                             readonly layout_file?: string;
-                            /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
-                             *      */
+                            /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view. */
                             readonly is_visible?: boolean;
                             /**
                              * @description Determines how the products are sorted on category page load.
-                             *
                              * @enum {string}
                              */
                             readonly default_product_sort?: "use_store_settings" | "featured" | "newest" | "best_selling" | "alpha_asc" | "alpha_desc" | "avg_customer_review" | "price_asc" | "price_desc";
                             /**
                              * @description Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
-                             *
                              * @example https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png
                              */
                             readonly image_url?: string;
@@ -1865,12 +1722,10 @@ export interface operations {
                             readonly custom_url?: {
                                 /**
                                  * @description Category URL on the storefront.
-                                 *
                                  * @example /shoes
                                  */
                                 readonly url?: string;
-                                /** @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
-                                 *      */
+                                /** @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides). */
                                 readonly is_customized?: boolean;
                             };
                         };
@@ -1890,8 +1745,7 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1912,11 +1766,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -1934,11 +1786,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -1954,8 +1804,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
             };
             readonly cookie?: never;
@@ -1973,8 +1822,7 @@ export interface operations {
     readonly getCategoryMetafields: {
         readonly parameters: {
             readonly query?: {
-                /** @description Filter items by metafield ID.
-                 *      */
+                /** @description Filter items by metafield ID. */
                 readonly id?: components["parameters"]["IdMetafieldQueryParam"];
                 /** @description Explicitly include objects by passing a comma-separated list of IDs. */
                 readonly "id:in"?: components["parameters"]["IdInParam"];
@@ -1988,11 +1836,9 @@ export interface operations {
                 readonly key?: components["parameters"]["MetafieldKeyParam"];
                 /** @description Filter based on a metafieldʼs namespaces. */
                 readonly namespace?: components["parameters"]["MetafieldNamespaceParam"];
-                /** @description Specifies the page number in a limited (paginated) list of results.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of results. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of results.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of results. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
@@ -2004,8 +1850,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
             };
             readonly cookie?: never;
@@ -2017,7 +1862,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 6,
@@ -2056,7 +1902,8 @@ export interface operations {
                      *           }
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["metafield_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -2075,8 +1922,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
             };
             readonly cookie?: never;
@@ -2092,7 +1938,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 4,
                      *         "key": "location_id",
@@ -2106,7 +1953,8 @@ export interface operations {
                      *         "date_modified": "2021-08-06T19:15:35+00:00"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -2119,12 +1967,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2133,8 +1983,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate, unique key combinations of the appʼs client id, namespace, key, resource_type, and resource_id.
-             *      */
+            /** @description The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate, unique key combinations of the appʼs client id, namespace, key, resource_type, and resource_id. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2146,18 +1995,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2169,11 +2015,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -2194,11 +2038,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdParam"];
             };
             readonly cookie?: never;
@@ -2210,7 +2052,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 4,
                      *         "key": "location_id",
@@ -2224,7 +2067,8 @@ export interface operations {
                      *         "date_modified": "2021-08-06T19:15:35+00:00"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -2238,8 +2082,7 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2260,11 +2103,9 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdParam"];
             };
             readonly cookie?: never;
@@ -2280,7 +2121,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 4,
                      *         "key": "location_id",
@@ -2294,7 +2136,8 @@ export interface operations {
                      *         "date_modified": "2021-08-06T19:15:35+00:00"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -2307,12 +2150,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2321,16 +2166,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2349,11 +2192,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdParam"];
             };
             readonly cookie?: never;
@@ -2366,16 +2207,14 @@ export interface operations {
                 };
                 content?: never;
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2394,8 +2233,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
             };
             readonly cookie?: never;
@@ -2414,12 +2252,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/product_images/k/group_1545334669__76009.png"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: {
                             readonly image_url?: string;
@@ -2439,16 +2279,14 @@ export interface operations {
             };
             readonly 401: components["responses"]["UnauthorizedError"];
             readonly 403: components["responses"]["Forbidden"];
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2457,8 +2295,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Image was not valid. This is the result of a missing `image_file` field or an incorrect file type. See the response for more details.
-             *      */
+            /** @description Image was not valid. This is the result of a missing `image_file` field or an incorrect file type. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2470,11 +2307,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -2490,8 +2325,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
             };
             readonly cookie?: never;
@@ -2506,16 +2340,14 @@ export interface operations {
             };
             readonly 401: components["responses"]["UnauthorizedError"];
             readonly 403: components["responses"]["Forbidden"];
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -2529,8 +2361,7 @@ export interface operations {
     readonly getCategorySortOrders: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of results.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of results. */
                 readonly page?: components["parameters"]["PageParam"];
             };
             readonly header?: {
@@ -2538,8 +2369,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
             };
             readonly cookie?: never;
@@ -2573,8 +2403,7 @@ export interface operations {
     readonly updateCategorySortOrders: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of results.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of results. */
                 readonly page?: components["parameters"]["PageParam"];
             };
             readonly header?: {
@@ -2584,8 +2413,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Category` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Category` to which the resource belongs. */
                 readonly category_id: components["parameters"]["CategoryIdParam"];
             };
             readonly cookie?: never;
@@ -2616,11 +2444,13 @@ export interface operations {
                 };
             };
             readonly 415: components["responses"]["Unsupported"];
-            /** @description Unprocessable entity.
+            /**
+             * @description Unprocessable entity.
              *
              *     Please verify if all requested products are assigned to the category.
              *
-             *     Please verify if all required fields are present in the request body and are filled with values correctly. */
+             *     Please verify if all required fields are present in the request body and are filled with values correctly.
+             */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2634,11 +2464,9 @@ export interface operations {
     readonly getCategoriesMetafields: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of results.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of results. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of results.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of results. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description Filter based on a metafieldʼs key. */
                 readonly key?: components["parameters"]["MetafieldKeyParam"];
@@ -2648,22 +2476,17 @@ export interface operations {
                 readonly namespace?: components["parameters"]["MetafieldNamespaceParam"];
                 /** @description Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter. */
                 readonly "namespace:in"?: components["parameters"]["MetafieldNamespaceInParam"];
-                /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-                 *      */
+                /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
                 readonly direction?: components["parameters"]["DirectionParam"];
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
                 readonly include_fields?: components["parameters"]["IncludeFieldsParamMetafields"];
-                /** @description 'Query parameter that lets you filter by the minimum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified after this date.'
-                 *      */
+                /** @description 'Query parameter that lets you filter by the minimum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified after this date.' */
                 readonly "date_modified:min"?: components["parameters"]["date_modified_min"];
-                /** @description 'Query parameter that lets you filter by the maximum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date.'
-                 *      */
+                /** @description 'Query parameter that lets you filter by the maximum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date.' */
                 readonly "date_modified:max"?: components["parameters"]["date_modified_max"];
-                /** @description 'Query parameter that lets you filter by the minimum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date.'
-                 *      */
+                /** @description 'Query parameter that lets you filter by the minimum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date.' */
                 readonly "date_created:min"?: components["parameters"]["date_created_min"];
-                /** @description 'Query parameter that lets you filter by the maximum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created before this date.'
-                 *      */
+                /** @description 'Query parameter that lets you filter by the maximum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created before this date.' */
                 readonly "date_created:max"?: components["parameters"]["date_created_max"];
             };
             readonly header?: {
@@ -2675,8 +2498,7 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description List of `Metafield` objects.
-             *      */
+            /** @description List of `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2704,7 +2526,6 @@ export interface operations {
                 readonly "application/json": readonly (components["schemas"]["MetafieldBase_Put"] & {
                     /**
                      * @description The ID of metafield to update.
-                     *
                      * @example 42
                      */
                     readonly id: number;
@@ -2712,8 +2533,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description List of updated `Metafield` objects.
-             *      */
+            /** @description List of updated `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2728,12 +2548,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2742,8 +2564,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields creation with partial success.
-             *      */
+            /** @description Response object for metafields creation with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2771,7 +2592,6 @@ export interface operations {
                 readonly "application/json": readonly (components["schemas"]["MetafieldBase_Post"] & {
                     /**
                      * @description The ID for the category with which the metafield is associated.
-                     *
                      * @example 42
                      */
                     readonly resource_id: number;
@@ -2779,8 +2599,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description List of created `Metafield` objects.
-             *      */
+            /** @description List of created `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2795,12 +2614,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2809,8 +2630,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields creation with partial success.
-             *      */
+            /** @description Response object for metafields creation with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2838,8 +2658,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description Response object for metafields deletion with success.
-             *      */
+            /** @description Response object for metafields deletion with success. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2854,12 +2673,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -2868,8 +2689,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields deletion with partial success.
-             *      */
+            /** @description Response object for metafields deletion with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;

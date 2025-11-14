@@ -116,10 +116,12 @@ export interface components {
                      *     ]
                      */
                     readonly subdivision_codes?: readonly string[];
-                    /** @example [
+                    /**
+                     * @example [
                      *       "2234",
                      *       "2170"
-                     *     ] */
+                     *     ]
+                     */
                     readonly postal_codes?: readonly string[];
                 }[];
                 /** @description One or more customer groups that a tax zone targets. Empty array if zone applies to all customers. */
@@ -165,10 +167,12 @@ export interface components {
                      *     ]
                      */
                     readonly subdivision_codes?: readonly string[];
-                    /** @example [
+                    /**
+                     * @example [
                      *       "2234",
                      *       "2170"
-                     *     ] */
+                     *     ]
+                     */
                     readonly postal_codes?: readonly string[];
                 }[];
                 /** @description One or more customer groups that a tax zone targets. Empty array if zone applies to all customers. */
@@ -218,10 +222,12 @@ export interface components {
                      *     ]
                      */
                     readonly subdivision_codes?: readonly string[];
-                    /** @example [
+                    /**
+                     * @example [
                      *       "2234",
                      *       "2170"
-                     *     ] */
+                     *     ]
+                     */
                     readonly postal_codes?: readonly string[];
                 }[];
                 /** @description One or more customer groups that a tax zone targets. Empty array if zone applies to all customers. */

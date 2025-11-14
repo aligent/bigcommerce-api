@@ -52,25 +52,21 @@ export interface components {
             readonly operation?: string;
             /**
              * @description Store hash identifying the store you are logging into.
-             *
              * @example "abc123"
              */
             readonly store_hash?: string;
             /**
              * @description ID of the customer you are logging in, as obtained through the Customer API.
-             *
              * @example 2
              */
             readonly customer_id?: number;
             /**
              * @description Optional field containing a relative path for the shopper’s destination after login. Will default to `/account.php`.
-             *
              * @default /account.php
              */
             readonly redirect_to: string;
             /**
              * @description **(Optional)** Field containing the expected IP address for the request. If provided, BigCommerce will check that it matches the browser trying to log in. If there is not a match, it will be rejected.
-             *
              * @example "111.222.333.444"
              */
             readonly request_ip?: string;

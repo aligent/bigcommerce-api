@@ -7,13 +7,15 @@ export interface paths {
     readonly "/carts": {
         readonly parameters: {
             readonly query?: {
-                /** @description To return product options add one of the following include:
+                /**
+                 * @description To return product options add one of the following include:
                  *
                  *     `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
                  *
                  *     `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
                  *
-                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return. */
+                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
+                 */
                 readonly include?: components["parameters"]["Include"];
             };
             readonly header: {
@@ -69,13 +71,15 @@ export interface paths {
     readonly "/carts/{cartId}/items": {
         readonly parameters: {
             readonly query?: {
-                /** @description To return product options add one of the following include:
+                /**
+                 * @description To return product options add one of the following include:
                  *
                  *     `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
                  *
                  *     `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
                  *
-                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return. */
+                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
+                 */
                 readonly include?: components["parameters"]["Include"];
             };
             readonly header: {
@@ -104,13 +108,15 @@ export interface paths {
     readonly "/carts/{cartId}/items/{itemId}": {
         readonly parameters: {
             readonly query?: {
-                /** @description To return product options add one of the following include:
+                /**
+                 * @description To return product options add one of the following include:
                  *
                  *     `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
                  *
                  *     `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
                  *
-                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return. */
+                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
+                 */
                 readonly include?: components["parameters"]["Include"];
             };
             readonly header: {
@@ -186,14 +192,16 @@ export interface components {
         readonly responseCartCoupons: readonly {
             /** @description The coupon code. */
             readonly code: string;
-            /** @description |Type `int`|Type Name|
+            /**
+             * @description |Type `int`|Type Name|
              *     |-|-|
              *     |`0`|`per_item_discount`|
              *     |`1`|`percentage_discount`|
              *     |`2`|`per_total_discount`|
              *     |`3`|`shipping_discount`|
              *     |`4`|`free_shipping`|
-             *     |`5`|`promotion`| */
+             *     |`5`|`promotion`|
+             */
             readonly couponType?: number;
             /**
              * Format: float
@@ -313,10 +321,12 @@ export interface components {
              * @example true
              */
             readonly wrapTogether: boolean;
-            /** @description Details for the gift wrapping option selected. This can be specified for each line item or together based on wrapTogether value.
+            /**
+             * @description Details for the gift wrapping option selected. This can be specified for each line item or together based on wrapTogether value.
              *     If wrapTogether is false, each element in the wrapDetails array determines each item's specific wrapping.
              *     (e.g if this line item has 6 quantity, you can pass at maximum 6 elements for the array to spefified each one's wrapping)
-             *     If wrapTogether is true, we will only use 1st element in the wrapDetails array to determine what to be wrapped */
+             *     If wrapTogether is true, we will only use 1st element in the wrapDetails array to determine what to be wrapped
+             */
             readonly wrapDetails: readonly {
                 /**
                  * @description Identifier of the gift wrapping option selected.
@@ -786,11 +796,13 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "status": 409,
                  *       "title": "The request cannot be processed due to a possible conflict. Please review the changes and try again.",
                  *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": {
                     readonly status?: number;
                     readonly title?: string;
@@ -808,13 +820,15 @@ export interface components {
         readonly CartIdPath: string;
         /** @description The ID of the subject item. */
         readonly ItemIdPath: string;
-        /** @description To return product options add one of the following include:
+        /**
+         * @description To return product options add one of the following include:
          *
          *     `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
          *
          *     `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
          *
-         *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return. */
+         *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
+         */
         readonly Include: readonly ("lineItems.physicalItems.options" | "lineItems.digitalItems.options")[];
     };
     requestBodies: never;
@@ -826,13 +840,15 @@ export interface operations {
     readonly getCart: {
         readonly parameters: {
             readonly query?: {
-                /** @description To return product options add one of the following include:
+                /**
+                 * @description To return product options add one of the following include:
                  *
                  *     `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
                  *
                  *     `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
                  *
-                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return. */
+                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
+                 */
                 readonly include?: components["parameters"]["Include"];
             };
             readonly header?: {
@@ -850,13 +866,15 @@ export interface operations {
     readonly createCart: {
         readonly parameters: {
             readonly query?: {
-                /** @description To return product options add one of the following include:
+                /**
+                 * @description To return product options add one of the following include:
                  *
                  *     `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
                  *
                  *     `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
                  *
-                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return. */
+                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
+                 */
                 readonly include?: components["parameters"]["Include"];
             };
             readonly header?: {
@@ -904,13 +922,15 @@ export interface operations {
     readonly addCartLineItem: {
         readonly parameters: {
             readonly query?: {
-                /** @description To return product options add one of the following include:
+                /**
+                 * @description To return product options add one of the following include:
                  *
                  *     `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
                  *
                  *     `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
                  *
-                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return. */
+                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
+                 */
                 readonly include?: components["parameters"]["Include"];
             };
             readonly header?: {
@@ -938,13 +958,15 @@ export interface operations {
     readonly updateCartLineItem: {
         readonly parameters: {
             readonly query?: {
-                /** @description To return product options add one of the following include:
+                /**
+                 * @description To return product options add one of the following include:
                  *
                  *     `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
                  *
                  *     `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
                  *
-                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return. */
+                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
+                 */
                 readonly include?: components["parameters"]["Include"];
             };
             readonly header?: {
@@ -974,13 +996,15 @@ export interface operations {
     readonly deleteCartLineItem: {
         readonly parameters: {
             readonly query?: {
-                /** @description To return product options add one of the following include:
+                /**
+                 * @description To return product options add one of the following include:
                  *
                  *     `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
                  *
                  *     `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
                  *
-                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return. */
+                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
+                 */
                 readonly include?: components["parameters"]["Include"];
             };
             readonly header?: {
@@ -1008,13 +1032,15 @@ export interface operations {
     readonly updateCartCurrency: {
         readonly parameters: {
             readonly query?: {
-                /** @description To return product options add one of the following include:
+                /**
+                 * @description To return product options add one of the following include:
                  *
                  *     `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
                  *
                  *     `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
                  *
-                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return. */
+                 *     `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
+                 */
                 readonly include?: components["parameters"]["Include"];
             };
             readonly header?: {

@@ -12,8 +12,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -55,11 +54,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Option`.
-                 *      */
+                /** @description The ID of the `Option`. */
                 readonly option_id: components["parameters"]["OptionIdParam"];
             };
             readonly cookie?: never;
@@ -91,11 +88,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Option`.
-                 *      */
+                /** @description The ID of the `Option`. */
                 readonly option_id: components["parameters"]["OptionIdParam"];
             };
             readonly cookie?: never;
@@ -129,14 +124,11 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Option`.
-                 *      */
+                /** @description The ID of the `Option`. */
                 readonly option_id: components["parameters"]["OptionIdParam"];
-                /** @description The ID of the `Modifier/Option Value`.
-                 *      */
+                /** @description The ID of the `Modifier/Option Value`. */
                 readonly value_id: components["parameters"]["ValueIdParam"];
             };
             readonly cookie?: never;
@@ -171,25 +163,21 @@ export interface components {
         readonly productOption_Base: {
             /**
              * @description The unique numerical ID of the option, increments sequentially.
-             *
              * @example 55
              */
             readonly id?: number | null;
             /**
              * @description The unique numerical ID of the product to which the option belongs.
-             *
              * @example 4
              */
             readonly product_id?: number;
             /**
              * @description The name of the option shown on the storefront.
-             *
              * @example Add-a-$5-Donation1535042499-187
              */
             readonly display_name?: string;
             /**
              * @description The type of option, which determines how it will display on the storefront. Acceptable values: `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. For reference, the former v2 API values are: RB = radio_buttons, RT = rectangles, S = dropdown, P = product_list, PI = product_list_with_images, CS = swatch.
-             *
              * @enum {string}
              */
             readonly type?: "radio_buttons" | "rectangles" | "dropdown" | "product_list" | "product_list_with_images" | "swatch";
@@ -205,7 +193,6 @@ export interface components {
         readonly productOption_Full: components["schemas"]["productOption_Base"] & {
             /**
              * @description The unique option name, auto-generated from the display name, a timestamp, and the product ID.
-             *
              * @example Add-a-$5-Donation1535042499-187
              */
             readonly name?: string;
@@ -217,24 +204,20 @@ export interface components {
         readonly productOptionOptionValue_Base: {
             /**
              * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-             *
              * @example false
              */
             readonly is_default?: boolean;
             /**
              * @description The text display identifying the value on the storefront. Required in a /POST.
-             *
              * @example Green
              */
             readonly label: string;
             /**
              * @description The order in which the value will be displayed on the product page. Required in a /POST.
-             *
              * @example 0
              */
             readonly sort_order: number;
-            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.
-             *      */
+            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`. */
             readonly value_data?: Record<string, unknown> | null;
         };
         /**
@@ -242,8 +225,7 @@ export interface components {
          * @description Product Option `option_value`.
          */
         readonly productOptionOptionValue_Full: components["schemas"]["productOptionOptionValue_Base"] & {
-            /** @description The unique numeric ID of the value; increments sequentially.
-             *      */
+            /** @description The unique numeric ID of the value; increments sequentially. */
             readonly id?: number;
         };
         /**
@@ -251,21 +233,16 @@ export interface components {
          * @description The values for option config can vary based on the Modifier created.
          */
         readonly productOptionConfig_Full: {
-            /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
-             *      */
+            /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string. */
             readonly default_value?: string;
-            /** @description (checkbox) Flag for setting the checkbox to be checked by default.
-             *      */
+            /** @description (checkbox) Flag for setting the checkbox to be checked by default. */
             readonly checked_by_default?: boolean;
-            /** @description (checkbox) Label displayed for the checkbox option.
-             *      */
+            /** @description (checkbox) Label displayed for the checkbox option. */
             readonly checkbox_label?: string;
-            /** @description (date) Flag to limit the dates allowed to be entered on a date option.
-             *      */
+            /** @description (date) Flag to limit the dates allowed to be entered on a date option. */
             readonly date_limited?: boolean;
             /**
              * @description (date) The type of limit that is allowed to be entered on a date option.
-             *
              * @example range
              * @enum {string}
              */
@@ -273,100 +250,83 @@ export interface components {
             /**
              * Format: date
              * @description (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-             *
              */
             readonly date_earliest_value?: string;
             /**
              * Format: date
              * @description (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-             *
              */
             readonly date_latest_value?: string;
             /**
              * @description (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
-             *
              * @example specific
              * @enum {string}
              */
             readonly file_types_mode?: "specific" | "all";
-            /** @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
+            /**
+             * @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
              *       `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
              *       `other` - Allows file types defined in the `file_types_other` array.
-             *      */
+             */
             readonly file_types_supported?: readonly string[];
-            /** @description (file) A list of other file types allowed with the file upload option.
-             *      */
+            /** @description (file) A list of other file types allowed with the file upload option. */
             readonly file_types_other?: readonly string[];
             /**
              * @description (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
-             *
              * @example 5
              */
             readonly file_max_size?: number;
-            /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
-             *      */
+            /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input. */
             readonly text_characters_limited?: boolean;
             /**
              * @description (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
-             *
              * @example 1
              */
             readonly text_min_length?: number;
             /**
              * @description (text, multi_line_text) The maximum length allowed for a text or multi line text option.
-             *
              * @example 55
              */
             readonly text_max_length?: number;
             /**
              * @description (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
-             *
              * @example true
              */
             readonly text_lines_limited?: boolean;
             /**
              * @description (multi_line_text) The maximum number of lines allowed on a multi-line text input.
-             *
              * @example 4
              */
             readonly text_max_lines?: number;
             /**
              * @description (numbers_only_text) Flag to limit the value of a number option.
-             *
              * @example true
              */
             readonly number_limited?: boolean;
             /**
              * @description (numbers_only_text) The type of limit on values entered for a number option.
-             *
              * @example lowest
              * @enum {string}
              */
             readonly number_limit_mode?: "lowest" | "highest" | "range";
             /**
              * @description (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
-             *
              * @example 100
              */
             readonly number_lowest_value?: number;
-            /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
-             *      */
+            /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true. */
             readonly number_highest_value?: number;
             /**
              * @description (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
-             *
              * @example false
              */
             readonly number_integers_only?: boolean;
-            /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
-             *      */
+            /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list. */
             readonly product_list_adjusts_inventory?: boolean;
-            /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
-             *      */
+            /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price. */
             readonly product_list_adjusts_pricing?: boolean;
             /**
              * @description (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
-             *
              * @example weight
              * @enum {string}
              */
@@ -386,48 +346,39 @@ export interface components {
         readonly pagination_Full: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 36
              */
             readonly total?: number;
             /**
              * @description Total number of items in the collection response.
-             *
              * @example 36
              */
             readonly count?: number;
             /**
              * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-             *
              * @example 50
              */
             readonly per_page?: number;
             /**
              * @description The page you are currently on within the collection.
-             *
              * @example 1
              */
             readonly current_page?: number;
             /**
              * @description The total number of pages in the collection.
-             *
              * @example 1
              */
             readonly total_pages?: number;
-            /** @description Pagination links for the previous and next parts of the whole collection.
-             *      */
+            /** @description Pagination links for the previous and next parts of the whole collection. */
             readonly links?: {
-                /** @description Link to the previous page returned in the response.
-                 *      */
+                /** @description Link to the previous page returned in the response. */
                 readonly previous?: string;
                 /**
                  * @description Link to the current page returned in the response.
-                 *
                  * @example ?page=1&limit=50
                  */
                 readonly current?: string;
-                /** @description Link to the next page returned in the response.
-                 *      */
+                /** @description Link to the next page returned in the response. */
                 readonly next?: string;
             };
         };
@@ -441,20 +392,15 @@ export interface components {
     };
     responses: never;
     parameters: {
-        /** @description The ID of the `Product` to which the resource belongs.
-         *      */
+        /** @description The ID of the `Product` to which the resource belongs. */
         readonly ProductIdParam: number;
-        /** @description The ID of the `Modifier/Option Value`.
-         *      */
+        /** @description The ID of the `Modifier/Option Value`. */
         readonly ValueIdParam: number;
-        /** @description The ID of the `Option`.
-         *      */
+        /** @description The ID of the `Option`. */
         readonly OptionIdParam: number;
-        /** @description Specifies the page number in a limited (paginated) list of products.
-         *      */
+        /** @description Specifies the page number in a limited (paginated) list of products. */
         readonly PageParam: number;
-        /** @description Controls the number of items per page in a limited (paginated) list of products.
-         *      */
+        /** @description Controls the number of items per page in a limited (paginated) list of products. */
         readonly LimitParam: number;
         /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
         readonly IncludeFieldsParam: readonly string[];
@@ -474,11 +420,9 @@ export interface operations {
     readonly getProductVariantOptions: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
@@ -490,8 +434,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -509,16 +452,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -539,8 +480,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -550,19 +490,16 @@ export interface operations {
                 readonly "application/json": {
                     /**
                      * @description The unique numerical ID of the product to which the option belongs.
-                     *
                      * @example 4
                      */
                     readonly product_id?: number;
                     /**
                      * @description The name of the option shown on the storefront.
-                     *
                      * @example Add-a-$5-Donation1535042499-187
                      */
                     readonly display_name?: string;
                     /**
                      * @description The type of option, which determines how it will display on the storefront. Acceptable values: `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. For reference, the former v2 API values are: RB = radio_buttons, RT = rectangles, S = dropdown, P = product_list, PI = product_list_with_images, CS = swatch.
-                     *
                      * @enum {string}
                      */
                     readonly type?: "radio_buttons" | "rectangles" | "dropdown" | "product_list" | "product_list_with_images" | "swatch";
@@ -571,21 +508,16 @@ export interface operations {
                      * @description The values for option config can vary based on the Modifier created.
                      */
                     readonly config?: {
-                        /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
-                         *      */
+                        /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string. */
                         readonly default_value?: string;
-                        /** @description (checkbox) Flag for setting the checkbox to be checked by default.
-                         *      */
+                        /** @description (checkbox) Flag for setting the checkbox to be checked by default. */
                         readonly checked_by_default?: boolean;
-                        /** @description (checkbox) Label displayed for the checkbox option.
-                         *      */
+                        /** @description (checkbox) Label displayed for the checkbox option. */
                         readonly checkbox_label?: string;
-                        /** @description (date) Flag to limit the dates allowed to be entered on a date option.
-                         *      */
+                        /** @description (date) Flag to limit the dates allowed to be entered on a date option. */
                         readonly date_limited?: boolean;
                         /**
                          * @description (date) The type of limit that is allowed to be entered on a date option.
-                         *
                          * @example range
                          * @enum {string}
                          */
@@ -593,20 +525,17 @@ export interface operations {
                         /**
                          * Format: date-time
                          * @description (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                         *
                          * @example 2018-08-31T00:00:00+00:00
                          */
                         readonly date_earliest_value?: string;
                         /**
                          * Format: date-time
                          * @description (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                         *
                          * @example 2019-01-01T00:00:00+00:00
                          */
                         readonly date_latest_value?: string;
                         /**
                          * @description (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
-                         *
                          * @example specific
                          * @enum {string}
                          */
@@ -615,7 +544,6 @@ export interface operations {
                          * @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
                          *       `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
                          *       `other` - Allows file types defined in the `file_types_other` array.
-                         *
                          * @example [
                          *       "images",
                          *       "documents",
@@ -625,7 +553,6 @@ export interface operations {
                         readonly file_types_supported?: readonly string[];
                         /**
                          * @description (file) A list of other file types allowed with the file upload option.
-                         *
                          * @example [
                          *       "pdf",
                          *       "txt"
@@ -634,74 +561,60 @@ export interface operations {
                         readonly file_types_other?: readonly string[];
                         /**
                          * @description (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
-                         *
                          * @example 5
                          */
                         readonly file_max_size?: number;
-                        /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
-                         *      */
+                        /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input. */
                         readonly text_characters_limited?: boolean;
                         /**
                          * @description (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
-                         *
                          * @example 1
                          */
                         readonly text_min_length?: number;
                         /**
                          * @description (text, multi_line_text) The maximum length allowed for a text or multi line text option.
-                         *
                          * @example 55
                          */
                         readonly text_max_length?: number;
                         /**
                          * @description (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
-                         *
                          * @example true
                          */
                         readonly text_lines_limited?: boolean;
                         /**
                          * @description (multi_line_text) The maximum number of lines allowed on a multi-line text input.
-                         *
                          * @example 4
                          */
                         readonly text_max_lines?: number;
                         /**
                          * @description (numbers_only_text) Flag to limit the value of a number option.
-                         *
                          * @example true
                          */
                         readonly number_limited?: boolean;
                         /**
                          * @description (numbers_only_text) The type of limit on values entered for a number option.
-                         *
                          * @example lowest
                          * @enum {string}
                          */
                         readonly number_limit_mode?: "lowest" | "highest" | "range";
                         /**
                          * @description (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
-                         *
                          * @example 100
                          */
                         readonly number_lowest_value?: number;
-                        /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
-                         *      */
+                        /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true. */
                         readonly number_highest_value?: number;
                         /**
                          * @description (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
-                         *
                          * @example false
                          */
                         readonly number_integers_only?: boolean;
-                        /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
-                         *      */
+                        /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list. */
                         readonly product_list_adjusts_inventory?: boolean;
-                        /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
-                         *      */
+                        /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price. */
                         readonly product_list_adjusts_pricing?: boolean;
                         /**
                          * @description (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
-                         *
                          * @example weight
                          * @enum {string}
                          */
@@ -715,28 +628,23 @@ export interface operations {
                     readonly option_values?: readonly ({
                         /**
                          * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                         *
                          * @example false
                          */
                         readonly is_default?: boolean;
                         /**
                          * @description The text display identifying the value on the storefront. Required in a /POST.
-                         *
                          * @example Green
                          */
                         readonly label: string;
                         /**
                          * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                         *
                          * @example 0
                          */
                         readonly sort_order: number;
-                        /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                         *      */
+                        /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. */
                         readonly value_data?: Record<string, unknown>;
                     } & {
-                        /** @description The unique numeric ID of the value; increments sequentially.
-                         *      */
+                        /** @description The unique numeric ID of the value; increments sequentially. */
                         readonly id?: number;
                     })[];
                     /** @description Publicly available image url */
@@ -755,25 +663,21 @@ export interface operations {
                         readonly data?: {
                             /**
                              * @description The unique numerical ID of the option, increments sequentially.
-                             *
                              * @example 55
                              */
                             readonly id?: number;
                             /**
                              * @description The unique numerical ID of the product to which the option belongs.
-                             *
                              * @example 4
                              */
                             readonly product_id?: number;
                             /**
                              * @description The name of the option shown on the storefront.
-                             *
                              * @example Add-a-$5-Donation1535042499-187
                              */
                             readonly display_name?: string;
                             /**
                              * @description The type of option, which determines how it will display on the storefront. Acceptable values: `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. For reference, the former v2 API values are: RB = radio_buttons, RT = rectangles, S = dropdown, P = product_list, PI = product_list_with_images, CS = swatch.
-                             *
                              * @enum {string}
                              */
                             readonly type?: "radio_buttons" | "rectangles" | "dropdown" | "product_list" | "product_list_with_images" | "swatch";
@@ -782,21 +686,16 @@ export interface operations {
                              * @description The values for option config can vary based on the Modifier created.
                              */
                             readonly config?: {
-                                /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
-                                 *      */
+                                /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string. */
                                 readonly default_value?: string;
-                                /** @description (checkbox) Flag for setting the checkbox to be checked by default.
-                                 *      */
+                                /** @description (checkbox) Flag for setting the checkbox to be checked by default. */
                                 readonly checked_by_default?: boolean;
-                                /** @description (checkbox) Label displayed for the checkbox option.
-                                 *      */
+                                /** @description (checkbox) Label displayed for the checkbox option. */
                                 readonly checkbox_label?: string;
-                                /** @description (date) Flag to limit the dates allowed to be entered on a date option.
-                                 *      */
+                                /** @description (date) Flag to limit the dates allowed to be entered on a date option. */
                                 readonly date_limited?: boolean;
                                 /**
                                  * @description (date) The type of limit that is allowed to be entered on a date option.
-                                 *
                                  * @example range
                                  * @enum {string}
                                  */
@@ -804,100 +703,83 @@ export interface operations {
                                 /**
                                  * Format: date-time
                                  * @description (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                                 *
                                  */
                                 readonly date_earliest_value?: string;
                                 /**
                                  * Format: date-time
                                  * @description (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                                 *
                                  */
                                 readonly date_latest_value?: string;
                                 /**
                                  * @description (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
-                                 *
                                  * @example specific
                                  * @enum {string}
                                  */
                                 readonly file_types_mode?: "specific" | "all";
-                                /** @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
+                                /**
+                                 * @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
                                  *       `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
                                  *       `other` - Allows file types defined in the `file_types_other` array.
-                                 *      */
+                                 */
                                 readonly file_types_supported?: readonly string[];
-                                /** @description (file) A list of other file types allowed with the file upload option.
-                                 *      */
+                                /** @description (file) A list of other file types allowed with the file upload option. */
                                 readonly file_types_other?: readonly string[];
                                 /**
                                  * @description (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
-                                 *
                                  * @example 5
                                  */
                                 readonly file_max_size?: number;
-                                /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
-                                 *      */
+                                /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input. */
                                 readonly text_characters_limited?: boolean;
                                 /**
                                  * @description (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
-                                 *
                                  * @example 1
                                  */
                                 readonly text_min_length?: number;
                                 /**
                                  * @description (text, multi_line_text) The maximum length allowed for a text or multi line text option.
-                                 *
                                  * @example 55
                                  */
                                 readonly text_max_length?: number;
                                 /**
                                  * @description (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
-                                 *
                                  * @example true
                                  */
                                 readonly text_lines_limited?: boolean;
                                 /**
                                  * @description (multi_line_text) The maximum number of lines allowed on a multi-line text input.
-                                 *
                                  * @example 4
                                  */
                                 readonly text_max_lines?: number;
                                 /**
                                  * @description (numbers_only_text) Flag to limit the value of a number option.
-                                 *
                                  * @example true
                                  */
                                 readonly number_limited?: boolean;
                                 /**
                                  * @description (numbers_only_text) The type of limit on values entered for a number option.
-                                 *
                                  * @example lowest
                                  * @enum {string}
                                  */
                                 readonly number_limit_mode?: "lowest" | "highest" | "range";
                                 /**
                                  * @description (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
-                                 *
                                  * @example 100
                                  */
                                 readonly number_lowest_value?: number;
-                                /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
-                                 *      */
+                                /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true. */
                                 readonly number_highest_value?: number;
                                 /**
                                  * @description (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
-                                 *
                                  * @example false
                                  */
                                 readonly number_integers_only?: boolean;
-                                /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
-                                 *      */
+                                /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list. */
                                 readonly product_list_adjusts_inventory?: boolean;
-                                /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
-                                 *      */
+                                /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price. */
                                 readonly product_list_adjusts_pricing?: boolean;
                                 /**
                                  * @description (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
-                                 *
                                  * @example weight
                                  * @enum {string}
                                  */
@@ -911,28 +793,23 @@ export interface operations {
                             readonly option_values?: readonly ({
                                 /**
                                  * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                                 *
                                  * @example false
                                  */
                                 readonly is_default?: boolean;
                                 /**
                                  * @description The text display identifying the value on the storefront. Required in a /POST.
-                                 *
                                  * @example Green
                                  */
                                 readonly label: string;
                                 /**
                                  * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                                 *
                                  * @example 0
                                  */
                                 readonly sort_order: number;
-                                /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                                 *      */
+                                /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. */
                                 readonly value_data?: Record<string, unknown>;
                             } & {
-                                /** @description The unique numeric ID of the value; increments sequentially.
-                                 *      */
+                                /** @description The unique numeric ID of the value; increments sequentially. */
                                 readonly id?: number;
                             })[];
                             /** @description Publicly available image url */
@@ -940,7 +817,6 @@ export interface operations {
                         } & {
                             /**
                              * @description The unique option name, auto-generated from the display name, a timestamp, and the product ID.
-                             *
                              * @example Add-a-$5-Donation1535042499-187
                              */
                             readonly name?: string;
@@ -953,8 +829,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Option was in conflict with another option. This is the result of duplicate unique fields, such as `name`.
-             *      */
+            /** @description Option was in conflict with another option. This is the result of duplicate unique fields, such as `name`. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -966,18 +841,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description Option was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description Option was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -989,11 +861,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -1014,11 +884,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Option`.
-                 *      */
+                /** @description The ID of the `Option`. */
                 readonly option_id: components["parameters"]["OptionIdParam"];
             };
             readonly cookie?: never;
@@ -1036,16 +904,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1066,11 +932,9 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Option`.
-                 *      */
+                /** @description The ID of the `Option`. */
                 readonly option_id: components["parameters"]["OptionIdParam"];
             };
             readonly cookie?: never;
@@ -1080,25 +944,21 @@ export interface operations {
                 readonly "application/json": {
                     /**
                      * @description The unique numerical ID of the option, increments sequentially.
-                     *
                      * @example 55
                      */
                     readonly id?: number | null;
                     /**
                      * @description The unique numerical ID of the product to which the option belongs.
-                     *
                      * @example 4
                      */
                     readonly product_id?: number;
                     /**
                      * @description The name of the option shown on the storefront.
-                     *
                      * @example Add-a-$5-Donation1535042499-187
                      */
                     readonly display_name?: string;
                     /**
                      * @description The type of option, which determines how it will display on the storefront. Acceptable values: `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. For reference, the former v2 API values are: RB = radio_buttons, RT = rectangles, S = dropdown, P = product_list, PI = product_list_with_images, CS = swatch.
-                     *
                      * @enum {string}
                      */
                     readonly type?: "radio_buttons" | "rectangles" | "dropdown" | "product_list" | "product_list_with_images" | "swatch";
@@ -1107,21 +967,16 @@ export interface operations {
                      * @description The values for option config can vary based on the Modifier created.
                      */
                     readonly config?: {
-                        /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
-                         *      */
+                        /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string. */
                         readonly default_value?: string;
-                        /** @description (checkbox) Flag for setting the checkbox to be checked by default.
-                         *      */
+                        /** @description (checkbox) Flag for setting the checkbox to be checked by default. */
                         readonly checked_by_default?: boolean;
-                        /** @description (checkbox) Label displayed for the checkbox option.
-                         *      */
+                        /** @description (checkbox) Label displayed for the checkbox option. */
                         readonly checkbox_label?: string;
-                        /** @description (date) Flag to limit the dates allowed to be entered on a date option.
-                         *      */
+                        /** @description (date) Flag to limit the dates allowed to be entered on a date option. */
                         readonly date_limited?: boolean;
                         /**
                          * @description (date) The type of limit that is allowed to be entered on a date option.
-                         *
                          * @example range
                          * @enum {string}
                          */
@@ -1129,20 +984,17 @@ export interface operations {
                         /**
                          * Format: date-time
                          * @description (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                         *
                          * @example 2018-08-31T00:00:00+00:00
                          */
                         readonly date_earliest_value?: string;
                         /**
                          * Format: date-time
                          * @description (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                         *
                          * @example 2019-01-01T00:00:00+00:00
                          */
                         readonly date_latest_value?: string;
                         /**
                          * @description (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
-                         *
                          * @example specific
                          * @enum {string}
                          */
@@ -1151,7 +1003,6 @@ export interface operations {
                          * @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
                          *       `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
                          *       `other` - Allows file types defined in the `file_types_other` array.
-                         *
                          * @example [
                          *       "images",
                          *       "documents",
@@ -1161,7 +1012,6 @@ export interface operations {
                         readonly file_types_supported?: readonly string[];
                         /**
                          * @description (file) A list of other file types allowed with the file upload option.
-                         *
                          * @example [
                          *       "pdf",
                          *       "txt"
@@ -1170,74 +1020,60 @@ export interface operations {
                         readonly file_types_other?: readonly string[];
                         /**
                          * @description (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
-                         *
                          * @example 5
                          */
                         readonly file_max_size?: number;
-                        /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
-                         *      */
+                        /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input. */
                         readonly text_characters_limited?: boolean;
                         /**
                          * @description (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
-                         *
                          * @example 1
                          */
                         readonly text_min_length?: number;
                         /**
                          * @description (text, multi_line_text) The maximum length allowed for a text or multi line text option.
-                         *
                          * @example 55
                          */
                         readonly text_max_length?: number;
                         /**
                          * @description (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
-                         *
                          * @example true
                          */
                         readonly text_lines_limited?: boolean;
                         /**
                          * @description (multi_line_text) The maximum number of lines allowed on a multi-line text input.
-                         *
                          * @example 4
                          */
                         readonly text_max_lines?: number;
                         /**
                          * @description (numbers_only_text) Flag to limit the value of a number option.
-                         *
                          * @example true
                          */
                         readonly number_limited?: boolean;
                         /**
                          * @description (numbers_only_text) The type of limit on values entered for a number option.
-                         *
                          * @example lowest
                          * @enum {string}
                          */
                         readonly number_limit_mode?: "lowest" | "highest" | "range";
                         /**
                          * @description (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
-                         *
                          * @example 100
                          */
                         readonly number_lowest_value?: number;
-                        /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
-                         *      */
+                        /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true. */
                         readonly number_highest_value?: number;
                         /**
                          * @description (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
-                         *
                          * @example false
                          */
                         readonly number_integers_only?: boolean;
-                        /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
-                         *      */
+                        /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list. */
                         readonly product_list_adjusts_inventory?: boolean;
-                        /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
-                         *      */
+                        /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price. */
                         readonly product_list_adjusts_pricing?: boolean;
                         /**
                          * @description (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
-                         *
                          * @example weight
                          * @enum {string}
                          */
@@ -1251,28 +1087,23 @@ export interface operations {
                     readonly option_values?: readonly ({
                         /**
                          * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                         *
                          * @example false
                          */
                         readonly is_default?: boolean;
                         /**
                          * @description The text display identifying the value on the storefront. Required in a /POST.
-                         *
                          * @example Green
                          */
                         readonly label: string;
                         /**
                          * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                         *
                          * @example 0
                          */
                         readonly sort_order: number;
-                        /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                         *      */
+                        /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. */
                         readonly value_data?: Record<string, unknown>;
                     } & {
-                        /** @description The unique numeric ID of the value; increments sequentially.
-                         *      */
+                        /** @description The unique numeric ID of the value; increments sequentially. */
                         readonly id?: number;
                     })[];
                     /** @description Publicly available image url */
@@ -1286,7 +1117,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 220,
                      *         "product_id": 192,
@@ -1343,31 +1175,28 @@ export interface operations {
                      *         "config": {}
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /** Option */
                         readonly data?: {
                             /**
                              * @description The unique numerical ID of the option, increments sequentially.
-                             *
                              * @example 55
                              */
                             readonly id?: number;
                             /**
                              * @description The unique numerical ID of the product to which the option belongs.
-                             *
                              * @example 4
                              */
                             readonly product_id?: number;
                             /**
                              * @description The name of the option shown on the storefront.
-                             *
                              * @example Add-a-$5-Donation1535042499-187
                              */
                             readonly display_name?: string;
                             /**
                              * @description The type of option, which determines how it will display on the storefront. Acceptable values: `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. For reference, the former v2 API values are: RB = radio_buttons, RT = rectangles, S = dropdown, P = product_list, PI = product_list_with_images, CS = swatch.
-                             *
                              * @enum {string}
                              */
                             readonly type?: "radio_buttons" | "rectangles" | "dropdown" | "product_list" | "product_list_with_images" | "swatch";
@@ -1376,21 +1205,16 @@ export interface operations {
                              * @description The values for option config can vary based on the Modifier created.
                              */
                             readonly config?: {
-                                /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
-                                 *      */
+                                /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string. */
                                 readonly default_value?: string;
-                                /** @description (checkbox) Flag for setting the checkbox to be checked by default.
-                                 *      */
+                                /** @description (checkbox) Flag for setting the checkbox to be checked by default. */
                                 readonly checked_by_default?: boolean;
-                                /** @description (checkbox) Label displayed for the checkbox option.
-                                 *      */
+                                /** @description (checkbox) Label displayed for the checkbox option. */
                                 readonly checkbox_label?: string;
-                                /** @description (date) Flag to limit the dates allowed to be entered on a date option.
-                                 *      */
+                                /** @description (date) Flag to limit the dates allowed to be entered on a date option. */
                                 readonly date_limited?: boolean;
                                 /**
                                  * @description (date) The type of limit that is allowed to be entered on a date option.
-                                 *
                                  * @example range
                                  * @enum {string}
                                  */
@@ -1398,100 +1222,83 @@ export interface operations {
                                 /**
                                  * Format: date
                                  * @description (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                                 *
                                  */
                                 readonly date_earliest_value?: string;
                                 /**
                                  * Format: date
                                  * @description (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                                 *
                                  */
                                 readonly date_latest_value?: string;
                                 /**
                                  * @description (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
-                                 *
                                  * @example specific
                                  * @enum {string}
                                  */
                                 readonly file_types_mode?: "specific" | "all";
-                                /** @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
+                                /**
+                                 * @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
                                  *       `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
                                  *       `other` - Allows file types defined in the `file_types_other` array.
-                                 *      */
+                                 */
                                 readonly file_types_supported?: readonly string[];
-                                /** @description (file) A list of other file types allowed with the file upload option.
-                                 *      */
+                                /** @description (file) A list of other file types allowed with the file upload option. */
                                 readonly file_types_other?: readonly string[];
                                 /**
                                  * @description (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
-                                 *
                                  * @example 5
                                  */
                                 readonly file_max_size?: number;
-                                /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
-                                 *      */
+                                /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input. */
                                 readonly text_characters_limited?: boolean;
                                 /**
                                  * @description (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
-                                 *
                                  * @example 1
                                  */
                                 readonly text_min_length?: number;
                                 /**
                                  * @description (text, multi_line_text) The maximum length allowed for a text or multi line text option.
-                                 *
                                  * @example 55
                                  */
                                 readonly text_max_length?: number;
                                 /**
                                  * @description (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
-                                 *
                                  * @example true
                                  */
                                 readonly text_lines_limited?: boolean;
                                 /**
                                  * @description (multi_line_text) The maximum number of lines allowed on a multi-line text input.
-                                 *
                                  * @example 4
                                  */
                                 readonly text_max_lines?: number;
                                 /**
                                  * @description (numbers_only_text) Flag to limit the value of a number option.
-                                 *
                                  * @example true
                                  */
                                 readonly number_limited?: boolean;
                                 /**
                                  * @description (numbers_only_text) The type of limit on values entered for a number option.
-                                 *
                                  * @example lowest
                                  * @enum {string}
                                  */
                                 readonly number_limit_mode?: "lowest" | "highest" | "range";
                                 /**
                                  * @description (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
-                                 *
                                  * @example 100
                                  */
                                 readonly number_lowest_value?: number;
-                                /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
-                                 *      */
+                                /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true. */
                                 readonly number_highest_value?: number;
                                 /**
                                  * @description (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
-                                 *
                                  * @example false
                                  */
                                 readonly number_integers_only?: boolean;
-                                /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
-                                 *      */
+                                /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list. */
                                 readonly product_list_adjusts_inventory?: boolean;
-                                /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
-                                 *      */
+                                /** @description (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price. */
                                 readonly product_list_adjusts_pricing?: boolean;
                                 /**
                                  * @description (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
-                                 *
                                  * @example weight
                                  * @enum {string}
                                  */
@@ -1505,28 +1312,23 @@ export interface operations {
                             readonly option_values?: readonly ({
                                 /**
                                  * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                                 *
                                  * @example false
                                  */
                                 readonly is_default?: boolean;
                                 /**
                                  * @description The text display identifying the value on the storefront. Required in a /POST.
-                                 *
                                  * @example Green
                                  */
                                 readonly label: string;
                                 /**
                                  * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                                 *
                                  * @example 0
                                  */
                                 readonly sort_order: number;
-                                /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                                 *      */
+                                /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. */
                                 readonly value_data?: Record<string, unknown>;
                             } & {
-                                /** @description The unique numeric ID of the value; increments sequentially.
-                                 *      */
+                                /** @description The unique numeric ID of the value; increments sequentially. */
                                 readonly id?: number;
                             })[];
                             /** @description Publicly available image url */
@@ -1534,7 +1336,6 @@ export interface operations {
                         } & {
                             /**
                              * @description The unique option name, auto-generated from the display name, a timestamp, and the product ID.
-                             *
                              * @example Add-a-$5-Donation1535042499-187
                              */
                             readonly name?: string;
@@ -1543,8 +1344,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `Option` was in conflict with another option. This is the result of duplicate unique fields, such as `name`.
-             *      */
+            /** @description The `Option` was in conflict with another option. This is the result of duplicate unique fields, such as `name`. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1556,18 +1356,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description The `Option` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Option` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1579,11 +1376,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -1599,11 +1394,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Option`.
-                 *      */
+                /** @description The ID of the `Option`. */
                 readonly option_id: components["parameters"]["OptionIdParam"];
             };
             readonly cookie?: never;
@@ -1621,11 +1414,9 @@ export interface operations {
     readonly getProductVariantOptionValues: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
@@ -1637,11 +1428,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Option`.
-                 *      */
+                /** @description The ID of the `Option`. */
                 readonly option_id: components["parameters"]["OptionIdParam"];
             };
             readonly cookie?: never;
@@ -1653,7 +1442,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 174,
@@ -1712,33 +1502,29 @@ export interface operations {
                      *           }
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly ({
                             /**
                              * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                             *
                              * @example false
                              */
                             readonly is_default?: boolean;
                             /**
                              * @description The text display identifying the value on the storefront. Required in a /POST.
-                             *
                              * @example Green
                              */
                             readonly label: string;
                             /**
                              * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                             *
                              * @example 0
                              */
                             readonly sort_order: number;
-                            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                             *      */
+                            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. */
                             readonly value_data?: Record<string, unknown>;
                         } & {
-                            /** @description The unique numeric ID of the value; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the value; increments sequentially. */
                             readonly id?: number;
                         })[];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -1757,11 +1543,9 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Option`.
-                 *      */
+                /** @description The ID of the `Option`. */
                 readonly option_id: components["parameters"]["OptionIdParam"];
             };
             readonly cookie?: never;
@@ -1771,24 +1555,20 @@ export interface operations {
                 readonly "application/json": {
                     /**
                      * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                     *
                      * @example false
                      */
                     readonly is_default?: boolean;
                     /**
                      * @description The text display identifying the value on the storefront. Required in a /POST.
-                     *
                      * @example Green
                      */
                     readonly label: string;
                     /**
                      * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                     *
                      * @example 0
                      */
                     readonly sort_order: number;
-                    /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                     *      */
+                    /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. */
                     readonly value_data?: Record<string, unknown>;
                 };
             };
@@ -1799,7 +1579,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 44,
                      *         "label": "Pick a color",
@@ -1811,42 +1592,37 @@ export interface operations {
                      *         },
                      *         "is_default": false
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /** Option Value */
                         readonly data?: {
                             /**
                              * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                             *
                              * @example false
                              */
                             readonly is_default?: boolean;
                             /**
                              * @description The text display identifying the value on the storefront. Required in a /POST.
-                             *
                              * @example Green
                              */
                             readonly label: string;
                             /**
                              * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                             *
                              * @example 0
                              */
                             readonly sort_order: number;
-                            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                             *      */
+                            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. */
                             readonly value_data?: Record<string, unknown>;
                         } & {
-                            /** @description The unique numeric ID of the value; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the value; increments sequentially. */
                             readonly id?: number;
                         };
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description The `OptionValue` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `OptionValue` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -1858,11 +1634,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -1883,14 +1657,11 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Option`.
-                 *      */
+                /** @description The ID of the `Option`. */
                 readonly option_id: components["parameters"]["OptionIdParam"];
-                /** @description The ID of the `Modifier/Option Value`.
-                 *      */
+                /** @description The ID of the `Modifier/Option Value`. */
                 readonly value_id: components["parameters"]["ValueIdParam"];
             };
             readonly cookie?: never;
@@ -1902,7 +1673,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 44,
                      *         "label": "Pick a color",
@@ -1914,50 +1686,44 @@ export interface operations {
                      *         },
                      *         "is_default": false
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /** Option Value */
                         readonly data?: {
                             /**
                              * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                             *
                              * @example false
                              */
                             readonly is_default?: boolean;
                             /**
                              * @description The text display identifying the value on the storefront. Required in a /POST.
-                             *
                              * @example Green
                              */
                             readonly label: string;
                             /**
                              * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                             *
                              * @example 0
                              */
                             readonly sort_order: number;
-                            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                             *      */
+                            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. */
                             readonly value_data?: Record<string, unknown>;
                         } & {
-                            /** @description The unique numeric ID of the value; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the value; increments sequentially. */
                             readonly id?: number;
                         };
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -1978,47 +1744,38 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Option`.
-                 *      */
+                /** @description The ID of the `Option`. */
                 readonly option_id: components["parameters"]["OptionIdParam"];
-                /** @description The ID of the `Modifier/Option Value`.
-                 *      */
+                /** @description The ID of the `Modifier/Option Value`. */
                 readonly value_id: components["parameters"]["ValueIdParam"];
             };
             readonly cookie?: never;
         };
-        /** @description A BigCommerce `OptionValue` object.
-         *      */
+        /** @description A BigCommerce `OptionValue` object. */
         readonly requestBody: {
             readonly content: {
                 readonly "application/json": {
                     /**
                      * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                     *
                      * @example false
                      */
                     readonly is_default?: boolean;
                     /**
                      * @description The text display identifying the value on the storefront. Required in a /POST.
-                     *
                      * @example Green
                      */
                     readonly label: string;
                     /**
                      * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                     *
                      * @example 0
                      */
                     readonly sort_order: number;
-                    /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                     *      */
+                    /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. */
                     readonly value_data?: Record<string, unknown>;
                 } & {
-                    /** @description The unique numeric ID of the value; increments sequentially.
-                     *      */
+                    /** @description The unique numeric ID of the value; increments sequentially. */
                     readonly id?: number;
                 };
             };
@@ -2029,7 +1786,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 44,
                      *         "label": "Pick a color",
@@ -2041,34 +1799,30 @@ export interface operations {
                      *         },
                      *         "is_default": false
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /** Option Value */
                         readonly data?: {
                             /**
                              * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                             *
                              * @example false
                              */
                             readonly is_default?: boolean;
                             /**
                              * @description The text display identifying the value on the storefront. Required in a /POST.
-                             *
                              * @example Green
                              */
                             readonly label: string;
                             /**
                              * @description The order in which the value will be displayed on the product page. Required in a /POST.
-                             *
                              * @example 0
                              */
                             readonly sort_order: number;
-                            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                             *      */
+                            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. */
                             readonly value_data?: Record<string, unknown>;
                         } & {
-                            /** @description The unique numeric ID of the value; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the value; increments sequentially. */
                             readonly id?: number;
                         };
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -2082,8 +1836,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            /** @description The `OptionValue` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `OptionValue` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -2095,11 +1848,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -2115,14 +1866,11 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Option`.
-                 *      */
+                /** @description The ID of the `Option`. */
                 readonly option_id: components["parameters"]["OptionIdParam"];
-                /** @description The ID of the `Modifier/Option Value`.
-                 *      */
+                /** @description The ID of the `Modifier/Option Value`. */
                 readonly value_id: components["parameters"]["ValueIdParam"];
             };
             readonly cookie?: never;

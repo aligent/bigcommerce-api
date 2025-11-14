@@ -260,11 +260,15 @@ export interface paths {
         /**
          * Get Locale Settings
          * @description Returns global locale settings.
+         *
+         *     For stores with Catalyst channels, the `shopper_language_selection_method` field is deprecated. Using this endpoint on those stores will return a warning about the deprecation. For additional information, refer to [Locale Configuration](/docs/store-operations/settings/locales).
          */
         readonly get: operations["getSettingsLocale"];
         /**
          * Update Locale Settings
          * @description Updates global locale settings.
+         *
+         *     For stores with Catalyst channels, the `shopper_language_selection_method` field is deprecated. Using this endpoint on those stores will return a warning about the deprecation. For additional information, refer to [Locale Configuration](/docs/store-operations/settings/locales).
          */
         readonly put: operations["updateSettingsLocale"];
     };
@@ -601,15 +605,12 @@ export interface components {
             /** @enum {string} */
             readonly type?: "price";
         };
-        /** @description Error payload for the BigCommerce API.
-         *      */
+        /** @description Error payload for the BigCommerce API. */
         readonly BaseError: {
             readonly instance?: string;
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
         };
@@ -800,13 +801,17 @@ export interface components {
              * @enum {string}
              */
             readonly update_stock_behavior?: "order_placed" | "order_completed_or_shipped";
-            /** @description Describes whether stock levels automatically adjust when you edit an order.
+            /**
+             * @description Describes whether stock levels automatically adjust when you edit an order.
              *
-             *     Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). Settings for a channel apply when inventory changes through an order in a channel. These settings affect webhooks that trigger from order-related events, including [product](/docs/integrations/webhooks/events#products), [SKU](/docs/integrations/webhooks/events#skus), and [inventory](/docs/integrations/webhooks/events/inventory-location#inventory) webhooks.   */
+             *     Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). Settings for a channel apply when inventory changes through an order in a channel. These settings affect webhooks that trigger from order-related events, including [product](/docs/integrations/webhooks/events#products), [SKU](/docs/integrations/webhooks/events#skus), and [inventory](/docs/integrations/webhooks/events/inventory-location#inventory) webhooks.
+             */
             readonly edit_order_stock_adjustment?: boolean;
-            /** @description Describes whether stock levels automatically adjust when you refund or cancel an order.
+            /**
+             * @description Describes whether stock levels automatically adjust when you refund or cancel an order.
              *
-             *     Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). Settings for a channel apply when inventory changes through an order in a channel. These settings affect webhooks that trigger from order-related events, including [product](/docs/integrations/webhooks/events#products), [SKU](/docs/integrations/webhooks/events#skus), and [inventory](/docs/integrations/webhooks/events/inventory-location#inventory) webhooks.   */
+             *     Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). Settings for a channel apply when inventory changes through an order in a channel. These settings affect webhooks that trigger from order-related events, including [product](/docs/integrations/webhooks/events#products), [SKU](/docs/integrations/webhooks/events#skus), and [inventory](/docs/integrations/webhooks/events/inventory-location#inventory) webhooks.
+             */
             readonly refund_order_stock_adjustment?: boolean;
             /**
              * @description Describes whether a storefront displays stock levels.
@@ -818,7 +823,7 @@ export interface components {
              * @example Currently out of stock
              */
             readonly default_out_of_stock_message?: string;
-            /** @description Describes whether an option is hidden in product filtering. Applies when `option_out_of_stock_behavior` is set to `label_option`.  */
+            /** @description Describes whether an option is hidden in product filtering. Applies when `option_out_of_stock_behavior` is set to `label_option`. */
             readonly hide_in_product_filtering?: boolean;
             /**
              * @description Describes whether pre-order stock levels are shown.
@@ -935,49 +940,41 @@ export interface components {
         readonly StorefrontProductSettings: {
             /**
              * @description Determines the visibility of the product price.
-             *
              * @example true
              */
             readonly show_product_price?: boolean;
             /**
              * @description Determines the visibility of the product SKU.
-             *
              * @example true
              */
             readonly show_product_sku?: boolean;
             /**
              * @description Determines the visibility of the productʼs weight.
-             *
              * @example false
              */
             readonly show_product_weight?: boolean;
             /**
              * @description Determines the visibility of the productʼs brand.
-             *
              * @example true
              */
             readonly show_product_brand?: boolean;
             /**
              * @description Determines the visibility of the productʼs shipping option.
-             *
              * @example false
              */
             readonly show_product_shipping?: boolean;
             /**
              * @description Determines the visibility of the productʼs rating.
-             *
              * @example true
              */
             readonly show_product_rating?: boolean;
             /**
              * @description Determines the visibility of the Add to Cart link.
-             *
              * @example true
              */
             readonly show_add_to_cart_link?: boolean;
             /**
              * @description The productʼs pre-order message. If undefined, the message defaults to the storewide setting.
-             *
              * @example Preorder message
              */
             readonly default_preorder_message?: string;
@@ -988,19 +985,16 @@ export interface components {
             readonly show_breadcrumbs_product_pages?: "show_one" | "show_none";
             /**
              * @description Determines the visibility of the Add to Cart quantity setting.
-             *
              * @example true
              */
             readonly show_add_to_cart_qty_box?: boolean;
             /**
              * @description Determines the visibility of the Add to Wishlist setting.
-             *
              * @example true
              */
             readonly show_add_to_wishlist?: boolean;
             /**
              * @description Determines the visibility of the price.
-             *
              * @example false
              */
             readonly hide_price_from_guests?: boolean;
@@ -1075,8 +1069,7 @@ export interface components {
                 };
             };
         };
-        /** @description `422 Unprocessable Entity` Provided settings could not be applied for some reason - detailed errors in the response.
-         *      */
+        /** @description `422 Unprocessable Entity` Provided settings could not be applied for some reason - detailed errors in the response. */
         readonly "422ErrorResp": {
             headers: {
                 readonly [name: string]: unknown;

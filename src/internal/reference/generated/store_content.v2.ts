@@ -126,7 +126,6 @@ export interface paths {
          *     > **Deprecated**
          *     > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
          *     > * To get one or more pages, use Pages V3ʼs [Get pages](/docs/rest-content/pages#get-pages) endpoint. To get a single page, use Pages V3ʼs [Get a page](/docs/rest-content/pages#get-a-page) endpoint.
-         *
          */
         readonly get: operations["getPages"];
         /**
@@ -176,7 +175,6 @@ export interface paths {
          *     > **Deprecated**
          *     > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
          *     > * To get a single page, use Pages V3ʼs [Get a page](/docs/rest-content/pages#get-a-page) endpoint.
-         *
          */
         readonly get: operations["getPage"];
         /**
@@ -204,7 +202,6 @@ export interface paths {
          *     > **Deprecated**
          *     > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
          *     > * To delete multiple pages, use Pages V3ʼs [Delete pages](/docs/rest-content/pages#delete-pages) endpoint. To delete a single page, use Pages V3ʼs [Delete a page](/docs/rest-content/pages#delete-a-page) endpoint.
-         *
          */
         readonly delete: operations["deletePage"];
     };
@@ -494,7 +491,6 @@ export interface components {
             /**
              * Format: date-time
              * @description Date on which the customer updated their details in the storefront or was updated in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
-             *
              */
             readonly date_modified?: string;
             /**
@@ -518,7 +514,6 @@ export interface components {
             readonly tax_exempt_category?: string;
             /**
              * @description Records whether the customer would like to receive marketing content from this store. READ-ONLY.This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
-             *
              * @example true
              */
             readonly accepts_marketing?: boolean;
@@ -547,7 +542,6 @@ export interface components {
         readonly timeZone: {
             /**
              * @description A string identifying the time zone, in the format: `<Continent-name>/<City-name>`.
-             *
              * @example America/Chicago
              */
             readonly name?: string;
@@ -600,11 +594,13 @@ export interface components {
         readonly blogTags: readonly {
             /** @example Blog */
             readonly tag?: string;
-            /** @example [
+            /**
+             * @example [
              *       1,
              *       2,
              *       4
-             *     ] */
+             *     ]
+             */
             readonly post_ids?: readonly number[];
         }[];
         /**
@@ -873,7 +869,6 @@ export interface components {
              * @description `page`: free-text page
              *     `link`: link to another web address
              *     `contact_form`: When the store’s contact form is used
-             *
              * @enum {string}
              */
             readonly type: "page" | "contact_form" | "raw" | "link";
@@ -974,7 +969,6 @@ export interface components {
              * @description `page`: free-text page
              *     `link`: link to another web address
              *     `contact_form`: When the store’s contact form is used
-             *
              * @enum {string}
              */
             readonly type?: "page" | "contact_form" | "raw" | "link";
@@ -1094,7 +1088,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example [
+                    /**
+                     * @example [
                      *       {
                      *         "id": 3,
                      *         "title": "Hello Again",
@@ -1168,7 +1163,8 @@ export interface operations {
                      *         "author": "",
                      *         "thumbnail_path": ""
                      *       }
-                     *     ] */
+                     *     ]
+                     */
                     readonly "application/json": readonly components["schemas"]["blogPost_Full"][];
                 };
             };
@@ -1197,7 +1193,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 3,
                      *       "title": "Welcome to BigCommerce",
                      *       "url": "/blog/welcome-bigcommerce/",
@@ -1220,7 +1217,8 @@ export interface operations {
                      *       "meta_keywords": "BigCommerce, welcome, ecommerce",
                      *       "author": "BigCommerce",
                      *       "thumbnail_path": ""
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["blogPost_Base_Res"];
                 };
             };
@@ -1282,7 +1280,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 3,
                      *       "title": "Welcome to BigCommerce",
                      *       "url": "/blog/welcome-bigcommerce/",
@@ -1305,7 +1304,8 @@ export interface operations {
                      *       "meta_keywords": "BigCommerce, welcome, ecommerce",
                      *       "author": "BigCommerce",
                      *       "thumbnail_path": ""
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["blogPost_Full"];
                 };
             };
@@ -1337,7 +1337,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 3,
                      *       "title": "Welcome to BigCommerce",
                      *       "url": "/blog/welcome-bigcommerce/",
@@ -1360,7 +1361,8 @@ export interface operations {
                      *       "meta_keywords": "BigCommerce, welcome, ecommerce",
                      *       "author": "BigCommerce",
                      *       "thumbnail_path": ""
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["blogPost_Base_Res"];
                 };
             };
@@ -1417,9 +1419,11 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "count": 27
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["count_Response"];
                 };
             };
@@ -1447,7 +1451,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example [
+                    /**
+                     * @example [
                      *       {
                      *         "id": 6,
                      *         "channel_id": 11,
@@ -1470,7 +1475,8 @@ export interface operations {
                      *         "mobile_body": "",
                      *         "url": "/contact-us/"
                      *       }
-                     *     ] */
+                     *     ]
+                     */
                     readonly "application/json": readonly components["schemas"]["page_Full"][];
                 };
             };
@@ -1490,7 +1496,8 @@ export interface operations {
         };
         readonly requestBody: {
             readonly content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "channel_id": 1,
                  *       "name": "Contact Form",
                  *       "meta_title": "string",
@@ -1508,7 +1515,8 @@ export interface operations {
                  *       "has_mobile_version": false,
                  *       "mobile_body": "0",
                  *       "url": "/contact-us/"
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": components["schemas"]["page_Base"];
             };
         };
@@ -1518,7 +1526,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 6,
                      *       "channel_id": 11,
                      *       "name": "Contact Form",
@@ -1537,7 +1546,8 @@ export interface operations {
                      *       "has_mobile_version": false,
                      *       "mobile_body": "",
                      *       "url": "/contact-us/"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["page_Full"];
                 };
             };
@@ -1574,7 +1584,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 6,
                      *       "channel_id": 11,
                      *       "name": "Contact Form",
@@ -1593,7 +1604,8 @@ export interface operations {
                      *       "has_mobile_version": false,
                      *       "mobile_body": "",
                      *       "url": "/contact-us/"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["page_Full"];
                 };
             };
@@ -1625,7 +1637,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 2,
                      *       "channel_id": 11,
                      *       "name": "Shipping & Returns",
@@ -1645,7 +1658,8 @@ export interface operations {
                      *       "link": "",
                      *       "mobile_body": "",
                      *       "url": "/shipping-returns/"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["page_Full"];
                 };
             };
@@ -1737,7 +1751,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 3,
                      *       "path": "/mens_clothing",
                      *       "forward": {
@@ -1745,7 +1760,8 @@ export interface operations {
                      *         "ref": 3
                      *       },
                      *       "url": "http://store.example.com/mens"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["redirect"];
                 };
             };
@@ -1791,7 +1807,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 1,
                      *       "path": "/smith-journal-13/",
                      *       "forward": {
@@ -1799,7 +1816,8 @@ export interface operations {
                      *         "ref": 111
                      *       },
                      *       "url": "http://store-store_hash.mybigcommerce.com/towels/bath-towels/hand-towels/"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["redirect"];
                 };
             };
@@ -1836,7 +1854,6 @@ export interface operations {
                     readonly forward: {
                         /**
                          * @description The type of redirect. If it is a manual redirect then type will always be manual. Dynamic redirects will have the type of the page. Such as product or category.
-                         *
                          * @example product
                          */
                         readonly type?: string;
@@ -1860,7 +1877,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 1,
                      *       "path": "/smith-journal-13/",
                      *       "forward": {
@@ -1868,7 +1886,8 @@ export interface operations {
                      *         "ref": 111
                      *       },
                      *       "url": "http://store-store_hash.mybigcommerce.com/towels/bath-towels/hand-towels/"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["redirect"];
                 };
             };
@@ -1914,9 +1933,11 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "count": 27
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["count_Response"];
                 };
             };

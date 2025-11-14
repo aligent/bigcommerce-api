@@ -311,7 +311,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 1,
@@ -399,7 +400,8 @@ export interface operations {
                      *           "total_pages": 0
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["wishlist_Full"][];
                         readonly meta?: components["schemas"]["metaCollection"];
@@ -459,7 +461,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 30,
                      *         "customer_id": 10,
@@ -495,7 +498,8 @@ export interface operations {
                      *         ]
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["wishlist_Full"];
                         /** @description Response metadata. */
@@ -556,7 +560,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 30,
                      *         "customer_id": 10,
@@ -592,7 +597,8 @@ export interface operations {
                      *         ]
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["wishlist_Full"];
                         /** @description Response metadata. */
@@ -661,7 +667,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 30,
                      *         "customer_id": 10,
@@ -697,7 +704,8 @@ export interface operations {
                      *         ]
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["wishlist_Full"];
                         /** @description Response metadata. */
@@ -772,7 +780,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 30,
                      *         "customer_id": 10,
@@ -808,7 +817,8 @@ export interface operations {
                      *         ]
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["wishlist_Full"];
                         /** @description Response metadata. */
@@ -925,7 +935,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 30,
                      *         "customer_id": 10,
@@ -961,7 +972,8 @@ export interface operations {
                      *         ]
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["wishlist_Full"];
                         /** @description Response metadata. */

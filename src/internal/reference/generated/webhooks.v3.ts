@@ -62,7 +62,6 @@ export interface paths {
         /**
          * Upsert Email Notifications
          * @description Update email addresses that are sent notification emails when any domain associated with the API account is denylisted or when a webhook is deactivated. Supports `upsert` functionality in the case that no email address exists yet.
-         *
          */
         readonly put: operations["updateHooksAdmin"];
     };
@@ -468,7 +467,6 @@ export interface components {
         /**
          * store/category/*
          * @description Fires for all `store/category` events.
-         *
          */
         readonly store_category_wildcard: unknown;
         /**
@@ -659,7 +657,6 @@ export interface components {
         /**
          * store/customer/*
          * @description Fires for all `store/customer` events.
-         *
          */
         readonly store_customer_wildcard: unknown;
         /**
@@ -2045,22 +2042,18 @@ export interface components {
         };
         /** error_Full */
         readonly error_Full: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             /** @description This value is typically a link to BigCommerce API Status codes. */
             readonly type?: string;
         };
         /** errorDetailed_Full */
         readonly errorDetailed_Full: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             /** @description Typically a link to BigCommerce API Status codes */
             readonly type?: string;
@@ -2137,8 +2130,7 @@ export interface components {
              */
             readonly updated_at?: number;
         } & components["schemas"]["webhook_Base"];
-        /** @description Data about the response, including pagination and collection totals.
-         *      */
+        /** @description Data about the response, including pagination and collection totals. */
         readonly Pagination: {
             /** @description Total number of returned items across all pages. */
             readonly total?: number;
@@ -2335,20 +2327,15 @@ export interface components {
     parameters: {
         /** @description The ID of a Webhook. */
         readonly WebhookId: number;
-        /** @description Enables user to filter for webhooks that are active or not. A webhook subscription becomes deactivated after 90 days of inactivity.
-         *      */
+        /** @description Enables user to filter for webhooks that are active or not. A webhook subscription becomes deactivated after 90 days of inactivity. */
         readonly IsActive: boolean;
-        /** @description Enables user to filter for webhooks by scope.
-         *      */
+        /** @description Enables user to filter for webhooks by scope. */
         readonly FilterByScope: string;
-        /** @description Enables user to filter for webhooks by destination.
-         *      */
+        /** @description Enables user to filter for webhooks by destination. */
         readonly FilterByDestination: string;
-        /** @description Page number.
-         *      */
+        /** @description Page number. */
         readonly FilterPageParam: number;
-        /** @description Items count per page.
-         *      */
+        /** @description Items count per page. */
         readonly FilterLimitParam: number;
         readonly Accept: string;
         readonly "Content-Type": string;
@@ -2362,20 +2349,15 @@ export interface operations {
     readonly getWebhooks: {
         readonly parameters: {
             readonly query?: {
-                /** @description Page number.
-                 *      */
+                /** @description Page number. */
                 readonly page?: components["parameters"]["FilterPageParam"];
-                /** @description Items count per page.
-                 *      */
+                /** @description Items count per page. */
                 readonly limit?: components["parameters"]["FilterLimitParam"];
-                /** @description Enables user to filter for webhooks that are active or not. A webhook subscription becomes deactivated after 90 days of inactivity.
-                 *      */
+                /** @description Enables user to filter for webhooks that are active or not. A webhook subscription becomes deactivated after 90 days of inactivity. */
                 readonly is_active?: components["parameters"]["IsActive"];
-                /** @description Enables user to filter for webhooks by scope.
-                 *      */
+                /** @description Enables user to filter for webhooks by scope. */
                 readonly scope?: components["parameters"]["FilterByScope"];
-                /** @description Enables user to filter for webhooks by destination.
-                 *      */
+                /** @description Enables user to filter for webhooks by destination. */
                 readonly destination?: components["parameters"]["FilterByDestination"];
             };
             readonly header?: {
@@ -2486,8 +2468,7 @@ export interface operations {
     readonly getHooksAdmin: {
         readonly parameters: {
             readonly query?: {
-                /** @description Enables user to filter for webhooks that are active or not. A webhook subscription becomes deactivated after 90 days of inactivity.
-                 *      */
+                /** @description Enables user to filter for webhooks that are active or not. A webhook subscription becomes deactivated after 90 days of inactivity. */
                 readonly is_active?: components["parameters"]["IsActive"];
             };
             readonly header?: never;

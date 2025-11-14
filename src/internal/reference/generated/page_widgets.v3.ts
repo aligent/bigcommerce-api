@@ -570,35 +570,25 @@ export interface components {
         /**
          * Pagination object
          * @description Data about the response, including pagination and collection totals.
-         *
          */
         readonly pagination: {
-            /** @description Total number of items in the result set.
-             *      */
+            /** @description Total number of items in the result set. */
             readonly total?: number;
-            /** @description Total number of items in the collection response.
-             *      */
+            /** @description Total number of items in the collection response. */
             readonly count?: number;
-            /** @description The amount of items returned in the collection per page, controlled by the limit parameter.
-             *      */
+            /** @description The amount of items returned in the collection per page, controlled by the limit parameter. */
             readonly per_page?: number;
-            /** @description The page you are currently on within the collection.
-             *      */
+            /** @description The page you are currently on within the collection. */
             readonly current_page?: number;
-            /** @description The total number of pages in the collection.
-             *      */
+            /** @description The total number of pages in the collection. */
             readonly total_pages?: number;
-            /** @description Pagination links for the previous and next parts of the whole collection.
-             *      */
+            /** @description Pagination links for the previous and next parts of the whole collection. */
             readonly links?: {
-                /** @description Link to the previous page returned in the response.
-                 *      */
+                /** @description Link to the previous page returned in the response. */
                 readonly previous?: string;
-                /** @description Link to the current page returned in the response.
-                 *      */
+                /** @description Link to the current page returned in the response. */
                 readonly current?: string;
-                /** @description Link to the next page returned in the response.
-                 *      */
+                /** @description Link to the next page returned in the response. */
                 readonly next?: string;
             };
         };
@@ -609,14 +599,11 @@ export interface components {
         /**
          * Base error
          * @description Error payload for the BigCommerce API.
-         *
          */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;

@@ -141,7 +141,6 @@ export interface components {
              * @description Can be provided as two inputs.
              *     Unix: Represents the time in seconds that has elapsed since Unix epoch (00:00:00 UTC on 1 January 1970)
              *     ISO-8601: Represents the time in ISO format.
-             *
              * @example '1660555844' or '2022-06-11T00:00:20Z'
              */
             readonly ready_at: string;
@@ -150,7 +149,6 @@ export interface components {
              *     Unix: Represents the time in seconds that has elapsed since Unix epoch (00:00:00 UTC on 1 January 1970).
              *     ISO-8601: Represents the time in ISO format.
              *     If this value is not supplied, the pickup item collected_at property will be null.
-             *
              * @example '1660831392' or '2022-06-18T00:00:30Z'
              */
             readonly collected_at?: string;
@@ -183,7 +181,6 @@ export interface components {
              * @description Can be provided as two inputs.
              *     Unix: Represents the time in seconds that has elapsed since Unix epoch (00:00:00 UTC on 1 January 1970)
              *     ISO-8601: Represents the time in ISO format.
-             *
              * @example '1660555844' or '2022-06-11T00:00:20Z'
              */
             readonly ready_at?: string;
@@ -192,7 +189,6 @@ export interface components {
              *     Unix: Represents the time in seconds that has elapsed since Unix epoch (00:00:00 UTC on 1 January 1970).
              *     ISO-8601: Represents the time in ISO format.
              *     If this value is not supplied, the pickup item collected_at property will be null.
-             *
              * @example '1660831392' or '2022-06-18T00:00:30Z'
              */
             readonly collected_at?: string;
@@ -208,8 +204,7 @@ export interface components {
              * @example JSON data is missing or invalid
              */
             readonly title?: string;
-            /** @description URL identifying the error type. Dereferencing the URL leads to documentation about the error type.
-             *      */
+            /** @description URL identifying the error type. Dereferencing the URL leads to documentation about the error type. */
             readonly type?: string;
             /** @description Detailed summary describing the particular error. */
             readonly errors?: {
@@ -292,8 +287,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Incorrect entity. Locations were not valid. This results from missing required fields, invalid data, or partial error. See the response for more details.
-             *      */
+            /** @description Incorrect entity. Locations were not valid. This results from missing required fields, invalid data, or partial error. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -336,8 +330,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Incorrect entity. Locations were not valid. This results from missing required fields, invalid data, or partial error. See the response for more details.
-             *      */
+            /** @description Incorrect entity. Locations were not valid. This results from missing required fields, invalid data, or partial error. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;

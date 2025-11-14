@@ -213,12 +213,14 @@ export interface operations {
                  * @example 2023-09-07T06:23:13Z
                  */
                 readonly "date_modified:max"?: string;
-                /** @description Sort pickup methods by date_modified:* or name:* ; for example, `sort=name:asc`.
+                /**
+                 * @description Sort pickup methods by date_modified:* or name:* ; for example, `sort=name:asc`.
                  *
                  *     - `date_modified:asc` - sort by date modified in ascending order
                  *     - `date_modified:desc` - sort by date modified in descending order
                  *     - `name:asc` - sort by name in ascending order
-                 *     - `name:desc` - sort by name in descending order */
+                 *     - `name:desc` - sort by name in descending order
+                 */
                 readonly sort?: "date_modified:asc" | "date_modified:desc" | "name:asc" | "name:desc";
             };
             readonly header?: {

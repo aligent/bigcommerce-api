@@ -148,7 +148,8 @@ export interface paths {
     readonly "/checkouts/{checkoutId}/consignments": {
         readonly parameters: {
             readonly query?: {
-                /** @description * `cart.lineItems.physicalItems.options` - physical options
+                /**
+                 * @description * `cart.lineItems.physicalItems.options` - physical options
                  *     * `cart.lineItems.digitalItems.options` - digital options
                  *     * `cart.lineItems.physicalItems.categoryNames` - physical categories
                  *     * `cart.lineItems.digitalItems.categoryNames` - digital categories
@@ -158,7 +159,8 @@ export interface paths {
                  *     * `payments` - payments
                  *     * `promotions` - promotions
                  *     * `consignments.availableShippingOptions` - shipping options
-                 *     * `consignments.availablePickupOptions` - pickup options */
+                 *     * `consignments.availablePickupOptions` - pickup options
+                 */
                 readonly include?: components["parameters"]["IncludeShippingDefault"];
             };
             readonly header: {
@@ -210,7 +212,6 @@ export interface paths {
          *     > * The Send a Test Request feature is not currently supported for this endpoint.
          *     > * Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
          *     > * This endpoint requires using Stencil CLI, a local session, and a csrf token to work.
-         *
          */
         readonly post: operations["createCheckoutConsignment"];
     };
@@ -381,7 +382,6 @@ export interface paths {
          *     > * Substitute your storefront domain for `yourstore.example.com`.
          *     > * The Send a Test Request feature is not currently supported for this endpoint.
          *     > * This endpoint requires using Stencil CLI, a local session, and a csrf token to work.
-         *
          */
         readonly delete: operations["deleteCheckoutCoupon"];
     };
@@ -485,12 +485,10 @@ export interface components {
             readonly handlingCostTotal?: number;
             /** Format: uuid */
             readonly id?: string;
-            /** @description `true` value indicates StoreCredit has been applied.
-             *      */
+            /** @description `true` value indicates StoreCredit has been applied. */
             readonly isStoreCreditApplied?: boolean;
             readonly orderId?: string | null;
-            /** @description `grandTotal` subtract the store-credit amount
-             *      */
+            /** @description `grandTotal` subtract the store-credit amount */
             readonly outstandingBalance?: number;
             readonly payments?: readonly {
                 /** @description Payment provider ID. */
@@ -562,14 +560,16 @@ export interface components {
             readonly code: string;
             /** @description The coupon name displayed on the storefront. */
             readonly displayName?: string;
-            /** @description |Type `int`|Type Name|
+            /**
+             * @description |Type `int`|Type Name|
              *     |-|-|
              *     |`0`|`per_item_discount`|
              *     |`1`|`percentage_discount`|
              *     |`2`|`per_total_discount`|
              *     |`3`|`shipping_discount`|
              *     |`4`|`free_shipping`|
-             *     |`5`|`promotion`| */
+             *     |`5`|`promotion`|
+             */
             readonly couponType?: number;
             /**
              * Format: double
@@ -819,10 +819,12 @@ export interface components {
              * @example true
              */
             readonly wrapTogether: boolean;
-            /** @description Details for the gift wrapping option selected. This can be specified for each line item or together based on wrapTogether value.
+            /**
+             * @description Details for the gift wrapping option selected. This can be specified for each line item or together based on wrapTogether value.
              *     If wrapTogether is false, each element in the wrapDetails array determines each item's specific wrapping.
              *     (e.g if this line item has 6 quantity, you can pass at maximum 6 elements for the array to spefified each one's wrapping)
-             *     If wrapTogether is true, we will only use 1st element in the wrapDetails array to determine what to be wrapped */
+             *     If wrapTogether is true, we will only use 1st element in the wrapDetails array to determine what to be wrapped
+             */
             readonly wrapDetails: readonly {
                 /**
                  * @description Identifier of the gift wrapping option selected.
@@ -1210,11 +1212,13 @@ export interface components {
                 readonly [name: string]: unknown;
             };
             content: {
-                /** @example {
+                /**
+                 * @example {
                  *       "status": 409,
                  *       "title": "The request cannot be processed due to a possible conflict. Please review the changes and try again.",
                  *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
-                 *     } */
+                 *     }
+                 */
                 readonly "application/json": {
                     readonly status?: number;
                     readonly title?: string;
@@ -1242,7 +1246,8 @@ export interface components {
         readonly GiftCertificateCodePath: string;
         /** @description The code of the subject coupon. */
         readonly CouponCodePath: string;
-        /** @description * `cart.lineItems.physicalItems.options` - physical options
+        /**
+         * @description * `cart.lineItems.physicalItems.options` - physical options
          *     * `cart.lineItems.digitalItems.options` - digital options
          *     * `cart.lineItems.physicalItems.categoryNames` - physical categories
          *     * `cart.lineItems.digitalItems.categoryNames` - digital categories
@@ -1252,9 +1257,11 @@ export interface components {
          *     * `payments` - payments
          *     * `promotions` - promotions
          *     * `consignments.availableShippingOptions` - shipping options
-         *     * `consignments.availablePickupOptions` - pickup options */
+         *     * `consignments.availablePickupOptions` - pickup options
+         */
         readonly IncludeShippingDefault: readonly ("cart.lineItems.physicalItems.options" | "cart.lineItems.digitalItems.options" | "cart.lineItems.physicalItems.categoryNames" | "cart.lineItems.digitalItems.categoryNames" | "cart.lineItems.customItems.categoryNames" | "customer" | "customer.customerGroup" | "payments" | "promotions" | "consignments.availableShippingOptions" | "consignments.availablePickupOptions")[];
-        /** @description * `cart.lineItems.physicalItems.options` - physical options
+        /**
+         * @description * `cart.lineItems.physicalItems.options` - physical options
          *     * `cart.lineItems.digitalItems.options` - digital options
          *     * `cart.lineItems.physicalItems.categoryNames` - physical categories
          *     * `cart.lineItems.digitalItems.categoryNames` - digital categories
@@ -1264,7 +1271,8 @@ export interface components {
          *     * `payments` - payments
          *     * `promotions` - promotions
          *     * `consignments.availableShippingOptions` - shipping options
-         *     * `consignments.availablePickupOptions` - pickup options */
+         *     * `consignments.availablePickupOptions` - pickup options
+         */
         readonly IncludeShippingPickupDefault: readonly ("cart.lineItems.physicalItems.options" | "cart.lineItems.digitalItems.options" | "cart.lineItems.physicalItems.categoryNames" | "cart.lineItems.digitalItems.categoryNames" | "cart.lineItems.customItems.categoryNames" | "customer" | "customer.customerGroup" | "payments" | "promotions" | "consignments.availableShippingOptions" | "consignments.availablePickupOptions")[];
     };
     requestBodies: never;
@@ -1276,7 +1284,8 @@ export interface operations {
     readonly getCheckout: {
         readonly parameters: {
             readonly query?: {
-                /** @description * `cart.lineItems.physicalItems.options` - physical options
+                /**
+                 * @description * `cart.lineItems.physicalItems.options` - physical options
                  *     * `cart.lineItems.digitalItems.options` - digital options
                  *     * `cart.lineItems.physicalItems.categoryNames` - physical categories
                  *     * `cart.lineItems.digitalItems.categoryNames` - digital categories
@@ -1286,7 +1295,8 @@ export interface operations {
                  *     * `payments` - payments
                  *     * `promotions` - promotions
                  *     * `consignments.availableShippingOptions` - shipping options
-                 *     * `consignments.availablePickupOptions` - pickup options */
+                 *     * `consignments.availablePickupOptions` - pickup options
+                 */
                 readonly include?: components["parameters"]["IncludeShippingDefault"];
             };
             readonly header?: {
@@ -1306,7 +1316,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "value": {
                      *         "billingAddress": {
                      *           "address1": "123 Main Street",
@@ -1710,7 +1721,8 @@ export interface operations {
                      *         "updatedTime": "2018-09-18T16:59:45+00:00",
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["checkout_Full"];
                 };
             };
@@ -1759,7 +1771,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "value": {
                      *         "billingAddress": {
                      *           "address1": "123 Main Street",
@@ -2163,7 +2176,8 @@ export interface operations {
                      *         "updatedTime": "2018-09-18T16:59:45+00:00",
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["checkout_Full"];
                 };
             };
@@ -2200,7 +2214,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "value": {
                      *         "billingAddress": {
                      *           "address1": "123 Main Street",
@@ -2604,7 +2619,8 @@ export interface operations {
                      *         "updatedTime": "2018-09-18T16:59:45+00:00",
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["checkout_Full"];
                 };
             };
@@ -2635,7 +2651,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "value": {
                      *         "billingAddress": {
                      *           "address1": "123 Main Street",
@@ -3039,7 +3056,8 @@ export interface operations {
                      *         "updatedTime": "2018-09-18T16:59:45+00:00",
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["checkout_Full"];
                 };
             };
@@ -3071,7 +3089,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "value": {
                      *         "billingAddress": {
                      *           "address1": "123 Main Street",
@@ -3475,7 +3494,8 @@ export interface operations {
                      *         "updatedTime": "2018-09-18T16:59:45+00:00",
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["checkout_Full"];
                 };
             };
@@ -3524,7 +3544,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "value": {
                      *         "billingAddress": {
                      *           "address1": "123 Main Street",
@@ -3928,7 +3949,8 @@ export interface operations {
                      *         "updatedTime": "2018-09-18T16:59:45+00:00",
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["checkout_Full"];
                 };
             };
@@ -3952,7 +3974,8 @@ export interface operations {
     readonly createCheckoutConsignment: {
         readonly parameters: {
             readonly query?: {
-                /** @description * `cart.lineItems.physicalItems.options` - physical options
+                /**
+                 * @description * `cart.lineItems.physicalItems.options` - physical options
                  *     * `cart.lineItems.digitalItems.options` - digital options
                  *     * `cart.lineItems.physicalItems.categoryNames` - physical categories
                  *     * `cart.lineItems.digitalItems.categoryNames` - digital categories
@@ -3962,7 +3985,8 @@ export interface operations {
                  *     * `payments` - payments
                  *     * `promotions` - promotions
                  *     * `consignments.availableShippingOptions` - shipping options
-                 *     * `consignments.availablePickupOptions` - pickup options */
+                 *     * `consignments.availablePickupOptions` - pickup options
+                 */
                 readonly include?: components["parameters"]["IncludeShippingDefault"];
             };
             readonly header?: {
@@ -3988,7 +4012,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "value": {
                      *         "billingAddress": {
                      *           "address1": "123 Main Street",
@@ -4392,7 +4417,8 @@ export interface operations {
                      *         "updatedTime": "2018-09-18T16:59:45+00:00",
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["checkout_Full"];
                 };
             };
@@ -4402,7 +4428,8 @@ export interface operations {
     readonly updateCheckoutConsignment: {
         readonly parameters: {
             readonly query?: {
-                /** @description * `cart.lineItems.physicalItems.options` - physical options
+                /**
+                 * @description * `cart.lineItems.physicalItems.options` - physical options
                  *     * `cart.lineItems.digitalItems.options` - digital options
                  *     * `cart.lineItems.physicalItems.categoryNames` - physical categories
                  *     * `cart.lineItems.digitalItems.categoryNames` - digital categories
@@ -4412,7 +4439,8 @@ export interface operations {
                  *     * `payments` - payments
                  *     * `promotions` - promotions
                  *     * `consignments.availableShippingOptions` - shipping options
-                 *     * `consignments.availablePickupOptions` - pickup options */
+                 *     * `consignments.availablePickupOptions` - pickup options
+                 */
                 readonly include?: components["parameters"]["IncludeShippingPickupDefault"];
             };
             readonly header?: {
@@ -4440,7 +4468,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "value": {
                      *         "billingAddress": {
                      *           "address1": "123 Main Street",
@@ -4844,7 +4873,8 @@ export interface operations {
                      *         "updatedTime": "2018-09-18T16:59:45+00:00",
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["checkout_Full"];
                 };
             };
@@ -4877,7 +4907,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "value": {
                      *         "billingAddress": {
                      *           "address1": "123 Main Street",
@@ -5281,7 +5312,8 @@ export interface operations {
                      *         "updatedTime": "2018-09-18T16:59:45+00:00",
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["checkout_Full"];
                 };
             };
@@ -5314,7 +5346,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "value": {
                      *         "billingAddress": {
                      *           "address1": "123 Main Street",
@@ -5718,7 +5751,8 @@ export interface operations {
                      *         "updatedTime": "2018-09-18T16:59:45+00:00",
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["checkout_Full"];
                 };
             };
@@ -5793,7 +5827,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "value": {
                      *         "billingAddress": {
                      *           "address1": "123 Main Street",
@@ -6197,7 +6232,8 @@ export interface operations {
                      *         "updatedTime": "2018-09-18T16:59:45+00:00",
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["checkout_Full"];
                 };
             };
@@ -6230,7 +6266,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "value": {
                      *         "billingAddress": {
                      *           "address1": "123 Main Street",
@@ -6634,7 +6671,8 @@ export interface operations {
                      *         "updatedTime": "2018-09-18T16:59:45+00:00",
                      *         "version": 1
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["checkout_Full"];
                 };
             };

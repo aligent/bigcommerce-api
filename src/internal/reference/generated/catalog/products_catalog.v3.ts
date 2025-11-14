@@ -81,8 +81,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -105,7 +104,6 @@ export interface paths {
          *     - date_modified
          *     - calculated_price
          *     - base_variant_id
-         *
          */
         readonly put: operations["updateProduct"];
         /**
@@ -122,8 +120,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -158,11 +155,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Image` that is being operated on.
-                 *      */
+                /** @description The ID of the `Image` that is being operated on. */
                 readonly image_id: components["parameters"]["ImageIdParam"];
             };
             readonly cookie?: never;
@@ -196,8 +191,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -232,8 +226,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
                 /** @description The BigCommerce ID of the `Video` */
                 readonly id: components["parameters"]["VideoIdParam"];
@@ -273,8 +266,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -310,11 +302,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `ComplexRule`.
-                 *      */
+                /** @description The ID of the `ComplexRule`. */
                 readonly complex_rule_id: components["parameters"]["ComplexRuleIdParam"];
             };
             readonly cookie?: never;
@@ -349,8 +339,7 @@ export interface paths {
         readonly parameters: {
             readonly query?: never;
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -384,11 +373,9 @@ export interface paths {
         readonly parameters: {
             readonly query?: never;
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `CustomField`.
-                 *      */
+                /** @description The ID of the `CustomField`. */
                 readonly custom_field_id: components["parameters"]["CustomFieldIdParam"];
             };
             readonly cookie?: never;
@@ -396,7 +383,6 @@ export interface paths {
         /**
          * Get a Product Custom Field
          * @description Returns a *Custom Field*.
-         *
          */
         readonly get: operations["getProductCustomField"];
         /**
@@ -433,8 +419,7 @@ export interface paths {
                 readonly "Content-Type": components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -458,11 +443,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `BulkPricingRule`.
-                 *      */
+                /** @description The ID of the `BulkPricingRule`. */
                 readonly bulk_pricing_rule_id: components["parameters"]["BulkPricingRuleIdParam"];
             };
             readonly cookie?: never;
@@ -497,8 +480,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -530,11 +512,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdParam"];
             };
             readonly cookie?: never;
@@ -577,8 +557,7 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -609,11 +588,9 @@ export interface paths {
                 readonly Accept: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `review` that is being operated on.
-                 *      */
+                /** @description The ID of the `review` that is being operated on. */
                 readonly review_id: components["parameters"]["ReviewIdParam"];
             };
             readonly cookie?: never;
@@ -662,7 +639,6 @@ export interface paths {
          *     Notes:
          *      * Avoid parallel assignment requests if possible.
          *      * Do not make parallel assignment requests with the same product IDs.
-         *
          */
         readonly put: operations["createProductsChannelAssignments"];
         /**
@@ -783,12 +759,10 @@ export interface components {
         readonly productModifier_Base: {
             /**
              * @description BigCommerce API, which determines how it will display on the storefront. Acceptable values: `date`, `checkbox`, `file`, `text`, `multi_line_text`, `numbers_only_text`, `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. Required in a /POST.
-             *
              * @enum {string}
              */
             readonly type: "date" | "checkbox" | "file" | "text" | "multi_line_text" | "numbers_only_text" | "radio_buttons" | "rectangles" | "dropdown" | "product_list" | "product_list_with_images" | "swatch";
-            /** @description Whether or not this modifer is required or not at checkout. Required in a /POST.
-             *      */
+            /** @description Whether or not this modifer is required or not at checkout. Required in a /POST. */
             readonly required: boolean;
             /** @description The order the modifiers display on the product detail page. */
             readonly sort_order?: number;
@@ -803,19 +777,16 @@ export interface components {
         readonly productModifier_Full: components["schemas"]["productModifier_Base"] & {
             /**
              * @description The unique numeric ID of the modifier; increments sequentially.
-             *
              * @example 12
              */
             readonly id?: number;
             /**
              * @description The unique numeric ID of the product to which the option belongs.
-             *
              * @example 77
              */
             readonly product_id?: number;
             /**
              * @description The unique option name. Auto-generated from the display name, a timestamp, and the product ID.
-             *
              * @example Add-a-$5-Donation1535039590-191
              */
             readonly name?: string;
@@ -828,24 +799,20 @@ export interface components {
         readonly productModifierOptionValue_Base: {
             /**
              * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-             *
              * @example false
              */
             readonly is_default?: boolean;
             /**
              * @description The text display identifying the value on the storefront. Required in a /POST.
-             *
              * @example Green
              */
             readonly label: string;
             /**
              * @description The order in which the value will be displayed on the product page. Required in a /POST.
-             *
              * @example 0
              */
             readonly sort_order: number;
-            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.
-             *      */
+            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`. */
             readonly value_data?: Record<string, unknown> | null;
             readonly adjusters?: components["schemas"]["adjusters_Full"];
         };
@@ -854,8 +821,7 @@ export interface components {
          * @description Product Modifer `option_value`.
          */
         readonly productModifierOptionValue_Full: components["schemas"]["productModifierOptionValue_Base"] & {
-            /** @description The unique numeric ID of the value; increments sequentially.
-             *      */
+            /** @description The unique numeric ID of the value; increments sequentially. */
             readonly id?: number;
             readonly option_id?: number;
         };
@@ -866,25 +832,21 @@ export interface components {
         readonly productOption_Base: {
             /**
              * @description The unique numerical ID of the option, increments sequentially.
-             *
              * @example 55
              */
             readonly id?: number | null;
             /**
              * @description The unique numerical ID of the product to which the option belongs.
-             *
              * @example 4
              */
             readonly product_id?: number;
             /**
              * @description The name of the option shown on the storefront.
-             *
              * @example Add-a-$5-Donation1535042499-187
              */
             readonly display_name?: string;
             /**
              * @description The type of option, which determines how it will display on the storefront. Acceptable values: `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. For reference, the former v2 API values are: RB = radio_buttons, RT = rectangles, S = dropdown, P = product_list, PI = product_list_with_images, CS = swatch.
-             *
              * @enum {string}
              */
             readonly type?: "radio_buttons" | "rectangles" | "dropdown" | "product_list" | "product_list_with_images" | "swatch";
@@ -931,28 +893,23 @@ export interface components {
             /**
              * Format: double
              * @description Width of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default width (set in the Product resourceʼs `width` field) will be used as the base width.
-             *
              */
             readonly width?: number | null;
             /**
              * Format: double
              * @description Height of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default height (set in the Product resourceʼs `height` field) will be used as the base height.
-             *
              */
             readonly height?: number | null;
             /**
              * Format: double
              * @description Depth of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default depth (set in the Product resourceʼs `depth` field) will be used as the base depth.
-             *
              */
             readonly depth?: number | null;
-            /** @description Flag used to indicate whether the variant has free shipping. If `true`, the shipping cost for the variant will be zero.
-             *      */
+            /** @description Flag used to indicate whether the variant has free shipping. If `true`, the shipping cost for the variant will be zero. */
             readonly is_free_shipping?: boolean;
             /**
              * Format: double
              * @description A fixed shipping cost for the variant. If defined, this value will be used during checkout instead of normal shipping-cost calculation.
-             *
              */
             readonly fixed_cost_shipping_price?: number | null;
             /** @description If `true`, this variant will not be purchasable on the storefront. */
@@ -961,19 +918,20 @@ export interface components {
             readonly purchasing_disabled_message?: string;
             /**
              * @description The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
-             *
              * @example https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png
              */
             readonly image_url?: string;
             /** @description The UPC code used in feeds for shopping comparison sites and external channel integrations. */
             readonly upc?: string;
-            /** @description Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`. The Catalog API returns the inventory for only the default location.
+            /**
+             * @description Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`. The Catalog API returns the inventory for only the default location.
              *
              *     The inventory for a variant cannot exceed 2,147,483,647 in the catalog. The sum of the variant inventories, or the total inventory for a product, cannot exceed 2,147,483,647.
              *
              *     If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
              *
-             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).  */
+             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).
+             */
             readonly inventory_level?: number | null;
             /** @description When the variant hits this inventory level, it is considered low stock. */
             readonly inventory_warning_level?: number | null;
@@ -999,7 +957,6 @@ export interface components {
             /**
              * Format: double
              * @description The price of the variant as seen on the storefront. This price takes into account `sale_price` and any price adjustment rules that are applicable to this variant.
-             *
              */
             readonly calculated_price?: number;
             readonly calculated_weight?: number;
@@ -1007,7 +964,6 @@ export interface components {
         /**
          * productVariant_Put_Product
          * @description The model for a PUT to update variants on a product.
-         *
          */
         readonly productVariant_Put_Product: {
             /**
@@ -1038,28 +994,23 @@ export interface components {
             /**
              * Format: double
              * @description Width of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default width (set in the Product resourceʼs `width` field) will be used as the base width.
-             *
              */
             readonly width?: number | null;
             /**
              * Format: double
              * @description Height of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default height (set in the Product resourceʼs `height` field) will be used as the base height.
-             *
              */
             readonly height?: number | null;
             /**
              * Format: double
              * @description Depth of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default depth (set in the Product resourceʼs `depth` field) will be used as the base depth.
-             *
              */
             readonly depth?: number | null;
-            /** @description Flag used to indicate whether the variant has free shipping. If `true`, the shipping cost for the variant will be zero.
-             *      */
+            /** @description Flag used to indicate whether the variant has free shipping. If `true`, the shipping cost for the variant will be zero. */
             readonly is_free_shipping?: boolean;
             /**
              * Format: double
              * @description A fixed shipping cost for the variant. If defined, this value will be used during checkout instead of normal shipping-cost calculation.
-             *
              */
             readonly fixed_cost_shipping_price?: number | null;
             /** @description If `true`, this variant will not be purchasable on the storefront. */
@@ -1068,13 +1019,15 @@ export interface components {
             readonly purchasing_disabled_message?: string;
             /** @description The UPC code used in feeds for shopping comparison sites and external channel integrations. */
             readonly upc?: string;
-            /** @description Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`. The Catalog API returns the inventory for only the default location.
+            /**
+             * @description Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`. The Catalog API returns the inventory for only the default location.
              *
              *     The inventory for a variant cannot exceed 2,147,483,647 in the catalog. The sum of the variant inventories, or the total inventory for a product, cannot exceed 2,147,483,647.
              *
              *     If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
              *
-             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).  */
+             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).
+             */
             readonly inventory_level?: number | null;
             /** @description When the variant hits this inventory level, it is considered low stock. */
             readonly inventory_warning_level?: number | null;
@@ -1092,7 +1045,6 @@ export interface components {
             readonly id?: number;
             /**
              * @description The label of the option value.
-             *
              * @example Beige
              */
             readonly label: string;
@@ -1103,7 +1055,6 @@ export interface components {
             readonly option_id?: number;
             /**
              * @description The name of the option.
-             *
              * @example Color
              */
             readonly option_display_name: string;
@@ -1131,24 +1082,20 @@ export interface components {
         readonly productOptionOptionValue_Base: {
             /**
              * @description The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-             *
              * @example false
              */
             readonly is_default?: boolean;
             /**
              * @description The text display identifying the value on the storefront. Required in a /POST.
-             *
              * @example Green
              */
             readonly label: string;
             /**
              * @description The order in which the value will be displayed on the product page. Required in a /POST.
-             *
              * @example 0
              */
             readonly sort_order: number;
-            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.
-             *      */
+            /** @description Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`. */
             readonly value_data?: Record<string, unknown> | null;
         };
         /**
@@ -1156,8 +1103,7 @@ export interface components {
          * @description Product Option `option_value`.
          */
         readonly productOptionOptionValue_Full: components["schemas"]["productOptionOptionValue_Base"] & {
-            /** @description The unique numeric ID of the value; increments sequentially.
-             *      */
+            /** @description The unique numeric ID of the value; increments sequentially. */
             readonly id?: number;
         };
         /**
@@ -1165,19 +1111,15 @@ export interface components {
          * @description Common ProductImage properties.
          */
         readonly productImage_Base: {
-            /** @description Flag for identifying whether the image is used as the productʼs thumbnail.
-             *      */
+            /** @description Flag for identifying whether the image is used as the productʼs thumbnail. */
             readonly is_thumbnail?: boolean;
-            /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered.
-             *      */
+            /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered. */
             readonly sort_order?: number;
-            /** @description The description for the image.
-             *      */
+            /** @description The description for the image. */
             readonly description?: string;
             /**
              * Format: date-time
              * @description The date on which the product image was modified.
-             *
              */
             readonly date_modified?: string;
         };
@@ -1186,42 +1128,37 @@ export interface components {
          * @description The model for a POST or PUT to create  or update applicable Product Image fields.
          */
         readonly productImage_Post_Put: {
-            /** @description The unique numeric identifier for the product with which the image is associated.
-             *      */
+            /** @description The unique numeric identifier for the product with which the image is associated. */
             readonly product_id?: number;
-            /** @description The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
+            /**
+             * @description The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
              *
              *     Cannot be used with `image_file`.
-             *      */
+             */
             readonly image_url?: string;
         } & components["schemas"]["productImage_Base"];
         /**
          * productVideo_Base
          * @description The model for a POST to create a video on a product.
-         *
          */
         readonly productVideo_Base: {
             /**
              * @description The title for the video. If left blank, this will be filled in according to data on a host site.
-             *
              * @example Writing Great Documentation
              */
             readonly title?: string;
             /**
              * @description The description for the video. If left blank, this will be filled in according to data on a host site.
-             *
              * @example A video about documenation
              */
             readonly description?: string;
             /**
              * @description The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the videoʼs new `sort_order` value will have their `sort_order`s reordered.
-             *
              * @example 1
              */
             readonly sort_order?: number;
             /**
              * @description The video type (a short name of a host site).
-             *
              * @enum {string}
              */
             readonly type?: "youtube";
@@ -1234,17 +1171,13 @@ export interface components {
         /**
          * productVideo_Full
          * @description A product video model.
-         *
          */
         readonly productVideo_Full: components["schemas"]["productVideo_Base"] & {
-            /** @description The unique numeric ID of the product video; increments sequentially.
-             *      */
+            /** @description The unique numeric ID of the product video; increments sequentially. */
             readonly id?: number;
-            /** @description The unique numeric identifier for the product with which the image is associated.
-             *      */
+            /** @description The unique numeric identifier for the product with which the image is associated. */
             readonly product_id?: number;
-            /** @description Length of the video. This will be filled in according to data on a host site.
-             *      */
+            /** @description Length of the video. This will be filled in according to data on a host site. */
             readonly length?: string;
         };
         readonly IncludeParamBase: readonly ("bulk_pricing_rules" | "reviews" | "modifiers" | "options" | "parent_relations" | "custom_fields" | "channels" | "videos")[];
@@ -1260,19 +1193,16 @@ export interface components {
         readonly metafield_Base: {
             /**
              * @description The name of the field, for example: `location_id`, `color`. Required for POST.
-             *
              * @example Location
              */
             readonly key: string;
             /**
              * @description The value of the field, for example: `1`, `blue`. You must enter a JSON formatted string for [ShipperHQ](/docs/store-operations/shipping/shipper-hq#shipperhq-object-properties) metafields. Required for POST.
-             *
              * @example 4HG
              */
             readonly value: string;
             /**
              * @description Namespace for the metafield, for organizational purposes. This is set by the developer. Required for POST.
-             *
              * @example Warehouse Locations
              */
             readonly namespace: string;
@@ -1291,7 +1221,6 @@ export interface components {
             readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Description for the metafields.
-             *
              * @example Location in the warehouse
              */
             readonly description?: string;
@@ -1309,40 +1238,32 @@ export interface components {
             readonly id?: number;
             /**
              * @description The unique numeric ID of the product with which the rule is associated; increments sequentially.
-             *
              * @example 67
              */
             readonly product_id?: number | null;
             /**
              * @description The priority to give this rule when making adjustments to the product properties.
-             *
              * @example 0
              */
             readonly sort_order?: number;
             /**
              * @description Flag for determining whether the rule is to be used when adjusting a productʼs price, weight, image, or availabilty.
-             *
              * @example true
              */
             readonly enabled?: boolean;
-            /** @description Flag for determining whether other rules should not be applied after this rule has been applied.
-             *      */
+            /** @description Flag for determining whether other rules should not be applied after this rule has been applied. */
             readonly stop?: boolean;
-            /** @description Flag for determining whether the rule should disable purchasing of a product when the conditions are applied.
-             *      */
+            /** @description Flag for determining whether the rule should disable purchasing of a product when the conditions are applied. */
             readonly purchasing_disabled?: boolean;
             /**
              * @description Message displayed on the storefront when a rule disables the purchasing of a product.
-             *
              * @example This product is not available at this time.
              */
             readonly purchasing_disabled_message?: string;
-            /** @description Flag for determining whether the rule should hide purchasing of a product when the conditions are applied.
-             *      */
+            /** @description Flag for determining whether the rule should hide purchasing of a product when the conditions are applied. */
             readonly purchasing_hidden?: boolean;
             /**
              * @description The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
-             *
              * @example https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png
              */
             readonly image_url?: string;
@@ -1363,13 +1284,11 @@ export interface components {
             readonly id?: number;
             /**
              * @description The name of the field, shown on the storefront, orders, etc. Required for /POST
-             *
              * @example ISBN
              */
             readonly name: string;
             /**
              * @description The name of the field, shown on the storefront, orders, etc. Required for /POST
-             *
              * @example 1234567890123
              */
             readonly value: string;
@@ -1387,13 +1306,11 @@ export interface components {
             readonly id?: number;
             /**
              * @description The name of the field, shown on the storefront, orders, etc. Required for /POST
-             *
              * @example ISBN
              */
             readonly name: string;
             /**
              * @description The name of the field, shown on the storefront, orders, etc. Required for /POST
-             *
              * @example 1234567890123
              */
             readonly value: string;
@@ -1405,7 +1322,6 @@ export interface components {
         readonly complexRuleConditionBase: {
             /**
              * @description The unique numeric ID of the rule condition; increments sequentially. Read-Only
-             *
              * @example 3
              */
             readonly id?: number | null;
@@ -1433,8 +1349,7 @@ export interface components {
              * @example 1
              */
             readonly variant_id: number | null;
-            /** @description (READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3.
-             *      */
+            /** @description (READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3. */
             readonly combination_id?: number;
         };
         /**
@@ -1442,14 +1357,11 @@ export interface components {
          * @description The custom URL for the product on the storefront. If not provided in the POST request, the URL will be autogenerated from the product name.
          */
         readonly customUrl_Full: {
-            /** @description Product URL on the storefront.
-             *      */
+            /** @description Product URL on the storefront. */
             readonly url?: string;
-            /** @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
-             *      */
+            /** @description Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides). */
             readonly is_customized?: boolean;
-            /** @description Optional field. This field automatically creates a dynamic 301 redirect when a product URL change occurs with a PUT request. Existing dynamic redirects will automatically update to a new URL to avoid a loop.
-             *      */
+            /** @description Optional field. This field automatically creates a dynamic 301 redirect when a product URL change occurs with a PUT request. Existing dynamic redirects will automatically update to a new URL to avoid a loop. */
             readonly create_redirect?: boolean;
         };
         /** bulkPricingRule_Response */
@@ -1457,7 +1369,6 @@ export interface components {
             /**
              * @description The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero. For `fixed` rules, the minimum quantity canʼt be less than two.
              *     Required in /POST.
-             *
              * @example 10
              */
             readonly quantity_min?: number;
@@ -1474,8 +1385,10 @@ export interface components {
              * @enum {string}
              */
             readonly type?: "price" | "percent" | "fixed";
-            /** @description You can express the adjustment type as either a fixed dollar amount or a percentage. Send a number; the response will return a number for `price` and `fixed` adjustments.
-             *     Divide the adjustment percentage by 100 and send the result in string format. For example, represent 10% as “.10”. The response will return a float value for both `price` and `percentage` adjustments.  */
+            /**
+             * @description You can express the adjustment type as either a fixed dollar amount or a percentage. Send a number; the response will return a number for `price` and `fixed` adjustments.
+             *     Divide the adjustment percentage by 100 and send the result in string format. For example, represent 10% as “.10”. The response will return a float value for both `price` and `percentage` adjustments.
+             */
             readonly amount?: number | string;
         };
         /** bulkPricingRule_Full */
@@ -1483,7 +1396,6 @@ export interface components {
             /**
              * @description The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero. For `fixed` rules, the minimum quantity canʼt be less than two.
              *     Required in /POST.
-             *
              * @example 10
              */
             readonly quantity_min: number;
@@ -1500,9 +1412,11 @@ export interface components {
              * @enum {string}
              */
             readonly type: "price" | "percent" | "fixed";
-            /** @description You can express the adjustment type as either a fixed dollar amount or a percentage. Send a number; the response will return a number for `price` and `fixed` adjustments.
+            /**
+             * @description You can express the adjustment type as either a fixed dollar amount or a percentage. Send a number; the response will return a number for `price` and `fixed` adjustments.
              *     Divide the adjustment percentage by 100 and send the result in string format. For example, represent 10% as “.10”. The response will return a float value for both `price` and `percentage` adjustments.
-             *     Required in /POST. */
+             *     Required in /POST.
+             */
             readonly amount: number | string;
         };
         /**
@@ -1510,21 +1424,16 @@ export interface components {
          * @description The values for option config can vary based on the Modifier created.
          */
         readonly productOptionConfig_Full: {
-            /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
-             *      */
+            /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string. */
             readonly default_value?: string;
-            /** @description (checkbox) Flag for setting the checkbox to be checked by default.
-             *      */
+            /** @description (checkbox) Flag for setting the checkbox to be checked by default. */
             readonly checked_by_default?: boolean;
-            /** @description (checkbox) Label displayed for the checkbox option.
-             *      */
+            /** @description (checkbox) Label displayed for the checkbox option. */
             readonly checkbox_label?: string;
-            /** @description (date) Flag to limit the dates allowed to be entered on a date option.
-             *      */
+            /** @description (date) Flag to limit the dates allowed to be entered on a date option. */
             readonly date_limited?: boolean;
             /**
              * @description (date) The type of limit that is allowed to be entered on a date option.
-             *
              * @example range
              * @enum {string}
              */
@@ -1532,100 +1441,83 @@ export interface components {
             /**
              * Format: date
              * @description (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-             *
              */
             readonly date_earliest_value?: string;
             /**
              * Format: date
              * @description (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-             *
              */
             readonly date_latest_value?: string;
             /**
              * @description (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
-             *
              * @example specific
              * @enum {string}
              */
             readonly file_types_mode?: "specific" | "all";
-            /** @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
+            /**
+             * @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
              *       `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
              *       `other` - Allows file types defined in the `file_types_other` array.
-             *      */
+             */
             readonly file_types_supported?: readonly string[];
-            /** @description (file) A list of other file types allowed with the file upload option.
-             *      */
+            /** @description (file) A list of other file types allowed with the file upload option. */
             readonly file_types_other?: readonly string[];
             /**
              * @description (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
-             *
              * @example 5
              */
             readonly file_max_size?: number;
-            /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
-             *      */
+            /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input. */
             readonly text_characters_limited?: boolean;
             /**
              * @description (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
-             *
              * @example 1
              */
             readonly text_min_length?: number;
             /**
              * @description (text, multi_line_text) The maximum length allowed for a text or multi line text option.
-             *
              * @example 55
              */
             readonly text_max_length?: number;
             /**
              * @description (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
-             *
              * @example true
              */
             readonly text_lines_limited?: boolean;
             /**
              * @description (multi_line_text) The maximum number of lines allowed on a multi-line text input.
-             *
              * @example 4
              */
             readonly text_max_lines?: number;
             /**
              * @description (numbers_only_text) Flag to limit the value of a number option.
-             *
              * @example true
              */
             readonly number_limited?: boolean;
             /**
              * @description (numbers_only_text) The type of limit on values entered for a number option.
-             *
              * @example lowest
              * @enum {string}
              */
             readonly number_limit_mode?: "lowest" | "highest" | "range";
             /**
              * @description (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
-             *
              * @example 100
              */
             readonly number_lowest_value?: number;
-            /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
-             *      */
+            /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true. */
             readonly number_highest_value?: number;
             /**
              * @description (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
-             *
              * @example false
              */
             readonly number_integers_only?: boolean;
-            /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
-             *      */
+            /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list. */
             readonly product_list_adjusts_inventory?: boolean;
-            /** @description (product_list, product_list_with_images) Flag to add the optional productʼs price to the main productʼs price.
-             *      */
+            /** @description (product_list, product_list_with_images) Flag to add the optional productʼs price to the main productʼs price. */
             readonly product_list_adjusts_pricing?: boolean;
             /**
              * @description (product_list, product_list_with_images) How to factor the optional productʼs weight and package dimensions into the shipping quote. Values: `none` - donʼt adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
-             *
              * @example weight
              * @enum {string}
              */
@@ -1638,13 +1530,11 @@ export interface components {
         readonly adjuster_Full: {
             /**
              * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-             *
              * @enum {string|null}
              */
             readonly adjuster?: "relative" | "percentage" | null;
             /**
              * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-             *
              * @example 5
              */
             readonly adjuster_value?: number;
@@ -1663,48 +1553,39 @@ export interface components {
         readonly pagination_Full: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 36
              */
             readonly total?: number;
             /**
              * @description Total number of items in the collection response.
-             *
              * @example 36
              */
             readonly count?: number;
             /**
              * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-             *
              * @example 50
              */
             readonly per_page?: number;
             /**
              * @description The page you are currently on within the collection.
-             *
              * @example 1
              */
             readonly current_page?: number;
             /**
              * @description The total number of pages in the collection.
-             *
              * @example 1
              */
             readonly total_pages?: number;
-            /** @description Pagination links for the previous and next parts of the whole collection.
-             *      */
+            /** @description Pagination links for the previous and next parts of the whole collection. */
             readonly links?: {
-                /** @description Link to the previous page returned in the response.
-                 *      */
+                /** @description Link to the previous page returned in the response. */
                 readonly previous?: string;
                 /**
                  * @description Link to the current page returned in the response.
-                 *
                  * @example ?page=1&limit=50
                  */
                 readonly current?: string;
-                /** @description Link to the next page returned in the response.
-                 *      */
+                /** @description Link to the next page returned in the response. */
                 readonly next?: string;
             };
         };
@@ -1718,14 +1599,11 @@ export interface components {
         /**
          * error_Base
          * @description Error payload for the BigCommerce API.
-         *
          */
         readonly error_Base: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -1755,14 +1633,12 @@ export interface components {
             /**
              * Format: date-time
              * @description The date on which the product was created.
-             *
              * @example 2018-08-15T14:49:05+00:00
              */
             readonly date_created?: string;
             /**
              * Format: date-time
              * @description The date on which the product was modified.
-             *
              * @example 2018-08-24T14:41:00+00:00
              */
             readonly date_modified?: string;
@@ -1787,33 +1663,27 @@ export interface components {
          * @description Common ProductImage properties.
          */
         readonly productImage_Full: components["schemas"]["productImage_Base"] & {
-            /** @description The unique numeric ID of the image; increments sequentially.
-             *      */
+            /** @description The unique numeric ID of the image; increments sequentially. */
             readonly id?: number;
-            /** @description The unique numeric identifier for the product with which the image is associated.
-             *      */
+            /** @description The unique numeric identifier for the product with which the image is associated. */
             readonly product_id?: number;
-            /** @description The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
+            /**
+             * @description The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
              *
              *     Cannot be used with `image_file`.
-             *      */
+             */
             readonly image_url?: string;
-            /** @description The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image.
-             *      */
+            /** @description The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image. */
             readonly url_zoom?: string;
-            /** @description The standard URL for this image. By default, this is used for product-page images.
-             *      */
+            /** @description The standard URL for this image. By default, this is used for product-page images. */
             readonly url_standard?: string;
-            /** @description The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
-             *      */
+            /** @description The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels. */
             readonly url_thumbnail?: string;
-            /** @description The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
-             *      */
+            /** @description The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page. */
             readonly url_tiny?: string;
             /**
              * Format: date-time
              * @description The date on which the product image was modified.
-             *
              */
             readonly date_modified?: string;
         };
@@ -1822,42 +1692,33 @@ export interface components {
          * @description Common PrimaryImage properties.
          */
         readonly primaryImage_Full: {
-            /** @description The unique numeric ID of the image; increments sequentially.
-             *      */
+            /** @description The unique numeric ID of the image; increments sequentially. */
             readonly id?: number;
-            /** @description The unique numeric identifier for the product with which the image is associated.
-             *      */
+            /** @description The unique numeric identifier for the product with which the image is associated. */
             readonly product_id?: number;
-            /** @description Flag for identifying whether the image is used as the productʼs thumbnail.
-             *      */
+            /** @description Flag for identifying whether the image is used as the productʼs thumbnail. */
             readonly is_thumbnail?: boolean;
-            /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered.
-             *      */
+            /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered. */
             readonly sort_order?: number;
-            /** @description The description for the image.
-             *      */
+            /** @description The description for the image. */
             readonly description?: string;
-            /** @description The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
+            /**
+             * @description The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
              *
              *     Must be sent as a `multipart/form-data` field in the request body. Limit of 8 MB per file.
-             *      */
+             */
             readonly image_file?: string;
-            /** @description The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image.
-             *      */
+            /** @description The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image. */
             readonly url_zoom?: string;
-            /** @description The standard URL for this image. By default, this is used for product-page images.
-             *      */
+            /** @description The standard URL for this image. By default, this is used for product-page images. */
             readonly url_standard?: string;
-            /** @description The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
-             *      */
+            /** @description The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels. */
             readonly url_thumbnail?: string;
-            /** @description The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
-             *      */
+            /** @description The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page. */
             readonly url_tiny?: string;
             /**
              * Format: date-time
              * @description The date on which the product image was modified.
-             *
              */
             readonly date_modified?: string;
         };
@@ -1874,21 +1735,16 @@ export interface components {
          * @description The values for option config can vary based on the Modifier created.
          */
         readonly config_Full: {
-            /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
-             *      */
+            /** @description (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string. */
             readonly default_value?: string;
-            /** @description (checkbox) Flag for setting the checkbox to be checked by default.
-             *      */
+            /** @description (checkbox) Flag for setting the checkbox to be checked by default. */
             readonly checked_by_default?: boolean;
-            /** @description (checkbox) Label displayed for the checkbox option.
-             *      */
+            /** @description (checkbox) Label displayed for the checkbox option. */
             readonly checkbox_label?: string;
-            /** @description (date) Flag to limit the dates allowed to be entered on a date option.
-             *      */
+            /** @description (date) Flag to limit the dates allowed to be entered on a date option. */
             readonly date_limited?: boolean;
             /**
              * @description (date) The type of limit that is allowed to be entered on a date option.
-             *
              * @example range
              * @enum {string}
              */
@@ -1896,100 +1752,83 @@ export interface components {
             /**
              * Format: date
              * @description (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-             *
              */
             readonly date_earliest_value?: string;
             /**
              * Format: date
              * @description (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-             *
              */
             readonly date_latest_value?: string;
             /**
              * @description (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
-             *
              * @example specific
              * @enum {string}
              */
             readonly file_types_mode?: "specific" | "all";
-            /** @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
+            /**
+             * @description (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
              *       `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
              *       `other` - Allows file types defined in the `file_types_other` array.
-             *      */
+             */
             readonly file_types_supported?: readonly string[];
-            /** @description (file) A list of other file types allowed with the file upload option.
-             *      */
+            /** @description (file) A list of other file types allowed with the file upload option. */
             readonly file_types_other?: readonly string[];
             /**
              * @description (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
-             *
              * @example 5
              */
             readonly file_max_size?: number;
-            /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
-             *      */
+            /** @description (text, multi_line_text) Flag to validate the length of a text or multi-line text input. */
             readonly text_characters_limited?: boolean;
             /**
              * @description (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
-             *
              * @example 1
              */
             readonly text_min_length?: number;
             /**
              * @description (text, multi_line_text) The maximum length allowed for a text or multi line text option.
-             *
              * @example 55
              */
             readonly text_max_length?: number;
             /**
              * @description (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
-             *
              * @example true
              */
             readonly text_lines_limited?: boolean;
             /**
              * @description (multi_line_text) The maximum number of lines allowed on a multi-line text input.
-             *
              * @example 4
              */
             readonly text_max_lines?: number;
             /**
              * @description (numbers_only_text) Flag to limit the value of a number option.
-             *
              * @example true
              */
             readonly number_limited?: boolean;
             /**
              * @description (numbers_only_text) The type of limit on values entered for a number option.
-             *
              * @example lowest
              * @enum {string}
              */
             readonly number_limit_mode?: "lowest" | "highest" | "range";
             /**
              * @description (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
-             *
              * @example 100
              */
             readonly number_lowest_value?: number;
-            /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
-             *      */
+            /** @description (numbers_only_text) The highest allowed value for a number option if `number_limited` is true. */
             readonly number_highest_value?: number;
             /**
              * @description (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
-             *
              * @example false
              */
             readonly number_integers_only?: boolean;
-            /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
-             *      */
+            /** @description (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list. */
             readonly product_list_adjusts_inventory?: boolean;
-            /** @description (product_list, product_list_with_images) Flag to add the optional productʼs price to the main productʼs price.
-             *      */
+            /** @description (product_list, product_list_with_images) Flag to add the optional productʼs price to the main productʼs price. */
             readonly product_list_adjusts_pricing?: boolean;
             /**
              * @description (product_list, product_list_with_images) How to factor the optional productʼs weight and package dimensions into the shipping quote. Values: `none` - donʼt adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
-             *
              * @example weight
              * @enum {string}
              */
@@ -2001,16 +1840,13 @@ export interface components {
             readonly weight?: components["schemas"]["adjuster_Full"];
             /**
              * @description The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
-             *
              * @example https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2
              */
             readonly image_url?: string;
             readonly purchasing_disabled?: {
-                /** @description Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
-                 *      */
+                /** @description Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value. */
                 readonly status?: boolean;
-                /** @description The message displayed on the storefront when the purchasing disabled status is `true`.
-                 *      */
+                /** @description The message displayed on the storefront when the purchasing disabled status is `true`. */
                 readonly message?: string;
             };
         };
@@ -2022,150 +1858,122 @@ export interface components {
         readonly product_Base_POST: {
             /**
              * @description A unique product name.
-             *
              * @example Smith Journal 13
              */
             readonly name: string;
             /**
              * @description The product type. One of: `physical` - a physical stock unit, `digital` - a digital download.
-             *
              * @example physical
              * @enum {string}
              */
             readonly type: "physical" | "digital";
             /**
              * @description A unique user-defined alphanumeric product code/stock keeping unit (SKU). The SKU is always unique regardless of the letter case for both products and variants.
-             *
              * @example SM-13
              */
             readonly sku?: string;
             /**
              * @description The product description, which can include HTML formatting.
-             *
              * @example <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>
              */
             readonly description?: string;
             /**
              * Format: float
              * @description Weight of the product, which can be used when calculating shipping costs. This is based on the unit set on the store
-             *
              */
             readonly weight: number;
             /**
              * Format: float
              * @description Width of the product, which can be used when calculating shipping costs.
-             *
              */
             readonly width?: number;
             /**
              * Format: float
              * @description Depth of the product, which can be used when calculating shipping costs.
-             *
              */
             readonly depth?: number;
             /**
              * Format: float
              * @description Height of the product, which can be used when calculating shipping costs.
-             *
              */
             readonly height?: number;
             /**
              * Format: float
              * @description The price of the product. The price should include or exclude tax, based on the store settings.
-             *
              */
             readonly price: number;
             /**
              * Format: float
              * @description The cost price of the product. Stored for reference only; it is not used or displayed anywhere on the store.
-             *
              */
             readonly cost_price?: number;
             /**
              * Format: float
              * @description The retail cost of the product. If entered, the retail cost price will be shown on the product page.
-             *
              */
             readonly retail_price?: number;
             /**
              * Format: float
              * @description If entered, the sale price will be used instead of value in the price field when calculating the productʼs cost.
-             *
              */
             readonly sale_price?: number;
             /** @description Minimum Advertised Price */
             readonly map_price?: number;
-            /** @description The ID of the tax class applied to the product. (NOTE: Value ignored if automatic tax is enabled.)
-             *      */
+            /** @description The ID of the tax class applied to the product. (NOTE: Value ignored if automatic tax is enabled.) */
             readonly tax_class_id?: number;
-            /** @description Tax Codes, such as AvaTax System Tax Codes, identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to a tax provider integration, such as BigCommerceʼs Avalara Premium, can calculate sales taxes more accurately. Stores without a tax provider will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive. For details, please see the tax providerʼs documentation.
-             *      */
+            /** @description Tax Codes, such as AvaTax System Tax Codes, identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to a tax provider integration, such as BigCommerceʼs Avalara Premium, can calculate sales taxes more accurately. Stores without a tax provider will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive. For details, please see the tax providerʼs documentation. */
             readonly product_tax_code?: string;
-            /** @description An array of IDs for the categories to which this product belongs. You will overwrite all product categories when updating a product and supplying an array of categories. The limit is 1,000 ID values. When you enable the catalog V2 product experience in the control panel, you must include the categories array in the request body.
-             *      */
+            /** @description An array of IDs for the categories to which this product belongs. You will overwrite all product categories when updating a product and supplying an array of categories. The limit is 1,000 ID values. When you enable the catalog V2 product experience in the control panel, you must include the categories array in the request body. */
             readonly categories?: readonly number[];
-            /** @description You can add a product to an existing brand during a product /PUT or /POST. Use either the `brand_id` or the `brand_name` field. The response body can include `brand_id`.
-             *      */
+            /** @description You can add a product to an existing brand during a product /PUT or /POST. Use either the `brand_id` or the `brand_name` field. The response body can include `brand_id`. */
             readonly brand_id?: number;
             /**
              * @description You can create the brand during a product PUT or POST request. If the brand already exists, the product /PUT or /POST request adds the product to the brand. If not, the product /PUT or /POST request creates the brand and then adds the product to the brand. Brand name is not case-sensitive; "Common Good" and "Common good" are the same. Use either the `brand_id` or the `brand_name` field. The response body does not include `brand_name`.
              * @example Common Good
              */
             readonly brand_name?: string;
-            /** @description Current inventory level of the product. You must track inventory by _product_ for this to take effect (see the `inventory_tracking` field). The Catalog API returns the inventory for only the default location.
+            /**
+             * @description Current inventory level of the product. You must track inventory by _product_ for this to take effect (see the `inventory_tracking` field). The Catalog API returns the inventory for only the default location.
              *
              *     The inventory for a product cannot exceed 2,147,483,647 in the catalog. If you exceed the limit, the store sets the inventory level to the limit.
              *
-             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).  */
+             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).
+             */
             readonly inventory_level?: number;
-            /** @description Inventory warning level for the product. When the productʼs inventory level drops below the warning level, the store owner will be informed. Simple inventory tracking must be enabled (see the `inventory_tracking` field) for this to take any effect.
-             *      */
+            /** @description Inventory warning level for the product. When the productʼs inventory level drops below the warning level, the store owner will be informed. Simple inventory tracking must be enabled (see the `inventory_tracking` field) for this to take any effect. */
             readonly inventory_warning_level?: number;
             /**
              * @description The type of inventory tracking for the product. Values are: `none` - inventory levels will not be tracked; `product` - inventory levels will be tracked using the `inventory_level` and `inventory_warning_level` fields; `variant` - inventory levels will be tracked based on variants, which maintain their own warning levels and inventory levels.
-             *
              * @enum {string}
              */
             readonly inventory_tracking?: "none" | "product" | "variant";
             /**
              * Format: float
              * @description A fixed shipping cost for the product. If defined, this value will be used during checkout instead of normal shipping-cost calculation.
-             *
              */
             readonly fixed_cost_shipping_price?: number;
-            /** @description Flag used to indicate whether the product has free shipping. If `true`, the shipping cost for the product will be zero.
-             *      */
+            /** @description Flag used to indicate whether the product has free shipping. If `true`, the shipping cost for the product will be zero. */
             readonly is_free_shipping?: boolean;
-            /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the product will be displayed. If `false`, the product will be hidden from view.
-             *      */
+            /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the product will be displayed. If `false`, the product will be hidden from view. */
             readonly is_visible?: boolean;
-            /** @description Flag to determine whether the product should be included in the `featured products` panel when viewing the store.
-             *      */
+            /** @description Flag to determine whether the product should be included in the `featured products` panel when viewing the store. */
             readonly is_featured?: boolean;
-            /** @description An array of IDs for the related products.
-             *      */
+            /** @description An array of IDs for the related products. */
             readonly related_products?: readonly number[];
-            /** @description Warranty information displayed on the product page. Can include HTML formatting.
-             *      */
+            /** @description Warranty information displayed on the product page. Can include HTML formatting. */
             readonly warranty?: string;
-            /** @description The BIN picking number for the product.
-             *      */
+            /** @description The BIN picking number for the product. */
             readonly bin_picking_number?: string;
-            /** @description The layout template file used to render this product category. This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
-             *      */
+            /** @description The layout template file used to render this product category. This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations). */
             readonly layout_file?: string;
-            /** @description The product UPC code, which is used in feeds for shopping comparison sites and external channel integrations.
-             *      */
+            /** @description The product UPC code, which is used in feeds for shopping comparison sites and external channel integrations. */
             readonly upc?: string;
-            /** @description A comma-separated list of keywords that can be used to locate the product when searching the store.
-             *      */
+            /** @description A comma-separated list of keywords that can be used to locate the product when searching the store. */
             readonly search_keywords?: string;
-            /** @description Availability text displayed on the checkout page, under the product title. Tells the customer how long it will normally take to ship this product, such as: 'Usually ships in 24 hours.'
-             *      */
+            /** @description Availability text displayed on the checkout page, under the product title. Tells the customer how long it will normally take to ship this product, such as: 'Usually ships in 24 hours.' */
             readonly availability_description?: string;
             /**
              * @description Availability of the product. (Corresponds to the productʼs [Purchasability](https://support.bigcommerce.com/s/article/Adding-Products-v3?language=en_US#sections) section in the control panel.) Supported values: `available` - the product is available for purchase; `disabled` - the product is listed on the storefront, but cannot be purchased; `preorder` - the product is listed for pre-orders.
-             *
              * @enum {string}
              */
             readonly availability?: "available" | "disabled" | "preorder";
@@ -2173,89 +1981,71 @@ export interface components {
              * @description Type of gift-wrapping options. Values: `any` - allow any gift-wrapping options in the store; `none` - disallow gift-wrapping on the product; `list` – provide a list of IDs in the `gift_wrapping_options_list` field.
              *
              *     Always included in the response body; not applicable for the `include_fields` and `exclude_fields` query parameters.
-             *
              * @enum {string}
              */
             readonly gift_wrapping_options_type?: "any" | "none" | "list";
-            /** @description A list of gift-wrapping option IDs.
+            /**
+             * @description A list of gift-wrapping option IDs.
              *
              *     Always included in the response body; not applicable for the `include_fields` and `exclude_fields` query parameters.
-             *      */
+             */
             readonly gift_wrapping_options_list?: readonly number[];
-            /** @description Priority to give this product when included in product lists on category pages and in search results. Lower integers will place the product closer to the top of the results.
-             *      */
+            /** @description Priority to give this product when included in product lists on category pages and in search results. Lower integers will place the product closer to the top of the results. */
             readonly sort_order?: number;
             /**
              * @description The product condition. Will be shown on the product page if the `is_condition_shown` fieldʼs value is `true`. Possible values: `New`, `Used`, `Refurbished`.
-             *
              * @enum {string}
              */
             readonly condition?: "New" | "Used" | "Refurbished";
-            /** @description Flag used to determine whether the product condition is shown to the customer on the product page.
-             *      */
+            /** @description Flag used to determine whether the product condition is shown to the customer on the product page. */
             readonly is_condition_shown?: boolean;
-            /** @description The minimum quantity an order must contain, to be eligible to purchase this product.
-             *      */
+            /** @description The minimum quantity an order must contain, to be eligible to purchase this product. */
             readonly order_quantity_minimum?: number;
-            /** @description The maximum quantity an order can contain when purchasing the product.
-             *      */
+            /** @description The maximum quantity an order can contain when purchasing the product. */
             readonly order_quantity_maximum?: number;
-            /** @description Custom title for the product page. If not defined, the product name will be used as the meta title.
-             *      */
+            /** @description Custom title for the product page. If not defined, the product name will be used as the meta title. */
             readonly page_title?: string;
-            /** @description Custom meta keywords for the product page. If not defined, the storeʼs default keywords will be used.
-             *      */
+            /** @description Custom meta keywords for the product page. If not defined, the storeʼs default keywords will be used. */
             readonly meta_keywords?: readonly string[];
-            /** @description Custom meta description for the product page. If not defined, the storeʼs default meta description will be used.
-             *      */
+            /** @description Custom meta description for the product page. If not defined, the storeʼs default meta description will be used. */
             readonly meta_description?: string;
             /**
              * @deprecated
              * @description The number of times the product has been viewed.
-             *
              */
             readonly view_count?: number;
             /**
              * Format: date-time
              * @description Pre-order release date. See the `availability` field for details on setting a productʼs availability to accept pre-orders.
-             *
              */
             readonly preorder_release_date?: string | null;
-            /** @description Custom expected-date message to display on the product page. If undefined, the message defaults to the storewide setting. Can contain the `%%DATE%%` placeholder, which will be substituted for the release date.
-             *      */
+            /** @description Custom expected-date message to display on the product page. If undefined, the message defaults to the storewide setting. Can contain the `%%DATE%%` placeholder, which will be substituted for the release date. */
             readonly preorder_message?: string;
-            /** @description If set to true then on the preorder release date the preorder status will automatically be removed.
+            /**
+             * @description If set to true then on the preorder release date the preorder status will automatically be removed.
              *     If set to false, then on the release date the preorder status **will not** be removed. It will need to be changed manually either in the
              *     control panel or using the API. Using the API set `availability` to `available`.
-             *      */
+             */
             readonly is_preorder_only?: boolean;
-            /** @description False by default, indicating that this productʼs price should be shown on the product page. If set to `true`, the price is hidden. (NOTE: To successfully set `is_price_hidden` to `true`, the `availability` value must be `disabled`.)
-             *      */
+            /** @description False by default, indicating that this productʼs price should be shown on the product page. If set to `true`, the price is hidden. (NOTE: To successfully set `is_price_hidden` to `true`, the `availability` value must be `disabled`.) */
             readonly is_price_hidden?: boolean;
-            /** @description By default, an empty string. If `is_price_hidden` is `true`, the value of `price_hidden_label` is displayed instead of the price. (NOTE: To successfully set a non-empty string value with `is_price_hidden` set to `true`, the `availability` value must be `disabled`.)
-             *      */
+            /** @description By default, an empty string. If `is_price_hidden` is `true`, the value of `price_hidden_label` is displayed instead of the price. (NOTE: To successfully set a non-empty string value with `is_price_hidden` set to `true`, the `availability` value must be `disabled`.) */
             readonly price_hidden_label?: string;
             readonly custom_url?: components["schemas"]["customUrl_Full"];
             /**
              * @description Type of product, defaults to `product`.
-             *
              * @enum {string}
              */
             readonly open_graph_type?: "product" | "album" | "book" | "drink" | "food" | "game" | "movie" | "song" | "tv_show";
-            /** @description Title of the product, if not specified the product name will be used instead.
-             *      */
+            /** @description Title of the product, if not specified the product name will be used instead. */
             readonly open_graph_title?: string;
-            /** @description Description to use for the product, if not specified then the meta_description will be used instead.
-             *      */
+            /** @description Description to use for the product, if not specified then the meta_description will be used instead. */
             readonly open_graph_description?: string;
-            /** @description Flag to determine if product description or open graph description is used.
-             *      */
+            /** @description Flag to determine if product description or open graph description is used. */
             readonly open_graph_use_meta_description?: boolean;
-            /** @description Flag to determine if product name or open graph name is used.
-             *      */
+            /** @description Flag to determine if product name or open graph name is used. */
             readonly open_graph_use_product_name?: boolean;
-            /** @description Flag to determine if product image or open graph image is used.
-             *      */
+            /** @description Flag to determine if product image or open graph image is used. */
             readonly open_graph_use_image?: boolean;
             /** @description Global Trade Item Number */
             readonly gtin?: string;
@@ -2265,19 +2055,16 @@ export interface components {
             readonly date_last_imported?: string;
             /**
              * @description The total (cumulative) rating for the product.
-             *
              * @example 3
              */
             readonly reviews_rating_sum?: number;
             /**
              * @description The number of times the product has been rated.
-             *
              * @example 4
              */
             readonly reviews_count?: number;
             /**
              * @description The total quantity of this product sold.
-             *
              * @example 80
              */
             readonly total_sold?: number;
@@ -2288,9 +2075,10 @@ export interface components {
                 readonly id: number;
             } & components["schemas"]["bulkPricingRule_Full"])[];
             readonly images?: readonly components["schemas"]["productImage_Full"][];
-            /** @description The Catalog API integrates with third-party YouTube.
+            /**
+             * @description The Catalog API integrates with third-party YouTube.
              *     The [YouTube Terms of Service](https://www.youtube.com/t/terms) and [Google Privacy Policy](https://policies.google.com/privacy) apply, as indicated in our [Privacy Policy](https://www.bigcommerce.com/privacy/) and [Terms of Service](https://www.bigcommerce.com/terms/).
-             *      */
+             */
             readonly videos?: readonly components["schemas"]["productVideo_Full"][];
             readonly variants?: readonly components["schemas"]["productVariant_Full"][];
         };
@@ -2302,150 +2090,122 @@ export interface components {
         readonly product_Base_PUT: {
             /**
              * @description A unique product name.
-             *
              * @example Smith Journal 13
              */
             readonly name?: string;
             /**
              * @description The product type. One of: `physical` - a physical stock unit, `digital` - a digital download.
-             *
              * @example physical
              * @enum {string}
              */
             readonly type?: "physical" | "digital";
             /**
              * @description A unique user-defined alphanumeric product code/stock keeping unit (SKU). The SKU is always unique regardless of the letter case for both products and variants.
-             *
              * @example SM-13
              */
             readonly sku?: string;
             /**
              * @description The product description, which can include HTML formatting.
-             *
              * @example <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>
              */
             readonly description?: string;
             /**
              * Format: float
              * @description Weight of the product, which can be used when calculating shipping costs. This is based on the unit set on the store.
-             *
              */
             readonly weight?: number;
             /**
              * Format: float
              * @description Width of the product, which can be used when calculating shipping costs.
-             *
              */
             readonly width?: number;
             /**
              * Format: float
              * @description Depth of the product, which can be used when calculating shipping costs.
-             *
              */
             readonly depth?: number;
             /**
              * Format: float
              * @description Height of the product, which can be used when calculating shipping costs.
-             *
              */
             readonly height?: number;
             /**
              * Format: float
              * @description The price of the product. The price should include or exclude tax, based on the store settings.
-             *
              */
             readonly price?: number;
             /**
              * Format: float
              * @description The cost price of the product. Stored for reference only; it is not used or displayed anywhere on the store.
-             *
              */
             readonly cost_price?: number;
             /**
              * Format: float
              * @description The retail cost of the product. If entered, the retail cost price will be shown on the product page.
-             *
              */
             readonly retail_price?: number;
             /**
              * Format: float
              * @description If entered, the sale price will be used instead of value in the price field when calculating the productʼs cost.
-             *
              */
             readonly sale_price?: number;
             /** @description Minimum Advertised Price */
             readonly map_price?: number;
-            /** @description The ID of the tax class applied to the product. (NOTE: Value ignored if automatic tax is enabled.)
-             *      */
+            /** @description The ID of the tax class applied to the product. (NOTE: Value ignored if automatic tax is enabled.) */
             readonly tax_class_id?: number;
-            /** @description Tax Codes, such as AvaTax System Tax Codes, identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to a tax provider integration, such as BigCommerceʼs Avalara Premium, can calculate sales taxes more accurately. Stores without a tax provider will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive. For details, please see the tax providerʼs documentation.
-             *      */
+            /** @description Tax Codes, such as AvaTax System Tax Codes, identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to a tax provider integration, such as BigCommerceʼs Avalara Premium, can calculate sales taxes more accurately. Stores without a tax provider will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive. For details, please see the tax providerʼs documentation. */
             readonly product_tax_code?: string;
-            /** @description An array of IDs for the categories to which this product belongs. When updating a product, if an array of categories is supplied, all product categories will be overwritten. Does not accept more than 1,000 ID values.
-             *      */
+            /** @description An array of IDs for the categories to which this product belongs. When updating a product, if an array of categories is supplied, all product categories will be overwritten. Does not accept more than 1,000 ID values. */
             readonly categories?: readonly number[];
-            /** @description You can add a product to an existing brand during a product /PUT or /POST. Use either the `brand_id` or the `brand_name` field. The response body can include `brand_id`.
-             *      */
+            /** @description You can add a product to an existing brand during a product /PUT or /POST. Use either the `brand_id` or the `brand_name` field. The response body can include `brand_id`. */
             readonly brand_id?: number;
             /**
              * @description You can create the brand during a product PUT or POST request. If the brand already exists, the product /PUT or /POST request adds the product to the brand. If not, the product /PUT or /POST request creates the brand and then adds the product to the brand. Brand name is not case-sensitive; "Common Good" and "Common good" are the same. Use either the `brand_id` or the `brand_name` field. The response body does not include `brand_name`.
              * @example Common Good
              */
             readonly brand_name?: string;
-            /** @description Current inventory level of the product. You must track inventory by _product_ for this to take effect (see the `inventory_tracking` field). The Catalog API returns the inventory for only the default location.
+            /**
+             * @description Current inventory level of the product. You must track inventory by _product_ for this to take effect (see the `inventory_tracking` field). The Catalog API returns the inventory for only the default location.
              *
              *     The inventory for a product cannot exceed 2,147,483,647 in the catalog. If you exceed the limit, the store sets the inventory level to the limit.
              *
-             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).  */
+             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).
+             */
             readonly inventory_level?: number;
-            /** @description Inventory warning level for the product. When the productʼs inventory level drops below the warning level, the store owner will be informed. Simple inventory tracking must be enabled (see the `inventory_tracking` field) for this to take any effect.
-             *      */
+            /** @description Inventory warning level for the product. When the productʼs inventory level drops below the warning level, the store owner will be informed. Simple inventory tracking must be enabled (see the `inventory_tracking` field) for this to take any effect. */
             readonly inventory_warning_level?: number;
             /**
              * @description The type of inventory tracking for the product. Values are: `none` - inventory levels will not be tracked; `product` - inventory levels will be tracked using the `inventory_level` and `inventory_warning_level` fields; `variant` - inventory levels will be tracked based on variants, which maintain their own warning levels and inventory levels.
-             *
              * @enum {string}
              */
             readonly inventory_tracking?: "none" | "product" | "variant";
             /**
              * Format: float
              * @description A fixed shipping cost for the product. If defined, this value will be used during checkout instead of normal shipping-cost calculation.
-             *
              */
             readonly fixed_cost_shipping_price?: number;
-            /** @description Flag used to indicate whether the product has free shipping. If `true`, the shipping cost for the product will be zero.
-             *      */
+            /** @description Flag used to indicate whether the product has free shipping. If `true`, the shipping cost for the product will be zero. */
             readonly is_free_shipping?: boolean;
-            /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the product will be displayed. If `false`, the product will be hidden from view.
-             *      */
+            /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the product will be displayed. If `false`, the product will be hidden from view. */
             readonly is_visible?: boolean;
-            /** @description Flag to determine whether the product should be included in the `featured products` panel when viewing the store.
-             *      */
+            /** @description Flag to determine whether the product should be included in the `featured products` panel when viewing the store. */
             readonly is_featured?: boolean;
-            /** @description An array of IDs for the related products.
-             *      */
+            /** @description An array of IDs for the related products. */
             readonly related_products?: readonly number[];
-            /** @description Warranty information displayed on the product page. Can include HTML formatting.
-             *      */
+            /** @description Warranty information displayed on the product page. Can include HTML formatting. */
             readonly warranty?: string;
-            /** @description The BIN picking number for the product.
-             *      */
+            /** @description The BIN picking number for the product. */
             readonly bin_picking_number?: string;
-            /** @description The layout template file used to render this product category. This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
-             *      */
+            /** @description The layout template file used to render this product category. This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations). */
             readonly layout_file?: string;
-            /** @description The product UPC code, which is used in feeds for shopping comparison sites and external channel integrations.
-             *      */
+            /** @description The product UPC code, which is used in feeds for shopping comparison sites and external channel integrations. */
             readonly upc?: string;
-            /** @description A comma-separated list of keywords that can be used to locate the product when searching the store.
-             *      */
+            /** @description A comma-separated list of keywords that can be used to locate the product when searching the store. */
             readonly search_keywords?: string;
-            /** @description Availability text displayed on the checkout page, under the product title. Tells the customer how long it will normally take to ship this product, such as: 'Usually ships in 24 hours.'
-             *      */
+            /** @description Availability text displayed on the checkout page, under the product title. Tells the customer how long it will normally take to ship this product, such as: 'Usually ships in 24 hours.' */
             readonly availability_description?: string;
             /**
              * @description Availability of the product. (Corresponds to the productʼs [Purchasability](https://support.bigcommerce.com/s/article/Adding-Products-v3?language=en_US#sections) section in the control panel.) Supported values: `available` - the product is available for purchase; `disabled` - the product is listed on the storefront, but cannot be purchased; `preorder` - the product is listed for pre-orders.
-             *
              * @enum {string}
              */
             readonly availability?: "available" | "disabled" | "preorder";
@@ -2453,89 +2213,71 @@ export interface components {
              * @description Type of gift-wrapping options. Values: `any` - allow any gift-wrapping options in the store; `none` - disallow gift-wrapping on the product; `list` – provide a list of IDs in the `gift_wrapping_options_list` field.
              *
              *     Always included in the response body; not applicable for the `include_fields` and `exclude_fields` query parameters.
-             *
              * @enum {string}
              */
             readonly gift_wrapping_options_type?: "any" | "none" | "list";
-            /** @description A list of gift-wrapping option IDs.
+            /**
+             * @description A list of gift-wrapping option IDs.
              *
              *     Always included in the response body; not applicable for the `include_fields` and `exclude_fields` query parameters.
-             *      */
+             */
             readonly gift_wrapping_options_list?: readonly number[];
-            /** @description Priority to give this product when included in product lists on category pages and in search results. Lower integers will place the product closer to the top of the results.
-             *      */
+            /** @description Priority to give this product when included in product lists on category pages and in search results. Lower integers will place the product closer to the top of the results. */
             readonly sort_order?: number;
             /**
              * @description The product condition. Will be shown on the product page if the `is_condition_shown` fieldʼs value is `true`. Possible values: `New`, `Used`, `Refurbished`.
-             *
              * @enum {string}
              */
             readonly condition?: "New" | "Used" | "Refurbished";
-            /** @description Flag used to determine whether the product condition is shown to the customer on the product page.
-             *      */
+            /** @description Flag used to determine whether the product condition is shown to the customer on the product page. */
             readonly is_condition_shown?: boolean;
-            /** @description The minimum quantity an order must contain, to be eligible to purchase this product.
-             *      */
+            /** @description The minimum quantity an order must contain, to be eligible to purchase this product. */
             readonly order_quantity_minimum?: number;
-            /** @description The maximum quantity an order can contain when purchasing the product.
-             *      */
+            /** @description The maximum quantity an order can contain when purchasing the product. */
             readonly order_quantity_maximum?: number;
-            /** @description Custom title for the product page. If not defined, the product name will be used as the meta title.
-             *      */
+            /** @description Custom title for the product page. If not defined, the product name will be used as the meta title. */
             readonly page_title?: string;
-            /** @description Custom meta keywords for the product page. If not defined, the storeʼs default keywords will be used.
-             *      */
+            /** @description Custom meta keywords for the product page. If not defined, the storeʼs default keywords will be used. */
             readonly meta_keywords?: readonly string[];
-            /** @description Custom meta description for the product page. If not defined, the storeʼs default meta description will be used.
-             *      */
+            /** @description Custom meta description for the product page. If not defined, the storeʼs default meta description will be used. */
             readonly meta_description?: string;
             /**
              * @deprecated
              * @description The number of times the product has been viewed.
-             *
              */
             readonly view_count?: number;
             /**
              * Format: date-time
              * @description Pre-order release date. See the `availability` field for details on setting a productʼs availability to accept pre-orders.
-             *
              */
             readonly preorder_release_date?: string | null;
-            /** @description Custom expected-date message to display on the product page. If undefined, the message defaults to the storewide setting. Can contain the `%%DATE%%` placeholder, which will be substituted for the release date.
-             *      */
+            /** @description Custom expected-date message to display on the product page. If undefined, the message defaults to the storewide setting. Can contain the `%%DATE%%` placeholder, which will be substituted for the release date. */
             readonly preorder_message?: string;
-            /** @description If set to true then on the preorder release date the preorder status will automatically be removed.
+            /**
+             * @description If set to true then on the preorder release date the preorder status will automatically be removed.
              *     If set to false, then on the release date the preorder status **will not** be removed. It will need to be changed manually either in the
              *     control panel or using the API. Using the API set `availability` to `available`.
-             *      */
+             */
             readonly is_preorder_only?: boolean;
-            /** @description False by default, indicating that this productʼs price should be shown on the product page. If set to `true`, the price is hidden. (NOTE: To successfully set `is_price_hidden` to `true`, the `availability` value must be `disabled`.)
-             *      */
+            /** @description False by default, indicating that this productʼs price should be shown on the product page. If set to `true`, the price is hidden. (NOTE: To successfully set `is_price_hidden` to `true`, the `availability` value must be `disabled`.) */
             readonly is_price_hidden?: boolean;
-            /** @description By default, an empty string. If `is_price_hidden` is `true`, the value of `price_hidden_label` is displayed instead of the price. (NOTE: To successfully set a non-empty string value with `is_price_hidden` set to `true`, the `availability` value must be `disabled`.)
-             *      */
+            /** @description By default, an empty string. If `is_price_hidden` is `true`, the value of `price_hidden_label` is displayed instead of the price. (NOTE: To successfully set a non-empty string value with `is_price_hidden` set to `true`, the `availability` value must be `disabled`.) */
             readonly price_hidden_label?: string;
             readonly custom_url?: components["schemas"]["customUrl_Full"];
             /**
              * @description Type of product, defaults to `product`.
-             *
              * @enum {string}
              */
             readonly open_graph_type?: "product" | "album" | "book" | "drink" | "food" | "game" | "movie" | "song" | "tv_show";
-            /** @description Title of the product, if not specified the product name will be used instead.
-             *      */
+            /** @description Title of the product, if not specified the product name will be used instead. */
             readonly open_graph_title?: string;
-            /** @description Description to use for the product, if not specified then the meta_description will be used instead.
-             *      */
+            /** @description Description to use for the product, if not specified then the meta_description will be used instead. */
             readonly open_graph_description?: string;
-            /** @description Flag to determine if product description or open graph description is used.
-             *      */
+            /** @description Flag to determine if product description or open graph description is used. */
             readonly open_graph_use_meta_description?: boolean;
-            /** @description Flag to determine if product name or open graph name is used.
-             *      */
+            /** @description Flag to determine if product name or open graph name is used. */
             readonly open_graph_use_product_name?: boolean;
-            /** @description Flag to determine if product image or open graph image is used.
-             *      */
+            /** @description Flag to determine if product image or open graph image is used. */
             readonly open_graph_use_image?: boolean;
             /** @description Global Trade Item Number */
             readonly gtin?: string;
@@ -2545,19 +2287,16 @@ export interface components {
             readonly date_last_imported?: string;
             /**
              * @description The total (cumulative) rating for the product.
-             *
              * @example 3
              */
             readonly reviews_rating_sum?: number;
             /**
              * @description The number of times the product has been rated.
-             *
              * @example 4
              */
             readonly reviews_count?: number;
             /**
              * @description The total quantity of this product sold.
-             *
              * @example 80
              */
             readonly total_sold?: number;
@@ -2568,9 +2307,10 @@ export interface components {
                 readonly id: number;
             } & components["schemas"]["bulkPricingRule_Full"])[];
             readonly images?: readonly components["schemas"]["productImage_Full"][];
-            /** @description The Catalog API integrates with third-party YouTube.
+            /**
+             * @description The Catalog API integrates with third-party YouTube.
              *     The [YouTube Terms of Service](https://www.youtube.com/t/terms) and [Google Privacy Policy](https://policies.google.com/privacy) apply, as indicated in our [Privacy Policy](https://www.bigcommerce.com/privacy/) and [Terms of Service](https://www.bigcommerce.com/terms/).
-             *      */
+             */
             readonly videos?: readonly components["schemas"]["productVideo_Full"][];
         };
         /**
@@ -2580,145 +2320,117 @@ export interface components {
         readonly product_Base_response: {
             /**
              * @description A unique product name.
-             *
              * @example Smith Journal 13
              */
             readonly name?: string;
             /**
              * @description The product type. One of: `physical` - a physical stock unit, `digital` - a digital download.
-             *
              * @example physical
              * @enum {string}
              */
             readonly type?: "physical" | "digital";
             /**
              * @description A unique user-defined alphanumeric product code/stock keeping unit (SKU).
-             *
              * @example SM-13
              */
             readonly sku?: string;
             /**
              * @description The product description, which can include HTML formatting.
-             *
              * @example <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>
              */
             readonly description?: string;
             /**
              * Format: float
              * @description Weight of the product, which can be used when calculating shipping costs. This is based on the unit set on the store
-             *
              */
             readonly weight?: number;
             /**
              * Format: float
              * @description Width of the product, which can be used when calculating shipping costs.
-             *
              */
             readonly width?: number;
             /**
              * Format: float
              * @description Depth of the product, which can be used when calculating shipping costs.
-             *
              */
             readonly depth?: number;
             /**
              * Format: float
              * @description Height of the product, which can be used when calculating shipping costs.
-             *
              */
             readonly height?: number;
             /**
              * Format: float
              * @description The price of the product. The price should include or exclude tax, based on the store settings.
-             *
              */
             readonly price?: number;
             /**
              * Format: float
              * @description The cost price of the product. Stored for reference only; it is not used or displayed anywhere on the store.
-             *
              */
             readonly cost_price?: number;
             /**
              * Format: float
              * @description The retail cost of the product. If entered, the retail cost price will be shown on the product page.
-             *
              */
             readonly retail_price?: number;
             /**
              * Format: float
              * @description If entered, the sale price will be used instead of value in the price field when calculating the productʼs cost.
-             *
              */
             readonly sale_price?: number;
             /** @description Minimum Advertised Price */
             readonly map_price?: number;
-            /** @description The ID of the tax class applied to the product. (NOTE: Value ignored if automatic tax is enabled.)
-             *      */
+            /** @description The ID of the tax class applied to the product. (NOTE: Value ignored if automatic tax is enabled.) */
             readonly tax_class_id?: number;
-            /** @description Tax Codes, such as AvaTax System Tax Codes, identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to a tax provider integration, such as BigCommerceʼs Avalara Premium, can calculate sales taxes more accurately. Stores without a tax provider will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive. For details, please see the tax providerʼs documentation.
-             *      */
+            /** @description Tax Codes, such as AvaTax System Tax Codes, identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to a tax provider integration, such as BigCommerceʼs Avalara Premium, can calculate sales taxes more accurately. Stores without a tax provider will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive. For details, please see the tax providerʼs documentation. */
             readonly product_tax_code?: string;
-            /** @description An array of IDs for the categories to which this product belongs. When updating a product, if an array of categories is supplied, all product categories will be overwritten. Does not accept more than 1,000 ID values.
-             *      */
+            /** @description An array of IDs for the categories to which this product belongs. When updating a product, if an array of categories is supplied, all product categories will be overwritten. Does not accept more than 1,000 ID values. */
             readonly categories?: readonly number[];
-            /** @description You can add a product to an existing brand during a product /PUT or /POST use the `brand_id` field. The response body can include `brand_id'.
-             *      */
+            /** @description You can add a product to an existing brand during a product /PUT or /POST use the `brand_id` field. The response body can include `brand_id'. */
             readonly brand_id?: number;
-            /** @description Current inventory level of the product. You must track inventory by _product_ for this to take effect (see the `inventory_tracking` field). The Catalog API returns the inventory for only the default location.
+            /**
+             * @description Current inventory level of the product. You must track inventory by _product_ for this to take effect (see the `inventory_tracking` field). The Catalog API returns the inventory for only the default location.
              *
              *     The inventory for a product cannot exceed 2,147,483,647 in the catalog. If you exceed the limit, the store sets the inventory level to the limit.
              *
-             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api). */
+             *     The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api).
+             */
             readonly inventory_level?: number;
-            /** @description Inventory warning level for the product. When the productʼs inventory level drops below the warning level, the store owner will be informed. Simple inventory tracking must be enabled (see the `inventory_tracking` field) for this to take any effect.
-             *      */
+            /** @description Inventory warning level for the product. When the productʼs inventory level drops below the warning level, the store owner will be informed. Simple inventory tracking must be enabled (see the `inventory_tracking` field) for this to take any effect. */
             readonly inventory_warning_level?: number;
             /**
              * @description The type of inventory tracking for the product. Values are: `none` - inventory levels will not be tracked; `product` - inventory levels will be tracked using the `inventory_level` and `inventory_warning_level` fields; `variant` - inventory levels will be tracked based on variants, which maintain their own warning levels and inventory levels.
-             *
              * @enum {string}
              */
             readonly inventory_tracking?: "none" | "product" | "variant";
             /**
              * Format: float
              * @description A fixed shipping cost for the product. If defined, this value will be used during checkout instead of normal shipping-cost calculation.
-             *
              */
             readonly fixed_cost_shipping_price?: number;
-            /** @description Flag used to indicate whether the product has free shipping. If `true`, the shipping cost for the product will be zero.
-             *      */
+            /** @description Flag used to indicate whether the product has free shipping. If `true`, the shipping cost for the product will be zero. */
             readonly is_free_shipping?: boolean;
-            /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the product will be displayed. If `false`, the product will be hidden from view.
-             *      */
+            /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the product will be displayed. If `false`, the product will be hidden from view. */
             readonly is_visible?: boolean;
-            /** @description Flag to determine whether the product should be included in the `featured products` panel when viewing the store.
-             *      */
+            /** @description Flag to determine whether the product should be included in the `featured products` panel when viewing the store. */
             readonly is_featured?: boolean;
-            /** @description An array of IDs for the related products.
-             *      */
+            /** @description An array of IDs for the related products. */
             readonly related_products?: readonly number[];
-            /** @description Warranty information displayed on the product page. Can include HTML formatting.
-             *      */
+            /** @description Warranty information displayed on the product page. Can include HTML formatting. */
             readonly warranty?: string;
-            /** @description The BIN picking number for the product.
-             *      */
+            /** @description The BIN picking number for the product. */
             readonly bin_picking_number?: string;
-            /** @description The layout template file used to render this product category. This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
-             *      */
+            /** @description The layout template file used to render this product category. This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations). */
             readonly layout_file?: string;
-            /** @description The product UPC code, which is used in feeds for shopping comparison sites and external channel integrations.
-             *      */
+            /** @description The product UPC code, which is used in feeds for shopping comparison sites and external channel integrations. */
             readonly upc?: string;
-            /** @description A comma-separated list of keywords that can be used to locate the product when searching the store.
-             *      */
+            /** @description A comma-separated list of keywords that can be used to locate the product when searching the store. */
             readonly search_keywords?: string;
-            /** @description Availability text displayed on the checkout page, under the product title. Tells the customer how long it will normally take to ship this product, such as: 'Usually ships in 24 hours.'
-             *      */
+            /** @description Availability text displayed on the checkout page, under the product title. Tells the customer how long it will normally take to ship this product, such as: 'Usually ships in 24 hours.' */
             readonly availability_description?: string;
             /**
              * @description Availability of the product. (Corresponds to the productʼs [Purchasability](https://support.bigcommerce.com/s/article/Adding-Products-v3?language=en_US#sections) section in the control panel.) Supported values: `available` - the product is available for purchase; `disabled` - the product is listed on the storefront, but cannot be purchased; `preorder` - the product is listed for pre-orders.
-             *
              * @enum {string}
              */
             readonly availability?: "available" | "disabled" | "preorder";
@@ -2726,89 +2438,71 @@ export interface components {
              * @description Type of gift-wrapping options. Values: `any` - allow any gift-wrapping options in the store; `none` - disallow gift-wrapping on the product; `list` – provide a list of IDs in the `gift_wrapping_options_list` field.
              *
              *     Always included in the response body; not applicable for the `include_fields` and `exclude_fields` query parameters.
-             *
              * @enum {string}
              */
             readonly gift_wrapping_options_type?: "any" | "none" | "list";
-            /** @description A list of gift-wrapping option IDs.
+            /**
+             * @description A list of gift-wrapping option IDs.
              *
              *     Always included in the response body; not applicable for the `include_fields` and `exclude_fields` query parameters.
-             *      */
+             */
             readonly gift_wrapping_options_list?: readonly number[];
-            /** @description Priority to give this product when included in product lists on category pages and in search results. Lower integers will place the product closer to the top of the results.
-             *      */
+            /** @description Priority to give this product when included in product lists on category pages and in search results. Lower integers will place the product closer to the top of the results. */
             readonly sort_order?: number;
             /**
              * @description The product condition. Will be shown on the product page if the `is_condition_shown` fieldʼs value is `true`. Possible values: `New`, `Used`, `Refurbished`.
-             *
              * @enum {string}
              */
             readonly condition?: "New" | "Used" | "Refurbished";
-            /** @description Flag used to determine whether the product condition is shown to the customer on the product page.
-             *      */
+            /** @description Flag used to determine whether the product condition is shown to the customer on the product page. */
             readonly is_condition_shown?: boolean;
-            /** @description The minimum quantity an order must contain, to be eligible to purchase this product.
-             *      */
+            /** @description The minimum quantity an order must contain, to be eligible to purchase this product. */
             readonly order_quantity_minimum?: number;
-            /** @description The maximum quantity an order can contain when purchasing the product.
-             *      */
+            /** @description The maximum quantity an order can contain when purchasing the product. */
             readonly order_quantity_maximum?: number;
-            /** @description Custom title for the product page. If not defined, the product name will be used as the meta title.
-             *      */
+            /** @description Custom title for the product page. If not defined, the product name will be used as the meta title. */
             readonly page_title?: string;
-            /** @description Custom meta keywords for the product page. If not defined, the storeʼs default keywords will be used.
-             *      */
+            /** @description Custom meta keywords for the product page. If not defined, the storeʼs default keywords will be used. */
             readonly meta_keywords?: readonly string[];
-            /** @description Custom meta description for the product page. If not defined, the storeʼs default meta description will be used.
-             *      */
+            /** @description Custom meta description for the product page. If not defined, the storeʼs default meta description will be used. */
             readonly meta_description?: string;
             /**
              * @deprecated
              * @description The number of times the product has been viewed.
-             *
              */
             readonly view_count?: number;
             /**
              * Format: date-time
              * @description Pre-order release date. See the `availability` field for details on setting a productʼs availability to accept pre-orders.
-             *
              */
             readonly preorder_release_date?: string | null;
-            /** @description Custom expected-date message to display on the product page. If undefined, the message defaults to the storewide setting. Can contain the `%%DATE%%` placeholder, which will be substituted for the release date.
-             *      */
+            /** @description Custom expected-date message to display on the product page. If undefined, the message defaults to the storewide setting. Can contain the `%%DATE%%` placeholder, which will be substituted for the release date. */
             readonly preorder_message?: string;
-            /** @description If set to true then on the preorder release date the preorder status will automatically be removed.
+            /**
+             * @description If set to true then on the preorder release date the preorder status will automatically be removed.
              *     If set to false, then on the release date the preorder status **will not** be removed. It will need to be changed manually either in the
              *     control panel or using the API. Using the API set `availability` to `available`.
-             *      */
+             */
             readonly is_preorder_only?: boolean;
-            /** @description False by default, indicating that this productʼs price should be shown on the product page. If set to `true`, the price is hidden. (NOTE: To successfully set `is_price_hidden` to `true`, the `availability` value must be `disabled`.)
-             *      */
+            /** @description False by default, indicating that this productʼs price should be shown on the product page. If set to `true`, the price is hidden. (NOTE: To successfully set `is_price_hidden` to `true`, the `availability` value must be `disabled`.) */
             readonly is_price_hidden?: boolean;
-            /** @description By default, an empty string. If `is_price_hidden` is `true`, the value of `price_hidden_label` is displayed instead of the price. (NOTE: To successfully set a non-empty string value with `is_price_hidden` set to `true`, the `availability` value must be `disabled`.)
-             *      */
+            /** @description By default, an empty string. If `is_price_hidden` is `true`, the value of `price_hidden_label` is displayed instead of the price. (NOTE: To successfully set a non-empty string value with `is_price_hidden` set to `true`, the `availability` value must be `disabled`.) */
             readonly price_hidden_label?: string;
             readonly custom_url?: components["schemas"]["customUrl_Full"];
             /**
              * @description Type of product, defaults to `product`.
-             *
              * @enum {string}
              */
             readonly open_graph_type?: "product" | "album" | "book" | "drink" | "food" | "game" | "movie" | "song" | "tv_show";
-            /** @description Title of the product, if not specified the product name will be used instead.
-             *      */
+            /** @description Title of the product, if not specified the product name will be used instead. */
             readonly open_graph_title?: string;
-            /** @description Description to use for the product, if not specified then the meta_description will be used instead.
-             *      */
+            /** @description Description to use for the product, if not specified then the meta_description will be used instead. */
             readonly open_graph_description?: string;
-            /** @description Flag to determine if product description or open graph description is used.
-             *      */
+            /** @description Flag to determine if product description or open graph description is used. */
             readonly open_graph_use_meta_description?: boolean;
-            /** @description Flag to determine if product name or open graph name is used.
-             *      */
+            /** @description Flag to determine if product name or open graph name is used. */
             readonly open_graph_use_product_name?: boolean;
-            /** @description Flag to determine if product image or open graph image is used.
-             *      */
+            /** @description Flag to determine if product image or open graph image is used. */
             readonly open_graph_use_image?: boolean;
             /** @description Global Trade Item Number */
             readonly gtin?: string;
@@ -2818,19 +2512,16 @@ export interface components {
             readonly date_last_imported?: string;
             /**
              * @description The total (cumulative) rating for the product.
-             *
              * @example 3
              */
             readonly reviews_rating_sum?: number;
             /**
              * @description The number of times the product has been rated.
-             *
              * @example 4
              */
             readonly reviews_count?: number;
             /**
              * @description The total quantity of this product sold.
-             *
              * @example 80
              */
             readonly total_sold?: number;
@@ -2842,9 +2533,10 @@ export interface components {
             } & components["schemas"]["bulkPricingRule_Full"])[];
             readonly images?: readonly components["schemas"]["productImage_Full"][];
             readonly primary_image?: components["schemas"]["primaryImage_Full"];
-            /** @description The Catalog API integrates with third-party YouTube.
+            /**
+             * @description The Catalog API integrates with third-party YouTube.
              *     The [YouTube Terms of Service](https://www.youtube.com/t/terms) and [Google Privacy Policy](https://policies.google.com/privacy) apply, as indicated in our [Privacy Policy](https://www.bigcommerce.com/privacy/) and [Terms of Service](https://www.bigcommerce.com/terms/).
-             *      */
+             */
             readonly videos?: readonly components["schemas"]["productVideo_Full"][];
         };
         /** metafield_Full */
@@ -2857,28 +2549,24 @@ export interface components {
         } & components["schemas"]["metafield_Base"] & {
             /**
              * @description The type of resource with which the metafield is associated.
-             *
              * @example product
              * @enum {string}
              */
             readonly resource_type?: "category" | "brand" | "product" | "variant";
             /**
              * @description The ID of the resource with which the metafield is associated.
-             *
              * @example 111
              */
             readonly resource_id?: number;
             /**
              * Format: date-time
              * @description Date and time of the metafieldʼs creation. Read-Only.
-             *
              * @example 2018-05-07T20:14:17+00:00
              */
             readonly date_created?: string;
             /**
              * Format: date-time
              * @description Date and time when the metafield was last updated. Read-Only.
-             *
              * @example 2018-05-07T20:14:17+00:00
              */
             readonly date_modified?: string;
@@ -2927,14 +2615,11 @@ export interface components {
                 };
             };
         };
-        /** @description Error payload for the BigCommerce API.
-         *      */
+        /** @description Error payload for the BigCommerce API. */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -2953,8 +2638,7 @@ export interface components {
         readonly beta5ErrorResponse: components["schemas"]["BaseError"] & {
             readonly errors?: components["schemas"]["beta5DetailedErrors"];
         };
-        /** @description Common Metafield properties.
-         *      */
+        /** @description Common Metafield properties. */
         readonly Metafield: {
             /**
              * @description Determines the visibility and writeability of the field by other API consumers.
@@ -2965,44 +2649,37 @@ export interface components {
              *     | `write` | Open for reading and writing by other API consumers. |
              *     | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
              *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
-             *
              * @enum {string}
              */
             readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace: string;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value: string;
             /**
              * @description Description for the metafields.
-             *
              * @example order
              */
             readonly description: string;
             /**
              * @description The type of resource with which the metafield is associated.
-             *
              * @example cart
              * @enum {string}
              */
             readonly resource_type: "brand" | "product" | "variant" | "category" | "cart" | "channel" | "location" | "order" | "customer";
             /**
              * @description The unique identifier for the resource with which the metafield is associated.
-             *
              * @example 424242
              */
             readonly resource_id: number;
@@ -3026,14 +2703,12 @@ export interface components {
              */
             readonly owner_client_id?: string;
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponse: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             readonly meta?: components["schemas"]["CollectionMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponse_POST_PUT: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             /**
@@ -3043,31 +2718,32 @@ export interface components {
             readonly errors?: readonly unknown[];
             readonly meta?: components["schemas"]["WriteCollectionSuccessMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponsePartialSuccess_POST_PUT: {
             readonly data?: readonly components["schemas"]["Metafield"][];
             readonly errors?: readonly components["schemas"]["Error"][];
             readonly meta?: components["schemas"]["WriteCollectionPartialSuccessMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionResponsePartialSuccess_DELETE: {
-            /** @example [
+            /**
+             * @example [
              *       123
-             *     ] */
+             *     ]
+             */
             readonly data?: readonly number[];
             readonly errors?: readonly components["schemas"]["Error"][];
             readonly meta?: components["schemas"]["WriteCollectionPartialSuccessMeta"];
         };
-        /** @description Response payload for the BigCommerce API.
-         *      */
+        /** @description Response payload for the BigCommerce API. */
         readonly MetaFieldCollectionDeleteResponseSuccess: {
-            /** @example [
+            /**
+             * @example [
              *       123,
              *       124,
              *       125
-             *     ] */
+             *     ]
+             */
             readonly data?: readonly number[];
             /**
              * @description Empty for 200 responses.
@@ -3083,19 +2759,16 @@ export interface components {
         readonly WriteCollectionPartialSuccessMeta: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 3
              */
             readonly total?: number;
             /**
              * @description Total number of items that were successfully deleted.
-             *
              * @example 1
              */
             readonly success?: number;
             /**
              * @description Total number of items that failed to be deleted.
-             *
              * @example 2
              */
             readonly failed?: number;
@@ -3107,59 +2780,49 @@ export interface components {
         readonly WriteCollectionSuccessMeta: {
             /**
              * @description Total number of items in the result set.
-             *
              * @example 3
              */
             readonly total?: number;
             /**
              * @description Total number of items that were successfully deleted.
-             *
              * @example 3
              */
             readonly success?: number;
             /**
              * @description Total number of items that failed to be deleted.
-             *
              * @example 0
              */
             readonly failed?: number;
         };
         /**
          * @description Total number of items in the result set.
-         *
          * @example 3
          */
         readonly Total: number;
         /**
          * @description Total number of items that were successfully deleted.
-         *
          * @example 1
          */
         readonly Success: number;
         /**
          * @description Total number of items that failed to be deleted.
-         *
          * @example 2
          */
         readonly Failed: number;
-        /** @description Error response payload for the BigCommerce API.
-         *      */
+        /** @description Error response payload for the BigCommerce API. */
         readonly Error: {
             /**
              * @description The HTTP status code for the error.
-             *
              * @example 422
              */
             readonly status?: number;
             /**
              * @description The error title.
-             *
              * @example Bulk operation has failed
              */
             readonly title?: string;
             /**
              * @description The error type.
-             *
              * @example https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
              */
             readonly type?: string;
@@ -3167,7 +2830,6 @@ export interface components {
         };
         /**
          * @description Error detail response payload for the BigCommerce API.
-         *
          * @example {
          *       "1": "Unauthorized to delete",
          *       "2": "Metafield does not exist"
@@ -3188,56 +2850,46 @@ export interface components {
             readonly pagination?: {
                 /**
                  * @description Total number of items in the result set.
-                 *
                  * @example 36
                  */
                 readonly total?: number;
                 /**
                  * @description Total number of items in the collection response.
-                 *
                  * @example 36
                  */
                 readonly count?: number;
                 /**
                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                 *
                  * @example 50
                  */
                 readonly per_page?: number;
                 /**
                  * @description The page you are currently on within the collection.
-                 *
                  * @example 1
                  */
                 readonly current_page?: number;
                 /**
                  * @description The total number of pages in the collection.
-                 *
                  * @example 1
                  */
                 readonly total_pages?: number;
-                /** @description Pagination links for the previous and next parts of the whole collection.
-                 *      */
+                /** @description Pagination links for the previous and next parts of the whole collection. */
                 readonly links?: {
-                    /** @description Link to the previous page returned in the response.
-                     *      */
+                    /** @description Link to the previous page returned in the response. */
                     readonly previous?: string;
                     /**
                      * @description Link to the current page returned in the response.
-                     *
                      * @example ?page=1&limit=50
                      */
                     readonly current?: string;
-                    /** @description Link to the next page returned in the response.
-                     *      */
+                    /** @description Link to the next page returned in the response. */
                     readonly next?: string;
                 };
             };
         } & {
             readonly [key: string]: unknown;
         };
-        /** @description Common Metafield properties.
-         *      */
+        /** @description Common Metafield properties. */
         readonly MetafieldBase_Post: {
             /**
              * @description Determines the visibility and writeability of the field by other API consumers.
@@ -3248,37 +2900,31 @@ export interface components {
              *     | `write` | Open for reading and writing by other API consumers. |
              *     | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
              *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
-             *
              * @enum {string}
              */
             readonly permission_set: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace: string;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value: string;
             /**
              * @description Description for the metafields.
-             *
              * @example Name of Staff Member
              */
             readonly description?: string;
         };
-        /** @description Common Metafield properties.
-         *      */
+        /** @description Common Metafield properties. */
         readonly MetafieldBase_Put: {
             /**
              * @description Determines the visibility and writeability of the field by other API consumers.
@@ -3289,31 +2935,26 @@ export interface components {
              *     | `write` | Open for reading and writing by other API consumers. |
              *     | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
              *     | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
-             *
              * @enum {string}
              */
             readonly permission_set?: "app_only" | "read" | "write" | "read_and_sf_access" | "write_and_sf_access";
             /**
              * @description Namespace for the metafield, for organizational purposes.
-             *
              * @example Sales Department
              */
             readonly namespace?: string;
             /**
              * @description The name of the field, for example: `location_id`, `color`.
-             *
              * @example Staff Name
              */
             readonly key?: string;
             /**
              * @description The value of the field, for example: `1`, `blue`.
-             *
              * @example Ronaldo
              */
             readonly value?: string;
             /**
              * @description Description for the metafields.
-             *
              * @example Name of Staff Member
              */
             readonly description?: string;
@@ -3330,13 +2971,11 @@ export interface components {
             readonly id?: number;
             /**
              * @description The name of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
-             *
              * @example ISBN
              */
             readonly name?: string;
             /**
              * @description The value of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
-             *
              * @example 1234567890123
              */
             readonly value?: string;
@@ -3348,13 +2987,11 @@ export interface components {
         readonly customFieldPost: {
             /**
              * @description The name of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
-             *
              * @example ISBN
              */
             readonly name: string;
             /**
              * @description The value of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
-             *
              * @example 1234567890123
              */
             readonly value: string;
@@ -3366,13 +3003,11 @@ export interface components {
         readonly customFieldPut: {
             /**
              * @description The value of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
-             *
              * @example ISBN
              */
             readonly name?: string;
             /**
              * @description The value of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
-             *
              * @example 1234567890123
              */
             readonly value?: string;
@@ -3386,52 +3021,43 @@ export interface components {
             readonly pagination?: {
                 /**
                  * @description Total number of items in the result set.
-                 *
                  * @example 36
                  */
                 readonly total?: number;
                 /**
                  * @description Total number of items in the collection response.
-                 *
                  * @example 36
                  */
                 readonly count?: number;
                 /**
                  * @description The amount of items returned in the collection per page, controlled by the limit parameter.
-                 *
                  * @example 50
                  */
                 readonly per_page?: number;
                 /**
                  * @description The page you are currently on within the collection.
-                 *
                  * @example 2
                  */
                 readonly current_page?: number;
                 /**
                  * @description The total number of pages in the collection.
-                 *
                  * @example 3
                  */
                 readonly total_pages?: number;
-                /** @description Pagination links for the previous and next parts of the whole collection.
-                 *      */
+                /** @description Pagination links for the previous and next parts of the whole collection. */
                 readonly links?: {
                     /**
                      * @description Link to the previous page returned in the response.
-                     *
                      * @example ?page=1&limit=50
                      */
                     readonly previous?: string;
                     /**
                      * @description Link to the current page returned in the response.
-                     *
                      * @example ?page=2&limit=50
                      */
                     readonly current?: string;
                     /**
                      * @description Link to the next page returned in the response.
-                     *
                      * @example ?page=3&limit=50
                      */
                     readonly next?: string;
@@ -3556,36 +3182,30 @@ export interface components {
         };
     };
     parameters: {
-        /** @description The ID of the `Product` to which the resource belongs.
-         *      */
+        /** @description The ID of the `Product` to which the resource belongs. */
         readonly ProductIdParam: number;
-        /** @description The ID of the `review` that is being operated on.
-         *      */
+        /** @description The ID of the `review` that is being operated on. */
         readonly ReviewIdParam: number;
-        /** @description The ID of the `Image` that is being operated on.
-         *      */
+        /** @description The ID of the `Image` that is being operated on. */
         readonly ImageIdParam: number;
-        /** @description The ID of the `Metafield`.
-         *      */
+        /** @description The ID of the `Metafield`. */
         readonly MetafieldIdParam: number;
         /** @description The BigCommerce ID of the `Video` */
         readonly VideoIdParam: number;
-        /** @description The ID of the `ComplexRule`.
-         *      */
+        /** @description The ID of the `ComplexRule`. */
         readonly ComplexRuleIdParam: number;
-        /** @description The ID of the `CustomField`.
-         *      */
+        /** @description The ID of the `CustomField`. */
         readonly CustomFieldIdParam: number;
-        /** @description The ID of the `BulkPricingRule`.
-         *      */
+        /** @description The ID of the `BulkPricingRule`. */
         readonly BulkPricingRuleIdParam: number;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
         readonly Accept: string;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body. */
         readonly ContentType: string;
-        /** @description Specifies the page number in a limited (paginated) list of products.
-         *      */
+        /** @description Specifies the page number in a limited (paginated) list of products. */
         readonly PageParam: number;
+        /** @description A comma-separated list of entity ID values that filter results to metafields that belong to one of the matching entities. */
+        readonly MetafieldResourceParam: string;
         /** @description Filter based on a metafieldʼs key. */
         readonly MetafieldKeyParam: string;
         /** @description Filter based on comma-separated metafieldʼs keys. Could be used with vanilla `key` query parameter. */
@@ -3594,26 +3214,19 @@ export interface components {
         readonly MetafieldNamespaceParam: string;
         /** @description Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter. */
         readonly MetafieldNamespaceInParam: readonly string[];
-        /** @description Controls the number of items per page in a limited (paginated) list of products.
-         *      */
+        /** @description Controls the number of items per page in a limited (paginated) list of products. */
         readonly LimitParam: number;
-        /** @description 'Query parameter that lets you filter by the minimum date created, ffor example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the minimum date created, ffor example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date.' */
         readonly date_created_min: string;
-        /** @description 'Query parameter that lets you filter by the maximum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created before this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the maximum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created before this date.' */
         readonly date_created_max: string;
-        /** @description 'Query parameter that lets you filter by the maximum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the maximum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date.' */
         readonly date_modified_max: string;
-        /** @description 'Query parameter that lets you filter by the minimum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified after this date.'
-         *      */
+        /** @description 'Query parameter that lets you filter by the minimum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified after this date.' */
         readonly date_modified_min: string;
-        /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-         *      */
+        /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
         readonly DirectionParam: "asc" | "desc";
-        /** @description Field name to sort by. Note: Since ID increments when new products are added, you can use the ID value to sort by product create date.
-         *      */
+        /** @description Field name to sort by. Note: Since ID increments when new products are added, you can use the ID value to sort by product create date. */
         readonly SortParam: "id" | "name" | "sku" | "price" | "date_modified" | "date_last_imported" | "inventory_level" | "is_visible" | "total_sold" | "calculated_price";
         /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
         readonly IncludeFieldsBulkPricingParam: readonly ("quantity_min" | "quantity_max" | "type" | "amount")[];
@@ -3637,8 +3250,14 @@ export interface components {
         readonly CategoriesInParam: readonly number[];
         /** @description Pass a comma-separated list to filter by one or more channel IDs. */
         readonly ChannelIdInParam: readonly number[];
-        /** @description A comma-separated list of sub-resources to return with a product object.
-         *     When you specify `options` or `modifiers`, results are limited to 10 per page. */
+        /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
+        readonly CustomFieldsIncludeFieldsParam: readonly ("name" | "value")[];
+        /** @description Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. */
+        readonly CustomFieldsExcludeFieldsParam: readonly ("name" | "value")[];
+        /**
+         * @description A comma-separated list of sub-resources to return with a product object.
+         *     When you specify `options` or `modifiers`, results are limited to 10 per page.
+         */
         readonly IncludeParamGetProducts: components["schemas"]["IncludeParamBase"];
         /** @description A comma-separated list of sub-resources to return with a product object. */
         readonly IncludeParamGetProduct: components["schemas"]["IncludeParamBase"];
@@ -3646,26 +3265,19 @@ export interface components {
         readonly IdMaxParam: number;
         readonly IdGreaterParam: number;
         readonly IdLessParam: number;
-        /** @description Filter items by name.
-         *      */
+        /** @description Filter items by name. */
         readonly NameParam: string;
-        /** @description Filter items by Manufacturer Part Number (MPN).
-         *      */
+        /** @description Filter items by Manufacturer Part Number (MPN). */
         readonly MpnParam: string;
-        /** @description Filter items by UPC.
-         *      */
+        /** @description Filter items by UPC. */
         readonly UpcParam: string;
-        /** @description Filter items by price.
-         *      */
+        /** @description Filter items by price. */
         readonly PriceParam: number;
-        /** @description Filter items by weight.
-         *      */
+        /** @description Filter items by weight. */
         readonly WeightParam: number;
-        /** @description Filter items by condition.
-         *      */
+        /** @description Filter items by condition. */
         readonly ConditionParam: "new" | "used" | "refurbished";
-        /** @description Filter items by brand ID.
-         *      */
+        /** @description Filter items by brand ID. */
         readonly BrandIdParam: number;
         /**
          * @description Filter items by `date_modified`.
@@ -3705,8 +3317,7 @@ export interface components {
         readonly IsFeaturedParam: 1 | 0;
         /** @description Filter items by is_free_shipping. `1` for true, `0` for false. */
         readonly IsFreeShippingParam: number;
-        /** @description Filter items by inventory_level.
-         *      */
+        /** @description Filter items by inventory_level. */
         readonly InventoryLevelParam: number;
         /** @description A comma-separated list of inventory levels. Returns a list of all products that have any of the listed inventory amounts. */
         readonly InventoryLevelInParam: readonly number[];
@@ -3716,28 +3327,26 @@ export interface components {
         readonly InventoryLevelMaxParam: number;
         readonly InventoryLevelGreaterParam: number;
         readonly InventoryLevelLessParam: number;
-        /** @description Filter items by inventory_low. Values: 1, 0.
-         *      */
+        /** @description Filter items by inventory_low. Values: 1, 0. */
         readonly InventoryLowParam: number;
-        /** @description Filter items by out_of_stock. To enable the filter, pass `out_of_stock`=`1`.
-         *      */
+        /** @description Filter items by out_of_stock. To enable the filter, pass `out_of_stock`=`1`. */
         readonly OutOfStockParam: number;
-        /** @description Filter items by total_sold.
-         *      */
+        /** @description Filter items by total_sold. */
         readonly TotalSoldParam: number;
         /** @description Filter items by type. */
         readonly ProductTypeParam: "digital" | "physical";
-        /** @description Filter items by categories.
-         *       If a product is in more than one category, using this query will not return the product. Instead use `categories:in=12`. */
+        /**
+         * @description Filter items by categories.
+         *       If a product is in more than one category, using this query will not return the product. Instead use `categories:in=12`.
+         */
         readonly CategoriesParam: number;
         /** @description Filter items by keywords found in the `name`, `description`, or `sku` fields, or in the brand name. */
         readonly KeywordParam: string;
         /** @description Set context used by the search algorithm to return results targeted towards the specified group. Use `merchant` to help merchants search their own catalog. Use `shopper` to return shopper-facing search results. */
         readonly KeywordContextParam: "shopper" | "merchant";
-        /** @description Filter items by availability. Values are: available, disabled, preorder.
-         *      */
+        /** @description Filter items by availability. Values are: available, disabled, preorder. */
         readonly AvailabilityParam: "available" | "disabled" | "preorder";
-        /** @description Filter items by main SKU. To filter by variant SKU, see [Get all variants](/docs/rest-catalog/product-variants#get-all-product-variants).  */
+        /** @description Filter items by main SKU. To filter by variant SKU, see [Get all variants](/docs/rest-catalog/product-variants#get-all-product-variants). */
         readonly SkuParam: string;
         /** @description A comma-separated list of SKUs. Returns a list of products with those SKUs. */
         readonly SkuInParam: readonly string[];
@@ -3751,8 +3360,7 @@ export interface operations {
     readonly getProducts: {
         readonly parameters: {
             readonly query?: {
-                /** @description Filter items by product ID.
-                 *      */
+                /** @description Filter items by product ID. */
                 readonly id?: number;
                 /** @description Pass a comma-separated list to filter by one or more product IDs. */
                 readonly "id:in"?: components["parameters"]["IdInParam"];
@@ -3760,24 +3368,22 @@ export interface operations {
                 readonly "channel_id:in"?: components["parameters"]["ChannelIdInParam"];
                 /** @description Pass a comma-separated list to exclude one or more product IDs. */
                 readonly "id:not_in"?: components["parameters"]["IdNotInParam"];
-                /** @description A comma-separated list of sub-resources to return with a product object.
-                 *     When you specify `options` or `modifiers`, results are limited to 10 per page. */
+                /**
+                 * @description A comma-separated list of sub-resources to return with a product object.
+                 *     When you specify `options` or `modifiers`, results are limited to 10 per page.
+                 */
                 readonly include?: components["parameters"]["IncludeParamGetProducts"];
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
                 /** @description Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. */
                 readonly exclude_fields?: components["parameters"]["ExcludeFieldsParam"];
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
-                /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-                 *      */
+                /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
                 readonly direction?: components["parameters"]["DirectionParam"];
-                /** @description Field name to sort by. Note: Since ID increments when new products are added, you can use the ID value to sort by product create date.
-                 *      */
+                /** @description Field name to sort by. Note: Since ID increments when new products are added, you can use the ID value to sort by product create date. */
                 readonly sort?: components["parameters"]["SortParam"];
                 /** @description A comma-separated list of category IDs. Returns a list of products that are in all the categories specified. */
                 readonly "categories:in"?: components["parameters"]["CategoriesInParam"];
@@ -3785,26 +3391,19 @@ export interface operations {
                 readonly "id:max"?: components["parameters"]["IdMaxParam"];
                 readonly "id:greater"?: components["parameters"]["IdGreaterParam"];
                 readonly "id:less"?: components["parameters"]["IdLessParam"];
-                /** @description Filter items by name.
-                 *      */
+                /** @description Filter items by name. */
                 readonly name?: components["parameters"]["NameParam"];
-                /** @description Filter items by Manufacturer Part Number (MPN).
-                 *      */
+                /** @description Filter items by Manufacturer Part Number (MPN). */
                 readonly mpn?: components["parameters"]["MpnParam"];
-                /** @description Filter items by UPC.
-                 *      */
+                /** @description Filter items by UPC. */
                 readonly upc?: components["parameters"]["UpcParam"];
-                /** @description Filter items by price.
-                 *      */
+                /** @description Filter items by price. */
                 readonly price?: components["parameters"]["PriceParam"];
-                /** @description Filter items by weight.
-                 *      */
+                /** @description Filter items by weight. */
                 readonly weight?: components["parameters"]["WeightParam"];
-                /** @description Filter items by condition.
-                 *      */
+                /** @description Filter items by condition. */
                 readonly condition?: components["parameters"]["ConditionParam"];
-                /** @description Filter items by brand ID.
-                 *      */
+                /** @description Filter items by brand ID. */
                 readonly brand_id?: components["parameters"]["BrandIdParam"];
                 /**
                  * @description Filter items by `date_modified`.
@@ -3844,8 +3443,7 @@ export interface operations {
                 readonly is_featured?: components["parameters"]["IsFeaturedParam"];
                 /** @description Filter items by is_free_shipping. `1` for true, `0` for false. */
                 readonly is_free_shipping?: components["parameters"]["IsFreeShippingParam"];
-                /** @description Filter items by inventory_level.
-                 *      */
+                /** @description Filter items by inventory_level. */
                 readonly inventory_level?: components["parameters"]["InventoryLevelParam"];
                 /** @description A comma-separated list of inventory levels. Returns a list of all products that have any of the listed inventory amounts. */
                 readonly "inventory_level:in"?: components["parameters"]["InventoryLevelInParam"];
@@ -3855,28 +3453,26 @@ export interface operations {
                 readonly "inventory_level:max"?: components["parameters"]["InventoryLevelMaxParam"];
                 readonly "inventory_level:greater"?: components["parameters"]["InventoryLevelGreaterParam"];
                 readonly "inventory_level:less"?: components["parameters"]["InventoryLevelLessParam"];
-                /** @description Filter items by inventory_low. Values: 1, 0.
-                 *      */
+                /** @description Filter items by inventory_low. Values: 1, 0. */
                 readonly inventory_low?: components["parameters"]["InventoryLowParam"];
-                /** @description Filter items by out_of_stock. To enable the filter, pass `out_of_stock`=`1`.
-                 *      */
+                /** @description Filter items by out_of_stock. To enable the filter, pass `out_of_stock`=`1`. */
                 readonly out_of_stock?: components["parameters"]["OutOfStockParam"];
-                /** @description Filter items by total_sold.
-                 *      */
+                /** @description Filter items by total_sold. */
                 readonly total_sold?: components["parameters"]["TotalSoldParam"];
                 /** @description Filter items by type. */
                 readonly type?: components["parameters"]["ProductTypeParam"];
-                /** @description Filter items by categories.
-                 *       If a product is in more than one category, using this query will not return the product. Instead use `categories:in=12`. */
+                /**
+                 * @description Filter items by categories.
+                 *       If a product is in more than one category, using this query will not return the product. Instead use `categories:in=12`.
+                 */
                 readonly categories?: components["parameters"]["CategoriesParam"];
                 /** @description Filter items by keywords found in the `name`, `description`, or `sku` fields, or in the brand name. */
                 readonly keyword?: components["parameters"]["KeywordParam"];
                 /** @description Set context used by the search algorithm to return results targeted towards the specified group. Use `merchant` to help merchants search their own catalog. Use `shopper` to return shopper-facing search results. */
                 readonly keyword_context?: components["parameters"]["KeywordContextParam"];
-                /** @description Filter items by availability. Values are: available, disabled, preorder.
-                 *      */
+                /** @description Filter items by availability. Values are: available, disabled, preorder. */
                 readonly availability?: components["parameters"]["AvailabilityParam"];
-                /** @description Filter items by main SKU. To filter by variant SKU, see [Get all variants](/docs/rest-catalog/product-variants#get-all-product-variants).  */
+                /** @description Filter items by main SKU. To filter by variant SKU, see [Get all variants](/docs/rest-catalog/product-variants#get-all-product-variants). */
                 readonly sku?: components["parameters"]["SkuParam"];
                 /** @description A comma-separated list of SKUs. Returns a list of products with those SKUs. */
                 readonly "sku:in"?: components["parameters"]["SkuInParam"];
@@ -3923,7 +3519,8 @@ export interface operations {
         };
         readonly requestBody?: {
             readonly content: {
-                /** @example [
+                /**
+                 * @example [
                  *       {
                  *         "id": 0,
                  *         "name": "Smith Journal 13",
@@ -4027,7 +3624,8 @@ export interface operations {
                  *           }
                  *         ]
                  *       }
-                 *     ] */
+                 *     ]
+                 */
                 readonly "application/json": components["schemas"]["product_Put_Collection"];
             };
         };
@@ -4037,7 +3635,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 0,
                      *       "name": "Smith Journal 13",
                      *       "type": "physical",
@@ -4143,20 +3742,23 @@ export interface operations {
                      *           "date_modified": "2019-08-24T14:15:22Z"
                      *         }
                      *       ]
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["product_Full"][];
                         readonly meta?: unknown;
                     };
                 };
             };
-            /** @description Multi-status. Typically indicates that a partial failure has occurred, such as when a POST or PUT request is successful, but saving one of the attributes has failed.
+            /**
+             * @description Multi-status. Typically indicates that a partial failure has occurred, such as when a POST or PUT request is successful, but saving one of the attributes has failed.
              *
              *     For example, the product information was updated successfully, but the inventory data failed to update or saving the URL failed.
              *
              *     If inventory data failed to update, verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
              *
-             *     If the URL failed to update, check that the URL uses Latin letters, is no more than 255 characters, and is not taken by any other entity. */
+             *     If the URL failed to update, check that the URL uses Latin letters, is no more than 255 characters, and is not taken by any other entity.
+             */
             readonly 207: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -4176,8 +3778,7 @@ export interface operations {
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -4201,12 +3802,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "errors": {},
                      *       "status": 413,
                      *       "title": "The request payload is too large. The maximum items allowed in the array is 10.",
                      *       "type": "/api-docs/getting-started/api-status-codes"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["error_Base"];
                 };
             };
@@ -4247,7 +3850,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "id": 0,
                      *       "name": "Smith Journal 13",
                      *       "type": "physical",
@@ -4353,20 +3957,23 @@ export interface operations {
                      *           "date_modified": "2019-08-24T14:15:22Z"
                      *         }
                      *       ]
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["product_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description Multi-status. Typically indicates that a partial failure has occurred, such as when a POST or PUT request is successful, but saving one of the attributes has failed.
+            /**
+             * @description Multi-status. Typically indicates that a partial failure has occurred, such as when a POST or PUT request is successful, but saving one of the attributes has failed.
              *
              *     For example, the product information was updated successfully, but the inventory data failed to update or saving the URL failed.
              *
              *     If inventory data failed to update, verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
              *
-             *     If the URL failed to update, check that the URL uses Latin letters, is no more than 255 characters, and is not taken by any other entity. */
+             *     If the URL failed to update, check that the URL uses Latin letters, is no more than 255 characters, and is not taken by any other entity.
+             */
             readonly 207: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -4379,8 +3986,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description `Product` conflicted with another product. This is the result of duplicate unique values, such as name or SKU; a missing or invalid `category_id`, `brand_id`, or `tax_class id`; or a conflicting `bulk_pricing_rule` or `custom_url`.
-             *      */
+            /** @description `Product` conflicted with another product. This is the result of duplicate unique values, such as name or SKU; a missing or invalid `category_id`, `brand_id`, or `tax_class id`; or a conflicting `bulk_pricing_rule` or `custom_url`. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -4392,18 +3998,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description `Product` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description `Product` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -4415,11 +4018,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -4430,22 +4031,17 @@ export interface operations {
     readonly deleteProducts: {
         readonly parameters: {
             readonly query?: {
-                /** @description Filter items by name.
-                 *      */
+                /** @description Filter items by name. */
                 readonly name?: components["parameters"]["NameParam"];
-                /** @description Filter items by main SKU. To filter by variant SKU, see [Get all variants](/docs/rest-catalog/product-variants#get-all-product-variants).  */
+                /** @description Filter items by main SKU. To filter by variant SKU, see [Get all variants](/docs/rest-catalog/product-variants#get-all-product-variants). */
                 readonly sku?: components["parameters"]["SkuParam"];
-                /** @description Filter items by price.
-                 *      */
+                /** @description Filter items by price. */
                 readonly price?: components["parameters"]["PriceParam"];
-                /** @description Filter items by weight.
-                 *      */
+                /** @description Filter items by weight. */
                 readonly weight?: components["parameters"]["WeightParam"];
-                /** @description Filter items by condition.
-                 *      */
+                /** @description Filter items by condition. */
                 readonly condition?: components["parameters"]["ConditionParam"];
-                /** @description Filter items by brand ID.
-                 *      */
+                /** @description Filter items by brand ID. */
                 readonly brand_id?: components["parameters"]["BrandIdParam"];
                 /**
                  * @description Filter items by `date_modified`.
@@ -4466,16 +4062,16 @@ export interface operations {
                 readonly is_featured?: components["parameters"]["IsFeaturedParam"];
                 /** @description Pass a comma-separated list to filter by one or more product IDs. */
                 readonly "id:in"?: components["parameters"]["IdInParam"];
-                /** @description Filter items by inventory_level.
-                 *      */
+                /** @description Filter items by inventory_level. */
                 readonly inventory_level?: components["parameters"]["InventoryLevelParam"];
-                /** @description Filter items by total_sold.
-                 *      */
+                /** @description Filter items by total_sold. */
                 readonly total_sold?: components["parameters"]["TotalSoldParam"];
                 /** @description Filter items by type. */
                 readonly type?: components["parameters"]["ProductTypeParam"];
-                /** @description Filter items by categories.
-                 *       If a product is in more than one category, using this query will not return the product. Instead use `categories:in=12`. */
+                /**
+                 * @description Filter items by categories.
+                 *       If a product is in more than one category, using this query will not return the product. Instead use `categories:in=12`.
+                 */
                 readonly categories?: components["parameters"]["CategoriesParam"];
                 /** @description Filter items by keywords found in the `name`, `description`, or `sku` fields, or in the brand name. */
                 readonly keyword?: components["parameters"]["KeywordParam"];
@@ -4512,8 +4108,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -4525,7 +4120,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 174,
                      *         "name": "1L Le Parfait Jar",
@@ -4604,7 +4200,8 @@ export interface operations {
                      *         "open_graph_use_image": true
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["product_Full"] & {
                             /** @description The channels to which the product is assigned. This field only appears in the response if you include `channels` in the `include` query parameter. */
@@ -4614,16 +4211,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -4637,8 +4232,10 @@ export interface operations {
     readonly updateProduct: {
         readonly parameters: {
             readonly query?: {
-                /** @description A comma-separated list of sub-resources to return with a product object.
-                 *     When you specify `options` or `modifiers`, results are limited to 10 per page. */
+                /**
+                 * @description A comma-separated list of sub-resources to return with a product object.
+                 *     When you specify `options` or `modifiers`, results are limited to 10 per page.
+                 */
                 readonly include?: components["parameters"]["IncludeParamGetProducts"];
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
@@ -4650,8 +4247,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -4671,7 +4267,8 @@ export interface operations {
                         readonly data?: components["schemas"]["product_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
-                    /** @example {
+                    /**
+                     * @example {
                      *       "name": "Smith Journal 13",
                      *       "type": "physical",
                      *       "sku": "SM-13",
@@ -4944,17 +4541,20 @@ export interface operations {
                      *         }
                      *       ],
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "example-1": unknown;
                 };
             };
-            /** @description Multi-status. Typically indicates that a partial failure has occurred, such as when a POST or PUT request is successful, but saving one of the attributes has failed.
+            /**
+             * @description Multi-status. Typically indicates that a partial failure has occurred, such as when a POST or PUT request is successful, but saving one of the attributes has failed.
              *
              *     For example, the product information was updated successfully, but the inventory data failed to update or saving the URL failed.
              *
              *     If inventory data failed to update, verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
              *
-             *     If the URL failed to update, check that the URL uses Latin letters, is no more than 255 characters, and is not taken by any other entity. */
+             *     If the URL failed to update, check that the URL uses Latin letters, is no more than 255 characters, and is not taken by any other entity.
+             */
             readonly 207: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -4967,16 +4567,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -4985,8 +4583,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description `Product` was in conflict with another product. This is caused by: duplicate unique values, such as name or SKU; a missing category, brand, or tax_class with which the product is being associated; or a conflicting bulk pricing rule.
-             *      */
+            /** @description `Product` was in conflict with another product. This is caused by: duplicate unique values, such as name or SKU; a missing category, brand, or tax_class with which the product is being associated; or a conflicting bulk pricing rule. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -4998,18 +4595,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description `Product` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description `Product` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -5021,11 +4615,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -5041,8 +4633,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -5060,11 +4651,9 @@ export interface operations {
     readonly getProductImages: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
@@ -5076,8 +4665,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -5089,7 +4677,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 382,
@@ -5130,31 +4719,29 @@ export interface operations {
                      *           }
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["productImage_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
                     };
                 };
             };
-            /** @description There are not any images on this product.
-             *      */
+            /** @description There are not any images on this product. */
             readonly 204: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content?: never;
             };
-            /** @description The product ID does not exist.
-             *      */
+            /** @description The product ID does not exist. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -5173,8 +4760,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -5183,28 +4769,24 @@ export interface operations {
             readonly content: {
                 readonly "application/json": components["schemas"]["productImage_Post_Put"];
                 readonly "multipart/form-data": {
-                    /** @description The unique numeric identifier for the product with which the image is associated.
-                     *      */
+                    /** @description The unique numeric identifier for the product with which the image is associated. */
                     readonly product_id?: number;
                     /**
                      * Format: date-time
                      * @description The date on which the product image was modified.
-                     *
                      */
                     readonly date_modified?: string;
-                    /** @description Flag for identifying whether the image is used as the productʼs thumbnail.
-                     *      */
+                    /** @description Flag for identifying whether the image is used as the productʼs thumbnail. */
                     readonly is_thumbnail?: boolean;
-                    /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered.
-                     *      */
+                    /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered. */
                     readonly sort_order?: number;
-                    /** @description The description for the image.
-                     *      */
+                    /** @description The description for the image. */
                     readonly description?: string;
-                    /** @description The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
+                    /**
+                     * @description The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
                      *
                      *     Must be sent as a `multipart/form-data` field in the request body. Limit of 8 MB per file. Cannot be used with `image_url`.
-                     *      */
+                     */
                     readonly image_file?: string;
                 };
             };
@@ -5219,80 +4801,61 @@ export interface operations {
                     readonly "application/json": {
                         /** Product Image */
                         readonly data?: {
-                            /** @description The unique numeric ID of the image; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the image; increments sequentially. */
                             readonly id?: number;
-                            /** @description The unique numeric identifier for the product with which the image is associated.
-                             *      */
+                            /** @description The unique numeric identifier for the product with which the image is associated. */
                             readonly product_id?: number;
-                            /** @description The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image.
-                             *      */
+                            /** @description The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image. */
                             readonly url_zoom?: string;
-                            /** @description The standard URL for this image. By default, this is used for product-page images.
-                             *      */
+                            /** @description The standard URL for this image. By default, this is used for product-page images. */
                             readonly url_standard?: string;
-                            /** @description The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
-                             *      */
+                            /** @description The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels. */
                             readonly url_thumbnail?: string;
-                            /** @description The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
-                             *      */
+                            /** @description The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page. */
                             readonly url_tiny?: string;
                             /**
                              * Format: date-time
                              * @description The date on which the product image was modified.
-                             *
                              */
                             readonly date_modified?: string;
-                            /** @description Flag for identifying whether the image is used as the productʼs thumbnail.
-                             *      */
+                            /** @description Flag for identifying whether the image is used as the productʼs thumbnail. */
                             readonly is_thumbnail?: boolean;
-                            /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered.
-                             *      */
+                            /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered. */
                             readonly sort_order?: number;
-                            /** @description The description for the image.
-                             *      */
+                            /** @description The description for the image. */
                             readonly description?: string;
-                            /** @description Must be a fully qualified URL path, including protocol. Limit of 8MB per file.
-                             *      */
+                            /** @description Must be a fully qualified URL path, including protocol. Limit of 8MB per file. */
                             readonly image_url?: string;
                         } | {
-                            /** @description The unique numeric ID of the image; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the image; increments sequentially. */
                             readonly id?: number;
-                            /** @description The unique numeric identifier for the product with which the image is associated.
-                             *      */
+                            /** @description The unique numeric identifier for the product with which the image is associated. */
                             readonly product_id?: number;
-                            /** @description The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
+                            /**
+                             * @description The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
                              *     A `multipart/form-data` media type.
                              *
-                             *     Must be sent as a multipart/form-data field in the request body. Limit of 8 MB per file. */
+                             *     Must be sent as a multipart/form-data field in the request body. Limit of 8 MB per file.
+                             */
                             readonly image_file?: string;
-                            /** @description The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image.
-                             *      */
+                            /** @description The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image. */
                             readonly url_zoom?: string;
-                            /** @description The standard URL for this image. By default, this is used for product-page images.
-                             *      */
+                            /** @description The standard URL for this image. By default, this is used for product-page images. */
                             readonly url_standard?: string;
-                            /** @description The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
-                             *      */
+                            /** @description The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels. */
                             readonly url_thumbnail?: string;
-                            /** @description The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
-                             *      */
+                            /** @description The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page. */
                             readonly url_tiny?: string;
                             /**
                              * Format: date-time
                              * @description The date on which the product image was modified.
-                             *
                              */
                             readonly date_modified?: string;
-                            /** @description Flag for identifying whether the image is used as the productʼs thumbnail.
-                             *      */
+                            /** @description Flag for identifying whether the image is used as the productʼs thumbnail. */
                             readonly is_thumbnail?: boolean;
-                            /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered.
-                             *      */
+                            /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered. */
                             readonly sort_order?: number;
-                            /** @description The description for the image.
-                             *      */
+                            /** @description The description for the image. */
                             readonly description?: string;
                         };
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -5308,16 +4871,14 @@ export interface operations {
                     readonly "application/json": Record<string, unknown>;
                 };
             };
-            /** @description The product ID does not exist.
-             *      */
+            /** @description The product ID does not exist. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -5326,19 +4887,23 @@ export interface operations {
                     };
                 };
             };
-            /** @description Unprocessable Entity.
+            /**
+             * @description Unprocessable Entity.
              *
-             *     May occur if the `Content-Type` header is set to `multipart/form-data` rather than `application/json` when creating a product image using `image_url`. */
+             *     May occur if the `Content-Type` header is set to `multipart/form-data` rather than `application/json` when creating a product image using `image_url`.
+             */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 422,
                      *       "title": "image_url must be present if uploading by url",
                      *       "type": "/api-docs/getting-started/api-status-codes"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status: number;
                         readonly title: string;
@@ -5361,11 +4926,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Image` that is being operated on.
-                 *      */
+                /** @description The ID of the `Image` that is being operated on. */
                 readonly image_id: components["parameters"]["ImageIdParam"];
             };
             readonly cookie?: never;
@@ -5377,7 +4940,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 485,
                      *         "product_id": 158,
@@ -5392,23 +4956,22 @@ export interface operations {
                      *         "date_modified": "2018-09-13T15:57:07+00:00"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["productImage_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -5429,11 +4992,9 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Image` that is being operated on.
-                 *      */
+                /** @description The ID of the `Image` that is being operated on. */
                 readonly image_id: components["parameters"]["ImageIdParam"];
             };
             readonly cookie?: never;
@@ -5442,28 +5003,24 @@ export interface operations {
             readonly content: {
                 readonly "application/json": components["schemas"]["productImage_Post_Put"];
                 readonly "multipart/form-data": {
-                    /** @description The unique numeric identifier for the product with which the image is associated.
-                     *      */
+                    /** @description The unique numeric identifier for the product with which the image is associated. */
                     readonly product_id?: number;
                     /**
                      * Format: date-time
                      * @description The date on which the product image was modified.
-                     *
                      */
                     readonly date_modified?: string;
-                    /** @description Flag for identifying whether the image is used as the productʼs thumbnail.
-                     *      */
+                    /** @description Flag for identifying whether the image is used as the productʼs thumbnail. */
                     readonly is_thumbnail?: boolean;
-                    /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered.
-                     *      */
+                    /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered. */
                     readonly sort_order?: number;
-                    /** @description The description for the image.
-                     *      */
+                    /** @description The description for the image. */
                     readonly description?: string;
-                    /** @description The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
+                    /**
+                     * @description The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
                      *
                      *     Must be sent as a `multipart/form-data` field in the request body. Limit of 8 MB per file. Cannot be used with `image_url`.
-                     *      */
+                     */
                     readonly image_file?: string;
                 };
             };
@@ -5478,80 +5035,61 @@ export interface operations {
                     readonly "application/json": {
                         /** Product Image */
                         readonly data?: {
-                            /** @description The unique numeric ID of the image; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the image; increments sequentially. */
                             readonly id?: number;
-                            /** @description The unique numeric identifier for the product with which the image is associated.
-                             *      */
+                            /** @description The unique numeric identifier for the product with which the image is associated. */
                             readonly product_id?: number;
-                            /** @description The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image.
-                             *      */
+                            /** @description The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image. */
                             readonly url_zoom?: string;
-                            /** @description The standard URL for this image. By default, this is used for product-page images.
-                             *      */
+                            /** @description The standard URL for this image. By default, this is used for product-page images. */
                             readonly url_standard?: string;
-                            /** @description The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
-                             *      */
+                            /** @description The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels. */
                             readonly url_thumbnail?: string;
-                            /** @description The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
-                             *      */
+                            /** @description The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page. */
                             readonly url_tiny?: string;
                             /**
                              * Format: date-time
                              * @description The date on which the product image was modified.
-                             *
                              */
                             readonly date_modified?: string;
-                            /** @description Flag for identifying whether the image is used as the productʼs thumbnail.
-                             *      */
+                            /** @description Flag for identifying whether the image is used as the productʼs thumbnail. */
                             readonly is_thumbnail?: boolean;
-                            /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered.
-                             *      */
+                            /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered. */
                             readonly sort_order?: number;
-                            /** @description The description for the image.
-                             *      */
+                            /** @description The description for the image. */
                             readonly description?: string;
-                            /** @description Must be a fully qualified URL path, including protocol. Limit of 8MB per file.
-                             *      */
+                            /** @description Must be a fully qualified URL path, including protocol. Limit of 8MB per file. */
                             readonly image_url?: string;
                         } | {
-                            /** @description The unique numeric ID of the image; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the image; increments sequentially. */
                             readonly id?: number;
-                            /** @description The unique numeric identifier for the product with which the image is associated.
-                             *      */
+                            /** @description The unique numeric identifier for the product with which the image is associated. */
                             readonly product_id?: number;
-                            /** @description The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
+                            /**
+                             * @description The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
                              *     A `multipart/form-data` media type.
                              *
-                             *     Must be sent as a multipart/form-data field in the request body. Limit of 8 MB per file. */
+                             *     Must be sent as a multipart/form-data field in the request body. Limit of 8 MB per file.
+                             */
                             readonly image_file?: string;
-                            /** @description The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image.
-                             *      */
+                            /** @description The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image. */
                             readonly url_zoom?: string;
-                            /** @description The standard URL for this image. By default, this is used for product-page images.
-                             *      */
+                            /** @description The standard URL for this image. By default, this is used for product-page images. */
                             readonly url_standard?: string;
-                            /** @description The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
-                             *      */
+                            /** @description The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels. */
                             readonly url_thumbnail?: string;
-                            /** @description The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
-                             *      */
+                            /** @description The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page. */
                             readonly url_tiny?: string;
                             /**
                              * Format: date-time
                              * @description The date on which the product image was modified.
-                             *
                              */
                             readonly date_modified?: string;
-                            /** @description Flag for identifying whether the image is used as the productʼs thumbnail.
-                             *      */
+                            /** @description Flag for identifying whether the image is used as the productʼs thumbnail. */
                             readonly is_thumbnail?: boolean;
-                            /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered.
-                             *      */
+                            /** @description The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered. */
                             readonly sort_order?: number;
-                            /** @description The description for the image.
-                             *      */
+                            /** @description The description for the image. */
                             readonly description?: string;
                         };
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -5567,16 +5105,14 @@ export interface operations {
                     readonly "application/json": Record<string, unknown>;
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -5604,11 +5140,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Image` that is being operated on.
-                 *      */
+                /** @description The ID of the `Image` that is being operated on. */
                 readonly image_id: components["parameters"]["ImageIdParam"];
             };
             readonly cookie?: never;
@@ -5630,11 +5164,9 @@ export interface operations {
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
                 /** @description Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. */
                 readonly exclude_fields?: components["parameters"]["ExcludeFieldsParam"];
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
             };
             readonly header?: {
@@ -5642,8 +5174,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -5655,7 +5186,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 6,
@@ -5700,7 +5232,8 @@ export interface operations {
                      *           }
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["productVideo_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -5719,8 +5252,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -5730,32 +5262,27 @@ export interface operations {
                 readonly "application/json": {
                     /**
                      * @description The title for the video. If left blank, this will be filled in according to data on a host site.
-                     *
                      * @example Writing Great Documentation
                      */
                     readonly title?: string;
                     /**
                      * @description The description for the video. If left blank, this will be filled in according to data on a host site.
-                     *
                      * @example A video about documenation
                      */
                     readonly description?: string;
                     /**
                      * @description The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the videoʼs new `sort_order` value will have their `sort_order`s reordered.
-                     *
                      * @example 1
                      */
                     readonly sort_order?: number;
                     /**
                      * @description The video type (a short name of a host site).
-                     *
                      * @enum {string}
                      */
                     readonly type?: "youtube";
                 } & {
                     /**
                      * @description The ID of the video on a host site.
-                     *
                      * @example z3fRu9pkuXE
                      */
                     readonly video_id?: string;
@@ -5768,63 +5295,54 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "title": "Your Video",
                      *       "description": "Company Values",
                      *       "sort_order": 1,
                      *       "type": "youtube",
                      *       "video_id": "123345AA"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /**
                          * Product Video
                          * @description A product video model.
-                         *
                          */
                         readonly data?: {
-                            /** @description The title for the video. If left blank, this will be filled in according to data on a host site.
-                             *      */
+                            /** @description The title for the video. If left blank, this will be filled in according to data on a host site. */
                             readonly title?: string;
-                            /** @description The description for the video. If left blank, this will be filled in according to data on a host site.
-                             *      */
+                            /** @description The description for the video. If left blank, this will be filled in according to data on a host site. */
                             readonly description?: string;
-                            /** @description The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the videoʼs new `sort_order` value will have their `sort_order`s reordered.
-                             *      */
+                            /** @description The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the videoʼs new `sort_order` value will have their `sort_order`s reordered. */
                             readonly sort_order?: number;
                             /**
                              * @description The video type (a short name of a host site).
-                             *
                              * @enum {string}
                              */
                             readonly type?: "youtube";
                         } & {
-                            /** @description The unique numeric ID of the product video; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the product video; increments sequentially. */
                             readonly id?: number;
-                            /** @description The ID of the video on a host site.
-                             *      */
+                            /** @description The ID of the video on a host site. */
                             readonly video_id?: string;
-                            /** @description The unique numeric identifier for the product with which the image is associated.
-                             *      */
+                            /** @description The unique numeric identifier for the product with which the image is associated. */
                             readonly product_id?: number;
-                            /** @description Length of the video. This will be filled in according to data on a host site.
-                             *      */
+                            /** @description Length of the video. This will be filled in according to data on a host site. */
                             readonly length?: string;
                         };
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -5848,8 +5366,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
                 /** @description The BigCommerce ID of the `Video` */
                 readonly id: components["parameters"]["VideoIdParam"];
@@ -5863,29 +5380,29 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "title": "Your Video",
                      *       "description": "Company Values",
                      *       "sort_order": 1,
                      *       "type": "youtube",
                      *       "video_id": "123345AA"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["productVideo_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -5906,8 +5423,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
                 /** @description The BigCommerce ID of the `Video` */
                 readonly id: components["parameters"]["VideoIdParam"];
@@ -5917,24 +5433,19 @@ export interface operations {
         readonly requestBody: {
             readonly content: {
                 readonly "application/json": {
-                    /** @description The title for the video. If left blank, this will be filled in according to data on a host site.
-                     *      */
+                    /** @description The title for the video. If left blank, this will be filled in according to data on a host site. */
                     readonly title?: string;
-                    /** @description The description for the video. If left blank, this will be filled in according to data on a host site.
-                     *      */
+                    /** @description The description for the video. If left blank, this will be filled in according to data on a host site. */
                     readonly description?: string;
-                    /** @description The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the videoʼs new `sort_order` value will have their `sort_order`s reordered.
-                     *      */
+                    /** @description The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the videoʼs new `sort_order` value will have their `sort_order`s reordered. */
                     readonly sort_order?: number;
                     /**
                      * @description The video type (a short name of a host site).
-                     *
                      * @enum {string}
                      */
                     readonly type?: "youtube";
                 } & {
-                    /** @description The unique numeric ID of the product video; increments sequentially.
-                     *      */
+                    /** @description The unique numeric ID of the product video; increments sequentially. */
                     readonly id?: number;
                 };
             };
@@ -5945,63 +5456,54 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "title": "Your Video",
                      *       "description": "Company Values",
                      *       "sort_order": 1,
                      *       "type": "youtube",
                      *       "video_id": "123345AA"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /**
                          * Product Video
                          * @description A product video model.
-                         *
                          */
                         readonly data?: {
-                            /** @description The title for the video. If left blank, this will be filled in according to data on a host site.
-                             *      */
+                            /** @description The title for the video. If left blank, this will be filled in according to data on a host site. */
                             readonly title?: string;
-                            /** @description The description for the video. If left blank, this will be filled in according to data on a host site.
-                             *      */
+                            /** @description The description for the video. If left blank, this will be filled in according to data on a host site. */
                             readonly description?: string;
-                            /** @description The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the videoʼs new `sort_order` value will have their `sort_order`s reordered.
-                             *      */
+                            /** @description The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the videoʼs new `sort_order` value will have their `sort_order`s reordered. */
                             readonly sort_order?: number;
                             /**
                              * @description The video type (a short name of a host site).
-                             *
                              * @enum {string}
                              */
                             readonly type?: "youtube";
                         } & {
-                            /** @description The unique numeric ID of the product video; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the product video; increments sequentially. */
                             readonly id?: number;
-                            /** @description The ID of the video on a host site.
-                             *      */
+                            /** @description The ID of the video on a host site. */
                             readonly video_id?: string;
-                            /** @description The unique numeric identifier for the product with which the image is associated.
-                             *      */
+                            /** @description The unique numeric identifier for the product with which the image is associated. */
                             readonly product_id?: number;
-                            /** @description Length of the video. This will be filled in according to data on a host site.
-                             *      */
+                            /** @description Length of the video. This will be filled in according to data on a host site. */
                             readonly length?: string;
                         };
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -6020,8 +5522,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
                 /** @description The BigCommerce ID of the `Video` */
                 readonly id: components["parameters"]["VideoIdParam"];
@@ -6045,11 +5546,9 @@ export interface operations {
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
                 /** @description Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. */
                 readonly exclude_fields?: components["parameters"]["ExcludeFieldsParam"];
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
             };
             readonly header?: {
@@ -6057,8 +5556,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -6070,7 +5568,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 82,
@@ -6135,7 +5634,8 @@ export interface operations {
                      *           }
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["complexRule_Base"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -6154,8 +5654,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -6165,34 +5664,27 @@ export interface operations {
                 readonly "application/json": {
                     /**
                      * @description The priority to give this rule when making adjustments to the product properties.
-                     *
                      * @example 0
                      */
                     readonly sort_order?: number;
                     /**
                      * @description Flag for determining whether the rule is to be used when adjusting a productʼs price, weight, image, or availabilty.
-                     *
                      * @example true
                      */
                     readonly enabled?: boolean;
-                    /** @description Flag for determining whether other rules should not be applied after this rule has been applied.
-                     *      */
+                    /** @description Flag for determining whether other rules should not be applied after this rule has been applied. */
                     readonly stop?: boolean;
-                    /** @description Flag for determining whether the rule should disable purchasing of a product when the conditions are applied.
-                     *      */
+                    /** @description Flag for determining whether the rule should disable purchasing of a product when the conditions are applied. */
                     readonly purchasing_disabled?: boolean;
                     /**
                      * @description Message displayed on the storefront when a rule disables the purchasing of a product.
-                     *
                      * @example This product is not available at this time.
                      */
                     readonly purchasing_disabled_message?: string;
-                    /** @description Flag for determining whether the rule should hide purchasing of a product when the conditions are applied.
-                     *      */
+                    /** @description Flag for determining whether the rule should hide purchasing of a product when the conditions are applied. */
                     readonly purchasing_hidden?: boolean;
                     /**
                      * @description The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
-                     *
                      * @example https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png
                      */
                     readonly image_url?: string;
@@ -6203,13 +5695,11 @@ export interface operations {
                     readonly price_adjuster?: {
                         /**
                          * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                         *
                          * @enum {string|null}
                          */
                         readonly adjuster?: "relative" | "percentage" | null;
                         /**
                          * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                         *
                          * @example 5
                          */
                         readonly adjuster_value?: number;
@@ -6221,13 +5711,11 @@ export interface operations {
                     readonly weight_adjuster?: {
                         /**
                          * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                         *
                          * @enum {string|null}
                          */
                         readonly adjuster?: "relative" | "percentage" | null;
                         /**
                          * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                         *
                          * @example 5
                          */
                         readonly adjuster_value?: number;
@@ -6256,40 +5744,32 @@ export interface operations {
                             readonly id?: number;
                             /**
                              * @description The unique numeric ID of the product with which the rule is associated; increments sequentially.
-                             *
                              * @example 67
                              */
                             readonly product_id?: number | null;
                             /**
                              * @description The priority to give this rule when making adjustments to the product properties.
-                             *
                              * @example 0
                              */
                             readonly sort_order?: number;
                             /**
                              * @description Flag for determining whether the rule is to be used when adjusting a productʼs price, weight, image, or availabilty.
-                             *
                              * @example true
                              */
                             readonly enabled?: boolean;
-                            /** @description Flag for determining whether other rules should not be applied after this rule has been applied.
-                             *      */
+                            /** @description Flag for determining whether other rules should not be applied after this rule has been applied. */
                             readonly stop?: boolean;
-                            /** @description Flag for determining whether the rule should disable purchasing of a product when the conditions are applied.
-                             *      */
+                            /** @description Flag for determining whether the rule should disable purchasing of a product when the conditions are applied. */
                             readonly purchasing_disabled?: boolean;
                             /**
                              * @description Message displayed on the storefront when a rule disables the purchasing of a product.
-                             *
                              * @example This product is not available at this time.
                              */
                             readonly purchasing_disabled_message?: string;
-                            /** @description Flag for determining whether the rule should hide purchasing of a product when the conditions are applied.
-                             *      */
+                            /** @description Flag for determining whether the rule should hide purchasing of a product when the conditions are applied. */
                             readonly purchasing_hidden?: boolean;
                             /**
                              * @description The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
-                             *
                              * @example https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png
                              */
                             readonly image_url?: string;
@@ -6300,13 +5780,11 @@ export interface operations {
                             readonly price_adjuster?: {
                                 /**
                                  * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                 *
                                  * @enum {string|null}
                                  */
                                 readonly adjuster?: "relative" | "percentage" | null;
                                 /**
                                  * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                 *
                                  * @example 5
                                  */
                                 readonly adjuster_value?: number;
@@ -6318,13 +5796,11 @@ export interface operations {
                             readonly weight_adjuster?: {
                                 /**
                                  * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                 *
                                  * @enum {string|null}
                                  */
                                 readonly adjuster?: "relative" | "percentage" | null;
                                 /**
                                  * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                 *
                                  * @example 5
                                  */
                                 readonly adjuster_value?: number;
@@ -6332,7 +5808,6 @@ export interface operations {
                             readonly conditions?: readonly {
                                 /**
                                  * @description The unique numeric ID of the rule condition; increments sequentially. Read-Only
-                                 *
                                  * @example 3
                                  */
                                 readonly id?: number | null;
@@ -6360,8 +5835,7 @@ export interface operations {
                                  * @example 1
                                  */
                                 readonly variant_id: number | null;
-                                /** @description (READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3.
-                                 *      */
+                                /** @description (READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3. */
                                 readonly combination_id?: number;
                             }[];
                         };
@@ -6369,8 +5843,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `ComplexRule` was in conflict with another `ComplexRule`. This is the result of duplicate conditions.
-             *      */
+            /** @description The `ComplexRule` was in conflict with another `ComplexRule`. This is the result of duplicate conditions. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -6382,18 +5855,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description The `ComplexRule` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `ComplexRule` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -6405,11 +5875,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -6430,11 +5898,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `ComplexRule`.
-                 *      */
+                /** @description The ID of the `ComplexRule`. */
                 readonly complex_rule_id: components["parameters"]["ComplexRuleIdParam"];
             };
             readonly cookie?: never;
@@ -6460,40 +5926,32 @@ export interface operations {
                             readonly id?: number;
                             /**
                              * @description The unique numeric ID of the product with which the rule is associated; increments sequentially.
-                             *
                              * @example 67
                              */
                             readonly product_id?: number;
                             /**
                              * @description The priority to give this rule when making adjustments to the product properties.
-                             *
                              * @example 0
                              */
                             readonly sort_order?: number;
                             /**
                              * @description Flag for determining whether the rule is to be used when adjusting a productʼs price, weight, image, or availabilty.
-                             *
                              * @example true
                              */
                             readonly enabled?: boolean;
-                            /** @description Flag for determining whether other rules should not be applied after this rule has been applied.
-                             *      */
+                            /** @description Flag for determining whether other rules should not be applied after this rule has been applied. */
                             readonly stop?: boolean;
-                            /** @description Flag for determining whether the rule should disable purchasing of a product when the conditions are applied.
-                             *      */
+                            /** @description Flag for determining whether the rule should disable purchasing of a product when the conditions are applied. */
                             readonly purchasing_disabled?: boolean;
                             /**
                              * @description Message displayed on the storefront when a rule disables the purchasing of a product.
-                             *
                              * @example This product is not available at this time.
                              */
                             readonly purchasing_disabled_message?: string;
-                            /** @description Flag for determining whether the rule should hide purchasing of a product when the conditions are applied.
-                             *      */
+                            /** @description Flag for determining whether the rule should hide purchasing of a product when the conditions are applied. */
                             readonly purchasing_hidden?: boolean;
                             /**
                              * @description The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
-                             *
                              * @example https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png
                              */
                             readonly image_url?: string;
@@ -6504,13 +5962,11 @@ export interface operations {
                             readonly price_adjuster?: {
                                 /**
                                  * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                 *
                                  * @enum {string}
                                  */
                                 readonly adjuster?: "relative" | "percentage";
                                 /**
                                  * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                 *
                                  * @example 5
                                  */
                                 readonly adjuster_value?: number;
@@ -6522,13 +5978,11 @@ export interface operations {
                             readonly weight_adjuster?: {
                                 /**
                                  * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                 *
                                  * @enum {string}
                                  */
                                 readonly adjuster?: "relative" | "percentage";
                                 /**
                                  * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                 *
                                  * @example 5
                                  */
                                 readonly adjuster_value?: number;
@@ -6536,7 +5990,6 @@ export interface operations {
                             readonly conditions?: readonly {
                                 /**
                                  * @description The unique numeric ID of the rule condition; increments sequentially. Read-Only
-                                 *
                                  * @example 3
                                  */
                                 readonly id?: number;
@@ -6564,8 +6017,7 @@ export interface operations {
                                  * @example 1
                                  */
                                 readonly variant_id: number;
-                                /** @description (READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3.
-                                 *      */
+                                /** @description (READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3. */
                                 readonly combination_id?: number;
                             }[];
                         };
@@ -6573,16 +6025,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -6603,11 +6053,9 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `ComplexRule`.
-                 *      */
+                /** @description The ID of the `ComplexRule`. */
                 readonly complex_rule_id: components["parameters"]["ComplexRuleIdParam"];
             };
             readonly cookie?: never;
@@ -6617,34 +6065,27 @@ export interface operations {
                 readonly "application/json": {
                     /**
                      * @description The priority to give this rule when making adjustments to the product properties.
-                     *
                      * @example 0
                      */
                     readonly sort_order?: number;
                     /**
                      * @description Flag for determining whether the rule is to be used when adjusting a productʼs price, weight, image, or availabilty.
-                     *
                      * @example true
                      */
                     readonly enabled?: boolean;
-                    /** @description Flag for determining whether other rules should not be applied after this rule has been applied.
-                     *      */
+                    /** @description Flag for determining whether other rules should not be applied after this rule has been applied. */
                     readonly stop?: boolean;
-                    /** @description Flag for determining whether the rule should disable purchasing of a product when the conditions are applied.
-                     *      */
+                    /** @description Flag for determining whether the rule should disable purchasing of a product when the conditions are applied. */
                     readonly purchasing_disabled?: boolean;
                     /**
                      * @description Message displayed on the storefront when a rule disables the purchasing of a product.
-                     *
                      * @example This product is not available at this time.
                      */
                     readonly purchasing_disabled_message?: string;
-                    /** @description Flag for determining whether the rule should hide purchasing of a product when the conditions are applied.
-                     *      */
+                    /** @description Flag for determining whether the rule should hide purchasing of a product when the conditions are applied. */
                     readonly purchasing_hidden?: boolean;
                     /**
                      * @description The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
-                     *
                      * @example https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png
                      */
                     readonly image_url?: string;
@@ -6655,13 +6096,11 @@ export interface operations {
                     readonly price_adjuster?: {
                         /**
                          * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                         *
                          * @enum {string|null}
                          */
                         readonly adjuster?: "relative" | "percentage" | null;
                         /**
                          * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                         *
                          * @example 5
                          */
                         readonly adjuster_value?: number;
@@ -6673,13 +6112,11 @@ export interface operations {
                     readonly weight_adjuster?: {
                         /**
                          * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                         *
                          * @enum {string|null}
                          */
                         readonly adjuster?: "relative" | "percentage" | null;
                         /**
                          * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                         *
                          * @example 5
                          */
                         readonly adjuster_value?: number;
@@ -6727,40 +6164,32 @@ export interface operations {
                             readonly id?: number;
                             /**
                              * @description The unique numeric ID of the product with which the rule is associated; increments sequentially.
-                             *
                              * @example 67
                              */
                             readonly product_id?: number;
                             /**
                              * @description The priority to give this rule when making adjustments to the product properties.
-                             *
                              * @example 0
                              */
                             readonly sort_order?: number;
                             /**
                              * @description Flag for determining whether the rule is to be used when adjusting a productʼs price, weight, image, or availabilty.
-                             *
                              * @example true
                              */
                             readonly enabled?: boolean;
-                            /** @description Flag for determining whether other rules should not be applied after this rule has been applied.
-                             *      */
+                            /** @description Flag for determining whether other rules should not be applied after this rule has been applied. */
                             readonly stop?: boolean;
-                            /** @description Flag for determining whether the rule should disable purchasing of a product when the conditions are applied.
-                             *      */
+                            /** @description Flag for determining whether the rule should disable purchasing of a product when the conditions are applied. */
                             readonly purchasing_disabled?: boolean;
                             /**
                              * @description Message displayed on the storefront when a rule disables the purchasing of a product.
-                             *
                              * @example This product is not available at this time.
                              */
                             readonly purchasing_disabled_message?: string;
-                            /** @description Flag for determining whether the rule should hide purchasing of a product when the conditions are applied.
-                             *      */
+                            /** @description Flag for determining whether the rule should hide purchasing of a product when the conditions are applied. */
                             readonly purchasing_hidden?: boolean;
                             /**
                              * @description The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
-                             *
                              * @example https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png
                              */
                             readonly image_url?: string;
@@ -6771,13 +6200,11 @@ export interface operations {
                             readonly price_adjuster?: {
                                 /**
                                  * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                 *
                                  * @enum {string}
                                  */
                                 readonly adjuster?: "relative" | "percentage";
                                 /**
                                  * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                 *
                                  * @example 5
                                  */
                                 readonly adjuster_value?: number;
@@ -6789,13 +6216,11 @@ export interface operations {
                             readonly weight_adjuster?: {
                                 /**
                                  * @description The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                 *
                                  * @enum {string}
                                  */
                                 readonly adjuster?: "relative" | "percentage";
                                 /**
                                  * @description The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                 *
                                  * @example 5
                                  */
                                 readonly adjuster_value?: number;
@@ -6803,7 +6228,6 @@ export interface operations {
                             readonly conditions?: readonly {
                                 /**
                                  * @description The unique numeric ID of the rule condition; increments sequentially. Read-Only
-                                 *
                                  * @example 3
                                  */
                                 readonly id?: number;
@@ -6831,8 +6255,7 @@ export interface operations {
                                  * @example 1
                                  */
                                 readonly variant_id: number;
-                                /** @description (READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3.
-                                 *      */
+                                /** @description (READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3. */
                                 readonly combination_id?: number;
                             }[];
                         };
@@ -6840,8 +6263,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `ComplexRule` was in conflict with another `ComplexRule`. This is the result of duplicate conditions.
-             *      */
+            /** @description The `ComplexRule` was in conflict with another `ComplexRule`. This is the result of duplicate conditions. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -6853,18 +6275,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description The `ComplexRule` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `ComplexRule` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -6876,11 +6295,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -6896,11 +6313,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `ComplexRule`.
-                 *      */
+                /** @description The ID of the `ComplexRule`. */
                 readonly complex_rule_id: components["parameters"]["ComplexRuleIdParam"];
             };
             readonly cookie?: never;
@@ -6919,20 +6334,17 @@ export interface operations {
         readonly parameters: {
             readonly query?: {
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
-                readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
+                readonly include_fields?: components["parameters"]["CustomFieldsIncludeFieldsParam"];
                 /** @description Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. */
-                readonly exclude_fields?: components["parameters"]["ExcludeFieldsParam"];
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                readonly exclude_fields?: components["parameters"]["CustomFieldsExcludeFieldsParam"];
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
             };
             readonly header?: never;
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -6951,8 +6363,7 @@ export interface operations {
             readonly query?: never;
             readonly header?: never;
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -6976,17 +6387,15 @@ export interface operations {
         readonly parameters: {
             readonly query?: {
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
-                readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
+                readonly include_fields?: components["parameters"]["CustomFieldsIncludeFieldsParam"];
                 /** @description Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. */
-                readonly exclude_fields?: components["parameters"]["ExcludeFieldsParam"];
+                readonly exclude_fields?: components["parameters"]["CustomFieldsExcludeFieldsParam"];
             };
             readonly header?: never;
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `CustomField`.
-                 *      */
+                /** @description The ID of the `CustomField`. */
                 readonly custom_field_id: components["parameters"]["CustomFieldIdParam"];
             };
             readonly cookie?: never;
@@ -7005,11 +6414,9 @@ export interface operations {
             readonly query?: never;
             readonly header?: never;
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `CustomField`.
-                 *      */
+                /** @description The ID of the `CustomField`. */
                 readonly custom_field_id: components["parameters"]["CustomFieldIdParam"];
             };
             readonly cookie?: never;
@@ -7034,11 +6441,9 @@ export interface operations {
             readonly query?: never;
             readonly header?: never;
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `CustomField`.
-                 *      */
+                /** @description The ID of the `CustomField`. */
                 readonly custom_field_id: components["parameters"]["CustomFieldIdParam"];
             };
             readonly cookie?: never;
@@ -7073,8 +6478,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -7086,7 +6490,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 83,
                      *         "quantity_min": 1,
@@ -7106,7 +6511,8 @@ export interface operations {
                      *           }
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: {
                             /** @description Unique ID of the *Bulk Pricing Rule*. Read-Only. */
@@ -7128,8 +6534,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -7145,7 +6550,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 83,
                      *         "quantity_min": 1,
@@ -7154,7 +6560,8 @@ export interface operations {
                      *         "amount": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: {
                             /** @description Unique ID of the *Bulk Pricing Rule*. Read-Only. */
@@ -7179,11 +6586,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `BulkPricingRule`.
-                 *      */
+                /** @description The ID of the `BulkPricingRule`. */
                 readonly bulk_pricing_rule_id: components["parameters"]["BulkPricingRuleIdParam"];
             };
             readonly cookie?: never;
@@ -7195,7 +6600,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 83,
                      *         "quantity_min": 1,
@@ -7204,7 +6610,8 @@ export interface operations {
                      *         "amount": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: {
                             /** @description Unique ID of the *Bulk Pricing Rule*. Read-Only. */
@@ -7214,16 +6621,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource or parent resource was not found.
-             *      */
+            /** @description The resource or parent resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -7244,11 +6649,9 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `BulkPricingRule`.
-                 *      */
+                /** @description The ID of the `BulkPricingRule`. */
                 readonly bulk_pricing_rule_id: components["parameters"]["BulkPricingRuleIdParam"];
             };
             readonly cookie?: never;
@@ -7267,7 +6670,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 83,
                      *         "quantity_min": 1,
@@ -7276,7 +6680,8 @@ export interface operations {
                      *         "amount": 1
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: {
                             /** @description Unique ID of the *Bulk Pricing Rule*. Read-Only. */
@@ -7286,16 +6691,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource or parent resource was not found.
-             *      */
+            /** @description The resource or parent resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -7304,8 +6707,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `BulkPricingRule` was in conflict with another bulk pricing rule. This is the result of quantity range overlapping with existing bulk pricing rules.
-             *      */
+            /** @description The `BulkPricingRule` was in conflict with another bulk pricing rule. This is the result of quantity range overlapping with existing bulk pricing rules. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -7317,18 +6719,15 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
                 };
             };
-            /** @description The `BulkPricingRule` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `BulkPricingRule` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -7340,11 +6739,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -7360,11 +6757,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `BulkPricingRule`.
-                 *      */
+                /** @description The ID of the `BulkPricingRule`. */
                 readonly bulk_pricing_rule_id: components["parameters"]["BulkPricingRuleIdParam"];
             };
             readonly cookie?: never;
@@ -7377,16 +6772,14 @@ export interface operations {
                 };
                 content?: never;
             };
-            /** @description The resource or parent resource was not found.
-             *      */
+            /** @description The resource or parent resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -7400,11 +6793,9 @@ export interface operations {
     readonly getProductMetafields: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description Filter based on a metafieldʼs key. */
                 readonly key?: components["parameters"]["MetafieldKeyParam"];
@@ -7414,14 +6805,15 @@ export interface operations {
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
                 /** @description Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. */
                 readonly exclude_fields?: components["parameters"]["ExcludeFieldsParam"];
+                /** @description A comma-separated list of entity ID values that filter results to metafields that belong to one of the matching entities. */
+                readonly "resource_id:in"?: components["parameters"]["MetafieldResourceParam"];
             };
             readonly header?: {
                 /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. */
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -7433,7 +6825,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 6,
@@ -7472,7 +6865,8 @@ export interface operations {
                      *           }
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: readonly components["schemas"]["metafield_Full"][];
                         readonly meta?: components["schemas"]["metaCollection_Full"];
@@ -7491,8 +6885,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -7508,7 +6901,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 8,
                      *         "key": "location_id",
@@ -7522,7 +6916,8 @@ export interface operations {
                      *         "date_modified": "2018-09-13T16:42:37+00:00"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -7535,12 +6930,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -7549,8 +6946,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique key combinations of the appʼs client ID, namespace, key, resource_type, and resource_id.
-             *      */
+            /** @description The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique key combinations of the appʼs client ID, namespace, key, resource_type, and resource_id. */
             readonly 409: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -7570,8 +6966,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-             *      */
+            /** @description The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -7583,11 +6978,9 @@ export interface operations {
                             readonly [key: string]: unknown;
                         };
                         readonly instance?: string;
-                        /** @description The HTTP status code.
-                         *      */
+                        /** @description The HTTP status code. */
                         readonly status?: number;
-                        /** @description The error title describing the particular error.
-                         *      */
+                        /** @description The error title describing the particular error. */
                         readonly title?: string;
                         readonly type?: string;
                     };
@@ -7608,11 +7001,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdParam"];
             };
             readonly cookie?: never;
@@ -7624,7 +7015,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 4,
                      *         "key": "location_id",
@@ -7638,23 +7030,22 @@ export interface operations {
                      *         "date_modified": "2021-08-06T19:15:35+00:00"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -7675,11 +7066,9 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdParam"];
             };
             readonly cookie?: never;
@@ -7695,7 +7084,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "id": 4,
                      *         "key": "location_id",
@@ -7709,7 +7099,8 @@ export interface operations {
                      *         "date_modified": "2021-08-06T19:15:35+00:00"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly data?: components["schemas"]["metafield_Full"];
                         readonly meta?: components["schemas"]["metaEmpty_Full"];
@@ -7722,12 +7113,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -7736,16 +7129,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -7764,11 +7155,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `Metafield`.
-                 *      */
+                /** @description The ID of the `Metafield`. */
                 readonly metafield_id: components["parameters"]["MetafieldIdParam"];
             };
             readonly cookie?: never;
@@ -7781,16 +7170,14 @@ export interface operations {
                 };
                 content?: never;
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -7808,11 +7195,9 @@ export interface operations {
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
                 /** @description Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. */
                 readonly exclude_fields?: components["parameters"]["ExcludeFieldsParam"];
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description Filter items by status. `1` for approved, `0` for pending. */
                 readonly status?: 0 | 1;
@@ -7822,8 +7207,7 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -7837,14 +7221,14 @@ export interface operations {
                 content: {
                     readonly "application/json": {
                         readonly data?: readonly ({
-                            /** @description The title for the product review.
-                             *     Required in /POST. */
+                            /**
+                             * @description The title for the product review.
+                             *     Required in /POST.
+                             */
                             readonly title: string;
-                            /** @description The text for the product review.
-                             *      */
+                            /** @description The text for the product review. */
                             readonly text?: string;
-                            /** @description The status of the product review. Must be one of `approved`, `disapproved` or `pending`.
-                             *      */
+                            /** @description The status of the product review. Must be one of `approved`, `disapproved` or `pending`. */
                             readonly status?: string;
                             /** @description The rating of the product review. Must be one of 0, 1, 2, 3, 4, 5. */
                             readonly rating?: number;
@@ -7855,23 +7239,19 @@ export interface operations {
                             /**
                              * Format: date-time
                              * @description Date the product was reviewed. Required in /POST.
-                             *
                              */
                             readonly date_reviewed: string;
                         } & {
-                            /** @description The unique numeric ID of the product review; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the product review; increments sequentially. */
                             readonly id?: number;
                             /**
                              * Format: date-time
                              * @description Date the product review was created.
-                             *
                              */
                             readonly date_created?: string;
                             /**
                              * Format: date-time
                              * @description Date the product review was modified.
-                             *
                              */
                             readonly date_modified?: string;
                         })[];
@@ -7879,24 +7259,21 @@ export interface operations {
                     };
                 };
             };
-            /** @description There are no reviews on this product.
-             *      */
+            /** @description There are no reviews on this product. */
             readonly 204: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content?: never;
             };
-            /** @description The product ID does not exist.
-             *      */
+            /** @description The product ID does not exist. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -7917,8 +7294,7 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
             };
             readonly cookie?: never;
@@ -7932,12 +7308,10 @@ export interface operations {
                      * @example Great Product
                      */
                     readonly title: string;
-                    /** @description The text for the product review.
-                     *      */
+                    /** @description The text for the product review. */
                     readonly text?: string;
                     /**
                      * @description The status of the product review. Must be one of `approved`, `disapproved` or `pending`.
-                     *
                      * @example approved
                      */
                     readonly status?: string;
@@ -7959,7 +7333,6 @@ export interface operations {
                     /**
                      * Format: date-time
                      * @description Date the product was reviewed. Required in /POST.
-                     *
                      */
                     readonly date_reviewed: string;
                 };
@@ -7971,7 +7344,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "title": "irur",
                      *         "text": "anim aute",
@@ -7986,22 +7360,22 @@ export interface operations {
                      *         "date_modified": "2004-09-28T14:38:21.973Z"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /**
                          * Product Review
                          * @description A product review model.
-                         *
                          */
                         readonly data?: {
-                            /** @description The title for the product review.
-                             *     Required in /POST. */
+                            /**
+                             * @description The title for the product review.
+                             *     Required in /POST.
+                             */
                             readonly title: string;
-                            /** @description The text for the product review.
-                             *      */
+                            /** @description The text for the product review. */
                             readonly text?: string;
-                            /** @description The status of the product review. Must be one of `approved`, `disapproved` or `pending`.
-                             *      */
+                            /** @description The status of the product review. Must be one of `approved`, `disapproved` or `pending`. */
                             readonly status?: string;
                             /** @description The rating of the product review. Must be one of 0, 1, 2, 3, 4, 5. */
                             readonly rating?: number;
@@ -8012,23 +7386,19 @@ export interface operations {
                             /**
                              * Format: date-time
                              * @description Date the product was reviewed. Required in /POST.
-                             *
                              */
                             readonly date_reviewed: string;
                         } & {
-                            /** @description The unique numeric ID of the product review; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the product review; increments sequentially. */
                             readonly id?: number;
                             /**
                              * Format: date-time
                              * @description Date the product review was created.
-                             *
                              */
                             readonly date_created?: string;
                             /**
                              * Format: date-time
                              * @description Date the product review was modified.
-                             *
                              */
                             readonly date_modified?: string;
                         };
@@ -8036,16 +7406,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The product ID does not exist.
-             *      */
+            /** @description The product ID does not exist. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -8069,11 +7437,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `review` that is being operated on.
-                 *      */
+                /** @description The ID of the `review` that is being operated on. */
                 readonly review_id: components["parameters"]["ReviewIdParam"];
             };
             readonly cookie?: never;
@@ -8085,7 +7451,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "title": "irur",
                      *         "text": "anim aute",
@@ -8100,22 +7467,22 @@ export interface operations {
                      *         "date_modified": "2004-09-28T14:38:21.973Z"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /**
                          * Product Review
                          * @description A product review model.
-                         *
                          */
                         readonly data?: {
-                            /** @description The title for the product review.
-                             *     Required in /POST. */
+                            /**
+                             * @description The title for the product review.
+                             *     Required in /POST.
+                             */
                             readonly title: string;
-                            /** @description The text for the product review.
-                             *      */
+                            /** @description The text for the product review. */
                             readonly text?: string;
-                            /** @description The status of the product review. Must be one of `approved`, `disapproved` or `pending`.
-                             *      */
+                            /** @description The status of the product review. Must be one of `approved`, `disapproved` or `pending`. */
                             readonly status?: string;
                             /** @description The rating of the product review. Must be one of 0, 1, 2, 3, 4, 5. */
                             readonly rating?: number;
@@ -8126,23 +7493,19 @@ export interface operations {
                             /**
                              * Format: date-time
                              * @description Date the product was reviewed. Required in /POST.
-                             *
                              */
                             readonly date_reviewed: string;
                         } & {
-                            /** @description The unique numeric ID of the product review; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the product review; increments sequentially. */
                             readonly id?: number;
                             /**
                              * Format: date-time
                              * @description Date the product review was created.
-                             *
                              */
                             readonly date_created?: string;
                             /**
                              * Format: date-time
                              * @description Date the product review was modified.
-                             *
                              */
                             readonly date_modified?: string;
                         };
@@ -8150,16 +7513,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -8180,28 +7541,25 @@ export interface operations {
                 readonly "Content-Type"?: components["parameters"]["ContentType"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `review` that is being operated on.
-                 *      */
+                /** @description The ID of the `review` that is being operated on. */
                 readonly review_id: components["parameters"]["ReviewIdParam"];
             };
             readonly cookie?: never;
         };
-        /** @description A BigCommerce `ProductReview` object.
-         *      */
+        /** @description A BigCommerce `ProductReview` object. */
         readonly requestBody: {
             readonly content: {
                 readonly "application/json": {
-                    /** @description The title for the product review.
-                     *     Required in /POST. */
+                    /**
+                     * @description The title for the product review.
+                     *     Required in /POST.
+                     */
                     readonly title: string;
-                    /** @description The text for the product review.
-                     *      */
+                    /** @description The text for the product review. */
                     readonly text?: string;
-                    /** @description The status of the product review. Must be one of `approved`, `disapproved` or `pending`.
-                     *      */
+                    /** @description The status of the product review. Must be one of `approved`, `disapproved` or `pending`. */
                     readonly status?: string;
                     /** @description The rating of the product review. Must be one of 0, 1, 2, 3, 4, 5. */
                     readonly rating?: number;
@@ -8212,7 +7570,6 @@ export interface operations {
                     /**
                      * Format: date-time
                      * @description Date the product was reviewed. Required in /POST.
-                     *
                      */
                     readonly date_reviewed: string;
                 };
@@ -8224,7 +7581,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": {
                      *         "title": "irur",
                      *         "text": "anim aute",
@@ -8239,22 +7597,22 @@ export interface operations {
                      *         "date_modified": "2004-09-28T14:38:21.973Z"
                      *       },
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         /**
                          * Product Review
                          * @description A product review model.
-                         *
                          */
                         readonly data?: {
-                            /** @description The title for the product review.
-                             *     Required in /POST. */
+                            /**
+                             * @description The title for the product review.
+                             *     Required in /POST.
+                             */
                             readonly title: string;
-                            /** @description The text for the product review.
-                             *      */
+                            /** @description The text for the product review. */
                             readonly text?: string;
-                            /** @description The status of the product review. Must be one of `approved`, `disapproved` or `pending`.
-                             *      */
+                            /** @description The status of the product review. Must be one of `approved`, `disapproved` or `pending`. */
                             readonly status?: string;
                             /** @description The rating of the product review. Must be one of 0, 1, 2, 3, 4, 5. */
                             readonly rating?: number;
@@ -8265,23 +7623,19 @@ export interface operations {
                             /**
                              * Format: date-time
                              * @description Date the product was reviewed. Required in /POST.
-                             *
                              */
                             readonly date_reviewed: string;
                         } & {
-                            /** @description The unique numeric ID of the product review; increments sequentially.
-                             *      */
+                            /** @description The unique numeric ID of the product review; increments sequentially. */
                             readonly id?: number;
                             /**
                              * Format: date-time
                              * @description Date the product review was created.
-                             *
                              */
                             readonly date_created?: string;
                             /**
                              * Format: date-time
                              * @description Date the product review was modified.
-                             *
                              */
                             readonly date_modified?: string;
                         };
@@ -8289,16 +7643,14 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not found.
-             *      */
+            /** @description The resource was not found. */
             readonly 404: {
                 headers: {
                     readonly [name: string]: unknown;
                 };
                 content: {
                     readonly "application/json": {
-                        /** @description 404 HTTP status code.
-                         *      */
+                        /** @description 404 HTTP status code. */
                         readonly status?: number;
                         /** @description The error title describing the particular error. */
                         readonly title?: string;
@@ -8317,11 +7669,9 @@ export interface operations {
                 readonly Accept?: components["parameters"]["Accept"];
             };
             readonly path: {
-                /** @description The ID of the `Product` to which the resource belongs.
-                 *      */
+                /** @description The ID of the `Product` to which the resource belongs. */
                 readonly product_id: components["parameters"]["ProductIdParam"];
-                /** @description The ID of the `review` that is being operated on.
-                 *      */
+                /** @description The ID of the `review` that is being operated on. */
                 readonly review_id: components["parameters"]["ReviewIdParam"];
             };
             readonly cookie?: never;
@@ -8339,11 +7689,9 @@ export interface operations {
     readonly getProductsChannelAssignments: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description Pass a comma-separated list to filter by one or more product IDs. */
                 readonly "product_id:in"?: components["parameters"]["ProductIdInParam"];
@@ -8447,11 +7795,9 @@ export interface operations {
     readonly getProductsCategoryAssignments: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description Pass a comma-separated list to filter by one or more product IDs. */
                 readonly "product_id:in"?: components["parameters"]["ProductIdInParam"];
@@ -8577,26 +7923,22 @@ export interface operations {
                         readonly data?: {
                             /**
                              * @description A count of all inventory items in the catalog.
-                             *
                              * @example 2000
                              */
                             readonly inventory_count?: number;
                             /**
                              * Format: double
                              * @description Total value of storeʼs inventory.
-                             *
                              * @example 267000
                              */
                             readonly inventory_value?: number;
                             /**
                              * @description ID of the category containing the most products.
-                             *
                              * @example 23
                              */
                             readonly primary_category_id?: number;
                             /**
                              * @description Name of the category containing the most products.
-                             *
                              * @example Shop All
                              */
                             readonly primary_category_name?: string;
@@ -8636,11 +7978,9 @@ export interface operations {
     readonly getProductsMetafields: {
         readonly parameters: {
             readonly query?: {
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
                 /** @description Filter based on a metafieldʼs key. */
                 readonly key?: components["parameters"]["MetafieldKeyParam"];
@@ -8650,22 +7990,17 @@ export interface operations {
                 readonly namespace?: components["parameters"]["MetafieldNamespaceParam"];
                 /** @description Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter. */
                 readonly "namespace:in"?: components["parameters"]["MetafieldNamespaceInParam"];
-                /** @description Sort direction. Acceptable values are: `asc`, `desc`.
-                 *      */
+                /** @description Sort direction. Acceptable values are: `asc`, `desc`. */
                 readonly direction?: components["parameters"]["DirectionParam"];
                 /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
                 readonly include_fields?: components["parameters"]["IncludeFieldsParamMetafields"];
-                /** @description 'Query parameter that lets you filter by the minimum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified after this date.'
-                 *      */
+                /** @description 'Query parameter that lets you filter by the minimum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified after this date.' */
                 readonly "date_modified:min"?: components["parameters"]["date_modified_min"];
-                /** @description 'Query parameter that lets you filter by the maximum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date.'
-                 *      */
+                /** @description 'Query parameter that lets you filter by the maximum date modified created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields modified before this date.' */
                 readonly "date_modified:max"?: components["parameters"]["date_modified_max"];
-                /** @description 'Query parameter that lets you filter by the minimum date created, ffor example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date.'
-                 *      */
+                /** @description 'Query parameter that lets you filter by the minimum date created, ffor example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created after this date.' */
                 readonly "date_created:min"?: components["parameters"]["date_created_min"];
-                /** @description 'Query parameter that lets you filter by the maximum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created before this date.'
-                 *      */
+                /** @description 'Query parameter that lets you filter by the maximum date created, for example, `2024-05-14T09:34:00` or `2024-05-14`. Returns metafields created before this date.' */
                 readonly "date_created:max"?: components["parameters"]["date_created_max"];
             };
             readonly header?: never;
@@ -8674,8 +8009,7 @@ export interface operations {
         };
         readonly requestBody?: never;
         readonly responses: {
-            /** @description List of `Metafield` objects.
-             *      */
+            /** @description List of `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -8698,7 +8032,6 @@ export interface operations {
                 readonly "application/json": readonly (components["schemas"]["MetafieldBase_Put"] & {
                     /**
                      * @description The ID of metafield to update.
-                     *
                      * @example 42
                      */
                     readonly id: number;
@@ -8706,8 +8039,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description List of updated `Metafield` objects.
-             *      */
+            /** @description List of updated `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -8722,12 +8054,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -8736,8 +8070,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields creation with partial success.
-             *      */
+            /** @description Response object for metafields creation with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -8760,7 +8093,6 @@ export interface operations {
                 readonly "application/json": readonly (components["schemas"]["MetafieldBase_Post"] & {
                     /**
                      * @description The ID for the product with which the metafield is associated.
-                     *
                      * @example 42
                      */
                     readonly resource_id: number;
@@ -8768,8 +8100,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description List of created `Metafield` objects.
-             *      */
+            /** @description List of created `Metafield` objects. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -8784,12 +8115,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -8798,8 +8131,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields creation with partial success.
-             *      */
+            /** @description Response object for metafields creation with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -8824,8 +8156,7 @@ export interface operations {
             };
         };
         readonly responses: {
-            /** @description Response object for metafields deletion with success.
-             *      */
+            /** @description Response object for metafields deletion with success. */
             readonly 200: {
                 headers: {
                     readonly [name: string]: unknown;
@@ -8840,12 +8171,14 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 400,
                      *       "title": "Input is invalid",
                      *       "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                      *       "detail": "Syntax error"
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": {
                         readonly status?: number;
                         readonly title?: string;
@@ -8854,8 +8187,7 @@ export interface operations {
                     };
                 };
             };
-            /** @description Response object for metafields deletion with partial success.
-             *      */
+            /** @description Response object for metafields deletion with partial success. */
             readonly 422: {
                 headers: {
                     readonly [name: string]: unknown;

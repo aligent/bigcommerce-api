@@ -76,7 +76,6 @@ export interface paths {
          *     **Usage Notes**
          *     * Channel ID in the `channels` field is required to create a category tree. You can only assign a category tree to one channel.
          *     * The `channels` field must be absent when updating a category tree. This field is currently unsupported during a category tree update.
-         *
          */
         readonly put: operations["upsertCategoryTrees"];
         /**
@@ -154,61 +153,50 @@ export interface components {
         readonly CategoryBase: {
             /**
              * @description The product description, which can include HTML formatting.
-             *
              * @example <p>We offer a wide variety of products perfect for relaxing</p>
              */
             readonly description?: string;
             /**
              * @description Number of views the category has on the storefront.
-             *
              * @example 1050
              */
             readonly views?: number;
             /**
              * @description Priority this category will be given when included in the menu and category pages. The lower the number, the closer to the top of the results the category will be.
-             *
              * @example 3
              */
             readonly sort_order?: number;
             /**
              * @description Custom title for the category page. If not defined, the category name will be used as the meta title.
-             *
              * @example Bath
              */
             readonly page_title?: string;
             /**
              * @description Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"].
-             *
              * @example [
              *       "shower",
              *       "tub"
              *     ]
              */
             readonly meta_keywords?: readonly string[];
-            /** @description Custom meta description for the category page. If not defined, the storeʼs default meta description will be used.
-             *      */
+            /** @description Custom meta description for the category page. If not defined, the storeʼs default meta description will be used. */
             readonly meta_description?: string;
             /**
              * @description A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied.
-             *
              * @example category.html
              */
             readonly layout_file?: string;
             /**
              * @description Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. Must be either a full-qualified URL or an empty string.
-             *
              * @example https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png
              */
             readonly image_url?: string;
-            /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
-             *      */
+            /** @description Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view. */
             readonly is_visible?: boolean;
-            /** @description A comma-separated list of keywords that can be used to locate the category when searching the store.
-             *      */
+            /** @description A comma-separated list of keywords that can be used to locate the category when searching the store. */
             readonly search_keywords?: string;
             /**
              * @description Determines how the products are sorted on category page load.
-             *
              * @enum {string}
              */
             readonly default_product_sort?: "use_store_settings" | "featured" | "newest" | "best_selling" | "alpha_asc" | "alpha_desc" | "avg_customer_review" | "price_asc" | "price_desc";
@@ -255,11 +243,9 @@ export interface components {
             readonly errors?: readonly components["schemas"]["ErrorBasic"][];
         };
         readonly ErrorBasic: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
         };
@@ -297,7 +283,8 @@ export interface components {
             readonly name?: string;
             readonly channels?: readonly number[];
         };
-        /** @example [
+        /**
+         * @example [
          *       {
          *         "id": 0,
          *         "name": "string",
@@ -305,7 +292,8 @@ export interface components {
          *           0
          *         ]
          *       }
-         *     ] */
+         *     ]
+         */
         readonly CategoryTreeListRequest: readonly components["schemas"]["Tree"][];
         readonly CategoryNode: {
             readonly id?: number;
@@ -340,14 +328,11 @@ export interface components {
         readonly beta4DetailedErrors: {
             readonly [key: string]: unknown;
         };
-        /** @description Error payload for the BigCommerce API.
-         *      */
+        /** @description Error payload for the BigCommerce API. */
         readonly BaseError: {
-            /** @description The HTTP status code.
-             *      */
+            /** @description The HTTP status code. */
             readonly status?: number;
-            /** @description The error title describing the particular error.
-             *      */
+            /** @description The error title describing the particular error. */
             readonly title?: string;
             readonly type?: string;
             readonly instance?: string;
@@ -358,7 +343,6 @@ export interface components {
         /**
          * URL
          * @description If not provided in POST request, the URL is autogenerated from the category name.
-         *
          */
         readonly url: {
             /** @example /bath/ */
@@ -471,11 +455,9 @@ export interface components {
         readonly Accept: string;
         /** @description The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body. */
         readonly ContentType: string;
-        /** @description Specifies the page number in a limited (paginated) list of products.
-         *      */
+        /** @description Specifies the page number in a limited (paginated) list of products. */
         readonly PageParam: number;
-        /** @description Controls the number of items per page in a limited (paginated) list of products.
-         *      */
+        /** @description Controls the number of items per page in a limited (paginated) list of products. */
         readonly LimitParam: number;
         /** @description Fields to include, in a comma-separated list. The ID and the specified fields will be returned. */
         readonly IncludeFieldsParam: readonly string[];
@@ -485,15 +467,13 @@ export interface components {
         readonly KeywordParam: string;
         /** @description Filter items based on whether the product is currently visible on the storefront. */
         readonly IsVisibleParam: boolean;
-        /** @description Filter items by name.
-         *      */
+        /** @description Filter items by name. */
         readonly NameParam: string;
         /** @description Filter items by substring in the name property. `name:like=stick` returns both `Stickers` and `Lipstick colors`. */
         readonly NameLikeParam: string;
         /** @description Filter items by substring in the page title property. `page_title:like=oil` returns both `Soil and mulch` and `Oil pastels`. */
         readonly PageTitleLikeParam: string;
-        /** @description Filter items by page_title.
-         *      */
+        /** @description Filter items by page_title. */
         readonly PageTitleParam: string;
         /** @description The ID of the category tree. */
         readonly TreeIdParam: number;
@@ -539,13 +519,11 @@ export interface operations {
                 readonly "tree_id:not_in"?: components["parameters"]["TreeIdNotInParam"];
                 readonly "parent_id:in"?: components["parameters"]["ParentIdInParam"];
                 readonly "parent_id:not_in"?: components["parameters"]["ParentIdNotInParam"];
-                /** @description Filter items by page_title.
-                 *      */
+                /** @description Filter items by page_title. */
                 readonly page_title?: components["parameters"]["PageTitleParam"];
                 /** @description Filter items by substring in the page title property. `page_title:like=oil` returns both `Soil and mulch` and `Oil pastels`. */
                 readonly "page_title:like"?: components["parameters"]["PageTitleLikeParam"];
-                /** @description Filter items by name.
-                 *      */
+                /** @description Filter items by name. */
                 readonly name?: components["parameters"]["NameParam"];
                 /** @description Filter items by substring in the name property. `name:like=stick` returns both `Stickers` and `Lipstick colors`. */
                 readonly "name:like"?: components["parameters"]["NameLikeParam"];
@@ -557,11 +535,9 @@ export interface operations {
                 readonly include_fields?: components["parameters"]["IncludeFieldsParam"];
                 /** @description Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded. */
                 readonly exclude_fields?: components["parameters"]["ExcludeFieldsParam"];
-                /** @description Specifies the page number in a limited (paginated) list of products.
-                 *      */
+                /** @description Specifies the page number in a limited (paginated) list of products. */
                 readonly page?: components["parameters"]["PageParam"];
-                /** @description Controls the number of items per page in a limited (paginated) list of products.
-                 *      */
+                /** @description Controls the number of items per page in a limited (paginated) list of products. */
                 readonly limit?: components["parameters"]["LimitParam"];
             };
             readonly header?: {
@@ -770,7 +746,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 0,
@@ -793,7 +770,8 @@ export interface operations {
                      *           }
                      *         }
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["CategoryTreeList"];
                 };
             };
@@ -826,7 +804,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 0,
@@ -837,7 +816,8 @@ export interface operations {
                      *         }
                      *       ],
                      *       "meta": {}
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["CategoryTree"];
                 };
             };
@@ -849,7 +829,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 0,
                      *       "title": "string",
                      *       "type": "string",
@@ -859,7 +840,8 @@ export interface operations {
                      *         "additionalProp2": "string",
                      *         "additionalProp3": "string"
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["beta4ErrorResponse"];
                 };
             };
@@ -916,7 +898,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "data": [
                      *         {
                      *           "id": 0,
@@ -938,7 +921,8 @@ export interface operations {
                      *         "properties": {},
                      *         "description": "Empty meta object; reserved for use later."
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["CategoryNodeTree"];
                 };
             };
@@ -950,7 +934,8 @@ export interface operations {
                     readonly [name: string]: unknown;
                 };
                 content: {
-                    /** @example {
+                    /**
+                     * @example {
                      *       "status": 0,
                      *       "title": "string",
                      *       "type": "string",
@@ -960,7 +945,8 @@ export interface operations {
                      *         "additionalProp2": "string",
                      *         "additionalProp3": "string"
                      *       }
-                     *     } */
+                     *     }
+                     */
                     readonly "application/json": components["schemas"]["beta4ErrorResponse"];
                 };
             };

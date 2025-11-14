@@ -38,26 +38,19 @@ export interface components {
         };
         /** @description Subscription properties. */
         readonly Subscription: {
-            /** @description The unique numeric ID of the subscriber; increments sequentially.
-             *      */
+            /** @description The unique numeric ID of the subscriber; increments sequentially. */
             readonly id?: number;
-            /** @description The email of the subscriber. Must be unique.
-             *      */
+            /** @description The email of the subscriber. Must be unique. */
             readonly email?: string;
-            /** @description The first name of the subscriber.
-             *      */
+            /** @description The first name of the subscriber. */
             readonly firstName?: string;
-            /** @description The last name of the subscriber.
-             *      */
+            /** @description The last name of the subscriber. */
             readonly lastName?: string;
-            /** @description The source of the subscriber. Values are: `storefront`, `order`, or `custom`.
-             *      */
+            /** @description The source of the subscriber. Values are: `storefront`, `order`, or `custom`. */
             readonly source?: string;
-            /** @description The ID of the source order, if source was an order.
-             *      */
+            /** @description The ID of the source order, if source was an order. */
             readonly orderId?: number | null;
-            /** @description The collection of consents the shopper is subscribing to.
-             *      */
+            /** @description The collection of consents the shopper is subscribing to. */
             readonly consents?: readonly unknown[];
         };
     };
