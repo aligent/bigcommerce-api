@@ -55,7 +55,7 @@
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
     "simple-git": "^3.28.0",
-    "ts-morph": "^26.0.0",
+    "ts-morph": "^27.0.2",
     "tsd": "^0.33.0",
     "tshy": "^3.0.2",
     "typescript": "^5.9.2",
